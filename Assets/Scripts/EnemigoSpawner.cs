@@ -4,8 +4,8 @@ public class EnemigoSpawner : MonoBehaviour
 {
 
     [SerializeField] private Enemigo enemigoPrefab;
-    [SerializeField] private float minX = -7f;
-    [SerializeField] private float maxX = 7f;
+    [SerializeField] private float minX = -6f;
+    [SerializeField] private float maxX = 6f;
     [SerializeField] private float spawnY = 10f;
 
     public float startTimeInSec = 1f;

@@ -8,7 +8,7 @@ public class StatsUI : MonoBehaviour
     void Update()
     {
         valuesTextMesh.text = GameManager.Instance.GetScore() + "\n" +
-                                      GameManager.Instance.GetLiveCount();
+                                      GameManager.Instance.GetRetryCount();
 
     }
 }

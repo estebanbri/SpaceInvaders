@@ -18,9 +18,10 @@ public class Asteroide : MonoBehaviour, IDamageable
         rb.AddTorque(dir, ForceMode2D.Impulse);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damageAmount)
     {
         // sonido, animación, partículas, etc.
+        GameManager.Instance.AddScore(20);
         Destroy(gameObject);
     }
 }

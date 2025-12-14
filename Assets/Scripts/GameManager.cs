@@ -1,19 +1,20 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private int initialLives = 3;
+    [SerializeField] private int initialRetryCount = 3;
 
     private int score;
-    private int liveCount;
+    private int retryCount;
     
 
     private void Awake()
     {
         Instance = this;
-        liveCount = initialLives;
+        retryCount = initialRetryCount;
     }
 
     public void AddScore(int points)
@@ -27,9 +28,28 @@ public class GameManager : MonoBehaviour
         return score;
     }
 
-    public int GetLiveCount()
+    public bool HasPendingRetries()
     {
-        return liveCount;
+        return retryCount > 0;
     }
 
+    public int GetRetryCount()
+    {
+        return retryCount;
+    }
+
+    public void DecreaseRetry()
+    {
+        retryCount--;
+        if (retryCount <= 0)
+        {
+            Debug.Log("Game Over!");
+            // Aquí podrías agregar lógica para reiniciar el juego o mostrar una pantalla de Game Over
+        }
+    }
+
+    internal void GameOver()
+    {
+        Debug.Log("GAMEOVER!");
+    }
 }
