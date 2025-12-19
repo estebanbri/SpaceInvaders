@@ -23,7 +23,6 @@ public class Nave : MonoBehaviour
         Instance = this;
         colliderComponent = GetComponent<Collider2D>();
         naveVisualComponent = GetComponentInChildren<NaveVisual>();
-        weaponController.SetWeapon(WeaponType.Bullet);
     }
 
     private void Update()
@@ -79,7 +78,6 @@ public class Nave : MonoBehaviour
 
     private void Morir() {
         isDead = true;
-     
         GameManager.Instance.DecreaseRetry();
         if (GameManager.Instance.HasPendingRetries())
         {

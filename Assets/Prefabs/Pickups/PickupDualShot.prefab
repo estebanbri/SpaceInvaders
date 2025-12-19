@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5216046678509373206}
   - component: {fileID: -5763743106868672261}
   m_Layer: 0
-  m_Name: PickupLaser
+  m_Name: PickupDualShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

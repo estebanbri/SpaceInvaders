@@ -1,31 +1,41 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public static WeaponController Instance { get; private set; }
+    [SerializeField] private List<WeaponConfig> availableWeapons;
 
-    [SerializeField] private List<Weapon> weapons;
-    private Dictionary<WeaponType, Weapon> weaponMap;
-    private WeaponType currentWeapon;
+    private Dictionary<WeaponConfig, WeaponRuntime> weaponMap;
+    private WeaponRuntime currentWeapon;
 
     private void Awake()
     {
-        Instance = this;
-        weaponMap = new Dictionary<WeaponType, Weapon>();
-        foreach (var weapon in weapons)
-            weaponMap[weapon.type] = weapon;
+        weaponMap = new Dictionary<WeaponConfig, WeaponRuntime>();
+
+        foreach (var weapon in availableWeapons)
+        {
+            weaponMap[weapon] = new WeaponRuntime(weapon);
+        }
+
+        if (availableWeapons.Count > 0)
+            Equip(availableWeapons[0]);
     }
 
-    public void SetWeapon(WeaponType type)
+    public void Equip(WeaponConfig weaponConfig)
     {
-        currentWeapon = type;
+        if (!weaponMap.ContainsKey(weaponConfig)) return;
+        currentWeapon = weaponMap[weaponConfig];
     }
 
     public void Fire()
     {
-        if (!weaponMap.TryGetValue(currentWeapon, out var weapon)) return;
+        if (currentWeapon == null) return;
+        currentWeapon.Fire(transform);
+    }
 
-        weapon.Fire(transform);
+    public void ApplyFireRateBonus(float multiplier)
+    {
+        currentWeapon?.SetFireRateMultiplier(multiplier);
     }
 }

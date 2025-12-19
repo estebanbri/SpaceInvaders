@@ -58,14 +58,14 @@ public class BonusManager: MonoBehaviour
 
         activeBonusesMap[type] = new ActiveBonus(bonusConfig);
 
-        bonusConfig.Enable();
+        bonusConfig.Apply();
     }
 
     public void Remove(BonusType type)
     {
         if (!activeBonusesMap.TryGetValue(type, out var activeBonus)) return;
 
-        activeBonus.bonusConfig.Disable();
+        activeBonus.bonusConfig.Remove();
         activeBonusesMap.Remove(type);
     }
 
@@ -79,7 +79,8 @@ public enum BonusType
 {
     Escudo,
     Laser,
-    FireRateUp
+    FireRateUp,
+    DualShot
 }
 
 public class ActiveBonus

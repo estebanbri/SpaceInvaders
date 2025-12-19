@@ -454,6 +454,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &782836661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+  m_PrefabInstance: {fileID: 7671825944300810080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1267914399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BonusManager
   bonusConfigList:
   - {fileID: 11400000, guid: 529b03b700d83f646b3469234ce1385a, type: 2}
-  - {fileID: 11400000, guid: 85bfc7d7f68368b4a9e0c0d8d83eb468, type: 2}
+  - {fileID: 11400000, guid: 2feba2f1d24345246a52d8411b41b8e3, type: 2}
 --- !u!1 &2072626204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2003697776006237454, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: m_Name
+      value: WeaponController
+      objectReference: {fileID: 0}
     - target: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1357,6 +1366,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 782836661}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1611064198390892200, guid: c80815030f073344e8293052116a0cf5, type: 3}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: weaponList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: 'weapons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2457922147723186382, guid: 85add65358812dd4f9e98a856aa50e74, type: 3}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: 'weapons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1512164885100598584, guid: 3c6683926e7c68e40a5373b170092b0f, type: 3}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: availableWeapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: 'availableWeapons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f0a397c9d3fec7498c5561e5fc5d9f2, type: 2}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: 'availableWeapons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cbca59cda7e1dc4189dd3648eb183e4, type: 2}
     - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: weapons.Array.data[1].ammoRate
       value: 0.01

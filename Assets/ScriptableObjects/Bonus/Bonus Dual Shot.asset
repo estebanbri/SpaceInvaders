@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afcdb17518ef55d48b9bfa7b4266f5c9, type: 3}
-  m_Name: Bonus Laser
-  m_EditorClassIdentifier: Assembly-CSharp::BonusLaser
-  type: 1
-  prefab: {fileID: 5346423642840248255, guid: b744edd0fae328347b0764e9e027d7c3, type: 3}
+  m_Name: Bonus Dual Shot
+  m_EditorClassIdentifier: Assembly-CSharp::BonusDualAmmo
+  type: 3
   isPersistent: 1
   duration: 0
+  weaponAfterBonus: {fileID: 11400000, guid: 5f0a397c9d3fec7498c5561e5fc5d9f2, type: 2}
+  weaponBonus: {fileID: 11400000, guid: 4cbca59cda7e1dc4189dd3648eb183e4, type: 2}
