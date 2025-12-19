@@ -1,19 +1,27 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class NaveVisual : MonoBehaviour
 {
     [SerializeField] private float invulnerableTime = 2f;
+    
     [SerializeField] private ParticleSystem leftPropulsorParticleSystem;
     [SerializeField] private ParticleSystem middlePropulsorParticleSystem;
     [SerializeField] private ParticleSystem rightPropulsorParticleSystem;
 
+    [SerializeField] private Sprite idleSprite;
+    [SerializeField] private Sprite leftSprite;
+    [SerializeField] private Sprite rightSprite;
+
     private SpriteRenderer spriteRendererComponent;
-    private void Awake()
+
+    void Awake()
     {
         spriteRendererComponent = GetComponent<SpriteRenderer>();
         HidePropulsoresParticles();
     }
+
     public IEnumerator BlinkSpriteDuringInvulnerabilityCoroutine()
     {
         float elapsed = 0f;
@@ -33,6 +41,17 @@ public class NaveVisual : MonoBehaviour
         spriteRendererComponent.color = color;
     }
 
+    public void AddHorizontalMoveVisual(float moveX)
+    {
+        UpdateNaveSprite(moveX);
+        UpdateHorizontalThrusters(moveX);
+    }
+
+    public void AddVerticallMoveVisual(float moveY)
+    {
+        UpdateVerticalThrusters(moveY);
+    }
+
     public void HidePropulsoresParticles()
     {
         SetEnabledParticleSystem(leftPropulsorParticleSystem, false);
@@ -40,34 +59,20 @@ public class NaveVisual : MonoBehaviour
         SetEnabledParticleSystem(rightPropulsorParticleSystem, false);
     }
 
-    public void ShowLeftPropulsorParticles()
-    {
-        SetEnabledParticleSystem(leftPropulsorParticleSystem, true);
-    }
-
-    public void ShowRightPropulsorParticles()
-    {
-        SetEnabledParticleSystem(rightPropulsorParticleSystem, true);
-    }
-
-    public void ShowMiddlePropulsorParticles()
-    {
-        SetEnabledParticleSystem(middlePropulsorParticleSystem, true);
-    }
-
-    public void UpdateHorizontalThrusters(float moveX)
+    private void UpdateHorizontalThrusters(float moveX)
     {
         if (moveX < 0)
         {
-            ShowRightPropulsorParticles();
+            ShowLeftPropulsorParticles();
         }
         else if (moveX > 0)
         {
-            ShowLeftPropulsorParticles();
+            ShowRightPropulsorParticles();
         }
     }
 
-    public void UpdateVerticalThrusters(float moveY)
+
+    private void UpdateVerticalThrusters(float moveY)
     {
         if (moveY != 0)
         {
@@ -75,8 +80,40 @@ public class NaveVisual : MonoBehaviour
         }
     }
 
+    private void ShowLeftPropulsorParticles()
+    {
+        SetEnabledParticleSystem(leftPropulsorParticleSystem, true);
+    }
+
+    private void ShowRightPropulsorParticles()
+    {
+        SetEnabledParticleSystem(rightPropulsorParticleSystem, true);
+    }
+
+    private void ShowMiddlePropulsorParticles()
+    {
+        SetEnabledParticleSystem(middlePropulsorParticleSystem, true);
+    }
+
+    private void UpdateNaveSprite(float moveX)
+    {
+        if (moveX < 0)
+        {
+            spriteRendererComponent.sprite = leftSprite;
+        }
+        else if (moveX > 0)
+        {
+            spriteRendererComponent.sprite = rightSprite;
+        }
+        else
+        {
+            spriteRendererComponent.sprite = idleSprite;
+        }
+    }
+
     private void SetEnabledParticleSystem(ParticleSystem particleSystem, bool enabled) { 
         ParticleSystem.EmissionModule emissionModule = particleSystem.emission; 
         emissionModule.enabled = enabled; 
     }
+
 }

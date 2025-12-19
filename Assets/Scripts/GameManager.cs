@@ -1,20 +1,20 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private int initialRetryCount = 3;
-
+    [SerializeField] private int livesInitial = 4;
+    [SerializeField] private int livesMax = 4;
     private int score;
-    private int retryCount;
-    
+    private int livesCurrent;
 
     private void Awake()
     {
         Instance = this;
-        retryCount = initialRetryCount;
+        livesCurrent = livesInitial;
+        UIVidas.Instance.Initialize(livesMax);
+        UIVidas.Instance.SetLivesIcons(livesCurrent);
     }
 
     public void AddScore(int points)
@@ -30,26 +30,34 @@ public class GameManager : MonoBehaviour
 
     public bool HasPendingRetries()
     {
-        return retryCount > 0;
+        return livesCurrent > 0;
     }
 
     public int GetRetryCount()
     {
-        return retryCount;
+        return livesCurrent;
     }
 
     public void DecreaseRetry()
     {
-        retryCount--;
-        if (retryCount <= 0)
+        livesCurrent--;
+        UIVidas.Instance.SetLivesIcons(livesCurrent);
+        if (livesCurrent <= 0)
         {
             Debug.Log("Game Over!");
             // Aquí podrías agregar lógica para reiniciar el juego o mostrar una pantalla de Game Over
         }
     }
 
-    internal void GameOver()
+    public void GameOver()
     {
         Debug.Log("GAMEOVER!");
+    }
+
+    public void AddVida()
+    {
+        if (livesCurrent >= livesMax) return;
+        livesCurrent++;
+        UIVidas.Instance.SetLivesIcons(livesCurrent);
     }
 }

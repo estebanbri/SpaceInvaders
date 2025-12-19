@@ -1,64 +1,66 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Nave : MonoBehaviour
 {
-    [SerializeField] private Bala balaPrefab;
+    public static Nave Instance { get; private set; }
+
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float fireRate = 0.1f;
     private float screenMinX = -8f;
     private float screenMaxX = 8f;
     private float screenMinY = -4.5f;
     private float screenMaxY = 4.5f;
-    private float nextFireTime;
     private bool isDead;
     private Collider2D colliderComponent;
     private NaveVisual naveVisualComponent;
+    [SerializeField] private WeaponController weaponController;
+
 
     private void Awake()
     {
+        Instance = this;
         colliderComponent = GetComponent<Collider2D>();
         naveVisualComponent = GetComponentInChildren<NaveVisual>();
+        weaponController.SetWeapon(WeaponType.Bullet);
     }
-    void Update()
+
+    private void Update()
     {
         if (isDead) return;
         naveVisualComponent.HidePropulsoresParticles();
-        if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
-        {
-            nextFireTime = Time.time + fireRate;
-            Disparar();
-        }
-
+        HandleInput();
         HandleMovimientoHorizontal();
         HandleMovimientoVertical();
     }
 
-    void HandleMovimientoHorizontal()
+    private void HandleInput() {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            weaponController.Fire();
+        }
+    }
+
+    private void HandleMovimientoHorizontal()
     {
         float moveX = Input.GetAxis("Horizontal");
-        naveVisualComponent.UpdateHorizontalThrusters(moveX);
+        naveVisualComponent.AddHorizontalMoveVisual(moveX);
         transform.Translate(moveX * speed * Time.deltaTime, 0, 0);
         // Limitar el movimiento dentro de los bordes de la pantalla en X
         float clampedX = Mathf.Clamp(transform.position.x, screenMinX, screenMaxX);
         transform.position = new Vector3(clampedX, transform.position.y, 0);
     }
 
-    void HandleMovimientoVertical()
+    private void HandleMovimientoVertical()
     {
         float moveY = Input.GetAxis("Vertical");
-        naveVisualComponent.UpdateVerticalThrusters(moveY);
+        naveVisualComponent.AddVerticallMoveVisual(moveY);
         transform.Translate(0, moveY * speed * Time.deltaTime, 0);
         // Limitar el movimiento dentro de los bordes de la pantalla en Y
         float clampedY = Mathf.Clamp(transform.position.y, screenMinY, screenMaxY);
         transform.position = new Vector3(transform.position.x, clampedY, 0);
     }
-
-
-    void Disparar() { 
-        Instantiate(balaPrefab, transform.position, Quaternion.identity);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
@@ -66,12 +68,18 @@ public class Nave : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo)
             || collision.gameObject.TryGetComponent<Asteroide>(out Asteroide asteroide))
         {
-            Morir();
+            if (BonusManager.Instance.IsBonusActive(BonusType.Escudo)) {
+                BonusManager.Instance.Remove(BonusType.Escudo);
+            } else
+            {
+                Morir();
+            }
         }
     }
 
-    void Morir() {
+    private void Morir() {
         isDead = true;
+     
         GameManager.Instance.DecreaseRetry();
         if (GameManager.Instance.HasPendingRetries())
         {
@@ -84,17 +92,20 @@ public class Nave : MonoBehaviour
         }
     }
 
-    void Respawn() {
+    private void Respawn() {
         StartCoroutine(InvulneravilityCoroutine());
         isDead = false;
     }
 
-    IEnumerator InvulneravilityCoroutine()
+    private IEnumerator InvulneravilityCoroutine()
     {
         colliderComponent.enabled = false;
         yield return StartCoroutine(naveVisualComponent.BlinkSpriteDuringInvulnerabilityCoroutine());
         colliderComponent.enabled = true;
     }
 
-    
+    public WeaponController GetWeaponController()
+    {
+        return weaponController;
+    }
 }
