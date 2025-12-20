@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5218d9bc35bddf948b1ed2306f7b2eae, type: 3}
   m_Name: Bonus Score
   m_EditorClassIdentifier: Assembly-CSharp::BonusScore
-  icon: {fileID: 0}
-  bonusName: 
-  isTemporary: 0
+  icon: {fileID: 4401285208069525587, guid: 32ed67cc6ece1d04093facaff5fc41a2, type: 3}
+  isTemporary: 1
   duration: 0

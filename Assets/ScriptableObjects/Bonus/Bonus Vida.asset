@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Bonus Vida
   m_EditorClassIdentifier: Assembly-CSharp::BonusVida
   icon: {fileID: 3435226260520613578, guid: 328d69a664a4f0b4192c0acb4f4f7266, type: 3}
-  bonusName: VIDA
-  isTemporary: 0
+  isTemporary: 1
   duration: 0

@@ -61,7 +61,7 @@ public class EnemigoSpawner : MonoBehaviour
         //    Este valor define el rango completo de selección aleatoria
         float totalWeight = 0f;
         foreach (var e in spawnEntries)
-            totalWeight += e.probability;
+            totalWeight += e.enemySpawnProbability;
 
         // 2) Generar un número aleatorio dentro del rango [0, totalWeight)
         //    Random.value devuelve un valor entre 0 y 1
@@ -75,7 +75,7 @@ public class EnemigoSpawner : MonoBehaviour
         foreach (var e in spawnEntries)
         {
             // Sumar el peso actual al acumulado
-            cumulative += e.probability;
+            cumulative += e.enemySpawnProbability;
 
             // 5) Verificar si el valor aleatorio cayó dentro de este rango
             //    Si es así, esta entrada es la seleccionada

@@ -43,10 +43,7 @@ public class MovementPattern
         {
             case MovementType.Senoidal:
                 return new Vector3(
-                    Mathf.Sin(time * frequency) * amplitude,
-                    -speed * time,
-                    0
-                );
+                    Mathf.Sin(time * frequency) * amplitude, -speed * time, 0);
 
             case MovementType.ZigZag:
                 float x = Mathf.PingPong(time * frequency, amplitude) - amplitude / 2f;

@@ -6,6 +6,7 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private GameObject scorePickupPrefab;
     [SerializeField] private int health = 100;
     [SerializeField] private MovementPattern movement;
+    [SerializeField] private WeaponController weaponController;
     [Range(0,1)]
     [SerializeField] private float dropProbability;
     private float time;
@@ -13,6 +14,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     private bool isDead;
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
+    private bool canAttack;
+    private bool movementEnabled = true;
 
     void Start() {
         startPos = transform.position;
@@ -26,8 +29,17 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     void Update()
     {
-        time += Time.deltaTime;
-        transform.position = startPos + movement.Evaluate(time);
+        if (movementEnabled)
+        {
+            time += Time.deltaTime;
+            transform.position = startPos + movement.Evaluate(time);
+        }
+        if (canAttack)
+        {
+            // disparar, cambiar fases, etc
+            Debug.Log("Habilitado para disparar");
+            weaponController.Fire();
+        }
     }
 
     public void TakeDamage(int damageAmount)
@@ -42,6 +54,16 @@ public class Enemigo : MonoBehaviour, IDamageable
         {
             Die();
         }
+    }
+
+    public void EnableCombat()
+    {
+        canAttack = true;
+    }
+
+    public void StopMovement()
+    {
+        movementEnabled = false;
     }
 
     void Die() {
