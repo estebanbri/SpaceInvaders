@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3039978957200980180}
   - component: {fileID: 4023386642934438339}
   - component: {fileID: -5763743106868672261}
-  - component: {fileID: 7956409127180227344}
+  - component: {fileID: 5517626685820610574}
   m_Layer: 0
   m_Name: PickupTripleShot
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 2
---- !u!114 &7956409127180227344
+--- !u!114 &5517626685820610574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2997580912159950836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e56ba8e3d13f04385ac6102652e760, type: 3}
+  m_Script: {fileID: 11500000, guid: ac1bf1e4dde59044eb0f871b57db3686, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickupEquipWeapon
-  weapon: {fileID: 11400000, guid: 4afb99af1b3eef34ea6c5f9430fbc252, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::PickupBonus
+  bonusDefinition: {fileID: 11400000, guid: cffc1f33b755cfb4e93dcf3152e2a5e0, type: 2}
 --- !u!1 &4228095945501859204
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,13 +160,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4228095945501859204}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2529540987682013413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6698076400023841432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1871730270967154500, guid: f2dcacff9476e564da87a4708fd48ef7, type: 3}
+  m_Sprite: {fileID: -6863310646229823658, guid: 328d69a664a4f0b4192c0acb4f4f7266, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class PickupEquipWeapon : MonoBehaviour
+public class PickupBonus : MonoBehaviour
 {
-    [SerializeField] private WeaponDefinition weapon;
+    [SerializeField] private BonusDefinition bonusDefinition;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Nave nave))
         {
-            nave.GetWeaponController().Equip(weapon);
+            BonusManager.Instance.ApplyBonus(bonusDefinition);
             Destroy(gameObject);
         }
     }

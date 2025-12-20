@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2529540987682013413}
   - component: {fileID: 3039978957200980180}
   - component: {fileID: 4023386642934438339}
-  - component: {fileID: -5898005905909370209}
   - component: {fileID: 5610089930998066843}
+  - component: {fileID: 6247315687656034272}
   m_Layer: 0
   m_Name: PickupVida
   m_TagString: Untagged
@@ -109,18 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5898005905909370209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2997580912159950836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 979e473052412174888dc25c5729fd4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &5610089930998066843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +121,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  margin: 1
+  bottomMargin: 2
+--- !u!114 &6247315687656034272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997580912159950836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1bf1e4dde59044eb0f871b57db3686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupBonus
+  bonusDefinition: {fileID: 11400000, guid: 64147ff0ee1419647a81c63321dd4405, type: 2}
 --- !u!1 &4228095945501859204
 GameObject:
   m_ObjectHideFlags: 0

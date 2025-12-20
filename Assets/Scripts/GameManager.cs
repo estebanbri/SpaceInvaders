@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
         return livesCurrent;
     }
 
+    public bool IsFullVidas() {
+        return livesCurrent == livesMax;
+    }
+
     public void DecreaseRetry()
     {
         livesCurrent--;

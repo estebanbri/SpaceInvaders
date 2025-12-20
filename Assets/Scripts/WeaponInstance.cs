@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class WeaponInstance
 {
-    private WeaponDefinition config;
+    private WeaponDefinition weaponDefinition;
     private float nextFireTime;
     private float fireRateMultiplier = 1f;
 
-    public WeaponInstance(WeaponDefinition config)
+    public WeaponInstance(WeaponDefinition weaponDefinition)
     {
-        this.config = config;
+        this.weaponDefinition = weaponDefinition;
     }
 
     public void Fire(Transform firePoint)
     {
         if (Time.time < nextFireTime) return;
 
-        nextFireTime = Time.time + config.fireRate * fireRateMultiplier;
+        nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
 
-        config.shotPattern.Fire(config.ammoPrefab, firePoint.position,  config.ammoSpeed);
+        weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, firePoint.position, weaponDefinition.ammoSpeed);
     }
 
     public void SetFireRateMultiplier(float multiplier)

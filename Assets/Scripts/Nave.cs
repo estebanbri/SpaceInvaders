@@ -38,7 +38,7 @@ public class Nave : MonoBehaviour
     private void HandleInput() {
         if (Input.GetKey(KeyCode.Space))
         {
-            weaponController.Fire();
+            this.weaponController.Fire();
         }
     }
 
@@ -68,8 +68,8 @@ public class Nave : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo)
             || collision.gameObject.TryGetComponent<Asteroide>(out Asteroide asteroide))
         {
-            if (escudo.IsActive()) {
-                escudo.RemoveEscudo();
+            if (this.escudo.IsActive()) {
+                this.escudo.RemoveEscudo();
             } else
             {
                 Morir();
@@ -103,13 +103,12 @@ public class Nave : MonoBehaviour
         colliderComponent.enabled = true;
     }
 
-    public WeaponController GetWeaponController()
-    {
-        return weaponController;
+    public Escudo GetEscudo() { 
+        return this.escudo; 
     }
 
-    public Escudo GetEscudo()
-    {
-        return escudo;
+    public WeaponController GetWeaponController()
+    {  
+        return weaponController; 
     }
 }

@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
   deathScore: 10
-  pickupPrefab: {fileID: 2997580912159950836, guid: 9d5643bb6403b02479fe48c69e7c4f00, type: 3}
+  bonusPickupPrefab: {fileID: 2997580912159950836, guid: ddea3002692b3a54b936e348700069c2, type: 3}
+  scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   health: 250
   movement:
     type: 0

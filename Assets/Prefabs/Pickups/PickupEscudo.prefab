@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1bf1e4dde59044eb0f871b57db3686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  bonusDefinition: {fileID: 11400000, guid: 8c8b364c655541b4f9e3f133a09b1512, type: 2}
 --- !u!50 &4023386642934438339
 Rigidbody2D:
   serializedVersion: 5
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  margin: 1
+  bottomMargin: 2
 --- !u!1 &4228095945501859204
 GameObject:
   m_ObjectHideFlags: 0

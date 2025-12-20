@@ -10,9 +10,10 @@ public class WeaponController : MonoBehaviour
       Equip(weaponDefault);
     }
 
-    public void Equip(WeaponDefinition weaponConfig)
+    public void Equip(WeaponDefinition weaponDefinition)
     {
-        currentWeapon = new WeaponInstance(weaponConfig);
+        WeaponDefinition temp = weaponDefinition ?? weaponDefault;
+        currentWeapon = new WeaponInstance(temp);
     }
 
     public void Fire()

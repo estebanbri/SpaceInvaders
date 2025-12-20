@@ -121,15 +121,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7053f158e3061ba40a7e33a69b0e0959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
-  deathScore: 10
-  pickupPrefab: {fileID: 2997580912159950836, guid: ddea3002692b3a54b936e348700069c2, type: 3}
+  bonusPickupPrefab: {fileID: 2997580912159950836, guid: 29809f120f515734c85d49d60ee96c6e, type: 3}
+  scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   health: 100
   movement:
     type: 1
     speed: 2
     amplitude: 1
     frequency: 2
-  dropProbability: 0.1
+  dropProbability: 0.19
 --- !u!114 &7547256514065386673
 MonoBehaviour:
   m_ObjectHideFlags: 0

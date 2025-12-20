@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2529540987682013413}
   - component: {fileID: 3039978957200980180}
   - component: {fileID: 4023386642934438339}
-  - component: {fileID: 5216046678509373206}
   - component: {fileID: -5763743106868672261}
+  - component: {fileID: 2451332990314844317}
   m_Layer: 0
   m_Name: PickupDualShot
   m_TagString: Untagged
@@ -109,19 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5216046678509373206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2997580912159950836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e56ba8e3d13f04385ac6102652e760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  weapon: {fileID: 11400000, guid: 4cbca59cda7e1dc4189dd3648eb183e4, type: 2}
 --- !u!114 &-5763743106868672261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +122,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 2
+--- !u!114 &2451332990314844317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997580912159950836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1bf1e4dde59044eb0f871b57db3686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupBonus
+  bonusDefinition: {fileID: 11400000, guid: f55982a857a0c2f48a4a689f9cb030e5, type: 2}
 --- !u!1 &4228095945501859204
 GameObject:
   m_ObjectHideFlags: 0

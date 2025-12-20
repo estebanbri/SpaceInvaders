@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int deathScore;
-    [SerializeField] private GameObject pickupPrefab;
+    [SerializeField] private GameObject bonusPickupPrefab;
+    [SerializeField] private GameObject scorePickupPrefab;
     [SerializeField] private int health = 100;
     [SerializeField] private MovementPattern movement;
     [Range(0,1)]
@@ -48,8 +48,8 @@ public class Enemigo : MonoBehaviour, IDamageable
         isDead = true;
         col.enabled= false; 
         enemigoVisual.PlayDeath();
-        GameManager.Instance.AddScore(deathScore);
-        TryCreatePickup();
+        CreateScorePickup();
+        TryCreateBonusPickup();
     }
 
     public void OnDeathAnimationFinished()
@@ -57,12 +57,18 @@ public class Enemigo : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    void TryCreatePickup()
+    void CreateScorePickup() {
+        for (int i = 0; i < Random.Range(1, 4); i++) {
+            Instantiate(scorePickupPrefab, new Vector3(transform.position.x + i + 1, transform.position.y - i, 0)  , Quaternion.identity);
+        }
+    }
+
+    void TryCreateBonusPickup()
     {
         float ran = Random.value;
         if (Random.value <= dropProbability)
         {
-            Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+            Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
         }
     }
 
