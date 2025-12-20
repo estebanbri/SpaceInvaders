@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] private List<WeaponConfig> availableWeapons;
+    [SerializeField] private List<WeaponDefinition> availableWeapons;
 
-    private Dictionary<WeaponConfig, WeaponRuntime> weaponMap;
-    private WeaponRuntime currentWeapon;
+    private Dictionary<WeaponDefinition, WeaponInstance> weaponMap;
+    private WeaponInstance currentWeapon;
 
     private void Awake()
     {
-        weaponMap = new Dictionary<WeaponConfig, WeaponRuntime>();
+        weaponMap = new Dictionary<WeaponDefinition, WeaponInstance>();
 
         foreach (var weapon in availableWeapons)
         {
-            weaponMap[weapon] = new WeaponRuntime(weapon);
+            weaponMap[weapon] = new WeaponInstance(weapon);
         }
 
         if (availableWeapons.Count > 0)
             Equip(availableWeapons[0]);
     }
 
-    public void Equip(WeaponConfig weaponConfig)
+    public void Equip(WeaponDefinition weaponConfig)
     {
         if (!weaponMap.ContainsKey(weaponConfig)) return;
         currentWeapon = weaponMap[weaponConfig];

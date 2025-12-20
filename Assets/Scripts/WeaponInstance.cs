@@ -1,13 +1,12 @@
-using System;
 using UnityEngine;
 
-public class WeaponRuntime
+public class WeaponState
 {
-    private WeaponConfig config;
+    private WeaponDefinition config;
     private float nextFireTime;
     private float fireRateMultiplier = 1f;
 
-    public WeaponRuntime(WeaponConfig config)
+    public WeaponState(WeaponDefinition config)
     {
         this.config = config;
     }

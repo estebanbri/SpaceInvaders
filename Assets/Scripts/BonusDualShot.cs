@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Bonus/DualAmmo")]
 public class BonusDualShot : BonusConfig
 {
-    [SerializeField] private WeaponConfig weaponAfterBonus;
-    [SerializeField] private WeaponConfig weaponBonus;
+    [SerializeField] private WeaponDefinition weaponAfterBonus;
+    [SerializeField] private WeaponDefinition weaponBonus;
 
     public override void Apply()
     {

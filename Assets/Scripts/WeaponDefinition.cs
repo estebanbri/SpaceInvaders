@@ -1,18 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Weapons/Weapon Config")]
-public class WeaponConfig : ScriptableObject
+// Inmutable data Global Shared
+[CreateAssetMenu(menuName = "Weapons/Weapon Definition")]
+public class WeaponDefinition : ScriptableObject
 {
     public float fireRate;          // tiempo entre disparos
     public float ammoSpeed;
     public WeaponAmmo ammoPrefab;
     public ShotPatternBase shotPattern;
-}
-
-public enum ShotType
-{
-    Single,
-    Dual,
-    Triple,
-    Spread
 }
