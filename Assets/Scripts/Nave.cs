@@ -16,6 +16,7 @@ public class Nave : MonoBehaviour
     private Collider2D colliderComponent;
     private NaveVisual naveVisualComponent;
     [SerializeField] private WeaponController weaponController;
+    [SerializeField] private Escudo escudo;
 
 
     private void Awake()
@@ -67,8 +68,8 @@ public class Nave : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo)
             || collision.gameObject.TryGetComponent<Asteroide>(out Asteroide asteroide))
         {
-            if (BonusManager.Instance.IsBonusActive(BonusType.Escudo)) {
-                BonusManager.Instance.Remove(BonusType.Escudo);
+            if (escudo.IsActive()) {
+                escudo.RemoveEscudo();
             } else
             {
                 Morir();
@@ -105,5 +106,10 @@ public class Nave : MonoBehaviour
     public WeaponController GetWeaponController()
     {
         return weaponController;
+    }
+
+    public Escudo GetEscudo()
+    {
+        return escudo;
     }
 }

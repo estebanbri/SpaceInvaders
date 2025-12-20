@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 505734399438179551}
   - component: {fileID: 1611064198390892200}
-  - component: {fileID: 8752700415868760497}
   - component: {fileID: -5138689138827242155}
+  - component: {fileID: 4827789720168237498}
   m_Layer: 0
-  m_Name: WeaponAmmoLaser
+  m_Name: WeaponAmmoHielo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,8 +48,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damageAmount: 50
---- !u!70 &8752700415868760497
-CapsuleCollider2D:
+--- !u!114 &-5138689138827242155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346423642840248255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
+  bottomMargin: 2
+--- !u!61 &4827789720168237498
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -82,22 +95,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0022820756, y: 0.0006892681}
-  m_Size: {x: 0.11674778, y: 0.2783544}
-  m_Direction: 0
---- !u!114 &-5138689138827242155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5346423642840248255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  bottomMargin: 2
+  m_Offset: {x: 0.0016856045, y: 0.002197504}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.21451208, y: 0.3166716}
+  m_EdgeRadius: 0
 --- !u!1 &6479153561357284600
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +118,7 @@ GameObject:
   - component: {fileID: 5948337262848822227}
   - component: {fileID: 7374278738066649715}
   m_Layer: 0
-  m_Name: WeaponAmmoLaserVisual
+  m_Name: WeaponAmmoHieloVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 240441078959027112, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
+  m_Sprite: {fileID: -8284894485760392845, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

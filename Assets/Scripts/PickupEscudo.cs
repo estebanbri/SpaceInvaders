@@ -6,7 +6,7 @@ public class PickupEscudo : MonoBehaviour
     {
         if (collision.TryGetComponent(out Nave nave))
         {
-            BonusManager.Instance.Activate(BonusType.Escudo);
+            nave.GetEscudo().AddEscudo();
             Destroy(gameObject);
         }
     }

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
-  m_Name: "Doble Ca\xF1on"
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
-  fireRate: 0.3
-  ammoSpeed: 40
-  ammoPrefab: {fileID: 1611064198390892200, guid: b744edd0fae328347b0764e9e027d7c3, type: 3}
-  shotPattern: {fileID: 11400000, guid: ace7ac7f296bbbd4dbf0592132a2d9b9, type: 2}
+  m_Name: "Weapon Ca\xF1ol Triple"
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
+  fireRate: 0.2
+  ammoSpeed: 50
+  ammoPrefab: {fileID: 0}
+  shotPattern: {fileID: 0}
