@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
 {
-    [SerializeField] private GameObject bonusPickupPrefab;
+    [SerializeField] private PickupBonus bonusPickupPrefab;
     [SerializeField] private GameObject scorePickupPrefab;
     [SerializeField] private int health = 100;
     [SerializeField] private MovementPattern movement;
@@ -68,6 +68,9 @@ public class Enemigo : MonoBehaviour, IDamageable
         float ran = Random.value;
         if (Random.value <= dropProbability)
         {
+            if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition())) {
+                return;
+            }
             Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
         }
     }

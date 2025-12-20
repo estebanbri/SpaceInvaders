@@ -44,15 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  weapons:
-  - type: 0
-    ammoRate: 0.3
-    ammoSpeed: 10
-    weaponAmmoPrefab: {fileID: 1611064198390892200, guid: c80815030f073344e8293052116a0cf5, type: 3}
-  - type: 1
-    ammoRate: 0.1
-    ammoSpeed: 50
-    weaponAmmoPrefab: {fileID: 1611064198390892200, guid: b744edd0fae328347b0764e9e027d7c3, type: 3}
+  weaponDefault: {fileID: 0}
 --- !u!1 &2095014716587441483
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave
   speed: 10
   weaponController: {fileID: 8088965350015159436}
+  escudo: {fileID: 9086939262345840858, guid: 56446744ae31a82489dc8fb86602a7c2, type: 3}
+  escudobonusDefinition: {fileID: 11400000, guid: 8c8b364c655541b4f9e3f133a09b1512, type: 2}
 --- !u!61 &5476507486790864552
 BoxCollider2D:
   m_ObjectHideFlags: 0

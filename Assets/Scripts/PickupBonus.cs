@@ -12,4 +12,8 @@ public class PickupBonus : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public BonusDefinition GetBonusDefinition() { 
+        return bonusDefinition;
+    }
 }

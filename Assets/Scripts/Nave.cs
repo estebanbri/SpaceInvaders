@@ -17,6 +17,7 @@ public class Nave : MonoBehaviour
     private NaveVisual naveVisualComponent;
     [SerializeField] private WeaponController weaponController;
     [SerializeField] private Escudo escudo;
+    [SerializeField] private BonusDefinition escudobonusDefinition;
 
 
     private void Awake()
@@ -69,6 +70,7 @@ public class Nave : MonoBehaviour
             || collision.gameObject.TryGetComponent<Asteroide>(out Asteroide asteroide))
         {
             if (this.escudo.IsActive()) {
+                BonusManager.Instance.RemoveBonus(escudobonusDefinition);
                 this.escudo.RemoveEscudo();
             } else
             {

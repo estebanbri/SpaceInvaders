@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +9,9 @@ public class BonusManager : MonoBehaviour
     private Dictionary<BonusDefinition, BonusRuntime> activeBonuses =
         new Dictionary<BonusDefinition, BonusRuntime>();
 
-    private Nave nave;
-
     private void Awake()
     {
         Instance = this;
-        nave = Nave.Instance;
     }
 
     private void Update()
@@ -28,23 +26,20 @@ public class BonusManager : MonoBehaviour
     public void ApplyBonus(BonusDefinition bonus)
     {
         // Bonus instantáneo (vida, score, etc)
-        if (!bonus.isTemporary)
+        if (bonus.isTemporary)
         {
-            bonus.Apply();
-            return;
-        }
-
-        // Bonus temporal ya activo ? refrescar duración
-        if (activeBonuses.TryGetValue(bonus, out BonusRuntime runtime))
-        {
-            runtime.remainingTime = bonus.duration;
-            return;
+            if (activeBonuses.TryGetValue(bonus, out BonusRuntime runtime))
+            {
+                runtime.remainingTime = bonus.duration;
+                return;
+            }
         }
 
         // Bonus nuevo
         bonus.Apply();
-        activeBonuses.Add(bonus, new BonusRuntime(bonus));
-
+        if (!IsBonusActive(bonus)) {
+            activeBonuses.Add(bonus, new BonusRuntime(bonus));
+        }
     }
 
     public bool IsBonusActive(BonusDefinition bonus)
@@ -76,7 +71,7 @@ public class BonusManager : MonoBehaviour
         {
             pair.Value.remainingTime -= Time.deltaTime;
 
-            if (pair.Value.remainingTime <= 0f)
+            if (pair.Key.isTemporary && pair.Value.remainingTime <= 0f)
                 toRemove.Add(pair.Key);
         }
 
