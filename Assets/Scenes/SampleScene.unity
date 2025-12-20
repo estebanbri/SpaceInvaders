@@ -454,6 +454,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &716453048 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 180186006669502118, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+  m_PrefabInstance: {fileID: 7671825944300810080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354d0301a3bec8c4aacb6399078f54d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!4 &782836661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
@@ -1085,53 +1096,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879004185}
   m_CullTransparentMesh: 1
---- !u!1 &1888040602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1888040604}
-  - component: {fileID: 1888040605}
-  m_Layer: 0
-  m_Name: BonusManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1888040604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888040602}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.41692, y: 1.05585, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1888040605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888040602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a5b06dd94f7f04db6d3c318c3a09b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BonusManager
-  bonusConfigList:
-  - {fileID: 11400000, guid: 529b03b700d83f646b3469234ce1385a, type: 2}
-  - {fileID: 11400000, guid: 2feba2f1d24345246a52d8411b41b8e3, type: 2}
 --- !u!1 &2072626204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1330,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5508893455066341428, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: escudo
+      value: 
+      objectReference: {fileID: 716453048}
     - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: firePoint
       value: 
@@ -1374,6 +1342,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1611064198390892200, guid: c80815030f073344e8293052116a0cf5, type: 3}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: weaponDefault
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f0a397c9d3fec7498c5561e5fc5d9f2, type: 2}
     - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: weaponList.Array.size
       value: 2
@@ -1427,4 +1399,3 @@ SceneRoots:
   - {fileID: 1825713121}
   - {fileID: 2072626206}
   - {fileID: 1531307131}
-  - {fileID: 1888040604}

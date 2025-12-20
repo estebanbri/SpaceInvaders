@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapons/Shot Patterns/Dual Shot")]
-public class DualShotPattern : ShotPatternBase
+public class ShotPatternDual : ShotPatternBase
 {
     [SerializeField] private float offsetX = 0.3f;
 

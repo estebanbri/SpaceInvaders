@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickupDualShot : MonoBehaviour
+public class PickupEquipWeapon : MonoBehaviour
 {
     [SerializeField] private WeaponDefinition weapon;
 

@@ -1,31 +1,18 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] private List<WeaponDefinition> availableWeapons;
-
-    private Dictionary<WeaponDefinition, WeaponInstance> weaponMap;
+    [SerializeField] private WeaponDefinition weaponDefault;
     private WeaponInstance currentWeapon;
 
     private void Awake()
     {
-        weaponMap = new Dictionary<WeaponDefinition, WeaponInstance>();
-
-        foreach (var weapon in availableWeapons)
-        {
-            weaponMap[weapon] = new WeaponInstance(weapon);
-        }
-
-        if (availableWeapons.Count > 0)
-            Equip(availableWeapons[0]);
+      Equip(weaponDefault);
     }
 
     public void Equip(WeaponDefinition weaponConfig)
     {
-        if (!weaponMap.ContainsKey(weaponConfig)) return;
-        currentWeapon = weaponMap[weaponConfig];
+        currentWeapon = new WeaponInstance(weaponConfig);
     }
 
     public void Fire()
