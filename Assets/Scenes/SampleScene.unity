@@ -119,6 +119,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &78046343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78046345}
+  - component: {fileID: 78046344}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &78046344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78046343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdbf8512af1eb0a42a6adc4552317446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  levels:
+  - levelIndex: 1
+    waves:
+    - {fileID: 11400000, guid: 53c0423d0a70a684dbb6c32efa25e71b, type: 2}
+    - {fileID: 11400000, guid: 8dadac5d9bc8878488aaf1a6002ec609, type: 2}
+    - {fileID: 11400000, guid: 71f8b9fa74b7eec4a98d67abb5fe2430, type: 2}
+--- !u!4 &78046345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78046343}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.018, y: -3.0678, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510413898
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +522,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 0
+--- !u!50 &782836665
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725527608}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1267914399
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1531307130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,32 +724,32 @@ MonoBehaviour:
   spawnMaxX: 5
   spawnMargin: 1.5
   spawnEntries:
-  - enemySpawnProbability: 0.5
+  - enemySpawnProbability: 0.8
     prefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
     ordaQuantity: 1
     maxAliveCount: 6
     aliveCount: 0
-  - enemySpawnProbability: 0.5
+  - enemySpawnProbability: 0.2
     prefab: {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
     ordaQuantity: 1
     maxAliveCount: 3
     aliveCount: 0
-  - enemySpawnProbability: 0.5
+  - enemySpawnProbability: 0.3
     prefab: {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
     ordaQuantity: 1
     maxAliveCount: 2
     aliveCount: 0
-  - enemySpawnProbability: 0.5
+  - enemySpawnProbability: 0.2
     prefab: {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
     ordaQuantity: 1
     maxAliveCount: 1
     aliveCount: 0
-  - enemySpawnProbability: 0.5
+  - enemySpawnProbability: 0.2
     prefab: {fileID: 2135255373275615037, guid: 8f388b87b5774844a91eecfe29fc06e0, type: 3}
     ordaQuantity: 1
     maxAliveCount: 2
     aliveCount: 0
-  - enemySpawnProbability: 0.5
+  - enemySpawnProbability: 0.1
     prefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
     ordaQuantity: 1
     maxAliveCount: 1
@@ -1388,6 +1465,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 782836664}
+    - targetCorrespondingSourceObject: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 782836665}
   m_SourcePrefab: {fileID: 100100000, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1402,3 +1482,4 @@ SceneRoots:
   - {fileID: 2072626206}
   - {fileID: 1531307131}
   - {fileID: 1845863552}
+  - {fileID: 78046345}

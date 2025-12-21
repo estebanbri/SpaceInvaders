@@ -87,7 +87,7 @@ MonoBehaviour:
     amplitude: 1
     frequency: 2
   weaponController: {fileID: 1228598912135458112}
-  dropProbability: 0.72
+  dropProbability: 0.1
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0

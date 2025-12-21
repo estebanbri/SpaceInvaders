@@ -131,7 +131,7 @@ MonoBehaviour:
     amplitude: 1
     frequency: 2
   weaponController: {fileID: 0}
-  dropProbability: 1
+  dropProbability: 0.3
 --- !u!114 &520795594945169632
 MonoBehaviour:
   m_ObjectHideFlags: 0

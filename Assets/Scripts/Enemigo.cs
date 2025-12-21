@@ -72,6 +72,8 @@ public class Enemigo : MonoBehaviour, IDamageable
         enemigoVisual.PlayDeath();
         CreateScorePickup();
         TryCreateBonusPickup();
+        LevelManager lm = FindFirstObjectByType<LevelManager>();
+        lm.OnEnemyKilled();
     }
 
     public void OnDeathAnimationFinished()
