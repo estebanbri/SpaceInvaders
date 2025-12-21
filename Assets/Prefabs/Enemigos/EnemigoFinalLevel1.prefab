@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3656133609579362316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6719750763180383284}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6719750763180383284
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3656133609579362316}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7694952641018234332}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4768475860424822803
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +14,7 @@ GameObject:
   - component: {fileID: 1879159735146175466}
   - component: {fileID: -4167900239025423422}
   - component: {fileID: 7115931542606375393}
+  - component: {fileID: 7146610694354115643}
   m_Layer: 0
   m_Name: EnemigoFinalLevel1
   m_TagString: Untagged
@@ -183,6 +153,19 @@ MonoBehaviour:
   limitX: 5
   entrySpeed: 3
   horizontalSpeed: 2
+--- !u!114 &7146610694354115643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea2f38335d65b744b0550f56bd5ff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
+  faction: 1
 --- !u!1 &5239692054288271202
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,13 +191,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5239692054288271202}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: -2.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7199454932504544324}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &1228598912135458112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
-  weaponDefault: {fileID: 11400000, guid: 4afb99af1b3eef34ea6c5f9430fbc252, type: 2}
+  weaponDefault: {fileID: 11400000, guid: a12c32b2645261a4ab879e16483114b0, type: 2}
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,8 +221,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7694952641018234332}
   - component: {fileID: 5395011670592994922}
-  - component: {fileID: 7895352675815449446}
   - component: {fileID: 5276031313835513368}
+  - component: {fileID: 2431650473614052270}
   m_Layer: 0
   m_Name: EnemigoVisual
   m_TagString: Untagged
@@ -259,8 +242,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 6719750763180383284}
+  m_Children: []
   m_Father: {fileID: 7199454932504544324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5395011670592994922
@@ -321,7 +303,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7895352675815449446
+--- !u!114 &5276031313835513368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5469988801222514171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202909db5d2fecc43a32adaf529f9975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!95 &2431650473614052270
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -343,15 +337,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5276031313835513368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5469988801222514171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202909db5d2fecc43a32adaf529f9975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'

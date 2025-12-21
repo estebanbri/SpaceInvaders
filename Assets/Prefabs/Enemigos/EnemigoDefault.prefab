@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6210264585460947222}
   - component: {fileID: 5042651987578534612}
   - component: {fileID: -6700329375380736279}
+  - component: {fileID: 5749324654099783232}
   m_Layer: 0
   m_Name: EnemigoDefault
   m_TagString: Untagged
@@ -129,6 +130,7 @@ MonoBehaviour:
     speed: 1
     amplitude: 3
     frequency: 2
+  weaponController: {fileID: 0}
   dropProbability: 1
 --- !u!114 &-6700329375380736279
 MonoBehaviour:
@@ -143,6 +145,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 2
+--- !u!114 &5749324654099783232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea2f38335d65b744b0550f56bd5ff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
+  faction: 1
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0

@@ -454,22 +454,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &716453048 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 180186006669502118, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+--- !u!1 &725527608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
   m_PrefabInstance: {fileID: 7671825944300810080}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &782836664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725527608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 354d0301a3bec8c4aacb6399078f54d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ea2f38335d65b744b0550f56bd5ff09, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!4 &782836661 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-  m_PrefabInstance: {fileID: 7671825944300810080}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
+  faction: 0
 --- !u!1 &1267914399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,10 +1337,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2003697776006237454, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: m_Name
-      value: WeaponController
-      objectReference: {fileID: 0}
     - target: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1379,54 +1377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5508893455066341428, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: escudo
-      value: 
-      objectReference: {fileID: 716453048}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 782836661}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 1611064198390892200, guid: c80815030f073344e8293052116a0cf5, type: 3}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: weaponDefault
-      value: 
-      objectReference: {fileID: 11400000, guid: 5f0a397c9d3fec7498c5561e5fc5d9f2, type: 2}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: weaponList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: 'weapons.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2457922147723186382, guid: 85add65358812dd4f9e98a856aa50e74, type: 3}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: 'weapons.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1512164885100598584, guid: 3c6683926e7c68e40a5373b170092b0f, type: 3}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: availableWeapons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: 'availableWeapons.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 5f0a397c9d3fec7498c5561e5fc5d9f2, type: 2}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: 'availableWeapons.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cbca59cda7e1dc4189dd3648eb183e4, type: 2}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: weapons.Array.data[1].ammoRate
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
-      propertyPath: weapons.Array.data[1].ammoSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_Name
       value: Nave
@@ -1434,7 +1384,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 782836664}
   m_SourcePrefab: {fileID: 100100000, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -4,9 +4,9 @@ using UnityEngine;
 public class ShotPatternSingle : ShotPatternBase
 {
 
-    public override void Fire(WeaponAmmo ammoPrefab, Vector3 position, float ammoSpeed)
+    public override void Fire(WeaponAmmo ammoPrefab, Transform firePoint, float ammoSpeed, FactionType ownerFaction)
     {
-        WeaponAmmo ammo = Object.Instantiate(ammoPrefab, position, Quaternion.identity);
-        ammo.SetAmmoSpeed(ammoSpeed);
+        WeaponAmmo ammo = Object.Instantiate(ammoPrefab, firePoint.position, Quaternion.identity);
+        ammo.Init(firePoint.up, ownerFaction, ammoSpeed);
     }
 }

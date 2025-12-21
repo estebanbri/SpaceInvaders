@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4307222289408193020}
   - component: {fileID: 8088965350015159436}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  weaponDefault: {fileID: 0}
+  weaponDefault: {fileID: 11400000, guid: 5f0a397c9d3fec7498c5561e5fc5d9f2, type: 2}
 --- !u!1 &2095014716587441483
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Nave
   speed: 10
   weaponController: {fileID: 8088965350015159436}
-  escudo: {fileID: 9086939262345840858, guid: 56446744ae31a82489dc8fb86602a7c2, type: 3}
+  escudo: {fileID: 180186006669502118}
   escudobonusDefinition: {fileID: 11400000, guid: 8c8b364c655541b4f9e3f133a09b1512, type: 2}
 --- !u!61 &5476507486790864552
 BoxCollider2D:
@@ -650,6 +650,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56446744ae31a82489dc8fb86602a7c2, type: 3}
+--- !u!114 &180186006669502118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9086939262345840858, guid: 56446744ae31a82489dc8fb86602a7c2, type: 3}
+  m_PrefabInstance: {fileID: 8978890311977971324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354d0301a3bec8c4aacb6399078f54d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!4 &5135909428693299439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4313611992325906067, guid: 56446744ae31a82489dc8fb86602a7c2, type: 3}

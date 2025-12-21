@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Nave : MonoBehaviour
+public class Nave : MonoBehaviour, IDamageable
 {
     public static Nave Instance { get; private set; }
 
@@ -112,5 +111,10 @@ public class Nave : MonoBehaviour
     public WeaponController GetWeaponController()
     {  
         return weaponController; 
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        Morir();
     }
 }

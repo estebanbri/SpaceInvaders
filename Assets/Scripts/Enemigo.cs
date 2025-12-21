@@ -34,7 +34,7 @@ public class Enemigo : MonoBehaviour, IDamageable
             time += Time.deltaTime;
             transform.position = startPos + movement.Evaluate(time);
         }
-        if (canAttack)
+        if (canAttack && !isDead)
         {
             // disparar, cambiar fases, etc
             Debug.Log("Habilitado para disparar");
