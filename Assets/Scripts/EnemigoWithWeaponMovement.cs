@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class BossController : MonoBehaviour
+public class EnemigoWithWeaponMovement : MonoBehaviour
 {
     [SerializeField] private float stopY = 5f;
     [SerializeField] private float limitX = 5f;
-    [SerializeField] private float entrySpeed = 3f;
     [SerializeField] private float horizontalSpeed = 2f;
 
     private bool arrived;
@@ -20,24 +19,25 @@ public class BossController : MonoBehaviour
     {
         if (!arrived)
         {
-            transform.position += Vector3.down * entrySpeed * Time.deltaTime;
-
             if (transform.position.y <= stopY)
             {
                 arrived = true;
-                enemigo.StopMovement();
+                enemigo.StopTopDownMovement();
                 enemigo.EnableCombat();
             }
-
             return;
         }
+        StartHorizontalMovement();
+    }
 
+    private void StartHorizontalMovement()
+    {
         transform.position += Vector3.right * horizontalDir * horizontalSpeed * Time.deltaTime;
 
         if (Mathf.Abs(transform.position.x) >= limitX)
         {
             // Invertimos la direccion si era derecha entonces: 1 * -1 = nueva direccion izq pero si ya era izquierda entonces -1 * -1 = nueva direccion derecha
-            horizontalDir = horizontalDir * - 1;  
+            horizontalDir = horizontalDir * -1;
         }
     }
 }

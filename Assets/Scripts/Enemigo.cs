@@ -15,7 +15,7 @@ public class Enemigo : MonoBehaviour, IDamageable
     private bool isDead;
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
-    private bool movementEnabled = true;
+    private bool topDownMovementEnabled = true;
 
     void Start() {
         startPos = transform.position;
@@ -29,7 +29,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (movementEnabled)
+        if (topDownMovementEnabled)
         {
             time += Time.deltaTime;
             transform.position = startPos + movement.Evaluate(time);
@@ -61,9 +61,9 @@ public class Enemigo : MonoBehaviour, IDamageable
         canAttack = true;
     }
 
-    public void StopMovement()
+    public void StopTopDownMovement()
     {
-        movementEnabled = false;
+        topDownMovementEnabled = false;
     }
 
     void Die() {
@@ -97,5 +97,7 @@ public class Enemigo : MonoBehaviour, IDamageable
             Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
         }
     }
+
+    public MovementPattern GetMovementPattern() { return movement;  }
 
 }

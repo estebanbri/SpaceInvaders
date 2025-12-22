@@ -19,7 +19,7 @@ public class DestroyOutsideCamera : MonoBehaviour
         {
             if (gameObject.TryGetComponent(out FactionComponent factionComponent)) {
                 if (factionComponent.Faction == FactionType.Enemy) {
-                    LevelManager.Instance.OnEnemyKilled();
+                    StartCoroutine(LevelManager.Instance.OnEnemyKilledByOutsideCamera(gameObject));
                 }
             }
             Destroy(gameObject);

@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
+    private float currentSpawnDelay = 0;
 
     private int enemiesAlive;
 
@@ -40,7 +41,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator SpawnWaveCoroutine(WaveDefinition wave)
     {
-
+        currentSpawnDelay = wave.spawnDelay;
         foreach (var enemyPrefab in wave.enemiesToSpawn)
         {
             int randomEnemiesCount = Random.Range(1, 5);
@@ -53,9 +54,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public IEnumerator OnEnemyKilledByOutsideCamera(GameObject go)
+    {
+        Instantiate(go, GetSpawnPosition(), Quaternion.identity);
+        yield return new WaitForSeconds(currentSpawnDelay);
+    }
+
     public void OnEnemyKilled()
     {
-        Debug.Log("OnEnemyKilled");
         enemiesAlive--;
 
         if (enemiesAlive <= 0)
