@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance { get; private set; }
+
     [SerializeField] private List<LevelDefinition> levels;
 
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
 
     private int enemiesAlive;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -18,7 +25,7 @@ public class LevelManager : MonoBehaviour
 
     void StartWave()
     {
-        if (currentWaveIndex > levels[currentLevelIndex].waves.Count - 1) return;
+        if (currentWaveIndex > LastWaveIndex()) return;
 
         WaveDefinition wave = levels[currentLevelIndex].waves[currentWaveIndex];
 
@@ -33,17 +40,22 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator SpawnWaveCoroutine(WaveDefinition wave)
     {
-        enemiesAlive = wave.enemiesToSpawn.Count;
 
         foreach (var enemyPrefab in wave.enemiesToSpawn)
         {
-            Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
-            yield return new WaitForSeconds(wave.spawnDelay);
+            int randomEnemiesCount = Random.Range(1, 5);
+            enemiesAlive += randomEnemiesCount;
+            for (int i = 0; i < randomEnemiesCount; i++) {
+                Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+                yield return new WaitForSeconds(wave.spawnDelay);
+            }
+            
         }
     }
 
     public void OnEnemyKilled()
     {
+        Debug.Log("OnEnemyKilled");
         enemiesAlive--;
 
         if (enemiesAlive <= 0)
@@ -61,5 +73,9 @@ public class LevelManager : MonoBehaviour
     Vector3 GetSpawnPosition()
     {
         return new Vector3(Random.Range(-6f, 6f), 7f, 0);
+    }
+
+    private int LastWaveIndex() {
+        return levels[currentLevelIndex].waves.Count - 1;
     }
 }

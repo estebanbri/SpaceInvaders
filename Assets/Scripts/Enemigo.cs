@@ -9,12 +9,12 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private WeaponController weaponController;
     [Range(0,1)]
     [SerializeField] private float dropProbability;
+    [SerializeField] private bool canAttack;
     private float time;
     private Vector3 startPos;
     private bool isDead;
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
-    private bool canAttack;
     private bool movementEnabled = true;
 
     void Start() {
@@ -72,8 +72,7 @@ public class Enemigo : MonoBehaviour, IDamageable
         enemigoVisual.PlayDeath();
         CreateScorePickup();
         TryCreateBonusPickup();
-        LevelManager lm = FindFirstObjectByType<LevelManager>();
-        lm.OnEnemyKilled();
+        LevelManager.Instance.OnEnemyKilled();
     }
 
     public void OnDeathAnimationFinished()
