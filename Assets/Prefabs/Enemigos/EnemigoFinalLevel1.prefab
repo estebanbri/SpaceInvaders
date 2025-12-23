@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4167900239025423422}
   - component: {fileID: 7115931542606375393}
   - component: {fileID: 7146610694354115643}
+  - component: {fileID: 3851991667495074403}
   m_Layer: 0
   m_Name: EnemigoFinalLevel1
   m_TagString: Untagged
@@ -81,13 +82,9 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 6247315687656034272, guid: ce78cc2b0f5c19d40a19d13f2069b045, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   health: 1000
-  movement:
-    type: 1
-    speed: 3
-    amplitude: 1
-    frequency: 2
   weaponController: {fileID: 1228598912135458112}
   dropProbability: 0.1
+  canAttack: 0
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,14 +141,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7b5d78232a11fe4b855fd9ef5c9cc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
   stopY: 3
   limitX: 5
-  entrySpeed: 3
   horizontalSpeed: 2
 --- !u!114 &7146610694354115643
 MonoBehaviour:
@@ -166,6 +162,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 1
+--- !u!114 &3851991667495074403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63293e3baf8feb8478947b654802f7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementPatternController
+  movementPatterns:
+  - {fileID: 11400000, guid: e9fc5732b099b374fbdcd747e70f9a83, type: 2}
+  - {fileID: 11400000, guid: 1b568f4b5f5a5e94dac40ed92efe12d3, type: 2}
+  - {fileID: 11400000, guid: e9fc5732b099b374fbdcd747e70f9a83, type: 2}
+  - {fileID: 11400000, guid: 3750799e2c4c15a4b81a04131259a7f6, type: 2}
+  - {fileID: 11400000, guid: 1b568f4b5f5a5e94dac40ed92efe12d3, type: 2}
+  timeBetweenPatterns: 3
 --- !u!1 &5239692054288271202
 GameObject:
   m_ObjectHideFlags: 0

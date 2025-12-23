@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 5348782021209770510}
   - component: {fileID: 8092928041683358142}
   - component: {fileID: 2514267069072764567}
+  - component: {fileID: 6662713105613276874}
   m_Layer: 0
   m_Name: EnemigoTank
   m_TagString: Untagged
@@ -178,11 +179,6 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 5604128541931985237, guid: ddea3002692b3a54b936e348700069c2, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   health: 100
-  movement:
-    type: 1
-    speed: 1
-    amplitude: 5
-    frequency: 1
   weaponController: {fileID: 8431879320778882986}
   dropProbability: 0.036
   canAttack: 1
@@ -263,6 +259,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0051758885, y: 0}
   m_Size: {x: 0.74844253, y: 1}
   m_Direction: 0
+--- !u!114 &6662713105613276874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63293e3baf8feb8478947b654802f7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementPatternController
+  movementPatterns:
+  - {fileID: 11400000, guid: 6604802800c37aa42b9ca0be431227bc, type: 2}
+  - {fileID: 11400000, guid: c660d4fb9e4b82349a4f9c4eb377fb32, type: 2}
+  timeBetweenPatterns: 2
 --- !u!1001 &3937831710878618605
 PrefabInstance:
   m_ObjectHideFlags: 0

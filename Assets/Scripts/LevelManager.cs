@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
     private float currentSpawnDelay = 0;
+    private float screenLimitMinX = -6f;
+    private float screenLimitMaxX = 6f;
 
     private int enemiesAlive;
 
@@ -44,13 +46,16 @@ public class LevelManager : MonoBehaviour
         currentSpawnDelay = wave.spawnDelay;
         foreach (var enemyPrefab in wave.enemiesToSpawn)
         {
-            int randomEnemiesCount = Random.Range(1, 5);
+            enemiesAlive = wave.enemiesToSpawn.Count;
+            /*int randomEnemiesCount = Random.Range(1, 5);
             enemiesAlive += randomEnemiesCount;
             for (int i = 0; i < randomEnemiesCount; i++) {
                 Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
                 yield return new WaitForSeconds(wave.spawnDelay);
-            }
-            
+            }*/
+
+            Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+            yield return new WaitForSeconds(wave.spawnDelay);
         }
     }
 
@@ -78,7 +83,7 @@ public class LevelManager : MonoBehaviour
 
     Vector3 GetSpawnPosition()
     {
-        return new Vector3(Random.Range(-6f, 6f), 7f, 0);
+        return new Vector3(Random.Range(screenLimitMinX, screenLimitMaxX), 7f, 0);
     }
 
     private int LastWaveIndex() {

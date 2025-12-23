@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
   m_Name: "Weapon Ca\xF1on Simple Slow"
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
-  fireRate: 0.5
-  ammoSpeed: 10
+  fireRate: 1
+  ammoSpeed: 2
   ammoPrefab: {fileID: 1611064198390892200, guid: c80815030f073344e8293052116a0cf5, type: 3}
   shotPattern: {fileID: 11400000, guid: 81e52bc0e346d9945b237216e9747637, type: 2}
   ranking: 1

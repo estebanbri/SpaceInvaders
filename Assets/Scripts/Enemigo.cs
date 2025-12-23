@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
@@ -5,11 +6,11 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private PickupBonus bonusPickupPrefab;
     [SerializeField] private GameObject scorePickupPrefab;
     [SerializeField] private int health = 100;
-    [SerializeField] private MovementPattern movement;
     [SerializeField] private WeaponController weaponController;
     [Range(0,1)]
     [SerializeField] private float dropProbability;
     [SerializeField] private bool canAttack;
+
     private float time;
     private Vector3 startPos;
     private bool isDead;
@@ -19,7 +20,6 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     void Start() {
         startPos = transform.position;
-        movement.Init(startPos, Nave.Instance.transform.position);
     }
 
     void Awake() {
@@ -29,11 +29,6 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (topDownMovementEnabled)
-        {
-            time += Time.deltaTime;
-            transform.position = startPos + movement.Evaluate(time);
-        }
         if (canAttack && !isDead)
         {
             // disparar, cambiar fases, etc
@@ -98,6 +93,8 @@ public class Enemigo : MonoBehaviour, IDamageable
         }
     }
 
-    public MovementPattern GetMovementPattern() { return movement;  }
-
+    public Vector3 GetStartPos()
+    {
+        return startPos;
+    }
 }
