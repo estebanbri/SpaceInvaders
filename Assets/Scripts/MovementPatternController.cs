@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// FIJA POSICION ABSOLUTA
 public class MovementPatternController : MonoBehaviour
 {
     [SerializeField] private List<MovementPatternDefinition> movementPatterns;
@@ -10,6 +11,8 @@ public class MovementPatternController : MonoBehaviour
     private float elapsedTime;
     private float patternTimer;
 
+    private Vector3 startPosition;
+    // FIJA LA POSICION RELATIVA
     private MovementPatternRuntime currentPattern;
 
     private void Start()
@@ -22,8 +25,8 @@ public class MovementPatternController : MonoBehaviour
         elapsedTime += Time.deltaTime;
         patternTimer += Time.deltaTime;
 
-        Vector3 delta = currentPattern.EvaluateDelta(elapsedTime);
-        transform.position += delta;
+        // POSICION ACTUAL + POSICION RELATIVA
+        transform.position = startPosition + currentPattern.Evaluate(elapsedTime);
 
         if (patternTimer >= timeBetweenPatterns)
         {
@@ -39,7 +42,10 @@ public class MovementPatternController : MonoBehaviour
         currentIndex = index;
         elapsedTime = 0f;
 
+        // Guardamos posición inicial del patrón
+        startPosition = transform.position;
+
         currentPattern = movementPatterns[index].CreateRuntime();
-        currentPattern.Init(transform.position, Nave.Instance.transform.position);
+        currentPattern.Init(startPosition, Nave.Instance.transform.position);
     }
 }
