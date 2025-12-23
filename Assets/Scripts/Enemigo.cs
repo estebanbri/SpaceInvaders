@@ -10,13 +10,15 @@ public class Enemigo : MonoBehaviour, IDamageable
     [Range(0,1)]
     [SerializeField] private float dropProbability;
     [SerializeField] private bool canAttack;
+    [SerializeField] private float fireDelay;
 
-    private float time;
+    private float fireTimer;
     private Vector3 startPos;
     private bool isDead;
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
     private bool topDownMovementEnabled = true;
+    
 
     void Start() {
         startPos = transform.position;
@@ -29,11 +31,15 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (canAttack && !isDead)
+        if (!canAttack || isDead)
+            return;
+
+        fireTimer += Time.deltaTime;
+
+        if (fireTimer >= fireDelay)
         {
-            // disparar, cambiar fases, etc
-            Debug.Log("Habilitado para disparar");
             weaponController.Fire();
+            fireTimer = 0f;
         }
     }
 

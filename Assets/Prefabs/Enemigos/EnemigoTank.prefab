@@ -182,6 +182,7 @@ MonoBehaviour:
   weaponController: {fileID: 8431879320778882986}
   dropProbability: 0.036
   canAttack: 1
+  fireDelay: 2
 --- !u!114 &5348782021209770510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +275,7 @@ MonoBehaviour:
   movementPatterns:
   - {fileID: 11400000, guid: 6604802800c37aa42b9ca0be431227bc, type: 2}
   - {fileID: 11400000, guid: c660d4fb9e4b82349a4f9c4eb377fb32, type: 2}
+  - {fileID: 11400000, guid: 1b568f4b5f5a5e94dac40ed92efe12d3, type: 2}
   timeBetweenPatterns: 2
 --- !u!1001 &3937831710878618605
 PrefabInstance:

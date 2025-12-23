@@ -84,7 +84,8 @@ MonoBehaviour:
   health: 1000
   weaponController: {fileID: 1228598912135458112}
   dropProbability: 0.1
-  canAttack: 0
+  canAttack: 1
+  fireDelay: 0
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
-  weaponDefault: {fileID: 11400000, guid: a12c32b2645261a4ab879e16483114b0, type: 2}
+  weaponDefault: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0
