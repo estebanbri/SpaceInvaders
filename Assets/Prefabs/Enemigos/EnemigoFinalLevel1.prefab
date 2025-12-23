@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5042651987578534612}
   - component: {fileID: 1879159735146175466}
   - component: {fileID: -4167900239025423422}
-  - component: {fileID: 7115931542606375393}
   - component: {fileID: 7146610694354115643}
   - component: {fileID: 3851991667495074403}
   m_Layer: 0
@@ -135,21 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 2
---- !u!114 &7115931542606375393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b5d78232a11fe4b855fd9ef5c9cc45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossController
-  stopY: 3
-  limitX: 5
-  horizontalSpeed: 2
 --- !u!114 &7146610694354115643
 MonoBehaviour:
   m_ObjectHideFlags: 0

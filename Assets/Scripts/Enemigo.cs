@@ -17,8 +17,10 @@ public class Enemigo : MonoBehaviour, IDamageable
     private bool isDead;
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
-    private bool topDownMovementEnabled = true;
-    
+    private MovementPatternController movement;
+    public EnemyState State { get; private set; }
+
+
 
     void Start() {
         startPos = transform.position;
@@ -27,11 +29,14 @@ public class Enemigo : MonoBehaviour, IDamageable
     void Awake() {
         enemigoVisual = GetComponentInChildren<EnemigoVisual>();
         col = GetComponent<Collider2D>();
+        movement = GetComponent<MovementPatternController>();
+        movement.OnPatternChanged += HandlePatternChange;
+        SetState(EnemyState.Entering);
     }
 
     void Update()
     {
-        if (!canAttack || isDead)
+        if (weaponController == null || State != EnemyState.Attacking || isDead)
             return;
 
         fireTimer += Time.deltaTime;
@@ -49,22 +54,13 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         health -= damageAmount;
 
+        if (enemigoVisual != null)
         enemigoVisual.PlayHitEffect();
 
         if (health <= 0)
         {
             Die();
         }
-    }
-
-    public void EnableCombat()
-    {
-        canAttack = true;
-    }
-
-    public void StopTopDownMovement()
-    {
-        topDownMovementEnabled = false;
     }
 
     void Die() {
@@ -99,8 +95,17 @@ public class Enemigo : MonoBehaviour, IDamageable
         }
     }
 
-    public Vector3 GetStartPos()
+    public void SetState(EnemyState newState)
     {
-        return startPos;
+        State = newState;
+    }
+
+    void HandlePatternChange(int patternIndex)
+    {
+        // Ejemplo de reglas
+        if (patternIndex % 2 == 0)
+            SetState(EnemyState.Attacking);
+        else
+            SetState(EnemyState.Moving);
     }
 }

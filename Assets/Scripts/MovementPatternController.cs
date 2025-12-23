@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class MovementPatternController : MonoBehaviour
 {
     [SerializeField] private List<MovementPatternDefinition> movementPatterns;
     [SerializeField] private float timeBetweenPatterns = 3f;
+    public event Action<int> OnPatternChanged;
 
     private int currentIndex;
     private float elapsedTime;
@@ -47,5 +49,7 @@ public class MovementPatternController : MonoBehaviour
 
         currentPattern = movementPatterns[index].CreateRuntime();
         currentPattern.Init(startPosition, Nave.Instance.transform.position);
+        OnPatternChanged?.Invoke(index);
     }
+
 }
