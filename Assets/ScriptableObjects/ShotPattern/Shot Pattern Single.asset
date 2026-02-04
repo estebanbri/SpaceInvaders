@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc08eeffa90ed9f499b900d22bc6381e, type: 3}
   m_Name: Shot Pattern Single
   m_EditorClassIdentifier: Assembly-CSharp::SingleShotPattern
+  lanesCount: 1

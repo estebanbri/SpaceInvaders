@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
   m_Name: "Weapon Ca\xF1on Doble"
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
-  fireRate: 0.01
-  ammoSpeed: 30
-  ammoPrefab: {fileID: 1611064198390892200, guid: 7cec658b5d95de748a9d388a42bd5ac7, type: 3}
+  fireRate: 0.3
+  ammoSpeed: 10
+  ammoPrefab: {fileID: 1611064198390892200, guid: 3534959446f3dd543847ae80ae78b6f3, type: 3}
   shotPattern: {fileID: 11400000, guid: ace7ac7f296bbbd4dbf0592132a2d9b9, type: 2}
   ranking: 2

@@ -181,7 +181,6 @@ MonoBehaviour:
   health: 100
   weaponController: {fileID: 8431879320778882986}
   dropProbability: 0.036
-  canAttack: 1
   fireDelay: 2
 --- !u!114 &5348782021209770510
 MonoBehaviour:
@@ -330,12 +329,19 @@ PrefabInstance:
       value: WeaponController
       objectReference: {fileID: 0}
     - target: {fileID: 4873440715877444679, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 2246275164994924236}
+    - target: {fileID: 4873440715877444679, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
       propertyPath: weaponDefault
       value: 
       objectReference: {fileID: 11400000, guid: 50eac0fed7436f14bb0c19b5a365880d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 587267269571498295, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5166874945282922845}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
 --- !u!4 &4504612739409609434 stripped
@@ -354,3 +360,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1001 &4524492121778537539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4504612739409609434}
+    m_Modifications:
+    - target: {fileID: 2423230502750037434, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_Name
+      value: WeaponMuzzleFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+--- !u!114 &2246275164994924236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2442752825246362255, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+  m_PrefabInstance: {fileID: 4524492121778537539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32c0bf0a53777a4999dee98a6a636d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponMuzzleFlash
+--- !u!4 &5166874945282922845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+  m_PrefabInstance: {fileID: 4524492121778537539}
+  m_PrefabAsset: {fileID: 0}

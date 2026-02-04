@@ -6,11 +6,17 @@ public class WeaponInstance
     private float nextFireTime;
     private float fireRateMultiplier = 1f;
     private FactionType ownerFaction;
+    private WeaponMuzzleFlash weaponMuzzleFlash;
+    private WeaponMuzzleFlash weaponMuzzleFlashLeft;
+    private WeaponMuzzleFlash weaponMuzzleFlashRight;
 
-    public WeaponInstance(WeaponDefinition weaponDefinition, FactionType ownerFaction)
+    public WeaponInstance(WeaponDefinition weaponDefinition, FactionType ownerFaction, WeaponMuzzleFlash weaponMuzzleFlash, WeaponMuzzleFlash muzzleFlashLeft, WeaponMuzzleFlash muzzleFlashRight)
     {
         this.weaponDefinition = weaponDefinition;
         this.ownerFaction = ownerFaction;
+        this.weaponMuzzleFlash = weaponMuzzleFlash;
+        this.weaponMuzzleFlashLeft = muzzleFlashLeft;
+        this.weaponMuzzleFlashRight = muzzleFlashRight;
     }
 
     // El parametro Transform firePoint va a venir la data de la rotacion que tenga quien dispara, entonces luego en las 
@@ -22,7 +28,20 @@ public class WeaponInstance
         if (Time.time < nextFireTime) return;
 
         nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
-
+        switch (weaponDefinition.shotPattern.lanesCount) {
+            case 1:
+                weaponMuzzleFlash.Play();
+                break;
+            case 2:
+                weaponMuzzleFlashLeft.Play();
+                weaponMuzzleFlashRight.Play();
+                break;
+            case 3:
+                weaponMuzzleFlash.Play();
+                weaponMuzzleFlashLeft.Play();
+                weaponMuzzleFlashRight.Play();
+                break;
+        }
         weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, firePoint, weaponDefinition.ammoSpeed, ownerFaction);
     }
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5042651987578534612}
   - component: {fileID: 520795594945169632}
   - component: {fileID: 187244001076093858}
+  - component: {fileID: 8655634159460041648}
   m_Layer: 0
   m_Name: EnemigoKamikase
   m_TagString: Untagged
@@ -126,14 +127,9 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 5604128541931985237, guid: ddea3002692b3a54b936e348700069c2, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   health: 50
-  movement:
-    type: 3
-    speed: 5
-    amplitude: 1
-    frequency: 2
   weaponController: {fileID: 0}
   dropProbability: 0.3
-  canAttack: 0
+  fireDelay: 0
 --- !u!114 &520795594945169632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +156,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 1
+--- !u!114 &8655634159460041648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63293e3baf8feb8478947b654802f7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementPatternController
+  movementPatterns:
+  - {fileID: 11400000, guid: 6604802800c37aa42b9ca0be431227bc, type: 2}
+  - {fileID: 11400000, guid: d2f0e205e48128346a5a4ddc687ab5fd, type: 2}
+  timeBetweenPatterns: 1
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0

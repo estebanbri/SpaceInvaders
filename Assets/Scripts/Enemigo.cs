@@ -1,4 +1,3 @@
-using Mono.Cecil;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
@@ -9,22 +8,14 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private WeaponController weaponController;
     [Range(0,1)]
     [SerializeField] private float dropProbability;
-    [SerializeField] private bool canAttack;
     [SerializeField] private float fireDelay;
 
     private float fireTimer;
-    private Vector3 startPos;
     private bool isDead;
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
     private MovementPatternController movement;
     public EnemyState State { get; private set; }
-
-
-
-    void Start() {
-        startPos = transform.position;
-    }
 
     void Awake() {
         enemigoVisual = GetComponentInChildren<EnemigoVisual>();
@@ -85,7 +76,6 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     void TryCreateBonusPickup()
     {
-        float ran = Random.value;
         if (Random.value <= dropProbability)
         {
             if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition())) {

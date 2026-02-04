@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2287b3454689a804f8b3f09e213bce34, type: 3}
   m_Name: Shot Pattern Dual
   m_EditorClassIdentifier: Assembly-CSharp::DualShotPattern
+  lanesCount: 2
   offsetX: 0.3

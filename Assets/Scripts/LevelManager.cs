@@ -44,16 +44,10 @@ public class LevelManager : MonoBehaviour
     IEnumerator SpawnWaveCoroutine(WaveDefinition wave)
     {
         currentSpawnDelay = wave.spawnDelay;
+        enemiesAlive = wave.enemiesToSpawn.Count;
+        Debug.Log("Enemigos vivos total: " + enemiesAlive);
         foreach (var enemyPrefab in wave.enemiesToSpawn)
         {
-            enemiesAlive = wave.enemiesToSpawn.Count;
-            /*int randomEnemiesCount = Random.Range(1, 5);
-            enemiesAlive += randomEnemiesCount;
-            for (int i = 0; i < randomEnemiesCount; i++) {
-                Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
-                yield return new WaitForSeconds(wave.spawnDelay);
-            }*/
-
             Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
             yield return new WaitForSeconds(wave.spawnDelay);
         }
@@ -67,7 +61,9 @@ public class LevelManager : MonoBehaviour
 
     public void OnEnemyKilled()
     {
-        enemiesAlive--;
+          enemiesAlive--;
+
+        Debug.Log("Enemigos vivos actualizado: " + enemiesAlive);
 
         if (enemiesAlive <= 0)
         {

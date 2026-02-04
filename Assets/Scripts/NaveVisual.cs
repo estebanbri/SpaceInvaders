@@ -74,10 +74,7 @@ public class NaveVisual : MonoBehaviour
 
     private void UpdateVerticalThrusters(float moveY)
     {
-        if (moveY != 0)
-        {
             ShowMiddlePropulsorParticles();
-        }
     }
 
     private void ShowLeftPropulsorParticles()

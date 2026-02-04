@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Weapon Ca\xF1ol Triple"
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   fireRate: 0.2
-  ammoSpeed: 50
+  ammoSpeed: 20
   ammoPrefab: {fileID: 1611064198390892200, guid: b744edd0fae328347b0764e9e027d7c3, type: 3}
   shotPattern: {fileID: 11400000, guid: 89080a8e454f5c144abc88e96c08cdc6, type: 2}
   ranking: 3

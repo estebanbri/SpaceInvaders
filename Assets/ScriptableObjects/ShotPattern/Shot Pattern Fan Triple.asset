@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af29e0fc3bcc494b87749f29a186229, type: 3}
   m_Name: Shot Pattern Fan Triple
   m_EditorClassIdentifier: Assembly-CSharp::ShotPatternFanTriple
+  lanesCount: 3
   spreadAngle: 30

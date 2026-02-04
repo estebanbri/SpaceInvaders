@@ -169,6 +169,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &172867836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172867838}
+  - component: {fileID: 172867837}
+  m_Layer: 0
+  m_Name: NubeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &172867837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172867836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84787c42abce5c1409c304b25c100a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  nubePrefab: {fileID: 1215000623450090551, guid: 8a800c371e812cd4aa0df382282489bf, type: 3}
+  spawnInterval: 5
+  spawnXRange: 8
+  maxScale: 5
+--- !u!4 &172867838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172867836}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01294, y: 7.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &437390912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4804248280187872700, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+  m_PrefabInstance: {fileID: 7671825944300810080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32c0bf0a53777a4999dee98a6a636d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponMuzzleFlash
+--- !u!114 &475506212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8785525962935294321, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+  m_PrefabInstance: {fileID: 7671825944300810080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32c0bf0a53777a4999dee98a6a636d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponMuzzleFlash
 --- !u!1 &510413898
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +718,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: -8107026894343098098, guid: aa981f1887841694eb9f869bab626488, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -660,85 +730,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1531307129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1531307131}
-  - component: {fileID: 1531307130}
-  m_Layer: 0
-  m_Name: EnemigoSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1531307130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531307129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340a3dab5c460954082a48c73a54dd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  spawnMinX: -5
-  spawnMaxX: 5
-  spawnMargin: 1.5
-  spawnEntries:
-  - enemySpawnProbability: 0.8
-    prefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-    ordaQuantity: 1
-    maxAliveCount: 6
-    aliveCount: 0
-  - enemySpawnProbability: 0.2
-    prefab: {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
-    ordaQuantity: 1
-    maxAliveCount: 3
-    aliveCount: 0
-  - enemySpawnProbability: 0.3
-    prefab: {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
-    ordaQuantity: 1
-    maxAliveCount: 2
-    aliveCount: 0
-  - enemySpawnProbability: 0.2
-    prefab: {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
-    ordaQuantity: 1
-    maxAliveCount: 1
-    aliveCount: 0
-  - enemySpawnProbability: 0.2
-    prefab: {fileID: 2135255373275615037, guid: 8f388b87b5774844a91eecfe29fc06e0, type: 3}
-    ordaQuantity: 1
-    maxAliveCount: 2
-    aliveCount: 0
-  - enemySpawnProbability: 0.1
-    prefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
-    ordaQuantity: 1
-    maxAliveCount: 1
-    aliveCount: 0
-  spawnInterval: 1
---- !u!4 &1531307131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531307129}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551265564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1374,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1888182952124781101, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888182952124781101, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1423,6 +1422,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2410630244840206048, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410630244840206048, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778319278783818957, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: leftSprite
+      value: 
+      objectReference: {fileID: -7410218573728349569, guid: 36c7a3cae57704547bb7f6b8d23b50d1, type: 3}
+    - target: {fileID: 3778319278783818957, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: rightSprite
+      value: 
+      objectReference: {fileID: -7410218573728349569, guid: 36c7a3cae57704547bb7f6b8d23b50d1, type: 3}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: muzzleFlashLeft
+      value: 
+      objectReference: {fileID: 475506212}
+    - target: {fileID: 8088965350015159436, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      propertyPath: muzzleFlashRight
+      value: 
+      objectReference: {fileID: 437390912}
     - target: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_Name
       value: Nave
@@ -1443,6 +1466,6 @@ SceneRoots:
   - {fileID: 1836348127}
   - {fileID: 1825713121}
   - {fileID: 2072626206}
-  - {fileID: 1531307131}
   - {fileID: 1845863552}
   - {fileID: 78046345}
+  - {fileID: 172867838}
