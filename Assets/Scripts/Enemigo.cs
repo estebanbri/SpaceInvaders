@@ -2,32 +2,57 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
 {
+    [Header("Drops")]
     [SerializeField] private PickupBonus bonusPickupPrefab;
     [SerializeField] private GameObject scorePickupPrefab;
-    [SerializeField] private int health = 100;
-    [SerializeField] private WeaponController weaponController;
-    [Range(0,1)]
+    [Range(0, 1)]
     [SerializeField] private float dropProbability;
-    [SerializeField] private float fireDelay;
 
+    [Header("Combat")]
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private WeaponController weaponController;
+    [SerializeField] private float fireDelay = 1f;
+
+    [Header("Boss")]
+    [SerializeField] private bool isBoss = false;
+
+    // Estado interno
+    private int currentHealth;
     private float fireTimer;
     private bool isDead;
+
+    // Referencias
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
     private MovementPatternController movement;
-    public EnemyState State { get; private set; }
 
-    void Awake() {
+    // Estado público
+    public EnemyState State { get; private set; }
+    public bool IsBoss => isBoss;
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
+
+    // Eventos
+    public System.Action<int, int> OnHealthChanged;
+    public System.Action OnEnemyDied;
+
+    void Awake()
+    {
+        currentHealth = maxHealth;
+
         enemigoVisual = GetComponentInChildren<EnemigoVisual>();
         col = GetComponent<Collider2D>();
         movement = GetComponent<MovementPatternController>();
-        movement.OnPatternChanged += HandlePatternChange;
+
+        if (movement != null)
+            movement.OnPatternChanged += HandlePatternChange;
+
         SetState(EnemyState.Entering);
     }
 
     void Update()
     {
-        if (weaponController == null || State != EnemyState.Attacking || isDead)
+        if (isDead || weaponController == null || State != EnemyState.Attacking)
             return;
 
         fireTimer += Time.deltaTime;
@@ -43,23 +68,35 @@ public class Enemigo : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
-        health -= damageAmount;
+        ModifyHealth(-damageAmount);
 
-        if (enemigoVisual != null)
-        enemigoVisual.PlayHitEffect();
+        enemigoVisual?.PlayHitEffect();
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void Die() {
+    private void ModifyHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
+    private void Die()
+    {
+        if (isDead) return;
+
         isDead = true;
-        col.enabled= false; 
-        enemigoVisual.PlayDeath();
+        col.enabled = false;
+
+        OnEnemyDied?.Invoke();
+
+        enemigoVisual?.PlayDeath();
         CreateScorePickup();
         TryCreateBonusPickup();
+
         LevelManager.Instance.OnEnemyKilled();
     }
 
@@ -68,21 +105,25 @@ public class Enemigo : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    void CreateScorePickup() {
-        for (int i = 0; i < Random.Range(1, 4); i++) {
-            Instantiate(scorePickupPrefab, new Vector3(transform.position.x + i + 1, transform.position.y - i, 0)  , Quaternion.identity);
+    private void CreateScorePickup()
+    {
+        int count = Random.Range(1, 4);
+        for (int i = 0; i < count; i++)
+        {
+            Vector3 offset = new Vector3(i + 1, -i, 0);
+            Instantiate(scorePickupPrefab, transform.position + offset, Quaternion.identity);
         }
     }
 
-    void TryCreateBonusPickup()
+    private void TryCreateBonusPickup()
     {
-        if (Random.value <= dropProbability)
-        {
-            if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition())) {
-                return;
-            }
-            Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
-        }
+        if (bonusPickupPrefab == null) return;
+        if (Random.value > dropProbability) return;
+
+        if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition()))
+            return;
+
+        Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
     }
 
     public void SetState(EnemyState newState)
@@ -90,12 +131,10 @@ public class Enemigo : MonoBehaviour, IDamageable
         State = newState;
     }
 
-    void HandlePatternChange(int patternIndex)
+    private void HandlePatternChange(int patternIndex)
     {
-        // Ejemplo de reglas
-        if (patternIndex % 2 == 0)
-            SetState(EnemyState.Attacking);
-        else
-            SetState(EnemyState.Moving);
+        SetState(patternIndex % 2 == 0
+            ? EnemyState.Attacking
+            : EnemyState.Moving);
     }
 }

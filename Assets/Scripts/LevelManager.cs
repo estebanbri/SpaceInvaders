@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private List<LevelDefinition> levels;
 
+    [SerializeField] private BossHealthBarUI bossHealthBar;
+
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
     private float currentSpawnDelay = 0;
@@ -74,7 +76,13 @@ public class LevelManager : MonoBehaviour
 
     void SpawnBoss(GameObject bossPrefab)
     {
-        Instantiate(bossPrefab, new Vector3(0, 7, 0), Quaternion.identity);
+        GameObject bossGO = Instantiate(bossPrefab, new Vector3(0, 7, 0), Quaternion.identity);
+
+        Enemigo boss = bossGO.GetComponent<Enemigo>();
+        if (boss != null && bossHealthBar != null)
+        {
+            bossHealthBar.Bind(boss);
+        }
     }
 
     Vector3 GetSpawnPosition()

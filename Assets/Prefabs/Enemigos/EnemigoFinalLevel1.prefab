@@ -80,10 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
   bonusPickupPrefab: {fileID: 6247315687656034272, guid: ce78cc2b0f5c19d40a19d13f2069b045, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
-  health: 1000
-  weaponController: {fileID: 1228598912135458112}
   dropProbability: 0.1
+  maxHealth: 1000
+  weaponController: {fileID: 1228598912135458112}
   fireDelay: 0
+  isBoss: 1
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0

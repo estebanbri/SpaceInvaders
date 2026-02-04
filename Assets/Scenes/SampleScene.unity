@@ -119,6 +119,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &46398795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+  m_PrefabInstance: {fileID: 7671825944300810080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &46398801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46398795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fa3d4dd1ec3584b99ab90e4e11e1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipSpawnAnimation
+  travelDistance: 30
+  travelDuration: 3
+  easing:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &65112786 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4472115876504159938, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
@@ -165,6 +208,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 53c0423d0a70a684dbb6c32efa25e71b, type: 2}
     - {fileID: 11400000, guid: 8dadac5d9bc8878488aaf1a6002ec609, type: 2}
     - {fileID: 11400000, guid: 71f8b9fa74b7eec4a98d67abb5fe2430, type: 2}
+  bossHealthBar: {fileID: 0}
 --- !u!4 &78046345
 Transform:
   m_ObjectHideFlags: 0
@@ -1369,7 +1413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.128
+      value: -3.58
       objectReference: {fileID: 0}
     - target: {fileID: 2198610704174359446, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1418,7 +1462,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8579679871356674865, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 46398801}
   m_SourcePrefab: {fileID: 100100000, guid: ec3efb078526c254694b5e79d34a6aa5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
