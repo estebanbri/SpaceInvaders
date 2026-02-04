@@ -28,7 +28,8 @@ public class WeaponInstance
         if (Time.time < nextFireTime) return;
 
         nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
-        switch (weaponDefinition.shotPattern.lanesCount) {
+        if (weaponMuzzleFlash != null) {
+            switch (weaponDefinition.shotPattern.lanesCount) {
             case 1:
                 weaponMuzzleFlash.Play();
                 break;
@@ -41,6 +42,7 @@ public class WeaponInstance
                 weaponMuzzleFlashLeft.Play();
                 weaponMuzzleFlashRight.Play();
                 break;
+            }
         }
         weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, firePoint, weaponDefinition.ammoSpeed, ownerFaction);
     }
