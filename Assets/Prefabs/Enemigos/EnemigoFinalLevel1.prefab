@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 2
+  behavior: 1
 --- !u!114 &7146610694354115643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,8 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
   weaponDefault: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
   muzzleFlash: {fileID: 0}
-  muzzleFlashLeft: {fileID: 0}
-  muzzleFlashRight: {fileID: 0}
+  autoAimAtPlayer: 1
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0

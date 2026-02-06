@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 505734399438179551}
   - component: {fileID: 1611064198390892200}
   - component: {fileID: 4827789720168237498}
+  - component: {fileID: -2126383702353416841}
   m_Layer: 0
   m_Name: WeaponAmmoHielo
   m_TagString: Untagged
@@ -94,6 +95,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.21451208, y: 0.3166716}
   m_EdgeRadius: 0
+--- !u!114 &-2126383702353416841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346423642840248255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
+  bottomMargin: 1
 --- !u!1 &6479153561357284600
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +211,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0b1096d9e6f3e49a4e09b41cbbb3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAmmoVisual
-  initSprite: {fileID: 5423983199605264902, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
   flyingSprite: {fileID: -8284894485760392845, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
   impactSprite: {fileID: -7912124021045096971, guid: 19a4368a46140274e889985a3beaf549, type: 3}

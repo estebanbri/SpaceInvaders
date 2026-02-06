@@ -126,10 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemigo
   bonusPickupPrefab: {fileID: 5604128541931985237, guid: ddea3002692b3a54b936e348700069c2, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
-  health: 50
-  weaponController: {fileID: 0}
   dropProbability: 0.3
+  maxHealth: 100
+  weaponController: {fileID: 0}
   fireDelay: 0
+  isBoss: 0
 --- !u!114 &520795594945169632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 2
+  behavior: 1
 --- !u!114 &187244001076093858
 MonoBehaviour:
   m_ObjectHideFlags: 0

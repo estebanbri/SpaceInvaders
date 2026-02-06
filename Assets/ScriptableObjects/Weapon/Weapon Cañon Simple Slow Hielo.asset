@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
+  m_Name: "Weapon Ca\xF1on Simple Slow Hielo"
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
+  fireRate: 2
+  ammoSpeed: 5
+  ammoPrefab: {fileID: 1611064198390892200, guid: 7cec658b5d95de748a9d388a42bd5ac7, type: 3}
+  shotPattern: {fileID: 11400000, guid: 81e52bc0e346d9945b237216e9747637, type: 2}
+  ranking: 1

@@ -7,16 +7,12 @@ public class WeaponInstance
     private float fireRateMultiplier = 1f;
     private FactionType ownerFaction;
     private WeaponMuzzleFlash weaponMuzzleFlash;
-    private WeaponMuzzleFlash weaponMuzzleFlashLeft;
-    private WeaponMuzzleFlash weaponMuzzleFlashRight;
 
-    public WeaponInstance(WeaponDefinition weaponDefinition, FactionType ownerFaction, WeaponMuzzleFlash weaponMuzzleFlash, WeaponMuzzleFlash muzzleFlashLeft, WeaponMuzzleFlash muzzleFlashRight)
+    public WeaponInstance(WeaponDefinition weaponDefinition, FactionType ownerFaction, WeaponMuzzleFlash weaponMuzzleFlash)
     {
         this.weaponDefinition = weaponDefinition;
         this.ownerFaction = ownerFaction;
         this.weaponMuzzleFlash = weaponMuzzleFlash;
-        this.weaponMuzzleFlashLeft = muzzleFlashLeft;
-        this.weaponMuzzleFlashRight = muzzleFlashRight;
     }
 
     // El parametro Transform firePoint va a venir la data de la rotacion que tenga quien dispara, entonces luego en las 
@@ -28,23 +24,34 @@ public class WeaponInstance
         if (Time.time < nextFireTime) return;
 
         nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
-        if (weaponMuzzleFlash != null) {
-            switch (weaponDefinition.shotPattern.lanesCount) {
-            case 1:
-                weaponMuzzleFlash.Play();
-                break;
-            case 2:
-                weaponMuzzleFlashLeft.Play();
-                weaponMuzzleFlashRight.Play();
-                break;
-            case 3:
-                weaponMuzzleFlash.Play();
-                weaponMuzzleFlashLeft.Play();
-                weaponMuzzleFlashRight.Play();
-                break;
-            }
+
+        if (weaponMuzzleFlash != null)
+        {
+            weaponMuzzleFlash.Play();
         }
+
         weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, firePoint, weaponDefinition.ammoSpeed, ownerFaction);
+    }
+
+    // Nuevo método para disparar usando posición y rotación
+    public void Fire(Quaternion rotation, Vector3 position)
+    {
+        if (Time.time < nextFireTime) return;
+
+        nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
+
+        // Creamos un "fake" transform para disparar usando la rotación deseada
+        GameObject temp = new GameObject("TempFirePoint");
+        temp.transform.position = position;
+        temp.transform.rotation = rotation;
+
+        if (weaponMuzzleFlash != null) {
+            weaponMuzzleFlash.Play();
+        }
+
+        weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, temp.transform, weaponDefinition.ammoSpeed, ownerFaction);
+
+        GameObject.Destroy(temp); // destruimos el objeto temporal inmediatamente después
     }
 
     public void SetFireRateMultiplier(float multiplier)

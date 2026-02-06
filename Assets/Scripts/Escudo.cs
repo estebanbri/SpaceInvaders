@@ -28,7 +28,7 @@ public class Escudo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Enemigo>(out Enemigo enemigo) ||  collision.TryGetComponent<Asteroide>(out Asteroide asteroide)) {
+        if (collision.TryGetComponent<Enemigo>(out Enemigo enemigo) ||  collision.TryGetComponent<Torreta>(out Torreta torreta)) {
             RemoveEscudo();
         }
     }

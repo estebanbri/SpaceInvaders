@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -62,5 +63,17 @@ public class GameManager : MonoBehaviour
         if (livesCurrent >= livesMax) return;
         livesCurrent++;
         UIVidas.Instance.SetLivesIcons(livesCurrent);
+    }
+
+    public void OnPlayerDeath(Nave nave)
+    {
+        DecreaseRetry();
+
+        if (HasPendingRetries()) {
+            nave.Respawn();
+        } else {
+            Destroy(nave.gameObject);
+            GameOver();
+        }
     }
 }

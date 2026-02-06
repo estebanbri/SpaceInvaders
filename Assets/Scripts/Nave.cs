@@ -61,38 +61,22 @@ public class Nave : MonoBehaviour, IDamageable
         float clampedY = Mathf.Clamp(transform.position.y, screenMinY, screenMaxY);
         transform.position = new Vector3(transform.position.x, clampedY, 0);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Morir()
     {
         if (isDead) return;
 
-        if (collision.gameObject.TryGetComponent<Enemigo>(out Enemigo enemigo)
-            || collision.gameObject.TryGetComponent<Asteroide>(out Asteroide asteroide))
-        {
-            if (this.escudo.IsActive()) {
-                BonusManager.Instance.RemoveBonus(escudobonusDefinition);
-                this.escudo.RemoveEscudo();
-            } else
-            {
-                Morir();
-            }
-        }
-    }
-
-    private void Morir() {
         isDead = true;
-        GameManager.Instance.DecreaseRetry();
-        if (GameManager.Instance.HasPendingRetries())
-        {
-            Respawn();
-        }
-        else
-        {
-            Destroy(gameObject);
-            GameManager.Instance.GameOver();
-        }
+
+        OnDeath();
     }
 
-    private void Respawn() {
+    private void OnDeath()
+    {
+        GameManager.Instance.OnPlayerDeath(this);
+    }
+
+    public void Respawn() {
         StartCoroutine(InvulneravilityCoroutine());
         isDead = false;
     }
@@ -115,6 +99,20 @@ public class Nave : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damageAmount)
     {
+        if (isDead) return;
+
+        if (escudo.IsActive())
+        {
+            AbsorberDañoConEscudo();
+            return;
+        }
+
         Morir();
+    }
+
+    private void AbsorberDañoConEscudo()
+    {
+        BonusManager.Instance.RemoveBonus(escudobonusDefinition);
+        escudo.RemoveEscudo();
     }
 }

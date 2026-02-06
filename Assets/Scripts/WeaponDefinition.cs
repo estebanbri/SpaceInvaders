@@ -9,4 +9,5 @@ public class WeaponDefinition : ScriptableObject
     public WeaponAmmo ammoPrefab;
     public ShotPatternBase shotPattern;
     public int ranking;
+    
 }

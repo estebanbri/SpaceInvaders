@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DestroyOutsideCamera;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<LevelDefinition> levels;
 
     [SerializeField] private BossHealthBarUI bossHealthBar;
+
+    [Header("Parallax")]
+    [SerializeField] private Transform parallaxLayerTransform;
 
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
@@ -40,6 +44,9 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
+        // Spawneamos las torretas fijas de la wave
+        SpawnWaveTurrets(wave);
+
         StartCoroutine(SpawnWaveCoroutine(wave));
     }
 
@@ -55,7 +62,23 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator OnEnemyKilledByOutsideCamera(GameObject go)
+    public void OnEnemyExitedCamera(GameObject enemy)
+    {
+        if (!enemy.TryGetComponent(out DestroyOutsideCamera doc))
+            return;
+
+        if (doc.GetBehavior() == OutsideCameraBehavior.DestroyAndRespawn)
+        {
+            RespawnEnemy(enemy);
+        }
+        // DestroyOnly → no hacemos nada más
+    }
+
+    public void RespawnEnemy(GameObject go) {
+        StartCoroutine(RespawnEnemyCoroutine(go));
+    }
+
+    public IEnumerator RespawnEnemyCoroutine(GameObject go)
     {
         Instantiate(go, GetSpawnPosition(), Quaternion.identity);
         yield return new WaitForSeconds(currentSpawnDelay);
@@ -63,7 +86,7 @@ public class LevelManager : MonoBehaviour
 
     public void OnEnemyKilled()
     {
-          enemiesAlive--;
+        enemiesAlive--;
 
         Debug.Log("Enemigos vivos actualizado: " + enemiesAlive);
 
@@ -92,5 +115,25 @@ public class LevelManager : MonoBehaviour
 
     private int LastWaveIndex() {
         return levels[currentLevelIndex].waves.Count - 1;
+    }
+
+    void SpawnWaveTurrets(WaveDefinition wave)
+    {
+        for (int i = 0; i < wave.turretsToSpawn; i++)
+        {
+            GameObject turretPrefab = wave.turretPrefabs[Random.Range(0, wave.turretPrefabs.Count)];
+
+            Vector3 spawnPos = new Vector3(
+                Random.Range(screenLimitMinX, screenLimitMaxX),
+                Random.Range(1f, 8f),
+                0f
+            );
+
+            GameObject turret = Instantiate(turretPrefab, spawnPos, Quaternion.identity);
+
+            // Elegimos aleatoriamente cuál fondo seguir
+            Transform chosenBG = (Random.value > 0.5f) ? parallaxLayerTransform.GetChild(0) : parallaxLayerTransform.GetChild(1);
+            turret.transform.SetParent(chosenBG, true); // el true preserva la posición global
+        }
     }
 }

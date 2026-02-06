@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 505734399438179551}
   - component: {fileID: 1611064198390892200}
   - component: {fileID: 8752700415868760497}
+  - component: {fileID: -6485027851299653246}
   m_Layer: 0
   m_Name: WeaponAmmoVeneno
   m_TagString: Untagged
@@ -85,6 +86,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0022820756, y: 0.0006892681}
   m_Size: {x: 0.11674778, y: 0.2783544}
   m_Direction: 0
+--- !u!114 &-6485027851299653246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346423642840248255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
+  bottomMargin: 1
 --- !u!1 &6479153561357284600
 GameObject:
   m_ObjectHideFlags: 0

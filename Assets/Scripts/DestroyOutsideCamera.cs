@@ -5,6 +5,14 @@ public class DestroyOutsideCamera : MonoBehaviour
     [SerializeField] private float bottomMargin = 2f;
     private Camera mainCamera;
 
+    public enum OutsideCameraBehavior
+    {
+        DestroyOnly,
+        DestroyAndRespawn
+    }
+
+    [SerializeField] private OutsideCameraBehavior behavior = OutsideCameraBehavior.DestroyOnly;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -17,12 +25,23 @@ public class DestroyOutsideCamera : MonoBehaviour
 
         if (transform.position.y < cameraBottomY - bottomMargin)
         {
-            if (gameObject.TryGetComponent(out FactionComponent factionComponent)) {
-                if (factionComponent.Faction == FactionType.Enemy) {
-                    StartCoroutine(LevelManager.Instance.OnEnemyKilledByOutsideCamera(gameObject));
-                }
-            }
+            NotifyExit();
             Destroy(gameObject);
         }
     }
+
+    private void NotifyExit()
+    {
+        if (!TryGetComponent(out FactionComponent faction) ||
+            faction.Faction != FactionType.Enemy)
+            return;
+
+        LevelManager.Instance.OnEnemyExitedCamera(gameObject);
+    }
+
+    public OutsideCameraBehavior GetBehavior() {
+        return behavior;
+    }
+
+
 }

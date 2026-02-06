@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 87842abedd433484a9a5716da110cdc6
+guid: 9caf4331a423ba84cb79b5d90b96cba8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9026222594606825453
-    second: Gemini_Generated_Image_glq0bcglq0bcglq0_0
+      213: 5227334074993819767
+    second: torreta 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_glq0bcglq0bcglq0_0
+      name: torreta 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 56
+        y: 93
+        width: 388
+        height: 351
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3100bd88f5a6cb280800000000000000
-      internalID: -9026222594606825453
+      spriteID: 7704d4645a83b8840800000000000000
+      internalID: 5227334074993819767
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gemini_Generated_Image_glq0bcglq0bcglq0_0: -9026222594606825453
+      torreta 1_0: 5227334074993819767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
