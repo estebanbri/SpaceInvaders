@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private BossHealthBarUI bossHealthBar;
 
     [Header("Parallax")]
-    [SerializeField] private Transform parallaxLayerTransform;
+    [SerializeField] private VerticalParallax parallax;
 
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
@@ -44,8 +44,7 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        // Spawneamos las torretas fijas de la wave
-        SpawnWaveTurrets(wave);
+        
 
         StartCoroutine(SpawnWaveCoroutine(wave));
     }
@@ -60,6 +59,8 @@ public class LevelManager : MonoBehaviour
             Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
             yield return new WaitForSeconds(wave.spawnDelay);
         }
+        // Spawneamos las torretas fijas de la wave
+        SpawnWaveTurrets(wave);
     }
 
     public void OnEnemyExitedCamera(GameObject enemy)
@@ -119,12 +120,15 @@ public class LevelManager : MonoBehaviour
 
     void SpawnWaveTurrets(WaveDefinition wave)
     {
+        // Definimos la X de la lane central
+        float centralX = (screenLimitMinX + screenLimitMaxX) / 2f;
+
         for (int i = 0; i < wave.turretsToSpawn; i++)
         {
             GameObject turretPrefab = wave.turretPrefabs[Random.Range(0, wave.turretPrefabs.Count)];
 
             Vector3 spawnPos = new Vector3(
-                Random.Range(screenLimitMinX, screenLimitMaxX),
+                centralX,
                 Random.Range(1f, 8f),
                 0f
             );
@@ -132,8 +136,7 @@ public class LevelManager : MonoBehaviour
             GameObject turret = Instantiate(turretPrefab, spawnPos, Quaternion.identity);
 
             // Elegimos aleatoriamente cuál fondo seguir
-            Transform chosenBG = (Random.value > 0.5f) ? parallaxLayerTransform.GetChild(0) : parallaxLayerTransform.GetChild(1);
-            turret.transform.SetParent(chosenBG, true); // el true preserva la posición global
+            turret.transform.SetParent(parallax.transform, true); // el true preserva la posición global
         }
     }
 }

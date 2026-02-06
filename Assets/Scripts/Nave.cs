@@ -92,6 +92,23 @@ public class Nave : MonoBehaviour, IDamageable
         return this.escudo; 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDead) return;
+
+        if (collision.gameObject.TryGetComponent<IDamageable>(out _))
+        {
+            if (escudo.IsActive())
+            {
+                escudo.RemoveEscudo();
+            }
+            else
+            {
+                Morir();
+            }
+        }
+    }
+
     public WeaponController GetWeaponController()
     {  
         return weaponController; 
