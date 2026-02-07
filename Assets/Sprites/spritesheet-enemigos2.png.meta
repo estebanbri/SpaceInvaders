@@ -1,0 +1,1456 @@
+fileFormatVersion: 2
+guid: 1d246d0edb24fd74a86960227264047f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7678402531152132986
+    second: spritesheet-enemigos2_0
+  - first:
+      213: -632261274386374377
+    second: spritesheet-enemigos2_1
+  - first:
+      213: -650812539364017219
+    second: spritesheet-enemigos2_2
+  - first:
+      213: -4766743789719343891
+    second: spritesheet-enemigos2_3
+  - first:
+      213: -1293278350786905798
+    second: spritesheet-enemigos2_4
+  - first:
+      213: -1255887809045654448
+    second: spritesheet-enemigos2_5
+  - first:
+      213: -1428840826794572068
+    second: spritesheet-enemigos2_6
+  - first:
+      213: 2323700548445167068
+    second: spritesheet-enemigos2_7
+  - first:
+      213: -5515694018436921432
+    second: spritesheet-enemigos2_8
+  - first:
+      213: -4498483716121955169
+    second: spritesheet-enemigos2_9
+  - first:
+      213: -1640347810260593695
+    second: spritesheet-enemigos2_10
+  - first:
+      213: 1878425817954635425
+    second: spritesheet-enemigos2_11
+  - first:
+      213: 1627861741433987006
+    second: spritesheet-enemigos2_12
+  - first:
+      213: -6855697389362411688
+    second: spritesheet-enemigos2_13
+  - first:
+      213: -5857144660463618842
+    second: spritesheet-enemigos2_14
+  - first:
+      213: 4965017743382367120
+    second: spritesheet-enemigos2_15
+  - first:
+      213: 3780424089590195594
+    second: spritesheet-enemigos2_16
+  - first:
+      213: 336723597820076022
+    second: spritesheet-enemigos2_17
+  - first:
+      213: 2767067840510493160
+    second: spritesheet-enemigos2_18
+  - first:
+      213: -3256688480195806249
+    second: spritesheet-enemigos2_19
+  - first:
+      213: 5967982517837149257
+    second: spritesheet-enemigos2_20
+  - first:
+      213: 2767707291469306215
+    second: spritesheet-enemigos2_21
+  - first:
+      213: -2030728442549341840
+    second: spritesheet-enemigos2_22
+  - first:
+      213: -2669631594978600008
+    second: spritesheet-enemigos2_23
+  - first:
+      213: -8906529697352001183
+    second: spritesheet-enemigos2_24
+  - first:
+      213: -393743951741776842
+    second: spritesheet-enemigos2_25
+  - first:
+      213: -3695059983749581489
+    second: spritesheet-enemigos2_26
+  - first:
+      213: -3512530296354125311
+    second: spritesheet-enemigos2_27
+  - first:
+      213: -2929957524115240489
+    second: spritesheet-enemigos2_28
+  - first:
+      213: 2989628644899912153
+    second: spritesheet-enemigos2_29
+  - first:
+      213: -6542945264428128780
+    second: spritesheet-enemigos2_30
+  - first:
+      213: 1690967255479371181
+    second: spritesheet-enemigos2_31
+  - first:
+      213: 8337992563412586658
+    second: spritesheet-enemigos2_32
+  - first:
+      213: -7003514211799386931
+    second: spritesheet-enemigos2_33
+  - first:
+      213: 8141372024268412981
+    second: spritesheet-enemigos2_34
+  - first:
+      213: 5309144708296271441
+    second: spritesheet-enemigos2_35
+  - first:
+      213: 4822449854207381860
+    second: spritesheet-enemigos2_36
+  - first:
+      213: 2859197153692219205
+    second: spritesheet-enemigos2_37
+  - first:
+      213: -1566550033849018871
+    second: spritesheet-enemigos2_38
+  - first:
+      213: -1519997883873225097
+    second: spritesheet-enemigos2_39
+  - first:
+      213: 409607903355860857
+    second: spritesheet-enemigos2_40
+  - first:
+      213: 2897111686376622257
+    second: spritesheet-enemigos2_41
+  - first:
+      213: -4857097857195576029
+    second: spritesheet-enemigos2_42
+  - first:
+      213: -2811170189897569692
+    second: spritesheet-enemigos2_43
+  - first:
+      213: -2849411169090063847
+    second: spritesheet-enemigos2_44
+  - first:
+      213: 2130025393526735721
+    second: spritesheet-enemigos2_45
+  - first:
+      213: 7727384692742250394
+    second: spritesheet-enemigos2_46
+  - first:
+      213: -7145960346694704360
+    second: spritesheet-enemigos2_47
+  - first:
+      213: 1746716582787374622
+    second: spritesheet-enemigos2_48
+  - first:
+      213: 3205184432432085393
+    second: spritesheet-enemigos2_49
+  - first:
+      213: 635276964083091788
+    second: spritesheet-enemigos2_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1399
+        width: 175
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68487307495d07590800000000000000
+      internalID: -7678402531152132986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1405
+        width: 176
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711e6f688b1c937f0800000000000000
+      internalID: -632261274386374377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_2
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1399
+        width: 210
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb76df8179d7f6f0800000000000000
+      internalID: -650812539364017219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_3
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 1399
+        width: 177
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: decaa7e47cf19ddb0800000000000000
+      internalID: -4766743789719343891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_4
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1399
+        width: 180
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39b4a9213a5d0ee0800000000000000
+      internalID: -1293278350786905798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1263
+        width: 163
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054171011b0329ee0800000000000000
+      internalID: -1255887809045654448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_6
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1265
+        width: 147
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6855e96dcbb2ce0800000000000000
+      internalID: -1428840826794572068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_7
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1271
+        width: 207
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd547a56517f3020800000000000000
+      internalID: 2323700548445167068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_8
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 1271
+        width: 176
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a7025d73815473b0800000000000000
+      internalID: -5515694018436921432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_9
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 1272
+        width: 179
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94fba8e4ec2291c0800000000000000
+      internalID: -4498483716121955169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1135
+        width: 199
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3d3558b505c39e0800000000000000
+      internalID: -1640347810260593695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_11
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1135
+        width: 191
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aecb104452811a10800000000000000
+      internalID: 1878425817954635425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_12
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1135
+        width: 219
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf1f9901a3579610800000000000000
+      internalID: 1627861741433987006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_13
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1134
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8570b732c8babd0a0800000000000000
+      internalID: -6855697389362411688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_14
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 1135
+        width: 182
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e47dfab6fd37bea0800000000000000
+      internalID: -5857144660463618842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_15
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1135
+        width: 214
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b41d1f45947e440800000000000000
+      internalID: 4965017743382367120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 991
+        width: 147
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a856a501ea3c67430800000000000000
+      internalID: 3780424089590195594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_17
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 855
+        width: 146
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff9e8304584ca400800000000000000
+      internalID: 336723597820076022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 994
+        width: 174
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e109075a89966620800000000000000
+      internalID: 2767067840510493160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_19
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 853
+        width: 163
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7db72d9f41bedc2d0800000000000000
+      internalID: -3256688480195806249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_20
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 991
+        width: 220
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 944bc61fa7882d250800000000000000
+      internalID: 5967982517837149257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_21
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 855
+        width: 201
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769594e1e1fd86620800000000000000
+      internalID: 2767707291469306215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_22
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 855
+        width: 175
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0717092ad3761d3e0800000000000000
+      internalID: -2030728442549341840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_23
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 991
+        width: 177
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb142c653093fad0800000000000000
+      internalID: -2669631594978600008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_24
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 855
+        width: 165
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169ddd7dd66a56480800000000000000
+      internalID: -8906529697352001183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_25
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 949
+        width: 208
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c09f746f3298af0800000000000000
+      internalID: -393743951741776842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_26
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 721
+        width: 144
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4578d4a58288bcc0800000000000000
+      internalID: -3695059983749581489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_27
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 583
+        width: 191
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ac30f3e4cf04fc0800000000000000
+      internalID: -3512530296354125311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_28
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 720
+        width: 163
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d9c028c723b657d0800000000000000
+      internalID: -2929957524115240489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_29
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 714
+        width: 206
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9779da96b4d7920800000000000000
+      internalID: 2989628644899912153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_30
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 584
+        width: 176
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5efe0b2f9c235a0800000000000000
+      internalID: -6542945264428128780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_31
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 719
+        width: 174
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da54aad72c5877710800000000000000
+      internalID: 1690967255479371181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_32
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 717
+        width: 162
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a05e025f0086b370800000000000000
+      internalID: 8337992563412586658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_33
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 720
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc43c4a3ee48ece90800000000000000
+      internalID: -7003514211799386931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_34
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 583
+        width: 150
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53852d2a8b6fbf070800000000000000
+      internalID: 8141372024268412981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_35
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 582
+        width: 197
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156e42fabfedda940800000000000000
+      internalID: 5309144708296271441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_36
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 584
+        width: 170
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4615a2b8798cce240800000000000000
+      internalID: 4822449854207381860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_37
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 444
+        width: 138
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547f1a0a9a8eda720800000000000000
+      internalID: 2859197153692219205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_38
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 444
+        width: 164
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9069d8d4b0f724ae0800000000000000
+      internalID: -1566550033849018871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_39
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 444
+        width: 178
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77614685af1e7eae0800000000000000
+      internalID: -1519997883873225097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_40
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 454
+        width: 167
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977f7b8c7383fa500800000000000000
+      internalID: 409607903355860857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_41
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 393
+        width: 209
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b88c1daabb943820800000000000000
+      internalID: 2897111686376622257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_42
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 82
+        width: 191
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 325fb8e9b3f189cb0800000000000000
+      internalID: -4857097857195576029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_43
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 319
+        width: 167
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46aecf34b97bcf8d0800000000000000
+      internalID: -2811170189897569692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_44
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 315
+        width: 218
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9123b5773abd478d0800000000000000
+      internalID: -2849411169090063847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_45
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 319
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96309bf5fce5f8d10800000000000000
+      internalID: 2130025393526735721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_46
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 319
+        width: 171
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f51b5cf6f2d3b60800000000000000
+      internalID: 7727384692742250394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_47
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 11
+        width: 607
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8132c34fce274dc90800000000000000
+      internalID: -7145960346694704360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_48
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 191
+        width: 178
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e53504a759d3810800000000000000
+      internalID: 1746716582787374622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_49
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 33
+        width: 319
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199f9be624a1b7c20800000000000000
+      internalID: 3205184432432085393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-enemigos2_50
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 11
+        width: 301
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4949227805f0d800800000000000000
+      internalID: 635276964083091788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spritesheet-enemigos2_0: -7678402531152132986
+      spritesheet-enemigos2_1: -632261274386374377
+      spritesheet-enemigos2_10: -1640347810260593695
+      spritesheet-enemigos2_11: 1878425817954635425
+      spritesheet-enemigos2_12: 1627861741433987006
+      spritesheet-enemigos2_13: -6855697389362411688
+      spritesheet-enemigos2_14: -5857144660463618842
+      spritesheet-enemigos2_15: 4965017743382367120
+      spritesheet-enemigos2_16: 3780424089590195594
+      spritesheet-enemigos2_17: 336723597820076022
+      spritesheet-enemigos2_18: 2767067840510493160
+      spritesheet-enemigos2_19: -3256688480195806249
+      spritesheet-enemigos2_2: -650812539364017219
+      spritesheet-enemigos2_20: 5967982517837149257
+      spritesheet-enemigos2_21: 2767707291469306215
+      spritesheet-enemigos2_22: -2030728442549341840
+      spritesheet-enemigos2_23: -2669631594978600008
+      spritesheet-enemigos2_24: -8906529697352001183
+      spritesheet-enemigos2_25: -393743951741776842
+      spritesheet-enemigos2_26: -3695059983749581489
+      spritesheet-enemigos2_27: -3512530296354125311
+      spritesheet-enemigos2_28: -2929957524115240489
+      spritesheet-enemigos2_29: 2989628644899912153
+      spritesheet-enemigos2_3: -4766743789719343891
+      spritesheet-enemigos2_30: -6542945264428128780
+      spritesheet-enemigos2_31: 1690967255479371181
+      spritesheet-enemigos2_32: 8337992563412586658
+      spritesheet-enemigos2_33: -7003514211799386931
+      spritesheet-enemigos2_34: 8141372024268412981
+      spritesheet-enemigos2_35: 5309144708296271441
+      spritesheet-enemigos2_36: 4822449854207381860
+      spritesheet-enemigos2_37: 2859197153692219205
+      spritesheet-enemigos2_38: -1566550033849018871
+      spritesheet-enemigos2_39: -1519997883873225097
+      spritesheet-enemigos2_4: -1293278350786905798
+      spritesheet-enemigos2_40: 409607903355860857
+      spritesheet-enemigos2_41: 2897111686376622257
+      spritesheet-enemigos2_42: -4857097857195576029
+      spritesheet-enemigos2_43: -2811170189897569692
+      spritesheet-enemigos2_44: -2849411169090063847
+      spritesheet-enemigos2_45: 2130025393526735721
+      spritesheet-enemigos2_46: 7727384692742250394
+      spritesheet-enemigos2_47: -7145960346694704360
+      spritesheet-enemigos2_48: 1746716582787374622
+      spritesheet-enemigos2_49: 3205184432432085393
+      spritesheet-enemigos2_5: -1255887809045654448
+      spritesheet-enemigos2_50: 635276964083091788
+      spritesheet-enemigos2_6: -1428840826794572068
+      spritesheet-enemigos2_7: 2323700548445167068
+      spritesheet-enemigos2_8: -5515694018436921432
+      spritesheet-enemigos2_9: -4498483716121955169
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

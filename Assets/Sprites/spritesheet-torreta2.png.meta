@@ -1,0 +1,655 @@
+fileFormatVersion: 2
+guid: 00bf4e64b1c265344b2a8fb4a6909261
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2269104767104470883
+    second: spritesheet-torreta2_0
+  - first:
+      213: 6800490900793003577
+    second: spritesheet-torreta2_1
+  - first:
+      213: -8566273546087905378
+    second: spritesheet-torreta2_2
+  - first:
+      213: 7880581852551202434
+    second: spritesheet-torreta2_3
+  - first:
+      213: 7671425077838588231
+    second: spritesheet-torreta2_4
+  - first:
+      213: -8922440963320063642
+    second: spritesheet-torreta2_5
+  - first:
+      213: -7866733074290738168
+    second: spritesheet-torreta2_6
+  - first:
+      213: -7889856368422919470
+    second: spritesheet-torreta2_7
+  - first:
+      213: -3357799316067914079
+    second: spritesheet-torreta2_8
+  - first:
+      213: -6758371762246572187
+    second: spritesheet-torreta2_9
+  - first:
+      213: 4307322984524940419
+    second: spritesheet-torreta2_10
+  - first:
+      213: -9081051102745328588
+    second: spritesheet-torreta2_11
+  - first:
+      213: -4521354815020697421
+    second: spritesheet-torreta2_12
+  - first:
+      213: 1302607857643570947
+    second: spritesheet-torreta2_13
+  - first:
+      213: 3010518780643667845
+    second: spritesheet-torreta2_14
+  - first:
+      213: -7963939535203471860
+    second: spritesheet-torreta2_15
+  - first:
+      213: 6982495258325260799
+    second: spritesheet-torreta2_16
+  - first:
+      213: -2034075519458257506
+    second: spritesheet-torreta2_17
+  - first:
+      213: 3661490821541670556
+    second: spritesheet-torreta2_18
+  - first:
+      213: 4561107094603736714
+    second: spritesheet-torreta2_19
+  - first:
+      213: -7188872347473184427
+    second: spritesheet-torreta2_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet-torreta2_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 778
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90b79e8c358280e0800000000000000
+      internalID: -2269104767104470883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_1
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 778
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e0b089172306e50800000000000000
+      internalID: 6800490900793003577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_2
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 778
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e97ca9c889b7e1980800000000000000
+      internalID: -8566273546087905378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_3
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 778
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28644b811737d5d60800000000000000
+      internalID: 7880581852551202434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_4
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 584
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749a79d9670667a60800000000000000
+      internalID: 7671425077838588231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_5
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 584
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669d9eb873f1d2480800000000000000
+      internalID: -8922440963320063642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_6
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 584
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c751cd2ffb3d290800000000000000
+      internalID: -7866733074290738168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_7
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 584
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d26c476f69918290800000000000000
+      internalID: -7889856368422919470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_8
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 390
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aee8baff43b661d0800000000000000
+      internalID: -3357799316067914079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_9
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 390
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567234b80b07532a0800000000000000
+      internalID: -6758371762246572187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_10
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 390
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3840c79ee6fa6cb30800000000000000
+      internalID: 4307322984524940419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_11
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 390
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43402b1b220a9f180800000000000000
+      internalID: -9081051102745328588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_12
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 196
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8703b30cbe041c0800000000000000
+      internalID: -4521354815020697421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_13
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 196
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3074a7ce1fac31210800000000000000
+      internalID: 1302607857643570947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_14
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 196
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f68ed61e287c920800000000000000
+      internalID: 3010518780643667845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_15
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 196
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ee18fff276a7190800000000000000
+      internalID: -7963939535203471860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_16
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 2
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9935e417ec6e060800000000000000
+      internalID: 6982495258325260799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_17
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 2
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e955f50971385c3e0800000000000000
+      internalID: -2034075519458257506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_18
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 2
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e2856b08a30d230800000000000000
+      internalID: 3661490821541670556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-torreta2_19
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 2
+        width: 202
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86ae5c9cbe4c4f30800000000000000
+      internalID: 4561107094603736714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 87a9a38294847e749acaae49cccd92ab
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":202.0,"y":194.0},"gridSpriteOffset":{"x":45.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      spritesheet-torreta2_0: -2269104767104470883
+      spritesheet-torreta2_1: 6800490900793003577
+      spritesheet-torreta2_10: 4307322984524940419
+      spritesheet-torreta2_11: -9081051102745328588
+      spritesheet-torreta2_12: -4521354815020697421
+      spritesheet-torreta2_13: 1302607857643570947
+      spritesheet-torreta2_14: 3010518780643667845
+      spritesheet-torreta2_15: -7963939535203471860
+      spritesheet-torreta2_16: 6982495258325260799
+      spritesheet-torreta2_17: -2034075519458257506
+      spritesheet-torreta2_18: 3661490821541670556
+      spritesheet-torreta2_19: 4561107094603736714
+      spritesheet-torreta2_2: -8566273546087905378
+      spritesheet-torreta2_3: 7880581852551202434
+      spritesheet-torreta2_4: 7671425077838588231
+      spritesheet-torreta2_5: -8922440963320063642
+      spritesheet-torreta2_6: -7866733074290738168
+      spritesheet-torreta2_7: -7889856368422919470
+      spritesheet-torreta2_8: -3357799316067914079
+      spritesheet-torreta2_9: -6758371762246572187
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
   bottomMargin: 1
+  behavior: 0
 --- !u!1 &6479153561357284600
 GameObject:
   m_ObjectHideFlags: 0

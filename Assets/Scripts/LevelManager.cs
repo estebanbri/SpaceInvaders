@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     private float currentSpawnDelay = 0;
     private float screenLimitMinX = -6f;
     private float screenLimitMaxX = 6f;
+    private float spawnPositionY = 7f;
 
     private int enemiesAlive;
 
@@ -100,7 +101,7 @@ public class LevelManager : MonoBehaviour
 
     void SpawnBoss(GameObject bossPrefab)
     {
-        GameObject bossGO = Instantiate(bossPrefab, new Vector3(0, 7, 0), Quaternion.identity);
+        GameObject bossGO = Instantiate(bossPrefab, new Vector3(0, spawnPositionY, 0), Quaternion.identity);
 
         Enemigo boss = bossGO.GetComponent<Enemigo>();
         if (boss != null && bossHealthBar != null)
@@ -111,7 +112,7 @@ public class LevelManager : MonoBehaviour
 
     Vector3 GetSpawnPosition()
     {
-        return new Vector3(Random.Range(screenLimitMinX, screenLimitMaxX), 7f, 0);
+        return new Vector3(Random.Range(screenLimitMinX, screenLimitMaxX), spawnPositionY, 0);
     }
 
     private int LastWaveIndex() {
@@ -129,7 +130,7 @@ public class LevelManager : MonoBehaviour
 
             Vector3 spawnPos = new Vector3(
                 centralX,
-                Random.Range(1f, 8f),
+                spawnPositionY,
                 0f
             );
 

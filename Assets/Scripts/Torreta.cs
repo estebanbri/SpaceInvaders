@@ -6,7 +6,11 @@ public class Torreta : MonoBehaviour, IDamageable
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private WeaponController weaponController;
     [SerializeField] private float fireDelay = 1f;
-    [SerializeField] private float rotationSpeed = 180f; // Grados por segundo
+
+    [Header("Visual")]
+    [SerializeField] private Transform cannonTransform;
+
+    [SerializeField] private TorretaCannonAim cannonAim;
 
     private int currentHealth;
     private float fireTimer;
@@ -18,37 +22,26 @@ public class Torreta : MonoBehaviour, IDamageable
 
     private bool isVisibleOnCamera;
 
+    
+
     private void Awake()
     {
         isDead = false;
         currentHealth = maxHealth;
         col = GetComponent<Collider2D>();
 
-        // Buscar la nave
         playerNave = FindFirstObjectByType<Nave>();
+
+        if (playerNave != null && cannonAim != null)
+        {
+            cannonAim.SetTarget(playerNave.transform);
+        }
     }
 
     private void Update()
     {
         if (isDead || weaponController == null || !isVisibleOnCamera)
             return;
-
-        // 1️⃣ Girar suavemente hacia la nave
-        if (playerNave != null)
-        {
-            Vector2 direction = (playerNave.transform.position - transform.position).normalized;
-
-            // Sprite apunta hacia ABAJO → compensamos con +90°
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
-
-            Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
-
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                targetRotation,
-                rotationSpeed * Time.deltaTime
-            );
-        }
 
         // 2️⃣ Manejar disparo
         fireTimer += Time.deltaTime;
@@ -89,8 +82,11 @@ public class Torreta : MonoBehaviour, IDamageable
     {
         isVisibleOnCamera = visible;
 
+        if (cannonAim != null)
+            cannonAim.SetCanAim(visible);
+
         if (visible)
-            fireTimer = 0f; // evita disparo instantáneo
+            fireTimer = 0f;
     }
 
 }
