@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cea909a83730cc45aa2c0b08b9ffbda, type: 3}
   m_Name: Bonus Upgrade Weapon Triple
   m_EditorClassIdentifier: Assembly-CSharp::BonusUpgradeWeapon
-  icon: {fileID: -6863310646229823658, guid: 328d69a664a4f0b4192c0acb4f4f7266, type: 3}
+  icon: {fileID: -6537521635187415678, guid: 5e1c2cb12ceca604189bbcc1a9991515, type: 3}
   isTemporary: 0
   duration: 0
   weaponDefinition: {fileID: 11400000, guid: 4afb99af1b3eef34ea6c5f9430fbc252, type: 2}

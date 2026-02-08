@@ -22,3 +22,6 @@ MonoBehaviour:
   spawnDelay: 0.5
   isBossWave: 0
   bossPrefab: {fileID: 0}
+  turretPrefabs:
+  - {fileID: 3453463236647340230, guid: 9dd710221440d124da913aa3fbb81073, type: 3}
+  turretsToSpawn: 2

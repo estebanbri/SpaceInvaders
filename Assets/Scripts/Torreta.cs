@@ -22,13 +22,15 @@ public class Torreta : MonoBehaviour, IDamageable
 
     private bool isVisibleOnCamera;
 
-    
+    private TorretaCannonVisual torretaCannonVisual;
+
 
     private void Awake()
     {
         isDead = false;
         currentHealth = maxHealth;
         col = GetComponent<Collider2D>();
+        torretaCannonVisual = GetComponentInChildren<TorretaCannonVisual>();
 
         playerNave = FindFirstObjectByType<Nave>();
 
@@ -56,17 +58,14 @@ public class Torreta : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
-        ModifyHealth(-damageAmount);
+        currentHealth -= damageAmount;
+
+        torretaCannonVisual?.PlayHitEffect();
 
         if (currentHealth <= 0)
         {
             Die();
         }
-    }
-
-    private void ModifyHealth(int amount)
-    {
-        currentHealth += amount;
     }
 
     private void Die()
@@ -75,6 +74,7 @@ public class Torreta : MonoBehaviour, IDamageable
 
         isDead = true;
         col.enabled = false;
+        torretaCannonVisual?.playDeathEffect();
         // Aquí podrías agregar animaciones o efectos de muerte
     }
 

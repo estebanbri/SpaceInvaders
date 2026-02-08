@@ -3,6 +3,7 @@ using UnityEngine;
 public class TorretaVisual : MonoBehaviour
 {
     private Torreta torreta;
+    
 
     private void Awake()
     {
@@ -18,4 +19,6 @@ public class TorretaVisual : MonoBehaviour
     {
         torreta.SetVisible(false);
     }
+
+   
 }

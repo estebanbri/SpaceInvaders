@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 7694952641018234332}
   - component: {fileID: 5395011670592994922}
   - component: {fileID: 5276031313835513368}
-  - component: {fileID: 2431650473614052270}
+  - component: {fileID: 6772557345039842202}
   m_Layer: 0
   m_Name: EnemigoVisual
   m_TagString: Untagged
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202909db5d2fecc43a32adaf529f9975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!95 &2431650473614052270
+--- !u!95 &6772557345039842202
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ Animator:
   m_GameObject: {fileID: 5469988801222514171}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3930dbce537474648ab3b3ce706435d8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8212d3ae2340f8a4780b4d6ec2c8f7e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

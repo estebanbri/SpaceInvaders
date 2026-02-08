@@ -1,49 +1,48 @@
-using System.Collections.Generic; 
-using UnityEngine; 
+using System.Collections.Generic;
+using UnityEngine;
 
-public class UIVidas : MonoBehaviour { 
-    
-    public static UIVidas Instance { get; private set; } 
-    
-    [SerializeField] private GameObject iconFilledPrefab; 
-    [SerializeField] private GameObject iconEmptyPrefab; 
-    
-    private List<GameObject> currentIcons = new List<GameObject>(); 
-    private int livesMax; 
+public class UIVidas : MonoBehaviour
+{
+    public static UIVidas Instance { get; private set; }
 
-    private void Awake() { 
-        Instance = this; 
+    [SerializeField] private GameObject shipIconPrefab;
+
+    private readonly List<GameObject> icons = new();
+    private int livesMax;
+
+    private void Awake()
+    {
+        Instance = this;
     }
+
     public void Initialize(int livesMax)
     {
         this.livesMax = livesMax;
         ClearIcons();
 
+        // Creamos todas las vidas posibles una sola vez
         for (int i = 0; i < livesMax; i++)
         {
-            GameObject icon = Instantiate(iconEmptyPrefab, transform);
-            currentIcons.Add(icon);
+            GameObject icon = Instantiate(shipIconPrefab, transform);
+            icons.Add(icon);
         }
 
-        SetLivesIcons(livesMax);
+        SetLives(livesMax);
     }
 
-    public void SetLivesIcons(int livesCurrent)
+    public void SetLives(int livesCurrent)
     {
-        for (int i = 0; i < currentIcons.Count; i++)
+        for (int i = 0; i < icons.Count; i++)
         {
-            var image = currentIcons[i].GetComponent<UnityEngine.UI.Image>();
-            image.sprite = i < livesCurrent
-                ? iconFilledPrefab.GetComponent<UnityEngine.UI.Image>().sprite
-                : iconEmptyPrefab.GetComponent<UnityEngine.UI.Image>().sprite;
+            icons[i].SetActive(i < livesCurrent);
         }
     }
 
     private void ClearIcons()
     {
-        foreach (var icon in currentIcons)
+        foreach (var icon in icons)
             Destroy(icon);
 
-        currentIcons.Clear();
+        icons.Clear();
     }
 }

@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     [Header("Parallax")]
     [SerializeField] private VerticalParallax parallax;
 
+    [SerializeField] private float turretSpacingY = 2f;
+
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
     private float currentSpawnDelay = 0;
@@ -60,7 +62,6 @@ public class LevelManager : MonoBehaviour
             Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
             yield return new WaitForSeconds(wave.spawnDelay);
         }
-        // Spawneamos las torretas fijas de la wave
         SpawnWaveTurrets(wave);
     }
 
@@ -121,23 +122,21 @@ public class LevelManager : MonoBehaviour
 
     void SpawnWaveTurrets(WaveDefinition wave)
     {
-        // Definimos la X de la lane central
         float centralX = (screenLimitMinX + screenLimitMaxX) / 2f;
 
         for (int i = 0; i < wave.turretsToSpawn; i++)
         {
-            GameObject turretPrefab = wave.turretPrefabs[Random.Range(0, wave.turretPrefabs.Count)];
+            GameObject turretPrefab =
+                wave.turretPrefabs[Random.Range(0, wave.turretPrefabs.Count)];
 
             Vector3 spawnPos = new Vector3(
                 centralX,
-                spawnPositionY,
+                spawnPositionY + i * turretSpacingY,
                 0f
             );
 
             GameObject turret = Instantiate(turretPrefab, spawnPos, Quaternion.identity);
-
-            // Elegimos aleatoriamente cuál fondo seguir
-            turret.transform.SetParent(parallax.transform, true); // el true preserva la posición global
+            turret.transform.SetParent(parallax.transform, true);
         }
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2808418060a3334e8168c81f2074495, type: 3}
   m_Name: Bonus Vida
   m_EditorClassIdentifier: Assembly-CSharp::BonusVida
-  icon: {fileID: 3435226260520613578, guid: 328d69a664a4f0b4192c0acb4f4f7266, type: 3}
+  icon: {fileID: -9037487213593558009, guid: 5e1c2cb12ceca604189bbcc1a9991515, type: 3}
   isTemporary: 1
   duration: 0

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         livesCurrent = livesInitial;
         UIVidas.Instance.Initialize(livesMax);
-        UIVidas.Instance.SetLivesIcons(livesCurrent);
+        UIVidas.Instance.SetLives(livesCurrent);
     }
 
     public void AddScore(int points)
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void DecreaseRetry()
     {
         livesCurrent--;
-        UIVidas.Instance.SetLivesIcons(livesCurrent);
+        UIVidas.Instance.SetLives(livesCurrent);
         if (livesCurrent <= 0)
         {
             Debug.Log("Game Over!");
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if (livesCurrent >= livesMax) return;
         livesCurrent++;
-        UIVidas.Instance.SetLivesIcons(livesCurrent);
+        UIVidas.Instance.SetLives(livesCurrent);
     }
 
     public void OnPlayerDeath(Nave nave)
