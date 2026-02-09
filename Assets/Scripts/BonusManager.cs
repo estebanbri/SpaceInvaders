@@ -83,4 +83,32 @@ public class BonusManager : MonoBehaviour
     {
         return activeBonuses.Keys;
     }
+
+    public List<BonusDefinition> GetPickableBonuses(
+    IReadOnlyCollection<BonusDefinition> pool,
+    int amount
+)
+    {
+        List<BonusDefinition> candidates = new List<BonusDefinition>();
+
+        foreach (var bonus in pool)
+        {
+            if (!bonus.canAppearInPicker)
+                continue;
+
+            if (bonus.isTemporary && IsBonusActive(bonus))
+                continue;
+
+            candidates.Add(bonus);
+        }
+
+        // Shuffle simple
+        for (int i = 0; i < candidates.Count; i++)
+        {
+            int rand = UnityEngine.Random.Range(i, candidates.Count);
+            (candidates[i], candidates[rand]) = (candidates[rand], candidates[i]);
+        }
+
+        return candidates.GetRange(0, Mathf.Min(amount, candidates.Count));
+    }
 }

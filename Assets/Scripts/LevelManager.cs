@@ -16,6 +16,10 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private float turretSpacingY = 2f;
 
+    [Header("Bonus")]
+    [SerializeField] private BonusBoxSpawner bonusBoxSpawner;
+    [SerializeField] private bool spawnBonusBetweenWaves = true;
+
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
     private float currentSpawnDelay = 0;
@@ -95,8 +99,15 @@ public class LevelManager : MonoBehaviour
 
         if (enemiesAlive <= 0)
         {
-            currentWaveIndex++;
-            StartWave();
+            if (spawnBonusBetweenWaves && bonusBoxSpawner != null)
+            {
+                bonusBoxSpawner.Spawn(GetBonusSpawnPosition());
+            }
+            else
+            {
+                currentWaveIndex++;
+                StartWave();
+            }
         }
     }
 
@@ -138,5 +149,20 @@ public class LevelManager : MonoBehaviour
             GameObject turret = Instantiate(turretPrefab, spawnPos, Quaternion.identity);
             turret.transform.SetParent(parallax.transform, true);
         }
+    }
+
+    public void ContinueAfterBonus()
+    {
+        currentWaveIndex++;
+        StartWave();
+    }
+
+    Vector3 GetBonusSpawnPosition()
+    {
+        return new Vector3(
+            Random.Range(screenLimitMinX, screenLimitMaxX),
+            spawnPositionY,
+            0f
+        );
     }
 }

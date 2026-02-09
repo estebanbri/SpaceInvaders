@@ -9,6 +9,9 @@ public abstract class BonusDefinition : ScriptableObject
     public bool isTemporary;
     public float duration;
 
+    [Header("Picker")]
+    public bool canAppearInPicker = true;
+
     public abstract void Apply();
     public abstract void Remove();
 }
