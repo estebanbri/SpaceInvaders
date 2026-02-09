@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class NaveVisual : MonoBehaviour
 {
@@ -16,9 +16,15 @@ public class NaveVisual : MonoBehaviour
 
     private SpriteRenderer spriteRendererComponent;
 
+    private Animator animator;
+
+    private Nave nave;
+
     void Awake()
     {
+        animator = GetComponent<Animator>();
         spriteRendererComponent = GetComponent<SpriteRenderer>();
+        nave = GetComponentInParent<Nave>();
         HidePropulsoresParticles();
     }
 
@@ -74,7 +80,7 @@ public class NaveVisual : MonoBehaviour
 
     private void UpdateVerticalThrusters(float moveY)
     {
-            ShowMiddlePropulsorParticles();
+        ShowMiddlePropulsorParticles();
     }
 
     private void ShowLeftPropulsorParticles()
@@ -112,5 +118,14 @@ public class NaveVisual : MonoBehaviour
         ParticleSystem.EmissionModule emissionModule = particleSystem.emission; 
         emissionModule.enabled = enabled; 
     }
+    
+    public void playDeathEffect()
+    {
+        animator.SetBool("IsDead", true);
+    }
 
+    public void OnDeathAnimationFinished()
+    {
+        nave.OnDeathAnimationFinished();
+    }
 }

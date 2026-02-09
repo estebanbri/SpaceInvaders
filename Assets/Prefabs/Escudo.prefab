@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4699084174347350437}
   - component: {fileID: 6058731979715157818}
   - component: {fileID: 238142218683912205}
+  - component: {fileID: 8497381456251413280}
   m_Layer: 0
   m_Name: EscudoVisual
   m_TagString: Untagged
@@ -103,6 +104,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0452d62dcfcb2e4428103669aee4d3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!95 &8497381456251413280
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56454443901122040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c2803c208c80b34dbd3d5647068d97a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7047461717014001968
 GameObject:
   m_ObjectHideFlags: 0

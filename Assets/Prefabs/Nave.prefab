@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6033431843510085474}
   - component: {fileID: 8540006354477665252}
   - component: {fileID: 3778319278783818957}
+  - component: {fileID: 1543606087254877837}
   m_Layer: 0
   m_Name: NaveVisual
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7410218573728349569, guid: 36c7a3cae57704547bb7f6b8d23b50d1, type: 3}
+  m_Sprite: {fileID: -5725011324514555287, guid: 4684706be04b949489acfc6240aa7760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,9 +109,31 @@ MonoBehaviour:
   leftPropulsorParticleSystem: {fileID: 2940606334598822990}
   middlePropulsorParticleSystem: {fileID: 4529065817481243737}
   rightPropulsorParticleSystem: {fileID: 2884623689185121376}
-  idleSprite: {fileID: -7410218573728349569, guid: 36c7a3cae57704547bb7f6b8d23b50d1, type: 3}
-  leftSprite: {fileID: -7410218573728349569, guid: 36c7a3cae57704547bb7f6b8d23b50d1, type: 3}
-  rightSprite: {fileID: -7410218573728349569, guid: 36c7a3cae57704547bb7f6b8d23b50d1, type: 3}
+  idleSprite: {fileID: -5725011324514555287, guid: 4684706be04b949489acfc6240aa7760, type: 3}
+  leftSprite: {fileID: -5725011324514555287, guid: 4684706be04b949489acfc6240aa7760, type: 3}
+  rightSprite: {fileID: -5725011324514555287, guid: 4684706be04b949489acfc6240aa7760, type: 3}
+--- !u!95 &1543606087254877837
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095014716587441483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efe0b80aa0c1c1748a2d45f03bdebafb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3485916197089464521
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +182,6 @@ GameObject:
   - component: {fileID: 5476507486790864552}
   - component: {fileID: 6628752235423176200}
   - component: {fileID: 622586770256522513}
-  - component: {fileID: 4057700768696872293}
   m_Layer: 0
   m_Name: Nave
   m_TagString: Untagged
@@ -287,44 +309,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4057700768696872293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579679871356674865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fa3d4dd1ec3584b99ab90e4e11e1b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShipSpawnAnimation
-  travelDistance: 30
-  travelDuration: 3
-  easing:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1209953656024013326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 587267269571498295, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4866
+      value: 0.822
       objectReference: {fileID: 0}
     - target: {fileID: 587267269571498295, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -535,13 +519,29 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2a4971b405baa4c4e950a34d6373f9ae, type: 3}
+    - target: {fileID: 8254849952320325333, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2831
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3027
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.021
       objectReference: {fileID: 0}
     - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.123
+      value: -0.053
       objectReference: {fileID: 0}
     - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
       propertyPath: m_LocalPosition.z

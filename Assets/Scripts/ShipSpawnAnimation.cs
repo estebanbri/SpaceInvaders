@@ -4,7 +4,7 @@ using System.Collections;
 public class ShipSpawnAnimation : MonoBehaviour
 {
     [Header("Spawn settings")]
-    public float travelDistance = 3f;
+    public float travelDistance = 5f;
     public float travelDuration = 1.2f;
     public AnimationCurve easing = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
@@ -15,8 +15,9 @@ public class ShipSpawnAnimation : MonoBehaviour
     {
         targetPosition = transform.position;
 
-        // Posición inicial fuera de pantalla (abajo)
-        transform.position = targetPosition + Vector3.down * travelDistance;
+        // Aparece desde la izquierda
+        Vector3 spawnOffset = Vector3.left * travelDistance;
+        transform.position = targetPosition + spawnOffset;
 
         playerController = GetComponent<Nave>();
         if (playerController != null)
@@ -40,6 +41,7 @@ public class ShipSpawnAnimation : MonoBehaviour
         }
 
         transform.position = targetPosition;
+
         if (playerController != null)
             playerController.enabled = true;
     }

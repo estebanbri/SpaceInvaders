@@ -65,15 +65,16 @@ public class GameManager : MonoBehaviour
         UIVidas.Instance.SetLives(livesCurrent);
     }
 
-    public void OnPlayerDeath(Nave nave)
+    public bool OnPlayerDeath(Nave nave)
     {
         DecreaseRetry();
 
         if (HasPendingRetries()) {
             nave.Respawn();
         } else {
-            Destroy(nave.gameObject);
             GameOver();
+            return true;
         }
+        return false;
     }
 }

@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class EscudoVisual : MonoBehaviour
 {
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void HideEscudo()
     {
         gameObject.SetActive(false);
@@ -12,4 +19,13 @@ public class EscudoVisual : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void OnDestroyedEffect()
+    {
+        animator.SetBool("IsDestroyed", true);
+    }
+
+    public void OnEscudoDestroyedAnimationFinished()
+    {
+        Nave.Instance.OnEscudoAnimationDestroyedFinished();
+    }
 }

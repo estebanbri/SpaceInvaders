@@ -1,29 +1,49 @@
+using System.Collections;
 using UnityEngine;
 
 public class TorretaCannonVisual : MonoBehaviour
-
 {
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private Material material;
+    private Color originalColor;
+    private Coroutine hitCoroutine;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Cada torreta tiene su propio material
+        material = spriteRenderer.material;
+        originalColor = spriteRenderer.color;
     }
 
     public void PlayHitEffect()
     {
-        spriteRenderer.color = Color.red;
-        Invoke(nameof(ResetColor), 0.1f);
+        if (hitCoroutine != null)
+            StopCoroutine(hitCoroutine);
+
+        hitCoroutine = StartCoroutine(HitFlash());
     }
 
-    void ResetColor()
+    private IEnumerator HitFlash()
     {
-        spriteRenderer.color = Color.white;
+        // Flash blanco (impacto)
+        material.SetFloat("_Flash", 1f);
+        yield return new WaitForSeconds(0.025f);
+
+        material.SetFloat("_Flash", 0f);
+
+        // Rojo muy breve (daño)
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.04f);
+
+        spriteRenderer.color = originalColor;
     }
 
-    public void playDeathEffect()
+    public void PlayDeathEffect()
     {
         animator.SetBool("IsDead", true);
     }

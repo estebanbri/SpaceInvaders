@@ -73,7 +73,11 @@ public class Nave : MonoBehaviour, IDamageable
 
     private void OnDeath()
     {
-        GameManager.Instance.OnPlayerDeath(this);
+        bool isDead = GameManager.Instance.OnPlayerDeath(this);
+        if (isDead)
+        {
+            naveVisualComponent.playDeathEffect();
+        }
     }
 
     public void Respawn() {
@@ -120,16 +124,21 @@ public class Nave : MonoBehaviour, IDamageable
 
         if (escudo.IsActive())
         {
-            AbsorberDañoConEscudo();
+            escudo.PlayEscudoDestroyedEffect();
             return;
         }
 
         Morir();
     }
 
-    private void AbsorberDañoConEscudo()
+    public void OnEscudoAnimationDestroyedFinished()
     {
         BonusManager.Instance.RemoveBonus(escudobonusDefinition);
         escudo.RemoveEscudo();
+    }
+
+    public void OnDeathAnimationFinished()
+    {
+        Destroy(gameObject);
     }
 }

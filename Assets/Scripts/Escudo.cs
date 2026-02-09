@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -40,5 +41,10 @@ public class Escudo : MonoBehaviour
     private IEnumerator AddInvulnerability() {
         yield return new WaitForSeconds(1f);
         isActive = false;
+    }
+
+    public void PlayEscudoDestroyedEffect()
+    {
+        escudoVisualComponent.OnDestroyedEffect();
     }
 }

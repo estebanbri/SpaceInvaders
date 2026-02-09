@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d32b02b467d533438c2500cb3490365, type: 3}
+  m_Name: Wave3
+  m_EditorClassIdentifier: Assembly-CSharp::WaveDefinition
+  enemiesToSpawn:
+  - {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
+  - {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
+  - {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
+  - {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
+  - {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
+  - {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
+  spawnDelay: 0.5
+  isBossWave: 0
+  bossPrefab: {fileID: 0}
+  turretPrefabs:
+  - {fileID: 3453463236647340230, guid: 9dd710221440d124da913aa3fbb81073, type: 3}
+  turretsToSpawn: 3

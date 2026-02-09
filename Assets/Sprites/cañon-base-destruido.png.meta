@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9933256e161e78441979d7834aa66cd1
+guid: c41a72806156dee47b813c1f873dca48
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1210623415084553573
-    second: nave-icon-dead_0
+      213: -6780030801885272733
+    second: "ca\xF1on-base-destruido_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nave-icon-dead_0
+      name: "ca\xF1on-base-destruido_0"
       rect:
         serializedVersion: 2
-        x: 12
-        y: 0
-        width: 191
-        height: 156
+        x: 35
+        y: 4
+        width: 487
+        height: 375
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9a6d1b0b60033fe0800000000000000
-      internalID: -1210623415084553573
+      spriteID: 365eb6768ed78e1a0800000000000000
+      internalID: -6780030801885272733
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nave-icon-dead_0: -1210623415084553573
+      "ca\xF1on-base-destruido_0": -6780030801885272733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

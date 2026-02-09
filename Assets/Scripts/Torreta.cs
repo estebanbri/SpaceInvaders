@@ -74,7 +74,7 @@ public class Torreta : MonoBehaviour, IDamageable
 
         isDead = true;
         col.enabled = false;
-        torretaCannonVisual?.playDeathEffect();
+        torretaCannonVisual?.PlayDeathEffect();
         // Aquí podrías agregar animaciones o efectos de muerte
     }
 
