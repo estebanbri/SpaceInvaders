@@ -13,6 +13,10 @@ public class BonusPickerUI : MonoBehaviour
     [SerializeField] private float animDuration = 0.25f;
     [SerializeField] private Vector3 hiddenScale = new Vector3(0.7f, 0.7f, 1f);
 
+    [Header("Background Dim")]
+    [SerializeField] private CanvasGroup backgroundDim;
+    [SerializeField] private float dimAlpha = 0.7f;
+
     private System.Action<BonusDefinition> onSelectCallback;
     private Coroutine animCoroutine;
 
@@ -81,11 +85,15 @@ public class BonusPickerUI : MonoBehaviour
         float fromAlpha = canvasGroup.alpha;
         float toAlpha = show ? 1f : 0f;
 
+        float fromDimAlpha = backgroundDim.alpha;
+        float toDimAlpha = show ? dimAlpha : 0f;
+
         Vector3 fromScale = transform.localScale;
         Vector3 toScale = show ? Vector3.one : hiddenScale;
 
         canvasGroup.blocksRaycasts = show;
         canvasGroup.interactable = show;
+        backgroundDim.blocksRaycasts = show;
 
         while (t < animDuration)
         {
@@ -94,12 +102,14 @@ public class BonusPickerUI : MonoBehaviour
             float eased = Mathf.SmoothStep(0, 1, p);
 
             canvasGroup.alpha = Mathf.Lerp(fromAlpha, toAlpha, eased);
+            backgroundDim.alpha = Mathf.Lerp(fromDimAlpha, toDimAlpha, eased);
             transform.localScale = Vector3.Lerp(fromScale, toScale, eased);
 
             yield return null;
         }
 
         canvasGroup.alpha = toAlpha;
+        backgroundDim.alpha = toDimAlpha;
         transform.localScale = toScale;
     }
 
