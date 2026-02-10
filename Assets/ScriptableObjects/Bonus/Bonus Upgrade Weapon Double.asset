@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cea909a83730cc45aa2c0b08b9ffbda, type: 3}
   m_Name: Bonus Upgrade Weapon Double
   m_EditorClassIdentifier: Assembly-CSharp::BonusUpgradeWeapon
-  icon: {fileID: -6573836835384520552, guid: 5e1c2cb12ceca604189bbcc1a9991515, type: 3}
+  icon: {fileID: 356439118930648247, guid: 9a37f2e09f9373a48bfdced81fedd899, type: 3}
+  displayName: Dual Shot
+  starCost: 1
+  canAppearInPicker: 1
   isTemporary: 0
   duration: 0
   weaponDefinition: {fileID: 11400000, guid: 4cbca59cda7e1dc4189dd3648eb183e4, type: 2}

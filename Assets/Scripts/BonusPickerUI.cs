@@ -11,9 +11,7 @@ public class BonusPickerUI : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] private float animDuration = 0.25f;
-
-    // Escala inicial: comprimido horizontalmente
-    [SerializeField] private Vector3 hiddenScale = new Vector3(0f, 0.9f, 1f);
+    [SerializeField] private Vector3 hiddenScale = new Vector3(0.7f, 0.7f, 1f);
 
     private System.Action<BonusDefinition> onSelectCallback;
     private Coroutine animCoroutine;
@@ -23,11 +21,10 @@ public class BonusPickerUI : MonoBehaviour
         if (canvasGroup == null)
             canvasGroup = GetComponent<CanvasGroup>();
 
-        // Estado inicial oculto
+        // estado inicial oculto
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
-
         transform.localScale = hiddenScale;
     }
 
@@ -46,18 +43,27 @@ public class BonusPickerUI : MonoBehaviour
             button.Setup(bonus, OnBonusClicked);
         }
 
-        PlayAnim(show: true);
+        PlayAnim(true);
     }
 
     void OnBonusClicked(BonusDefinition bonus)
     {
+        // pagar estrellas
+        bool paid = GameManager.Instance.SpendScore(bonus.starCost);
+        if (!paid)
+            return;
+
         onSelectCallback?.Invoke(bonus);
+
         Close();
+
+        // continuar waves
+        LevelManager.Instance.ContinueAfterBonus();
     }
 
     public void Close()
     {
-        PlayAnim(show: false);
+        PlayAnim(false);
     }
 
     void PlayAnim(bool show)
@@ -78,45 +84,30 @@ public class BonusPickerUI : MonoBehaviour
         Vector3 fromScale = transform.localScale;
         Vector3 toScale = show ? Vector3.one : hiddenScale;
 
-        if (show)
-        {
-            canvasGroup.blocksRaycasts = true;
-            canvasGroup.interactable = true;
-        }
+        canvasGroup.blocksRaycasts = show;
+        canvasGroup.interactable = show;
 
         while (t < animDuration)
         {
             t += Time.unscaledDeltaTime;
             float p = Mathf.Clamp01(t / animDuration);
-
-            // easing suave
-            float eased = Mathf.SmoothStep(0f, 1f, p);
+            float eased = Mathf.SmoothStep(0, 1, p);
 
             canvasGroup.alpha = Mathf.Lerp(fromAlpha, toAlpha, eased);
-
-            //  expansión horizontal desde el centro
-            transform.localScale = new Vector3(
-                Mathf.Lerp(fromScale.x, toScale.x, eased),
-                Mathf.Lerp(fromScale.y, toScale.y, eased),
-                1f
-            );
+            transform.localScale = Vector3.Lerp(fromScale, toScale, eased);
 
             yield return null;
         }
 
         canvasGroup.alpha = toAlpha;
         transform.localScale = toScale;
-
-        if (!show)
-        {
-            canvasGroup.blocksRaycasts = false;
-            canvasGroup.interactable = false;
-        }
     }
 
     void ClearButtons()
     {
         for (int i = optionsContainer.childCount - 1; i >= 0; i--)
+        {
             Destroy(optionsContainer.GetChild(i).gameObject);
+        }
     }
 }

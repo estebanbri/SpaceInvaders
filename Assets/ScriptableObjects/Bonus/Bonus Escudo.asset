@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1393914011da2c944ac9bd69edbdd3ad, type: 3}
   m_Name: Bonus Escudo
   m_EditorClassIdentifier: Assembly-CSharp::BonusEscudo
-  icon: {fileID: 4691257547921531316, guid: 5e1c2cb12ceca604189bbcc1a9991515, type: 3}
+  icon: {fileID: 1693074885987259694, guid: 9a37f2e09f9373a48bfdced81fedd899, type: 3}
+  displayName: Shield
+  starCost: 1
+  canAppearInPicker: 1
   isTemporary: 0
   duration: 0

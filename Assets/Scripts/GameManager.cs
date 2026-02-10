@@ -77,4 +77,18 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
+
+    public bool CanAfford(int cost)
+    {
+        return score >= cost;
+    }
+
+    public bool SpendScore(int cost)
+    {
+        if (score < cost)
+            return false;
+
+        score -= cost;
+        return true;
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -5,23 +6,44 @@ using TMPro;
 public class BonusPickerButton : MonoBehaviour
 {
     [SerializeField] private Image icon;
+    [SerializeField] private TextMeshProUGUI nameText;
+
+    [Header("Cost")]
+    [SerializeField] private Image starIcon;
+    [SerializeField] private TextMeshProUGUI costText;
+
+    [SerializeField] private Button button;
 
     private BonusDefinition bonus;
-    private System.Action<BonusDefinition> callback;
+    private Action<BonusDefinition> onSelected;
 
     public void Setup(
-        BonusDefinition bonus,
-        System.Action<BonusDefinition> onClick
+        BonusDefinition bonusDefinition,
+        Action<BonusDefinition> onSelectedCallback
     )
     {
-        this.bonus = bonus;
-        this.callback = onClick;
+        bonus = bonusDefinition;
+        onSelected = onSelectedCallback;
 
         icon.sprite = bonus.icon;
+        nameText.text = bonus.displayName;
+        costText.text = bonus.starCost.ToString();
+
+        bool canAfford = GameManager.Instance.CanAfford(bonus.starCost);
+
+        button.interactable = canAfford;
+
+        costText.color = canAfford ? Color.yellow : Color.red;
+        starIcon.color = canAfford
+            ? Color.white
+            : new Color(1f, 1f, 1f, 0.4f);
+
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(OnClick);
     }
 
-    public void OnClick()
+    void OnClick()
     {
-        callback?.Invoke(bonus);
+        onSelected?.Invoke(bonus);
     }
 }
