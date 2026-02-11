@@ -10,8 +10,11 @@ public class BonusItem : MonoBehaviour
 
     [Header("Buy")]
     [SerializeField] private Button buyButton;
-    [SerializeField] private Image buyIcon;
     [SerializeField] private TextMeshProUGUI buyText;
+
+    [Header("Cost")]
+    [SerializeField] private Image costIcon;
+    [SerializeField] private TextMeshProUGUI priceText;
 
     private BonusDefinition bonus;
     private Action<BonusDefinition> onSelected;
@@ -25,16 +28,21 @@ public class BonusItem : MonoBehaviour
         onSelected = onSelectedCallback;
 
         bonusIcon.sprite = bonus.icon;
-        bonusLabel.text = bonus.displayName.ToUpper(); ;
+        bonusLabel.text = bonus.displayName.ToUpper();
 
-        buyText.text = "BUY (" + bonus.starCost.ToString() + ")";
+        //  El botón ahora solo dice BUY
+        buyText.text = "BUY";
+
+        //  El costo va afuera
+        priceText.text = bonus.starCost.ToString();
 
         bool canAfford = GameManager.Instance.CanAfford(bonus.starCost);
 
         buyButton.interactable = canAfford;
 
-        buyText.color = canAfford ? Color.black : Color.red;
-        buyIcon.color = canAfford
+        // Estado visual del costo
+        priceText.color = canAfford ? Color.white : Color.red;
+        costIcon.color = canAfford
             ? Color.white
             : new Color(1f, 1f, 1f, 0.4f);
 
