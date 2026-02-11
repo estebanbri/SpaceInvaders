@@ -13,9 +13,17 @@ public class BonusPickerUI : MonoBehaviour
     [SerializeField] private float animDuration = 0.25f;
     [SerializeField] private Vector3 hiddenScale = new Vector3(0.7f, 0.7f, 1f);
 
+    [SerializeField] private GameObject closeButton; // Botón X
+
     private System.Action<BonusDefinition> onSelectCallback;
-    private System.Action onCloseCallback;
     private Coroutine animCoroutine;
+
+    private void Awake()
+    {
+        // Conectamos el botón X al método ClosePanel
+        if (closeButton != null)
+            closeButton.GetComponent<Button>().onClick.AddListener(ClosePanel);
+    }
 
     public void Open(
         List<BonusDefinition> bonuses,
@@ -51,11 +59,10 @@ public class BonusPickerUI : MonoBehaviour
         gameObject.SetActive(false);
         ClearButtons();
 
-        // Invocamos callback de cierre, para continuar la wave aunque no haya seleccionado nada
-        onCloseCallback?.Invoke();
+        // Reanudar el juego, igual que al seleccionar un bonus
+        Time.timeScale = 1f;
 
         onSelectCallback = null;
-        onCloseCallback = null;
     }
 
     void PlayAnim(bool show)
