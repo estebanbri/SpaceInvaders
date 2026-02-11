@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BonusPickerUI : MonoBehaviour
 {
@@ -12,10 +13,9 @@ public class BonusPickerUI : MonoBehaviour
     [SerializeField] private float animDuration = 0.25f;
     [SerializeField] private Vector3 hiddenScale = new Vector3(0.7f, 0.7f, 1f);
 
-
     private System.Action<BonusDefinition> onSelectCallback;
+    private System.Action onCloseCallback;
     private Coroutine animCoroutine;
-
 
     public void Open(
         List<BonusDefinition> bonuses,
@@ -23,9 +23,7 @@ public class BonusPickerUI : MonoBehaviour
     )
     {
         gameObject.SetActive(true);
-
         onSelectCallback = onSelect;
-
         ClearButtons();
 
         foreach (var bonus in bonuses)
@@ -41,18 +39,23 @@ public class BonusPickerUI : MonoBehaviour
     {
         bool paid = GameManager.Instance.SpendScore(bonus.starCost);
         if (!paid)
-            return;
+            return; // si no tiene score no hace nada
 
         onSelectCallback?.Invoke(bonus);
-
-        Close();
-        LevelManager.Instance.ContinueAfterBonus();
+        ClosePanel();
     }
 
-    public void Close()
+    public void ClosePanel()
     {
         PlayAnim(false);
         gameObject.SetActive(false);
+        ClearButtons();
+
+        // Invocamos callback de cierre, para continuar la wave aunque no haya seleccionado nada
+        onCloseCallback?.Invoke();
+
+        onSelectCallback = null;
+        onCloseCallback = null;
     }
 
     void PlayAnim(bool show)
@@ -65,14 +68,8 @@ public class BonusPickerUI : MonoBehaviour
 
     IEnumerator AnimatePanel(bool show)
     {
-
-        //  MUY IMPORTANTE
-        // esperar 1 frame para que EventSystem recalcule hover
         yield return null;
-
         float t = 0f;
-
-
         Vector3 fromScale = transform.localScale;
         Vector3 toScale = show ? Vector3.one : hiddenScale;
 
@@ -81,21 +78,16 @@ public class BonusPickerUI : MonoBehaviour
             t += Time.unscaledDeltaTime;
             float p = Mathf.Clamp01(t / animDuration);
             float eased = Mathf.SmoothStep(0, 1, p);
-
             transform.localScale = Vector3.Lerp(fromScale, toScale, eased);
-
             yield return null;
         }
 
         transform.localScale = toScale;
     }
 
-
     void ClearButtons()
     {
         for (int i = optionsContainer.childCount - 1; i >= 0; i--)
-        {
             Destroy(optionsContainer.GetChild(i).gameObject);
-        }
     }
 }

@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private BonusBoxSpawner bonusBoxSpawner;
     [SerializeField] private bool spawnBonusBetweenWaves = true;
 
+    [Header("Bonus")]
+    [Range(0f, 1f)]
+    public float bonusSpawnChance = 1f; // 1 = siempre, 0 = nunca
+
     private int currentLevelIndex = 0;
     private int currentWaveIndex = 0;
     private float currentSpawnDelay = 0;
@@ -51,8 +55,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        
-
         StartCoroutine(SpawnWaveCoroutine(wave));
     }
 
@@ -61,12 +63,15 @@ public class LevelManager : MonoBehaviour
         currentSpawnDelay = wave.spawnDelay;
         enemiesAlive = wave.enemiesToSpawn.Count;
         Debug.Log("Enemigos vivos total: " + enemiesAlive);
+
         foreach (var enemyPrefab in wave.enemiesToSpawn)
         {
             Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
             yield return new WaitForSeconds(wave.spawnDelay);
         }
+
         SpawnWaveTurrets(wave);
+
     }
 
     public void OnEnemyExitedCamera(GameObject enemy)
@@ -78,10 +83,10 @@ public class LevelManager : MonoBehaviour
         {
             RespawnEnemy(enemy);
         }
-        // DestroyOnly → no hacemos nada más
     }
 
-    public void RespawnEnemy(GameObject go) {
+    public void RespawnEnemy(GameObject go)
+    {
         StartCoroutine(RespawnEnemyCoroutine(go));
     }
 
@@ -91,23 +96,49 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(currentSpawnDelay);
     }
 
+    private HashSet<int> bonusSpawnedWaves = new HashSet<int>();
+
     public void OnEnemyKilled()
     {
         enemiesAlive--;
-
         Debug.Log("Enemigos vivos actualizado: " + enemiesAlive);
 
         if (enemiesAlive <= 0)
         {
-            if (spawnBonusBetweenWaves && bonusBoxSpawner != null)
+            WaveDefinition wave = levels[currentLevelIndex].waves[currentWaveIndex];
+
+            // Verificar si la siguiente wave es un boss
+            bool nextWaveIsBoss = false;
+            if (currentWaveIndex + 1 <= LastWaveIndex())
             {
-                bonusBoxSpawner.Spawn(GetBonusSpawnPosition());
+                nextWaveIsBoss = levels[currentLevelIndex].waves[currentWaveIndex + 1].isBossWave;
             }
-            else
+
+            // Spawn de caja de bonus entre waves, solo si no es la primera wave,
+            // y solo si no se spawneo aún para esta wave
+            if (spawnBonusBetweenWaves
+            && bonusBoxSpawner != null
+            && currentWaveIndex > 0
+            && !wave.isBossWave
+            && !nextWaveIsBoss
+            && !bonusSpawnedWaves.Contains(currentWaveIndex))
             {
-                currentWaveIndex++;
-                StartWave();
+                if (!bonusSpawnedWaves.Contains(currentWaveIndex))
+                {
+                    // Probabilidad de spawn
+                    if (Random.value <= bonusSpawnChance)
+                    {
+                        Vector3 bonusPos = GetBonusSpawnPosition();
+                        bonusBoxSpawner.Spawn(bonusPos);
+                    }
+
+                    bonusSpawnedWaves.Add(currentWaveIndex); // marca la wave como spawneada
+                }
             }
+
+            // Avanzar a la siguiente wave
+            currentWaveIndex++;
+            StartWave();
         }
     }
 
@@ -127,7 +158,18 @@ public class LevelManager : MonoBehaviour
         return new Vector3(Random.Range(screenLimitMinX, screenLimitMaxX), spawnPositionY, 0);
     }
 
-    private int LastWaveIndex() {
+    private Vector3 GetBonusSpawnPosition()
+    {
+        float y = spawnPositionY;
+
+        // Elegir aleatoriamente izquierda (-X) o derecha (+X)
+        float x = Random.value < 0.5f ? screenLimitMinX : screenLimitMaxX;
+
+        return new Vector3(x, y, 0f);
+    }
+
+    private int LastWaveIndex()
+    {
         return levels[currentLevelIndex].waves.Count - 1;
     }
 
@@ -149,20 +191,5 @@ public class LevelManager : MonoBehaviour
             GameObject turret = Instantiate(turretPrefab, spawnPos, Quaternion.identity);
             turret.transform.SetParent(parallax.transform, true);
         }
-    }
-
-    public void ContinueAfterBonus()
-    {
-        currentWaveIndex++;
-        StartWave();
-    }
-
-    Vector3 GetBonusSpawnPosition()
-    {
-        return new Vector3(
-            Random.Range(screenLimitMinX, screenLimitMaxX),
-            spawnPositionY,
-            0f
-        );
     }
 }

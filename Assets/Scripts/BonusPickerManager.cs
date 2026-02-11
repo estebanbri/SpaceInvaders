@@ -28,6 +28,10 @@ public class BonusPickerManager : MonoBehaviour
             return;
 
         Time.timeScale = 0f;
+
+        // ordenar según el índice original en pickerPool
+        options.Sort((a, b) => pickerPool.IndexOf(a).CompareTo(pickerPool.IndexOf(b)));
+
         pickerUI.Open(options, OnBonusSelected);
     }
 
@@ -35,6 +39,5 @@ public class BonusPickerManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         BonusManager.Instance.ApplyBonus(bonus);
-        LevelManager.Instance.ContinueAfterBonus();
     }
 }
