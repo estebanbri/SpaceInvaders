@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bonus Escudo
   m_EditorClassIdentifier: Assembly-CSharp::BonusEscudo
   icon: {fileID: 1693074885987259694, guid: 9a37f2e09f9373a48bfdced81fedd899, type: 3}
-  displayName: Shield
+  displayName: Plasma Shield
   starCost: 1
   canAppearInPicker: 1
   isTemporary: 0

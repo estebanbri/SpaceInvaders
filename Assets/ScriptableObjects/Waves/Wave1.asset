@@ -14,12 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveDefinition
   enemiesToSpawn:
   - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-  - {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
   spawnDelay: 0.5
   isBossWave: 0
   bossPrefab: {fileID: 0}
