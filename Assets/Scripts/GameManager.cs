@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int livesInitial = 4;
     [SerializeField] private int livesMax = 4;
+    [SerializeField] private RunTimer runTimer;
     private int score;
     private int livesCurrent;
 
@@ -16,6 +17,11 @@ public class GameManager : MonoBehaviour
         livesCurrent = livesInitial;
         UIVidas.Instance.Initialize(livesMax);
         UIVidas.Instance.SetLives(livesCurrent);
+    }
+
+    private void Start()
+    {
+        runTimer.StartTimer();
     }
 
     public void AddScore(int points)
@@ -56,6 +62,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("GAMEOVER!");
+        runTimer.StopTimer();
     }
 
     public void AddVida()
