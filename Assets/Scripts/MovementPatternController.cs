@@ -2,33 +2,35 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// FIJA POSICION ABSOLUTA
 public class MovementPatternController : MonoBehaviour
 {
     [SerializeField] private List<MovementPatternDefinition> movementPatterns;
     [SerializeField] private float timeBetweenPatterns = 3f;
+
     public event Action<int> OnPatternChanged;
 
     private int currentIndex;
     private float elapsedTime;
     private float patternTimer;
 
-    private Vector3 startPosition;
-    // FIJA LA POSICION RELATIVA
+    private Vector3 basePosition;
     private MovementPatternRuntime currentPattern;
 
-    private void Start()
-    {
-        ActivatePattern(0);
-    }
+    private bool initialized;
+    private Transform player;
 
     private void Update()
     {
+        if (!initialized || currentPattern == null)
+            return;
+
         elapsedTime += Time.deltaTime;
         patternTimer += Time.deltaTime;
 
-        // POSICION ACTUAL + POSICION RELATIVA
-        transform.position = startPosition + currentPattern.Evaluate(elapsedTime);
+        Vector3 offset = currentPattern.Evaluate(elapsedTime);
+
+        //  CLAVE: usamos basePosition dinámico
+        transform.localPosition = basePosition + offset;
 
         if (patternTimer >= timeBetweenPatterns)
         {
@@ -39,17 +41,37 @@ public class MovementPatternController : MonoBehaviour
         }
     }
 
+    public void Initialize(Transform player, Vector3? sharedCenter = null)
+{
+    this.player = player;
+
+    if (sharedCenter.HasValue)
+        basePosition = sharedCenter.Value;
+    else
+        basePosition = transform.localPosition;
+
+    initialized = true;
+    currentIndex = 0;
+
+    ActivatePattern(0);
+}
+
+
+    //  NUEVO: Permite actualizar el centro dinámicamente
+    public void SetBasePosition(Vector3 newBase)
+    {
+        basePosition = newBase;
+    }
+
     private void ActivatePattern(int index)
     {
         currentIndex = index;
         elapsedTime = 0f;
-
-        // Guardamos posición inicial del patrón
-        startPosition = transform.position;
+        patternTimer = 0f;
 
         currentPattern = movementPatterns[index].CreateRuntime();
-        currentPattern.Init(startPosition, Nave.Instance.transform.position);
+        currentPattern.Init(basePosition, player.position);
+
         OnPatternChanged?.Invoke(index);
     }
-
 }
