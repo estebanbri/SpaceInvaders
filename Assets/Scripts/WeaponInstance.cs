@@ -2,60 +2,58 @@ using UnityEngine;
 
 public class WeaponInstance
 {
-    private WeaponDefinition weaponDefinition;
-    private float nextFireTime;
-    private float fireRateMultiplier = 1f;
-    private FactionType ownerFaction;
-    private WeaponMuzzleFlash weaponMuzzleFlash;
+    private WeaponDefinition weaponDef;
+    private ShotPatternBase shotPattern;
+    private FactionType faction;
 
-    public WeaponInstance(WeaponDefinition weaponDefinition, FactionType ownerFaction, WeaponMuzzleFlash weaponMuzzleFlash)
+    public float AmmoSpeed { get; private set; }
+    public float FireRate { get; private set; }
+    public int BulletCount { get; private set; }
+
+    private float nextFireTime;
+
+    public WeaponInstance(WeaponDefinition def, int tier, FactionType faction, bool applyTierScaling = true)
     {
-        this.weaponDefinition = weaponDefinition;
-        this.ownerFaction = ownerFaction;
-        this.weaponMuzzleFlash = weaponMuzzleFlash;
+        weaponDef = def;
+        shotPattern = def.shotPattern;
+        this.faction = faction;
+
+        if (applyTierScaling && shotPattern != null)
+        {
+            int baseBullets = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount)); // tier 0 como base
+            shotPattern.ApplyTierScaling(tier, def.ammoSpeed, def.fireRate, baseBullets,
+                out float scaledAmmoSpeed, out float scaledFireRate, out int scaledBulletCount);
+
+            AmmoSpeed = scaledAmmoSpeed;
+            FireRate = scaledFireRate;
+            BulletCount = scaledBulletCount;
+            Debug.Log($"[WeaponInstance] {def.name} | Tier: {tier} | AmmoSpeed: {AmmoSpeed:F2} | FireRate: {FireRate:F2} | Bullets: {BulletCount}");
+        }
+        else
+        {
+            AmmoSpeed = def.ammoSpeed;
+            FireRate = def.fireRate;
+            BulletCount = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount));
+        }
     }
 
-    // El parametro Transform firePoint va a venir la data de la rotacion que tenga quien dispara, entonces luego en las 
-    // estrategias de disparo al decir transform.up esto no quiere decir que va hacia arriba sino es que va a depender del parametro que reciba aqui
-    // porque dentro de el viene la Rotacion, ejemplo con una rotacion z=180 (en criollo es como si lo rotaste y quedo patas para arriba y la cabeza abajo) entonces
-    // al decirle transform.up eso va a ir en direccion hacia abajo.
     public void Fire(Transform firePoint)
     {
         if (Time.time < nextFireTime) return;
-
-        nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
-
-        if (weaponMuzzleFlash != null)
-        {
-            weaponMuzzleFlash.Play();
-        }
-
-        weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, firePoint, weaponDefinition.ammoSpeed, ownerFaction);
+        nextFireTime = Time.time + FireRate;
+        shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
     }
 
-    // Nuevo método para disparar usando posición y rotación
     public void Fire(Quaternion rotation, Vector3 position)
     {
         if (Time.time < nextFireTime) return;
+        nextFireTime = Time.time + FireRate;
 
-        nextFireTime = Time.time + weaponDefinition.fireRate * fireRateMultiplier;
-
-        // Creamos un "fake" transform para disparar usando la rotación deseada
         GameObject temp = new GameObject("TempFirePoint");
         temp.transform.position = position;
         temp.transform.rotation = rotation;
 
-        if (weaponMuzzleFlash != null) {
-            weaponMuzzleFlash.Play();
-        }
-
-        weaponDefinition.shotPattern.Fire(weaponDefinition.ammoPrefab, temp.transform, weaponDefinition.ammoSpeed, ownerFaction);
-
-        GameObject.Destroy(temp); // destruimos el objeto temporal inmediatamente después
-    }
-
-    public void SetFireRateMultiplier(float multiplier)
-    {
-        this.fireRateMultiplier = multiplier;
+        shotPattern.Fire(weaponDef.ammoPrefab, temp.transform, AmmoSpeed, faction);
+        GameObject.Destroy(temp);
     }
 }

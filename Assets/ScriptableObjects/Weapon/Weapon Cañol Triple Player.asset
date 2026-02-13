@@ -17,3 +17,4 @@ MonoBehaviour:
   ammoPrefab: {fileID: 1611064198390892200, guid: b744edd0fae328347b0764e9e027d7c3, type: 3}
   shotPattern: {fileID: 11400000, guid: 89080a8e454f5c144abc88e96c08cdc6, type: 2}
   ranking: 3
+  bulletCount: 1

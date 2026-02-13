@@ -4,57 +4,61 @@ public class WeaponController : MonoBehaviour
 {
     [SerializeField] private WeaponDefinition weaponDefault;
     [SerializeField] private WeaponMuzzleFlash muzzleFlash;
-
     [SerializeField] private bool autoAimAtPlayer = false;
 
     private FactionComponent factionComponent;
     private WeaponInstance currentWeapon;
-
-    private Transform playerTransform;
-
     private Nave playerNave;
 
     private void Awake()
     {
-      factionComponent = GetComponentInParent<FactionComponent>();
-      Equip(weaponDefault);
-      playerNave = FindFirstObjectByType<Nave>();
+        factionComponent = GetComponentInParent<FactionComponent>();
+        playerNave = FindFirstObjectByType<Nave>();
+        Equip(weaponDefault, 0);
     }
 
-    public void Equip(WeaponDefinition weaponDefinition)
+    public void Equip(WeaponDefinition weaponDefinition, int tier = 0)
     {
         WeaponDefinition temp = weaponDefinition ?? weaponDefault;
-        currentWeapon = new WeaponInstance(temp, factionComponent.Faction, muzzleFlash);
-    }
 
-
-    public void Fire()
-    {
-    if (currentWeapon == null) return;
-
-    if (autoAimAtPlayer)
-    {
-        if (playerNave == null)
+        if (temp == null)
         {
-            // Si no hay player, dispara en la dirección actual del arma
-            // transform: va a capturar la Posicion y Rotacion del gameobject (Gameobject=WeaponController) y segun la rotacion que tenga va a disparar en una direccion u otra
-             // Es decir rotacion z=180 el transform.up va a tener una direccion hacia abajo, porque es como si esta patas para arriba.
-            currentWeapon.Fire(transform);
+            Debug.LogWarning("[WeaponController] No weapon to equip!");
             return;
         }
 
-        Vector3 directionToPlayer = (playerNave.transform.position - transform.position).normalized;
-        Quaternion rotationToPlayer = Quaternion.LookRotation(Vector3.forward, directionToPlayer);
-        currentWeapon.Fire(rotationToPlayer, transform.position);
+        // Aplica tier solo si hay ShotPattern
+        if (tier > 0 && temp.shotPattern != null)
+        {
+            currentWeapon = new WeaponInstance(temp, tier, factionComponent?.Faction ?? FactionType.Player);
+        }
+        else
+        {
+            currentWeapon = new WeaponInstance(temp, 0, factionComponent?.Faction ?? FactionType.Player, applyTierScaling: false);
+        }
     }
-    else
-    {
-        currentWeapon.Fire(transform);
-    }
-}
 
-    public void ApplyFireRateBonus(float multiplier)
+    public void Fire()
     {
-        currentWeapon?.SetFireRateMultiplier(multiplier);
+        if (currentWeapon == null) return;
+
+        if (autoAimAtPlayer && playerNave != null)
+        {
+            Vector3 dir = (playerNave.transform.position - transform.position).normalized;
+            Quaternion rot = Quaternion.LookRotation(Vector3.forward, dir);
+            currentWeapon.Fire(rot, transform.position);
+        }
+        else
+        {
+            currentWeapon.Fire(transform);
+        }
     }
+
+    // Nuevo: llamado desde Enemigo para respetar FireRate
+    public void TryFire()
+    {
+        Fire();
+    }
+
+    public WeaponDefinition GetWeaponDefault() => weaponDefault;
 }

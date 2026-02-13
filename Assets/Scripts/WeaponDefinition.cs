@@ -8,6 +8,5 @@ public class WeaponDefinition : ScriptableObject
     public float ammoSpeed;
     public WeaponAmmo ammoPrefab;
     public ShotPatternBase shotPattern;
-    public int ranking;
-    
+    public float bulletCount = 1;
 }

@@ -6,14 +6,20 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [Header("Levels")]
-    [SerializeField] private List<LevelDefinition> levels;
+    [Header("Enemy Pools")]
+    [SerializeField] private List<GameObject> tier1Enemies;
+    [SerializeField] private List<GameObject> tier2Enemies;
+    [SerializeField] private List<GameObject> tier3Enemies;
 
     [Header("Formation")]
     [SerializeField] private FormationController formationPrefab;
+    [SerializeField] private int initialRowCount = 1;
+    [SerializeField] private int initialColumnCount = 1;
 
-    [Header("Boss")]
+    [Header("MiniBoss")]
+    [SerializeField] private GameObject miniBossPrefab;
     [SerializeField] private BossHealthBarUI bossHealthBar;
+    [SerializeField] private int wavesPerCycle = 5;
 
     [Header("Parallax")]
     [SerializeField] private VerticalParallax parallax;
@@ -24,9 +30,7 @@ public class LevelManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI waveText;
 
-    private int currentLevelIndex = 0;
-    private int currentWaveIndex = 0;
-
+    private int currentWave = 1;
     private FormationController activeFormation;
 
     private void Awake()
@@ -41,42 +45,94 @@ public class LevelManager : MonoBehaviour
 
     void StartWave()
     {
-        if (currentWaveIndex > LastWaveIndex())
-            return;
+        int tier = GetTier();
 
-        WaveDefinition wave = levels[currentLevelIndex].waves[currentWaveIndex];
+        Debug.Log($"[WAVE START] Wave: {currentWave} | Tier: {tier}");
 
         UpdateWaveUI();
 
-        if (wave.isBossWave)
+        if (IsMiniBossWave())
         {
-            SpawnBoss(wave.bossPrefab);
-            return;
+            Debug.Log($"[MINIBOSS SPAWN] Tier: {tier}");
+            SpawnMiniBoss();
         }
-
-        SpawnFormation(wave);
+        else
+        {
+            SpawnProceduralFormation();
+        }
     }
 
-    void SpawnFormation(WaveDefinition wave)
+    bool IsMiniBossWave()
+    {
+        return currentWave % (wavesPerCycle + 1) == 0;
+    }
+
+    int GetTier()
+    {
+        return (currentWave - 1) / (wavesPerCycle + 1);
+    }
+
+    void SpawnProceduralFormation()
     {
         activeFormation = Instantiate(formationPrefab);
 
-        activeFormation.Initialize(wave, currentWaveIndex);
+        int tier = GetTier();
+
+        ProceduralWaveData waveData = GenerateWaveData(tier);
+
+        activeFormation.InitializeProcedural(waveData);
+
+        activeFormation.OnFormationCleared += () =>
+        {
+            currentWave++;
+            StartWave();
+        };
     }
 
-    public void OnFormationCleared()
+    ProceduralWaveData GenerateWaveData(int tier)
     {
-        currentWaveIndex++;
-        StartWave();
+        ProceduralWaveData data = new ProceduralWaveData();
+
+        if (tier == 0)
+            data.enemyPrefabs = tier1Enemies;
+        else if (tier == 1)
+            data.enemyPrefabs = tier2Enemies;
+        else
+            data.enemyPrefabs = tier3Enemies;
+
+        data.rows = Mathf.Clamp(initialRowCount + tier, initialRowCount, 8);
+        data.columns = Mathf.Clamp(initialColumnCount + tier, initialColumnCount, 8);
+
+        data.moveSpeed = 2f + tier * 0.3f;
+        data.healthMultiplier = 1f + tier * 0.5f;
+        data.fireRateMultiplier = 1f + tier * 0.2f;
+        data.tier = tier;
+
+        Debug.Log(
+            $"[WAVE DATA] Tier: {tier} | Grid: {data.rows}x{data.columns} | " +
+            $"MoveSpeed: {data.moveSpeed:F2} | " +
+            $"HealthMult: {data.healthMultiplier:F2} | " +
+            $"FireRateMultiplier: {data.fireRateMultiplier:F2}"
+        );
+
+        return data;
     }
 
-    void SpawnBoss(GameObject bossPrefab)
+    void SpawnMiniBoss()
     {
-        GameObject bossGO = Instantiate(bossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
+        GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
 
         Enemigo boss = bossGO.GetComponent<Enemigo>();
 
-        if (boss != null && bossHealthBar != null)
+        int tier = GetTier();
+
+        if (boss != null)
+        {
+            // Configura vida y arma según tier (FireRate dentro de WeaponInstance)
+            boss.ConfigureByTier(tier);
+        }
+
+        if (bossHealthBar != null)
         {
             bossHealthBar.Bind(boss);
         }
@@ -88,23 +144,18 @@ public class LevelManager : MonoBehaviour
                 bonusBoxSpawner.Spawn(new Vector3(0, 5f, 0));
             }
 
-            currentWaveIndex++;
+            currentWave++;
             StartWave();
         };
     }
 
-    private int LastWaveIndex()
-    {
-        return levels[currentLevelIndex].waves.Count - 1;
-    }
-
     void UpdateWaveUI()
     {
-        waveText.text = "WAVE " + (currentWaveIndex + 1);
+        waveText.text = "WAVE " + currentWave;
     }
 
     public int GetCurrentWave()
     {
-        return currentWaveIndex + 1;
+        return currentWave;
     }
 }

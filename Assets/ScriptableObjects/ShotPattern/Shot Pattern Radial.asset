@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654257ba12c64aa4da5ec37e86f53709, type: 3}
+  m_Name: Shot Pattern Radial
+  m_EditorClassIdentifier: Assembly-CSharp::ShotPatternRadial
+  lanesCount: 0
+  baseBulletCount: 4
+  arcAngle: 270
+  startAngleOffset: 0
+  rotateOverTime: 0
+  rotationSpeed: 10

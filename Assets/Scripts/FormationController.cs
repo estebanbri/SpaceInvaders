@@ -23,27 +23,26 @@ public class FormationController : MonoBehaviour
     private bool isActive = false;
     private int enemiesAlive;
 
-    public void Initialize(WaveDefinition wave, int waveIndex)
+    public System.Action OnFormationCleared;
+
+    #region INITIALIZATION
+
+    public void InitializeProcedural(ProceduralWaveData data)
     {
-        enemyPrefabs = wave.enemyPrefabs;
+        enemyPrefabs = data.enemyPrefabs;
 
-        rows = wave.rows;
-        columns = wave.columns;
-        spacingX = wave.spacingX;
-        spacingY = wave.spacingY;
-        moveSpeed = wave.baseSpeed;
+        rows = data.rows;
+        columns = data.columns;
+        spacingX = data.spacingX;
+        spacingY = data.spacingY;
+        moveSpeed = data.moveSpeed;
 
-        ConfigureDifficulty(waveIndex);
         CalculateBounds();
-        GenerateGrid();
+        GenerateGrid(data);
         StartCoroutine(EnterAnimation());
     }
 
-    void ConfigureDifficulty(int waveIndex)
-    {
-        moveSpeed += waveIndex * 0.3f;
-        rows += waveIndex / 3;
-    }
+    #endregion
 
     void CalculateBounds()
     {
@@ -55,12 +54,14 @@ public class FormationController : MonoBehaviour
         rightLimit = max.x - borderPadding;
     }
 
-    void GenerateGrid()
+    void GenerateGrid(ProceduralWaveData data)
     {
         enemiesAlive = 0;
 
         float startX = -(columns - 1) * spacingX * 0.5f;
         float startY = 0f;
+
+        int tier = data.tier; // tier del wave data
 
         for (int r = 0; r < rows; r++)
         {
@@ -73,12 +74,24 @@ public class FormationController : MonoBehaviour
                 );
 
                 GameObject prefab = GetRandomEnemyPrefab();
+                if (prefab == null) continue;
 
                 GameObject enemyGO = Instantiate(prefab, transform);
                 enemyGO.transform.localPosition = localPos;
 
                 Enemigo enemigo = enemyGO.GetComponent<Enemigo>();
+
                 enemigo.SetFormation(this);
+                enemigo.ApplyProceduralScaling(
+                    data.healthMultiplier,
+                    data.fireRateMultiplier
+                );
+
+                // Si el enemigo tiene WeaponController, aplicamos tier
+                if (enemigo.GetWeaponController != null && enemigo.GetWeaponController.GetWeaponDefault() != null)
+                {
+                    enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), tier);
+                }
 
                 enemiesAlive++;
             }
@@ -89,7 +102,7 @@ public class FormationController : MonoBehaviour
     {
         if (enemyPrefabs == null || enemyPrefabs.Count == 0)
         {
-            Debug.LogError("No enemy prefabs assigned in WaveDefinition");
+            Debug.LogError("No enemy prefabs assigned for procedural wave");
             return null;
         }
 
@@ -99,7 +112,7 @@ public class FormationController : MonoBehaviour
     IEnumerator EnterAnimation()
     {
         Vector3 start = new Vector3(0, 8f, 0);
-        Vector3 target = new Vector3(0, 3f, 0);
+        Vector3 target = new Vector3(0, 5f, 0);
 
         transform.position = start;
 
@@ -115,6 +128,7 @@ public class FormationController : MonoBehaviour
 
         transform.position = target;
         isActive = true;
+        ActivateEnemies();
     }
 
     void Update()
@@ -149,17 +163,20 @@ public class FormationController : MonoBehaviour
 
         if (enemiesAlive <= 0)
         {
-            LevelManager.Instance.OnFormationCleared();
+            OnFormationCleared?.Invoke();
             Destroy(gameObject);
         }
     }
 
-    public void SetGrid(int r, int c, float sx, float sy, float speed)
+    void ActivateEnemies()
     {
-        rows = r;
-        columns = c;
-        spacingX = sx;
-        spacingY = sy;
-        moveSpeed = speed;
+        Enemigo[] enemies = GetComponentsInChildren<Enemigo>();
+
+        foreach (var enemy in enemies)
+        {
+            enemy.SetState(EnemyState.Attacking);
+        }
+
+        Debug.Log("[FORMATION] Enemies switched to ATTACKING state");
     }
 }

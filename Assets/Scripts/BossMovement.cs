@@ -3,7 +3,7 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour
 {
     [Header("Entrance")]
-    [SerializeField] private float enterOffset = 2f;
+    [SerializeField] private float enterOffset = 1f;
     [SerializeField] private float enterSpeed = 3f;
 
     [Header("Horizontal Movement")]
@@ -17,9 +17,12 @@ public class BossMovement : MonoBehaviour
     private float halfWidth;
 
     private int direction = 1;
+    private Enemigo enemigo;
 
     void Start()
     {
+
+        enemigo = GetComponent<Enemigo>();
         Camera cam = Camera.main;
 
         // Obtener borde superior de cámara
@@ -63,6 +66,8 @@ public class BossMovement : MonoBehaviour
             return;
         }
 
+
+        enemigo.SetState(EnemyState.Attacking);
         MoveHorizontal();
     }
 

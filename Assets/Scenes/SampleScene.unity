@@ -148,15 +148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbf8512af1eb0a42a6adc4552317446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  levels:
-  - levelIndex: 1
-    waves:
-    - {fileID: 11400000, guid: 53c0423d0a70a684dbb6c32efa25e71b, type: 2}
-    - {fileID: 11400000, guid: 8dadac5d9bc8878488aaf1a6002ec609, type: 2}
-    - {fileID: 11400000, guid: 3d7de22044710b2438ec058e9a3601ea, type: 2}
-    - {fileID: 11400000, guid: 71f8b9fa74b7eec4a98d67abb5fe2430, type: 2}
+  tier1Enemies:
+  - {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
+  tier2Enemies:
+  - {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
+  tier3Enemies:
+  - {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
   formationPrefab: {fileID: 8634092266250004816, guid: 37a418f9bcf16e042a73d6b2e1ff3869, type: 3}
+  miniBossPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
   bossHealthBar: {fileID: 303073977}
+  wavesPerCycle: 1
   parallax: {fileID: 5162797298895222144}
   bonusBoxSpawner: {fileID: 1373309553}
   waveText: {fileID: 962583968}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
@@ -11,23 +12,18 @@ public class Enemigo : MonoBehaviour, IDamageable
     [Header("Combat")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private WeaponController weaponController;
-    [SerializeField] private float fireDelay = 1f;
+    public WeaponController GetWeaponController => weaponController;
 
     [Header("Boss")]
     [SerializeField] private bool isBoss = false;
+    [SerializeField] private List<BossWeaponTier> bossWeaponsByTier;
 
     private int currentHealth;
-    private float fireTimer;
     private bool isDead;
-
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
     private MovementController movementController;
-    [HideInInspector] public GameObject prefab; // Prefab original
-    [HideInInspector] public MovementPatternDefinition movementPattern; // Patrón de movimiento original
-
     private FormationController formation;
-
 
     public EnemyState State { get; private set; }
     public bool IsBoss => isBoss;
@@ -40,28 +36,20 @@ public class Enemigo : MonoBehaviour, IDamageable
     void Awake()
     {
         currentHealth = maxHealth;
-
         enemigoVisual = GetComponentInChildren<EnemigoVisual>();
         col = GetComponent<Collider2D>();
         movementController = GetComponent<MovementController>();
-
         SetState(EnemyState.Entering);
     }
 
     void Update()
     {
-        if (isDead)
-            return;
+        if (isDead) return;
 
+        // Maneja disparo usando WeaponInstance.FireRate
         if (weaponController != null && State == EnemyState.Attacking)
         {
-            fireTimer += Time.deltaTime;
-
-            if (fireTimer >= fireDelay)
-            {
-                weaponController.Fire();
-                fireTimer = 0f;
-            }
+            weaponController.TryFire();
         }
     }
 
@@ -69,19 +57,14 @@ public class Enemigo : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
-        ModifyHealth(-damageAmount);
-
+        currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
         enemigoVisual?.PlayHitEffect();
 
         if (currentHealth <= 0)
         {
             Die();
         }
-    }
 
-    private void ModifyHealth(int amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
@@ -93,37 +76,24 @@ public class Enemigo : MonoBehaviour, IDamageable
         col.enabled = false;
 
         OnEnemyDied?.Invoke();
-
         enemigoVisual?.PlayDeath();
-        CreateScorePickup();
-        TryCreateBonusPickup();
-
         formation?.NotifyEnemyKilled();
+        TryCreatePickups();
     }
 
-
-    public void OnDeathAnimationFinished()
+    private void TryCreatePickups()
     {
-        Destroy(gameObject);
-    }
-
-    private void CreateScorePickup()
-    {
-        int count = Random.Range(1, 4);
-        for (int i = 0; i < count; i++)
+        // Score y bonus pickups
+        int scoreCount = Random.Range(1, 4);
+        for (int i = 0; i < scoreCount; i++)
         {
             Vector3 offset = new Vector3(i + 1, -i, 0);
             Instantiate(scorePickupPrefab, transform.position + offset, Quaternion.identity);
         }
-    }
 
-    private void TryCreateBonusPickup()
-    {
         if (bonusPickupPrefab == null) return;
         if (Random.value > dropProbability) return;
-
-        if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition()))
-            return;
+        if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition())) return;
 
         Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
     }
@@ -138,4 +108,43 @@ public class Enemigo : MonoBehaviour, IDamageable
         formation = controller;
     }
 
+    public void ApplyProceduralScaling(float healthMultiplier, float fireRateMultiplier)
+    {
+        maxHealth = Mathf.RoundToInt(maxHealth * healthMultiplier);
+        currentHealth = maxHealth;
+
+        // No modificamos fireDelay aquí, FireRate queda en WeaponInstance
+    }
+
+    public void ConfigureByTier(int tier)
+    {
+        Debug.Log($"[Enemigo] {gameObject.name} | Tier: {tier} | MaxHealth: {maxHealth} | Weapon: {weaponController?.GetWeaponDefault()?.name}");
+
+        // Selecciona arma según tier
+        if (isBoss && bossWeaponsByTier != null)
+        {
+            WeaponDefinition selectedWeapon = null;
+            foreach (var entry in bossWeaponsByTier)
+                if (tier >= entry.minTier) selectedWeapon = entry.weaponDefinition;
+
+            if (selectedWeapon != null)
+                weaponController?.Equip(selectedWeapon, tier);
+        }
+        else if (weaponController != null)
+        {
+
+            // Enemigos normales usan tier para escalar stats de su arma
+            var w = weaponController.GetWeaponDefault();
+            weaponController.Equip(w, tier);
+            Debug.Log($"[Enemigo] {gameObject.name} Weapon Stats | AmmoSpeed: {w.ammoSpeed:F2} | FireRate: {w.fireRate:F2} | Bullets: {w.bulletCount}");
+        }
+
+        // Escalado vida
+        float healthMultiplier = 1f + tier * 0.5f;
+        maxHealth = Mathf.RoundToInt(maxHealth * healthMultiplier);
+        currentHealth = maxHealth;
+    }
+
+
+    public void OnDeathAnimationFinished() { Destroy(gameObject); }
 }
