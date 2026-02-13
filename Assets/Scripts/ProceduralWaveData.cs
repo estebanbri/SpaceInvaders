@@ -16,4 +16,5 @@ public class ProceduralWaveData
     public float healthMultiplier = 1f;
     public float fireRateMultiplier = 1f;
     public int tier;
+    public FormationPattern formationPattern = FormationPattern.Grid;
 }

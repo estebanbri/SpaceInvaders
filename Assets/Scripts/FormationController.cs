@@ -5,17 +5,15 @@ using UnityEngine;
 public class FormationController : MonoBehaviour
 {
     private List<GameObject> enemyPrefabs;
+    private float spacingX = 1f;
+    private float spacingY = 1f;
+    private float moveSpeed;
 
-    private int rows;
-    private int columns;
-    private float spacingX;
-    private float spacingY;
+    private FormationPattern formationPattern;
 
     [Header("Movement")]
     [SerializeField] private float stepDown = 0.5f;
     [SerializeField] private float borderPadding = 0.5f;
-
-    private float moveSpeed;
 
     private int direction = 1;
     private float leftLimit;
@@ -30,15 +28,13 @@ public class FormationController : MonoBehaviour
     public void InitializeProcedural(ProceduralWaveData data)
     {
         enemyPrefabs = data.enemyPrefabs;
-
-        rows = data.rows;
-        columns = data.columns;
         spacingX = data.spacingX;
         spacingY = data.spacingY;
         moveSpeed = data.moveSpeed;
+        formationPattern = data.formationPattern;
 
         CalculateBounds();
-        GenerateGrid(data);
+        GenerateEnemies(data);
         StartCoroutine(EnterAnimation());
     }
 
@@ -54,69 +50,76 @@ public class FormationController : MonoBehaviour
         rightLimit = max.x - borderPadding;
     }
 
-    void GenerateGrid(ProceduralWaveData data)
+    void GenerateEnemies(ProceduralWaveData data)
     {
         enemiesAlive = 0;
+        int totalEnemies = enemyPrefabs.Count;
 
-        float startX = -(columns - 1) * spacingX * 0.5f;
-        float startY = 0f;
-
-        int tier = data.tier; // tier del wave data
-
-        for (int r = 0; r < rows; r++)
+        for (int i = 0; i < totalEnemies; i++)
         {
-            for (int c = 0; c < columns; c++)
-            {
-                Vector3 localPos = new Vector3(
-                    startX + c * spacingX,
-                    startY - r * spacingY,
-                    0f
-                );
+            Vector3 localPos = CalculatePosition(i, totalEnemies, formationPattern);
 
-                GameObject prefab = GetRandomEnemyPrefab();
-                if (prefab == null) continue;
+            GameObject prefab = enemyPrefabs[i];
+            if (prefab == null) continue;
 
-                GameObject enemyGO = Instantiate(prefab, transform);
-                enemyGO.transform.localPosition = localPos;
+            GameObject enemyGO = Instantiate(prefab, transform);
+            enemyGO.transform.localPosition = localPos;
 
-                Enemigo enemigo = enemyGO.GetComponent<Enemigo>();
+            Enemigo enemigo = enemyGO.GetComponent<Enemigo>();
+            enemigo.SetFormation(this);
+            enemigo.ApplyProceduralScaling(data.healthMultiplier, data.fireRateMultiplier);
 
-                enemigo.SetFormation(this);
-                enemigo.ApplyProceduralScaling(
-                    data.healthMultiplier,
-                    data.fireRateMultiplier
-                );
+            // Aplicar tier al arma si tiene
+            if (enemigo.GetWeaponController != null && enemigo.GetWeaponController.GetWeaponDefault() != null)
+                enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), data.tier);
 
-                // Si el enemigo tiene WeaponController, aplicamos tier
-                if (enemigo.GetWeaponController != null && enemigo.GetWeaponController.GetWeaponDefault() != null)
-                {
-                    enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), tier);
-                }
-
-                enemiesAlive++;
-            }
+            enemiesAlive++;
         }
     }
 
-    GameObject GetRandomEnemyPrefab()
+    Vector3 CalculatePosition(int index, int total, FormationPattern pattern)
     {
-        if (enemyPrefabs == null || enemyPrefabs.Count == 0)
+        switch (pattern)
         {
-            Debug.LogError("No enemy prefabs assigned for procedural wave");
-            return null;
-        }
+            case FormationPattern.Grid:
+                int columns = Mathf.CeilToInt(Mathf.Sqrt(total));
+                int row = index / columns;
+                int col = index % columns;
+                float startX = -(columns - 1) * spacingX * 0.5f;
+                float startY = row * -spacingY;
+                return new Vector3(startX + col * spacingX, startY, 0);
 
-        return enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+            case FormationPattern.Line:
+                float startLineX = -(total - 1) * spacingX * 0.5f;
+                return new Vector3(startLineX + index * spacingX, 0, 0);
+
+            case FormationPattern.Circle:
+                float radius = Mathf.Max(total * 0.2f, 1f);
+                float angleStep = 360f / total;
+                float angle = index * angleStep * Mathf.Deg2Rad;
+                return new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0);
+
+            case FormationPattern.Star:
+                // Patrón estrella simple: alterna entre radio corto y largo
+                float radiusOuter = Mathf.Max(total * 0.2f, 1f);
+                float radiusInner = radiusOuter * 0.5f;
+                float stepAngle = 360f / total;
+                float starAngle = index * stepAngle * Mathf.Deg2Rad;
+                float r = (index % 2 == 0) ? radiusOuter : radiusInner;
+                return new Vector3(Mathf.Cos(starAngle) * r, Mathf.Sin(starAngle) * r, 0);
+
+            default:
+                return Vector3.zero;
+        }
     }
 
     IEnumerator EnterAnimation()
     {
         Vector3 start = new Vector3(0, 8f, 0);
-        Vector3 target = new Vector3(0, 5f, 0);
-
+        Vector3 target = transform.position;
         transform.position = start;
 
-        float t = 0;
+        float t = 0f;
         float duration = 1.5f;
 
         while (t < duration)
@@ -141,7 +144,14 @@ public class FormationController : MonoBehaviour
     {
         transform.position += Vector3.right * direction * moveSpeed * Time.deltaTime;
 
-        float halfWidth = (columns - 1) * spacingX * 0.5f;
+        // Ajustamos bounds según tipo de patrón
+        float halfWidth = 0f;
+
+        if (formationPattern == FormationPattern.Grid || formationPattern == FormationPattern.Line)
+            halfWidth = (enemyPrefabs.Count - 1) * spacingX * 0.5f;
+        else if (formationPattern == FormationPattern.Circle || formationPattern == FormationPattern.Star)
+            halfWidth = Mathf.Max(enemyPrefabs.Count * 0.1f, 1f); // radio estimado
+
         float leftEdge = transform.position.x - halfWidth;
         float rightEdge = transform.position.x + halfWidth;
 
@@ -160,9 +170,11 @@ public class FormationController : MonoBehaviour
     public void NotifyEnemyKilled()
     {
         enemiesAlive--;
+        Debug.Log("[FORMATION] Enemy killed. Remaining:" + enemiesAlive);
 
         if (enemiesAlive <= 0)
         {
+            Debug.Log("[FORMATION] All enemies cleared!");
             OnFormationCleared?.Invoke();
             Destroy(gameObject);
         }
@@ -171,11 +183,8 @@ public class FormationController : MonoBehaviour
     void ActivateEnemies()
     {
         Enemigo[] enemies = GetComponentsInChildren<Enemigo>();
-
         foreach (var enemy in enemies)
-        {
             enemy.SetState(EnemyState.Attacking);
-        }
 
         Debug.Log("[FORMATION] Enemies switched to ATTACKING state");
     }

@@ -62,7 +62,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
-            Die();
+             Die();
         }
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -71,13 +71,14 @@ public class Enemigo : MonoBehaviour, IDamageable
     private void Die()
     {
         if (isDead) return;
-
         isDead = true;
-        col.enabled = false;
 
+        Debug.Log("[ENEMY]  died.");
+
+        col.enabled = false;
         OnEnemyDied?.Invoke();
-        enemigoVisual?.PlayDeath();
         formation?.NotifyEnemyKilled();
+        enemigoVisual?.PlayDeath();
         TryCreatePickups();
     }
 

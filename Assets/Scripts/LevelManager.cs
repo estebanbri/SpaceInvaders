@@ -6,15 +6,11 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [Header("Enemy Pools")]
-    [SerializeField] private List<GameObject> tier1Enemies;
-    [SerializeField] private List<GameObject> tier2Enemies;
-    [SerializeField] private List<GameObject> tier3Enemies;
+    [Header("Tiers")]
+    [SerializeField] private List<TierConfig> tiers;
 
     [Header("Formation")]
     [SerializeField] private FormationController formationPrefab;
-    [SerializeField] private int initialRowCount = 1;
-    [SerializeField] private int initialColumnCount = 1;
 
     [Header("MiniBoss")]
     [SerializeField] private GameObject miniBossPrefab;
@@ -35,21 +31,25 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         StartWave();
     }
 
-    void StartWave()
+    private void StartWave()
     {
-        int tier = GetTier();
-
-        Debug.Log($"[WAVE START] Wave: {currentWave} | Tier: {tier}");
-
         UpdateWaveUI();
+
+        int tier = GetTier();
+        Debug.Log($"[WAVE START] Wave: {currentWave} | Tier: {tier}");
 
         if (IsMiniBossWave())
         {
@@ -62,94 +62,109 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    bool IsMiniBossWave()
+    private bool IsMiniBossWave()
     {
-        return currentWave % (wavesPerCycle + 1) == 0;
+        return currentWave % wavesPerCycle == 0;
     }
 
-    int GetTier()
+    private int GetTier()
     {
-        return (currentWave - 1) / (wavesPerCycle + 1);
+        return (currentWave - 1) % tiers.Count;
     }
 
-    void SpawnProceduralFormation()
+    private void SpawnProceduralFormation()
     {
+        // Limpieza de la formación anterior
+        if (activeFormation != null)
+        {
+            activeFormation.OnFormationCleared = null;
+            Destroy(activeFormation.gameObject);
+        }
+
         activeFormation = Instantiate(formationPrefab);
 
         int tier = GetTier();
-
         ProceduralWaveData waveData = GenerateWaveData(tier);
 
         activeFormation.InitializeProcedural(waveData);
 
-        activeFormation.OnFormationCleared += () =>
-        {
-            currentWave++;
-            StartWave();
-        };
+        // Suscripción segura al evento
+        activeFormation.OnFormationCleared += OnFormationCleared;
     }
 
-    ProceduralWaveData GenerateWaveData(int tier)
+    private void OnFormationCleared()
+    {
+        // Limpieza del evento antes de avanzar
+        if (activeFormation != null)
+            activeFormation.OnFormationCleared -= OnFormationCleared;
+
+        currentWave++;
+        StartWave();
+    }
+
+    private ProceduralWaveData GenerateWaveData(int tier)
     {
         ProceduralWaveData data = new ProceduralWaveData();
+        TierConfig config = tiers[tier];
 
-        if (tier == 0)
-            data.enemyPrefabs = tier1Enemies;
-        else if (tier == 1)
-            data.enemyPrefabs = tier2Enemies;
-        else
-            data.enemyPrefabs = tier3Enemies;
+        data.enemyPrefabs = new List<GameObject>();
+        foreach (var enemyCount in config.enemies)
+        {
+            for (int i = 0; i < enemyCount.baseCount; i++)
+            {
+                data.enemyPrefabs.Add(enemyCount.enemyPrefab);
+            }
+        }
 
-        data.rows = Mathf.Clamp(initialRowCount + tier, initialRowCount, 8);
-        data.columns = Mathf.Clamp(initialColumnCount + tier, initialColumnCount, 8);
+        // Mezclar la lista
+        for (int i = 0; i < data.enemyPrefabs.Count; i++)
+        {
+            int swapIndex = Random.Range(i, data.enemyPrefabs.Count);
+            var temp = data.enemyPrefabs[i];
+            data.enemyPrefabs[i] = data.enemyPrefabs[swapIndex];
+            data.enemyPrefabs[swapIndex] = temp;
+        }
 
         data.moveSpeed = 2f + tier * 0.3f;
         data.healthMultiplier = 1f + tier * 0.5f;
         data.fireRateMultiplier = 1f + tier * 0.2f;
         data.tier = tier;
+        data.formationPattern = config.formationPattern;
 
         Debug.Log(
-            $"[WAVE DATA] Tier: {tier} | Grid: {data.rows}x{data.columns} | " +
-            $"MoveSpeed: {data.moveSpeed:F2} | " +
-            $"HealthMult: {data.healthMultiplier:F2} | " +
-            $"FireRateMultiplier: {data.fireRateMultiplier:F2}"
+            $"[WAVE DATA] Tier: {tier} | TotalEnemies: {data.enemyPrefabs.Count} | " +
+            $"MoveSpeed: {data.moveSpeed:F2} | HealthMult: {data.healthMultiplier:F2} | FireRateMultiplier: {data.fireRateMultiplier:F2} | Pattern: {data.formationPattern}"
         );
 
         return data;
     }
 
-    void SpawnMiniBoss()
+    private void SpawnMiniBoss()
     {
         GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
-
         Enemigo boss = bossGO.GetComponent<Enemigo>();
-
         int tier = GetTier();
 
         if (boss != null)
         {
-            // Configura vida y arma según tier (FireRate dentro de WeaponInstance)
             boss.ConfigureByTier(tier);
+            boss.OnEnemyDied += OnMiniBossDied;
         }
 
         if (bossHealthBar != null)
-        {
             bossHealthBar.Bind(boss);
-        }
-
-        boss.OnEnemyDied += () =>
-        {
-            if (bonusBoxSpawner != null)
-            {
-                bonusBoxSpawner.Spawn(new Vector3(0, 5f, 0));
-            }
-
-            currentWave++;
-            StartWave();
-        };
     }
 
-    void UpdateWaveUI()
+    private void OnMiniBossDied()
+    {
+        if (bonusBoxSpawner != null)
+            bonusBoxSpawner.Spawn(new Vector3(0, 5f, 0));
+
+        currentWave++;
+        StartWave();
+    }
+
+    private void UpdateWaveUI()
     {
         waveText.text = "WAVE " + currentWave;
     }
