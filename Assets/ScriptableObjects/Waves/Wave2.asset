@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32b02b467d533438c2500cb3490365, type: 3}
   m_Name: Wave2
   m_EditorClassIdentifier: Assembly-CSharp::WaveDefinition
-  hordes:
-  - useCustomFormation: 0
-    customFormationPoints: []
-    formationType: 0
-    formationOffset: 1
-    enemyPrefab: {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
-    hordeCount: 1
-    movementPattern: {fileID: 11400000, guid: 03b968b09a30ef54495ec84b8ae69b8a, type: 2}
-  spawnDelay: 0.5
+  enemyPrefabs:
+  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
+  - {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
+  - {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
+  rows: 4
+  columns: 4
+  spacingX: 1
+  spacingY: 1
+  baseSpeed: 5
   isBossWave: 0
   bossPrefab: {fileID: 0}
   turretPrefabs:

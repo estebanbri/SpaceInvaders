@@ -92,7 +92,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4768475860424822803}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   weaponController: {fileID: 0}
   fireDelay: 1
   isBoss: 0
+  prefab: {fileID: 0}
+  movementPattern: {fileID: 0}
 --- !u!114 &7547256514065386673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  bottomMargin: 2
-  behavior: 1
 --- !u!114 &5301253227715546743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
   m_Name: 

@@ -155,9 +155,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8dadac5d9bc8878488aaf1a6002ec609, type: 2}
     - {fileID: 11400000, guid: 3d7de22044710b2438ec058e9a3601ea, type: 2}
     - {fileID: 11400000, guid: 71f8b9fa74b7eec4a98d67abb5fe2430, type: 2}
+  formationPrefab: {fileID: 8634092266250004816, guid: 37a418f9bcf16e042a73d6b2e1ff3869, type: 3}
   bossHealthBar: {fileID: 303073977}
   parallax: {fileID: 5162797298895222144}
-  turretSpacingY: 2
   bonusBoxSpawner: {fileID: 1373309553}
   waveText: {fileID: 962583968}
 --- !u!4 &78046345
@@ -582,8 +582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  bottomMargin: 2
-  behavior: 0
 --- !u!1 &545552730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,8 +1728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  bottomMargin: 2
-  behavior: 0
 --- !u!1 &1422314790
 GameObject:
   m_ObjectHideFlags: 0

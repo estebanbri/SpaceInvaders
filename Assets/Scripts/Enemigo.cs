@@ -26,6 +26,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     [HideInInspector] public GameObject prefab; // Prefab original
     [HideInInspector] public MovementPatternDefinition movementPattern; // Patrón de movimiento original
 
+    private FormationController formation;
+
 
     public EnemyState State { get; private set; }
     public bool IsBoss => isBoss;
@@ -96,8 +98,9 @@ public class Enemigo : MonoBehaviour, IDamageable
         CreateScorePickup();
         TryCreateBonusPickup();
 
-        LevelManager.Instance.OnEnemyKilled();
+        formation?.NotifyEnemyKilled();
     }
+
 
     public void OnDeathAnimationFinished()
     {
@@ -130,5 +133,9 @@ public class Enemigo : MonoBehaviour, IDamageable
         State = newState;
     }
 
+    public void SetFormation(FormationController controller)
+    {
+        formation = controller;
+    }
 
 }

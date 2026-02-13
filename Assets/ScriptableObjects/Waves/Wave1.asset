@@ -12,27 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32b02b467d533438c2500cb3490365, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: Assembly-CSharp::WaveDefinition
-  hordes:
-  - useCustomFormation: 1
-    customFormationPoints:
-    - offset: {x: 0, y: 0}
-    - offset: {x: -2, y: -2}
-    - offset: {x: 2, y: -2}
-    - offset: {x: -4, y: -4}
-    - offset: {x: 4, y: -4}
-    formationType: 0
-    formationOffset: 2
-    enemyPrefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-    hordeCount: 3
-    movementPattern: {fileID: 11400000, guid: bebd5cb59f25b0d4b9ad9a5b7b1b1da2, type: 2}
-  - useCustomFormation: 0
-    customFormationPoints: []
-    formationType: 0
-    formationOffset: 3
-    enemyPrefab: {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
-    hordeCount: 1
-    movementPattern: {fileID: 11400000, guid: 03b968b09a30ef54495ec84b8ae69b8a, type: 2}
-  spawnDelay: 0.1
+  enemyPrefabs:
+  - {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
+  - {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
+  rows: 4
+  columns: 4
+  spacingX: 2
+  spacingY: 1
+  baseSpeed: 3
   isBossWave: 0
   bossPrefab: {fileID: 0}
   turretPrefabs:
