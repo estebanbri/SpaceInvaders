@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1879159735146175466}
   - component: {fileID: -4167900239025423422}
   - component: {fileID: 7146610694354115643}
-  - component: {fileID: 3851991667495074403}
+  - component: {fileID: 9121755359269406380}
   m_Layer: 0
   m_Name: EnemigoFinalLevel1
   m_TagString: Untagged
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 1
---- !u!114 &3851991667495074403
+--- !u!114 &9121755359269406380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,16 +157,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4768475860424822803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63293e3baf8feb8478947b654802f7a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementPatternController
-  movementPatterns:
-  - {fileID: 11400000, guid: e9fc5732b099b374fbdcd747e70f9a83, type: 2}
-  - {fileID: 11400000, guid: 1b568f4b5f5a5e94dac40ed92efe12d3, type: 2}
-  - {fileID: 11400000, guid: e9fc5732b099b374fbdcd747e70f9a83, type: 2}
-  - {fileID: 11400000, guid: 3750799e2c4c15a4b81a04131259a7f6, type: 2}
-  - {fileID: 11400000, guid: 1b568f4b5f5a5e94dac40ed92efe12d3, type: 2}
-  timeBetweenPatterns: 3
+  m_EditorClassIdentifier: Assembly-CSharp::MovementController
+  pattern: {fileID: 0}
 --- !u!1 &5239692054288271202
 GameObject:
   m_ObjectHideFlags: 0

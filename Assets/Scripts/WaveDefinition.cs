@@ -4,8 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Wave")]
 public class WaveDefinition: ScriptableObject
 {
-    [Header("Enemies")]
-    public List<GameObject> enemiesToSpawn;
+    [Header("Horde List")]
+    public List<HordeDefinition> hordes;
+
     public float spawnDelay = 0.5f;
     public bool isBossWave;
     public GameObject bossPrefab;

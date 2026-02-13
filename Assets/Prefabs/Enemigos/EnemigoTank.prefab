@@ -138,9 +138,9 @@ GameObject:
   - component: {fileID: 6674376224979997614}
   - component: {fileID: 5348782021209770510}
   - component: {fileID: 8092928041683358142}
-  - component: {fileID: 6662713105613276874}
   - component: {fileID: 3646068992520237172}
   - component: {fileID: 4999347253907467278}
+  - component: {fileID: -6050730051347908219}
   m_Layer: 0
   m_Name: EnemigoTank
   m_TagString: Untagged
@@ -224,23 +224,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6662713105613276874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63293e3baf8feb8478947b654802f7a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementPatternController
-  movementPatterns:
-  - {fileID: 11400000, guid: 6604802800c37aa42b9ca0be431227bc, type: 2}
-  - {fileID: 11400000, guid: c660d4fb9e4b82349a4f9c4eb377fb32, type: 2}
-  - {fileID: 11400000, guid: 1b568f4b5f5a5e94dac40ed92efe12d3, type: 2}
-  timeBetweenPatterns: 2
 --- !u!114 &3646068992520237172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +284,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3129624, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6050730051347908219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementController
 --- !u!1001 &3937831710878618605
 PrefabInstance:
   m_ObjectHideFlags: 0

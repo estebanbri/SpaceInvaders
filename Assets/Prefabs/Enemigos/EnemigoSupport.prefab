@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5042651987578534612}
   - component: {fileID: 7547256514065386673}
   - component: {fileID: 5301253227715546743}
+  - component: {fileID: 9060729219771440278}
   m_Layer: 0
   m_Name: EnemigoSupport
   m_TagString: Untagged
@@ -156,6 +157,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 1
+--- !u!114 &9060729219771440278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementController
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0

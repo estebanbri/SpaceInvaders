@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32b02b467d533438c2500cb3490365, type: 3}
   m_Name: WaveFinal1
   m_EditorClassIdentifier: Assembly-CSharp::WaveDefinition
-  enemiesToSpawn: []
+  hordes:
+  - useCustomFormation: 0
+    customFormationPoints: []
+    formationType: 0
+    formationOffset: 0
+    enemyPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
+    hordeCount: 1
+    movementPattern: {fileID: 11400000, guid: bebd5cb59f25b0d4b9ad9a5b7b1b1da2, type: 2}
   spawnDelay: 0.5
   isBossWave: 1
   bossPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
+  turretPrefabs: []
+  turretsToSpawn: 0

@@ -1,32 +1,26 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public enum MovementType
-{
-    Lineal,
-    Senoidal,
-    ZigZag,
-    ApuntaInicial,
-    Circular,
-    FigureEight,
-    NoMove,
-    Horizontal,
-    LinealUp
-}
-
-[CreateAssetMenu(menuName = "Movement Pattern")]
+[CreateAssetMenu(fileName = "MovementPattern", menuName = "Enemies/Movement Pattern")]
 public class MovementPatternDefinition : ScriptableObject
 {
     public MovementType type;
 
-    public float speed = 3f;
+    [Header("Lineal")]
+    public Vector2 direction = Vector2.down;
+    public float speed = 5f;
 
-    // Senoidal / ZigZag / Circular
+    [Header("Circular")]
+    public float radius = 1f;
+    public float angularSpeed = 180f; // grados por segundo
+
+    [Header("Senoidal / ZigZag")]
     public float amplitude = 1f;
-    public float frequency = 2f;
+    public float frequency = 1f;
 
-    // Factory: crea una instancia runtime
-    public MovementPatternRuntime CreateRuntime()
-    {
-        return new MovementPatternRuntime(this);
-    }
+    [Header("Path Movement")]
+    public List<Vector2> pathPoints;
+    public float pathSpeed = 3f;
+    public bool loopPath = true;
+
 }

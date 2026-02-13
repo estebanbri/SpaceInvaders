@@ -2,45 +2,59 @@ using UnityEngine;
 
 public class DestroyOutsideCamera : MonoBehaviour
 {
-    [SerializeField] private float bottomMargin = 2f;
     private Camera mainCamera;
-
-    public enum OutsideCameraBehavior
-    {
-        DestroyOnly,
-        DestroyAndRespawn
-    }
-
-    [SerializeField] private OutsideCameraBehavior behavior = OutsideCameraBehavior.DestroyOnly;
-
+    private float halfWidth;
+    private float halfHeight;
+   
     private void Awake()
     {
         mainCamera = Camera.main;
     }
+    private SpriteRenderer sr;
+
+    private void Start()
+    {
+        sr = GetComponentInChildren<SpriteRenderer>();
+        if (sr == null) return;
+        halfWidth = sr.bounds.extents.x;
+        halfHeight = sr.bounds.extents.y;
+    }
 
     private void Update()
     {
-        float cameraBottomY =
-            mainCamera.transform.position.y - mainCamera.orthographicSize;
-
-        if (transform.position.y < cameraBottomY - bottomMargin)
-        {
-            NotifyExit();
-            Destroy(gameObject);
-        }
+        if (sr == null) return;
+        CheckIfOutOfBounds();
     }
 
-    private void NotifyExit()
+    private void CheckIfOutOfBounds()
     {
-        if (!TryGetComponent(out FactionComponent faction) ||
-            faction.Faction != FactionType.Enemy)
+        Camera cam = Camera.main;
+
+        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
+        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+
+        Vector3 pos = transform.position;
+
+        //  Caso inferior (ya lo tenías)
+        if (pos.y + halfHeight < min.y)
+        {
+            Destroy(gameObject);
             return;
+        }
 
-        LevelManager.Instance.OnEnemyExitedCamera(gameObject);
-    }
+        //  Caso izquierda (completamente fuera)
+        if (pos.x + halfWidth < min.x)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-    public OutsideCameraBehavior GetBehavior() {
-        return behavior;
+        //  Caso derecha (completamente fuera)
+        if (pos.x - halfWidth > max.x)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
 

@@ -16,23 +16,22 @@ public class Enemigo : MonoBehaviour, IDamageable
     [Header("Boss")]
     [SerializeField] private bool isBoss = false;
 
-    // Estado interno
     private int currentHealth;
     private float fireTimer;
     private bool isDead;
 
-    // Referencias
     private EnemigoVisual enemigoVisual;
     private Collider2D col;
-    private MovementPatternController movement;
+    private MovementController movementController;
+    [HideInInspector] public GameObject prefab; // Prefab original
+    [HideInInspector] public MovementPatternDefinition movementPattern; // Patrón de movimiento original
 
-    // Estado pÃºblico
+
     public EnemyState State { get; private set; }
     public bool IsBoss => isBoss;
     public int MaxHealth => maxHealth;
     public int CurrentHealth => currentHealth;
 
-    // Eventos
     public System.Action<int, int> OnHealthChanged;
     public System.Action OnEnemyDied;
 
@@ -42,25 +41,25 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         enemigoVisual = GetComponentInChildren<EnemigoVisual>();
         col = GetComponent<Collider2D>();
-        movement = GetComponent<MovementPatternController>();
-
-        if (movement != null)
-            movement.OnPatternChanged += HandlePatternChange;
+        movementController = GetComponent<MovementController>();
 
         SetState(EnemyState.Entering);
     }
 
     void Update()
     {
-        if (isDead || weaponController == null || State != EnemyState.Attacking)
+        if (isDead)
             return;
 
-        fireTimer += Time.deltaTime;
-
-        if (fireTimer >= fireDelay)
+        if (weaponController != null && State == EnemyState.Attacking)
         {
-            weaponController.Fire();
-            fireTimer = 0f;
+            fireTimer += Time.deltaTime;
+
+            if (fireTimer >= fireDelay)
+            {
+                weaponController.Fire();
+                fireTimer = 0f;
+            }
         }
     }
 
@@ -131,10 +130,5 @@ public class Enemigo : MonoBehaviour, IDamageable
         State = newState;
     }
 
-    private void HandlePatternChange(int patternIndex)
-    {
-        SetState(patternIndex % 2 == 0
-            ? EnemyState.Attacking
-            : EnemyState.Moving);
-    }
+
 }

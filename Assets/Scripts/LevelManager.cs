@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using static DestroyOutsideCamera;
+using static HordeDefinition;
 
 public class LevelManager : MonoBehaviour
 {
@@ -46,12 +47,6 @@ public class LevelManager : MonoBehaviour
 
         WaveDefinition wave = levels[currentLevelIndex].waves[currentWaveIndex];
 
-        if (wave.isBossWave)
-        {
-            SpawnBoss(wave.bossPrefab);
-            return;
-        }
-
         StartCoroutine(SpawnWaveCoroutine(wave));
         UpdateWaveUI();
     }
@@ -59,37 +54,68 @@ public class LevelManager : MonoBehaviour
     IEnumerator SpawnWaveCoroutine(WaveDefinition wave)
     {
         currentSpawnDelay = wave.spawnDelay;
-        enemiesAlive = wave.enemiesToSpawn.Count;
+        enemiesAlive = 0;
 
-        foreach (var enemyPrefab in wave.enemiesToSpawn)
+        int hordeNumber = 1;
+
+        foreach (var horde in wave.hordes)
         {
-            Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+            Debug.Log("Iniciando horda " + hordeNumber + " con " + horde.hordeCount + " enemigos.");
+
+            Vector3 basePosition = GetSpawnPosition();
+
+            // ===============================
+            // FORMACION CUSTOM
+            // ===============================
+            if (horde.useCustomFormation &&
+                horde.customFormationPoints != null &&
+                horde.customFormationPoints.Count > 0)
+            {
+                for (int i = 0; i < horde.customFormationPoints.Count; i++)
+                {
+                    Vector2 offset = horde.customFormationPoints[i].offset;
+
+                    Vector3 spawnPos = basePosition + new Vector3(offset.x, offset.y, 0);
+
+                    SpawnEnemyAtPosition(
+                        horde.enemyPrefab,
+                        horde.movementPattern,
+                        spawnPos
+                    );
+
+                    enemiesAlive++;
+                }
+            }
+            else
+            {
+                // ===============================
+                // FORMACION LINEAL (fallback)
+                // ===============================
+                for (int i = 0; i < horde.hordeCount; i++)
+                {
+                    Vector3 spawnPos = GetFormationPosition(
+                        basePosition,
+                        i,
+                        horde.hordeCount,
+                        horde.formationType,
+                        horde.formationOffset
+                    );
+
+                    SpawnEnemyAtPosition(
+                        horde.enemyPrefab,
+                        horde.movementPattern,
+                        spawnPos
+                    );
+
+                    enemiesAlive++;
+                }
+            }
+
             yield return new WaitForSeconds(wave.spawnDelay);
+            hordeNumber++;
         }
 
         SpawnWaveTurrets(wave);
-    }
-
-    public void OnEnemyExitedCamera(GameObject enemy)
-    {
-        if (!enemy.TryGetComponent(out DestroyOutsideCamera doc))
-            return;
-
-        if (doc.GetBehavior() == OutsideCameraBehavior.DestroyAndRespawn)
-        {
-            RespawnEnemy(enemy);
-        }
-    }
-
-    public void RespawnEnemy(GameObject go)
-    {
-        StartCoroutine(RespawnEnemyCoroutine(go));
-    }
-
-    public IEnumerator RespawnEnemyCoroutine(GameObject go)
-    {
-        Instantiate(go, GetSpawnPosition(), Quaternion.identity);
-        yield return new WaitForSeconds(currentSpawnDelay);
     }
 
     public void OnEnemyKilled()
@@ -109,7 +135,7 @@ public class LevelManager : MonoBehaviour
         }
 
         enemiesAlive--;
-
+        Debug.Log("Enemigos vivos actualizado: " + enemiesAlive);
         if (enemiesAlive <= 0)
         {
             currentWaveIndex++;
@@ -119,13 +145,9 @@ public class LevelManager : MonoBehaviour
 
     void SpawnBoss(GameObject bossPrefab)
     {
-        GameObject bossGO = Instantiate(
-            bossPrefab,
-            new Vector3(0, spawnPositionY, 0),
-            Quaternion.identity
-        );
+       
 
-        Enemigo boss = bossGO.GetComponent<Enemigo>();
+        Enemigo boss = bossPrefab.GetComponent<Enemigo>();
 
         if (boss != null && bossHealthBar != null)
         {
@@ -181,5 +203,62 @@ public class LevelManager : MonoBehaviour
     public int GetCurrentWave()
     {
         return currentWaveIndex + 1;
+    }
+
+    private Vector3 GetFormationPosition(
+    Vector3 basePos,
+    int index,
+    int total,
+    HordeFormationType type,
+    float offset)
+    {
+        // Centramos la formación
+        float centerOffset = (total - 1) * 0.5f;
+
+        switch (type)
+        {
+            case HordeFormationType.Horizontal:
+                return basePos + new Vector3(
+                    (index - centerOffset) * offset,
+                    0,
+                    0
+                );
+
+            case HordeFormationType.Vertical:
+                return basePos + new Vector3(
+                    0,
+                    (index - centerOffset) * offset,
+                    0
+                );
+
+            case HordeFormationType.Diagonal:
+                return basePos + new Vector3(
+                    (index - centerOffset) * offset,
+                    (index - centerOffset) * offset,
+                    0
+                );
+
+            default:
+                return basePos;
+        }
+    }
+
+    private void SpawnEnemyAtPosition(
+    GameObject prefab,
+    MovementPatternDefinition pattern,
+    Vector3 position)
+    {
+        GameObject enemyGO = Instantiate(prefab, position, Quaternion.identity);
+
+        if (enemyGO.TryGetComponent<MovementController>(out var mc))
+        {
+            mc.SetPattern(pattern);
+        }
+
+        if (enemyGO.TryGetComponent<Enemigo>(out var enemy))
+        {
+            enemy.prefab = prefab;
+            enemy.movementPattern = pattern;
+        }
     }
 }
