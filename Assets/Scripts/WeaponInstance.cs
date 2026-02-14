@@ -12,7 +12,7 @@ public class WeaponInstance
 
     private float nextFireTime;
 
-    public WeaponInstance(WeaponDefinition def, int tier, FactionType faction, bool applyTierScaling = true)
+    public WeaponInstance(WeaponDefinition def, int cycle, FactionType faction, bool applyTierScaling = true)
     {
         weaponDef = def;
         shotPattern = def.shotPattern;
@@ -21,13 +21,13 @@ public class WeaponInstance
         if (applyTierScaling && shotPattern != null)
         {
             int baseBullets = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount)); // tier 0 como base
-            shotPattern.ApplyTierScaling(tier, def.ammoSpeed, def.fireRate, baseBullets,
+            shotPattern.ApplyTierScaling(cycle, def.ammoSpeed, def.fireRate, baseBullets,
                 out float scaledAmmoSpeed, out float scaledFireRate, out int scaledBulletCount);
 
             AmmoSpeed = scaledAmmoSpeed;
             FireRate = scaledFireRate;
             BulletCount = scaledBulletCount;
-            Debug.Log($"[WeaponInstance] {def.name} | Tier: {tier} | AmmoSpeed: {AmmoSpeed:F2} | FireRate: {FireRate:F2} | Bullets: {BulletCount}");
+            Debug.Log($"[WeaponInstance] {def.name} | Cycle: {cycle} | AmmoSpeed: {AmmoSpeed:F2} | FireRate: {FireRate:F2} | Bullets: {BulletCount}");
         }
         else
         {

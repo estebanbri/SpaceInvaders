@@ -8,7 +8,7 @@ public abstract class ShotPatternBase : ScriptableObject
     /// Escala stats por tier.
     /// </summary>
     public virtual void ApplyTierScaling(
-        int tier,
+        int cycle,
         float baseAmmoSpeed,
         float baseFireRate,
         int baseBulletCount,
@@ -17,14 +17,14 @@ public abstract class ShotPatternBase : ScriptableObject
         out int scaledBulletCount)
     {
         // Velocidad de proyectil +10% por tier
-        scaledAmmoSpeed = baseAmmoSpeed * (1f + tier * 0.1f);
+        scaledAmmoSpeed = baseAmmoSpeed * (1f + cycle * 0.1f);
 
         // FireRate más rápido con tier
-        scaledFireRate = Mathf.Max(0.05f, baseFireRate / (1f + tier * 0.1f)); // más rápido por tier
+        scaledFireRate = Mathf.Max(0.05f, baseFireRate / (1f + cycle * 0.1f)); // más rápido por tier
 
         // Cantidad de balas
-        scaledBulletCount = Mathf.Min(baseBulletCount + tier, 12); // Limite opcional
-        Debug.Log($"[ShotPattern] {name} | Tier: {tier} | AmmoSpeed: {scaledAmmoSpeed:F2} | FireRate: {scaledFireRate:F2} | BulletCount: {scaledBulletCount}");
+        scaledBulletCount = Mathf.Min(baseBulletCount + cycle, 12); // Limite opcional
+        Debug.Log($"[ShotPattern] {name} | Cycle: {cycle} | AmmoSpeed: {scaledAmmoSpeed:F2} | FireRate: {scaledFireRate:F2} | BulletCount: {scaledBulletCount}");
     }
 
     public abstract void Fire(
@@ -34,8 +34,4 @@ public abstract class ShotPatternBase : ScriptableObject
         FactionType ownerFaction
     );
 
-    public virtual int GetBulletCountForTier(int tier)
-    {
-        return 1; // Por defecto single shot
-    }
 }

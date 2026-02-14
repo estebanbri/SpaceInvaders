@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class BossWeaponTier
+public class BossWeaponCycle
 {
-    public int minTier;
+    public int minCycle;
     public WeaponDefinition weaponDefinition;
 }

@@ -68,12 +68,6 @@ public class ShotPatternRadial : ShotPatternBase
     {
         base.ApplyTierScaling(tier, baseAmmoSpeed, baseFireRate, baseBulletCount,
             out scaledAmmoSpeed, out scaledFireRate, out scaledBulletCount);
-
-        bulletCount = scaledBulletCount; // Actualizamos runtime
     }
 
-    public override int GetBulletCountForTier(int tier)
-    {
-        return baseBulletCount + tier;
-    }
 }

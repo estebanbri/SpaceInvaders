@@ -71,7 +71,7 @@ public class FormationController : MonoBehaviour
 
             // Aplicar tier al arma si tiene
             if (enemigo.GetWeaponController != null && enemigo.GetWeaponController.GetWeaponDefault() != null)
-                enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), data.tier);
+                enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), data.cycle);
 
             enemiesAlive++;
         }

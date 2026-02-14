@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
         Equip(weaponDefault, 0);
     }
 
-    public void Equip(WeaponDefinition weaponDefinition, int tier = 0)
+    public void Equip(WeaponDefinition weaponDefinition, int cycle = 0)
     {
         WeaponDefinition temp = weaponDefinition ?? weaponDefault;
 
@@ -28,9 +28,9 @@ public class WeaponController : MonoBehaviour
         }
 
         // Aplica tier solo si hay ShotPattern
-        if (tier > 0 && temp.shotPattern != null)
+        if (cycle > 0 && temp.shotPattern != null)
         {
-            currentWeapon = new WeaponInstance(temp, tier, factionComponent?.Faction ?? FactionType.Player);
+            currentWeapon = new WeaponInstance(temp, cycle, factionComponent?.Faction ?? FactionType.Player);
         }
         else
         {

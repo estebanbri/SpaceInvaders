@@ -134,10 +134,10 @@ public class LevelManager : MonoBehaviour
             data.enemyPrefabs[swapIndex] = temp;
         }
 
-        data.moveSpeed = 2f + tier * 0.3f;
-        data.healthMultiplier = 1f + tier * 0.5f;
-        data.fireRateMultiplier = 1f + tier * 0.2f;
-        data.tier = tier;
+        data.moveSpeed = 2f + cycle * 0.3f;
+        data.healthMultiplier = 1f + cycle * 0.5f;
+        data.fireRateMultiplier = 1f + cycle * 0.2f;
+        data.cycle = cycle;
         data.formationPattern = config.formationPattern;
 
         Debug.Log(
@@ -152,11 +152,11 @@ public class LevelManager : MonoBehaviour
     {
         GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
         Enemigo boss = bossGO.GetComponent<Enemigo>();
-        int tier = GetTier();
+        int cycle = GetCycle();
 
         if (boss != null)
         {
-            boss.ConfigureByTier(tier);
+            boss.ConfigureByCycle(cycle);
             boss.OnEnemyDied += OnMiniBossDied;
         }
 

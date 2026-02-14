@@ -16,7 +16,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     [Header("Boss")]
     [SerializeField] private bool isBoss = false;
-    [SerializeField] private List<BossWeaponTier> bossWeaponsByTier;
+    [SerializeField] private List<BossWeaponCycle> bossWeaponsByCycle;
 
     private int currentHealth;
     private bool isDead;
@@ -116,33 +116,34 @@ public class Enemigo : MonoBehaviour, IDamageable
         // No modificamos fireDelay aquí, FireRate queda en WeaponInstance
     }
 
-    public void ConfigureByTier(int tier)
+    public void ConfigureByCycle(int cycle)
     {
-        Debug.Log($"[Enemigo] {gameObject.name} | Tier: {tier} | MaxHealth: {maxHealth} | Weapon: {weaponController?.GetWeaponDefault()?.name}");
+        
+        WeaponDefinition selectedWeapon = null;
 
         // Selecciona arma según tier
-        if (isBoss && bossWeaponsByTier != null)
+        if (isBoss && bossWeaponsByCycle != null)
         {
-            WeaponDefinition selectedWeapon = null;
-            foreach (var entry in bossWeaponsByTier)
-                if (tier >= entry.minTier) selectedWeapon = entry.weaponDefinition;
+            foreach (var entry in bossWeaponsByCycle)
+                if (cycle >= entry.minCycle) {
+                    selectedWeapon = entry.weaponDefinition;
+                }
 
             if (selectedWeapon != null)
-                weaponController?.Equip(selectedWeapon, tier);
+                weaponController?.Equip(selectedWeapon, cycle);
         }
         else if (weaponController != null)
         {
 
-            // Enemigos normales usan tier para escalar stats de su arma
-            var w = weaponController.GetWeaponDefault();
-            weaponController.Equip(w, tier);
-            Debug.Log($"[Enemigo] {gameObject.name} Weapon Stats | AmmoSpeed: {w.ammoSpeed:F2} | FireRate: {w.fireRate:F2} | Bullets: {w.bulletCount}");
+            selectedWeapon = weaponController.GetWeaponDefault();
+            weaponController.Equip(selectedWeapon, cycle);
         }
 
         // Escalado vida
-        float healthMultiplier = 1f + tier * 0.5f;
+        float healthMultiplier = 1f + cycle * 0.5f;
         maxHealth = Mathf.RoundToInt(maxHealth * healthMultiplier);
         currentHealth = maxHealth;
+        Debug.Log($"[Enemigo] {gameObject.name} | Cycle: {cycle} | MaxHealth: {maxHealth}");
     }
 
 

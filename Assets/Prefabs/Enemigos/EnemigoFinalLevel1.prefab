@@ -82,16 +82,14 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 6247315687656034272, guid: ce78cc2b0f5c19d40a19d13f2069b045, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.272
-  maxHealth: 1000
+  maxHealth: 2000
   weaponController: {fileID: 1228598912135458112}
   isBoss: 1
-  bossWeaponsByTier:
-  - minTier: 1
+  bossWeaponsByCycle:
+  - minCycle: 0
     weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
-  - minTier: 2
+  - minCycle: 1
     weaponDefinition: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
-  - minTier: 3
-    weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -226,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
   weaponDefault: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
   muzzleFlash: {fileID: 0}
-  autoAimAtPlayer: 0
+  autoAimAtPlayer: 1
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0
