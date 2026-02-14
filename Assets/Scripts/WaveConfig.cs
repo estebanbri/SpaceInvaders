@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class TierConfig
+public class WaveConfig
 {
     public List<EnemyCount> enemies;
-    public FormationPattern formationPattern = FormationPattern.Grid;
 }

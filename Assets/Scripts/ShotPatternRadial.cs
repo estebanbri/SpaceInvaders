@@ -4,7 +4,7 @@ using UnityEngine;
 public class ShotPatternRadial : ShotPatternBase
 {
     [Header("Radial Settings")]
-    [SerializeField] private int baseBulletCount = 5;
+    [SerializeField] private int baseBulletCount = 8;
     [SerializeField] private float arcAngle = 270f;
     [SerializeField] private float startAngleOffset = 0f;
 

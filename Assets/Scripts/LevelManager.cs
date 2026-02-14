@@ -6,8 +6,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [Header("Tiers")]
-    [SerializeField] private List<TierConfig> tiers;
+    [Header("Waves")]
+    [SerializeField] private List<WaveConfig> waveConfig;
 
     [Header("Formation")]
     [SerializeField] private FormationController formationPrefab;
@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour
 
     private int currentWave = 1;
     private FormationController activeFormation;
+    private FormationPattern lastFormation;
+    private bool hasLastFormation = false;
 
     private void Awake()
     {
@@ -69,7 +71,7 @@ public class LevelManager : MonoBehaviour
 
     private int GetTier()
     {
-        return (currentWave - 1) % tiers.Count;
+        return (currentWave - 1) % waveConfig.Count;
     }
 
     private int GetCycle()
@@ -107,10 +109,10 @@ public class LevelManager : MonoBehaviour
         StartWave();
     }
 
-    private ProceduralWaveData GenerateWaveData(int tier)
+    private ProceduralWaveData GenerateWaveData(int waveIndex)
     {
         ProceduralWaveData data = new ProceduralWaveData();
-        TierConfig config = tiers[tier];
+        WaveConfig config = waveConfig[waveIndex];
 
         data.enemyPrefabs = new List<GameObject>();
         int cycle = GetCycle();  //  obtenemos el ciclo actual
@@ -138,15 +140,47 @@ public class LevelManager : MonoBehaviour
         data.healthMultiplier = 1f + cycle * 0.5f;
         data.fireRateMultiplier = 1f + cycle * 0.2f;
         data.cycle = cycle;
-        data.formationPattern = config.formationPattern;
+        data.formationPattern = GetRandomFormation();
 
         Debug.Log(
-            $"[WAVE DATA] Tier: {tier} | TotalEnemies: {data.enemyPrefabs.Count} | " +
+            $"[WAVE DATA] Wave: {waveIndex} | TotalEnemies: {data.enemyPrefabs.Count} | " +
             $"MoveSpeed: {data.moveSpeed:F2} | HealthMult: {data.healthMultiplier:F2} | FireRateMultiplier: {data.fireRateMultiplier:F2} | Pattern: {data.formationPattern}"
         );
 
         return data;
     }
+
+    private FormationPattern GetRandomFormation()
+    {
+        FormationPattern[] allPatterns =
+            (FormationPattern[])System.Enum.GetValues(typeof(FormationPattern));
+
+        if (allPatterns.Length == 0)
+            return FormationPattern.Grid;
+
+        FormationPattern selected;
+
+        if (allPatterns.Length == 1)
+        {
+            selected = allPatterns[0];
+        }
+        else
+        {
+            do
+            {
+                int index = Random.Range(0, allPatterns.Length);
+                selected = allPatterns[index];
+            }
+            while (hasLastFormation && selected == lastFormation);
+        }
+
+        lastFormation = selected;
+        hasLastFormation = true;
+
+        return selected;
+    }
+
+
 
     private void SpawnMiniBoss()
     {
