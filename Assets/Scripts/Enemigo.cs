@@ -130,7 +130,9 @@ public class Enemigo : MonoBehaviour, IDamageable
                 }
 
             if (selectedWeapon != null)
+            {
                 weaponController?.Equip(selectedWeapon, cycle);
+            }
         }
         else if (weaponController != null)
         {

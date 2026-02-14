@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Shot Pattern Radial
   m_EditorClassIdentifier: Assembly-CSharp::ShotPatternRadial
   lanesCount: 0
-  baseBulletCount: 4
+  baseBulletCount: 5
   arcAngle: 270
-  startAngleOffset: 0
+  startAngleOffset: 10
   rotateOverTime: 0
   rotationSpeed: 10

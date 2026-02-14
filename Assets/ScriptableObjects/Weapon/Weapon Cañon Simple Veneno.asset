@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
   m_Name: "Weapon Ca\xF1on Simple Veneno"
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
-  fireRate: 1
-  ammoSpeed: 3
+  fireRate: 2
+  ammoSpeed: 4
   ammoPrefab: {fileID: 1611064198390892200, guid: b744edd0fae328347b0764e9e027d7c3, type: 3}
   shotPattern: {fileID: 11400000, guid: 81e52bc0e346d9945b237216e9747637, type: 2}
   bulletCount: 1

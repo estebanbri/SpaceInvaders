@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
   m_Name: Weapon Definition Radial
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
-  fireRate: 1
-  ammoSpeed: 3.2889543
+  fireRate: 2
+  ammoSpeed: 4
   ammoPrefab: {fileID: 1611064198390892200, guid: 7cec658b5d95de748a9d388a42bd5ac7, type: 3}
   shotPattern: {fileID: 11400000, guid: 3fa253e5b6d93284fa8b5c189872b894, type: 2}
-  ranking: 1
-  bulletCount: 1
+  bulletCount: 5

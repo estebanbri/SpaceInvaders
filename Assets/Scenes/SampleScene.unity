@@ -170,7 +170,7 @@ MonoBehaviour:
   formationPrefab: {fileID: 8634092266250004816, guid: 37a418f9bcf16e042a73d6b2e1ff3869, type: 3}
   miniBossPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
   bossHealthBar: {fileID: 303073977}
-  wavesPerCycle: 3
+  wavesPerCycle: 1
   parallax: {fileID: 5162797298895222144}
   bonusBoxSpawner: {fileID: 1373309553}
   waveText: {fileID: 962583968}

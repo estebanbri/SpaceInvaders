@@ -90,6 +90,8 @@ MonoBehaviour:
     weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
   - minCycle: 1
     weaponDefinition: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
+  - minCycle: 2
+    weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0

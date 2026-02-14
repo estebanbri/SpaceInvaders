@@ -28,7 +28,7 @@ public class WeaponController : MonoBehaviour
         }
 
         // Aplica tier solo si hay ShotPattern
-        if (cycle > 0 && temp.shotPattern != null)
+        if (temp.shotPattern != null)
         {
             currentWeapon = new WeaponInstance(temp, cycle, factionComponent?.Faction ?? FactionType.Player);
         }
