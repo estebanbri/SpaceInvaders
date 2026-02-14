@@ -182,8 +182,8 @@ MonoBehaviour:
   dropProbability: 0.036
   maxHealth: 100
   weaponController: {fileID: 8431879320778882986}
-  fireDelay: 2
   isBoss: 0
+  bossWeaponsByTier: []
 --- !u!114 &5348782021209770510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  bottomMargin: 2
-  behavior: 1
 --- !u!61 &4999347253907467278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -354,7 +352,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 50eac0fed7436f14bb0c19b5a365880d, type: 2}
     - target: {fileID: 4873440715877444679, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
       propertyPath: autoAimAtPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

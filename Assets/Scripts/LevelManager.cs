@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     [Header("MiniBoss")]
     [SerializeField] private GameObject miniBossPrefab;
     [SerializeField] private BossHealthBarUI bossHealthBar;
-    [SerializeField] private int wavesPerCycle = 5;
+    [SerializeField] private int wavesPerCycle = 3;
 
     [Header("Parallax")]
     [SerializeField] private VerticalParallax parallax;
@@ -64,12 +64,17 @@ public class LevelManager : MonoBehaviour
 
     private bool IsMiniBossWave()
     {
-        return currentWave % wavesPerCycle == 0;
+        return currentWave % (wavesPerCycle + 1) == 0;
     }
 
     private int GetTier()
     {
         return (currentWave - 1) % tiers.Count;
+    }
+
+    private int GetCycle()
+    {
+        return (currentWave - 1) / (wavesPerCycle + 1);
     }
 
     private void SpawnProceduralFormation()
@@ -80,8 +85,8 @@ public class LevelManager : MonoBehaviour
             activeFormation.OnFormationCleared = null;
             Destroy(activeFormation.gameObject);
         }
-
-        activeFormation = Instantiate(formationPrefab);
+        Vector3 spawnPosition = new Vector3(0, 3.5f, 0); // spawn posicion de la wave
+        activeFormation = Instantiate(formationPrefab, spawnPosition, Quaternion.identity);
 
         int tier = GetTier();
         ProceduralWaveData waveData = GenerateWaveData(tier);
@@ -108,9 +113,13 @@ public class LevelManager : MonoBehaviour
         TierConfig config = tiers[tier];
 
         data.enemyPrefabs = new List<GameObject>();
+        int cycle = GetCycle();  //  obtenemos el ciclo actual
+
         foreach (var enemyCount in config.enemies)
         {
-            for (int i = 0; i < enemyCount.baseCount; i++)
+            int count = enemyCount.baseCount + cycle;  //  escalado dinámico
+
+            for (int i = 0; i < count; i++)
             {
                 data.enemyPrefabs.Add(enemyCount.enemyPrefab);
             }

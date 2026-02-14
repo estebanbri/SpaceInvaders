@@ -45,7 +45,6 @@ public class Enemigo : MonoBehaviour, IDamageable
     void Update()
     {
         if (isDead) return;
-
         // Maneja disparo usando WeaponInstance.FireRate
         if (weaponController != null && State == EnemyState.Attacking)
         {

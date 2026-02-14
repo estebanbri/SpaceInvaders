@@ -128,11 +128,9 @@ MonoBehaviour:
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.3
   maxHealth: 100
-  weaponController: {fileID: 0}
-  fireDelay: 0
+  weaponController: {fileID: 5290908443357018046}
   isBoss: 0
-  prefab: {fileID: 0}
-  movementPattern: {fileID: 0}
+  bossWeaponsByTier: []
 --- !u!114 &520795594945169632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +349,7 @@ PrefabInstance:
     - target: {fileID: 4873440715877444679, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
       propertyPath: weaponDefault
       value: 
-      objectReference: {fileID: 11400000, guid: 50eac0fed7436f14bb0c19b5a365880d, type: 2}
+      objectReference: {fileID: 11400000, guid: 3d58e34fbe5d9f647aed4f92189bfcfb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -362,3 +360,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 587267269571498295, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
   m_PrefabInstance: {fileID: 778249383172119545}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5290908443357018046 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4873440715877444679, guid: 9141e15a71ae1954ea9bcab4009266aa, type: 3}
+  m_PrefabInstance: {fileID: 778249383172119545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
