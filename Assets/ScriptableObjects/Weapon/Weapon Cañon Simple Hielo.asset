@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40519a9e510483c4297d6f1d43290a86, type: 3}
-  m_Name: "Weapon Ca\xF1on Simple Player"
+  m_Name: "Weapon Ca\xF1on Simple Hielo"
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
-  fireRate: 0.3
-  ammoSpeed: 10
-  ammoPrefab: {fileID: 1611064198390892200, guid: 3534959446f3dd543847ae80ae78b6f3, type: 3}
+  fireRate: 1
+  ammoSpeed: 1
+  ammoPrefab: {fileID: 1611064198390892200, guid: 7cec658b5d95de748a9d388a42bd5ac7, type: 3}
   shotPattern: {fileID: 11400000, guid: 81e52bc0e346d9945b237216e9747637, type: 2}
   ranking: 1
+  bulletCount: 1

@@ -86,11 +86,11 @@ MonoBehaviour:
   weaponController: {fileID: 1228598912135458112}
   isBoss: 1
   bossWeaponsByTier:
-  - minTier: 0
-    weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
   - minTier: 1
-    weaponDefinition: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
+    weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
   - minTier: 2
+    weaponDefinition: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
+  - minTier: 3
     weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
 --- !u!58 &1879159735146175466
 CircleCollider2D:
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponController
   weaponDefault: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
   muzzleFlash: {fileID: 0}
-  autoAimAtPlayer: 1
+  autoAimAtPlayer: 0
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0

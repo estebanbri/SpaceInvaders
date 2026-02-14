@@ -117,7 +117,7 @@ public class LevelManager : MonoBehaviour
 
         foreach (var enemyCount in config.enemies)
         {
-            int count = enemyCount.baseCount + cycle;  //  escalado dinámico
+            int count = enemyCount.baseCount + Mathf.FloorToInt(cycle * 1.5f);  //  escalado dinámico
 
             for (int i = 0; i < count; i++)
             {
