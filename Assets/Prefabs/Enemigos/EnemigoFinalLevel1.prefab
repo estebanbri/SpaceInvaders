@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1879159735146175466}
   - component: {fileID: -4167900239025423422}
   - component: {fileID: 7146610694354115643}
-  - component: {fileID: 9121755359269406380}
   - component: {fileID: 6633204566944944398}
   m_Layer: 0
   m_Name: EnemigoFinalLevel1
@@ -82,7 +81,7 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 6247315687656034272, guid: ce78cc2b0f5c19d40a19d13f2069b045, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.272
-  maxHealth: 2000
+  maxHealth: 10
   weaponController: {fileID: 1228598912135458112}
   isBoss: 1
   bossWeaponsByCycle:
@@ -153,18 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 1
---- !u!114 &9121755359269406380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementController
 --- !u!114 &6633204566944944398
 MonoBehaviour:
   m_ObjectHideFlags: 0

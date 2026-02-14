@@ -126,12 +126,10 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 5517626685820610574, guid: 29809f120f515734c85d49d60ee96c6e, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.105
-  maxHealth: 100
+  maxHealth: 10
   weaponController: {fileID: 0}
-  fireDelay: 1
   isBoss: 0
-  prefab: {fileID: 0}
-  movementPattern: {fileID: 0}
+  bossWeaponsByCycle: []
 --- !u!114 &7547256514065386673
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,6 +33,9 @@ public class FormationController : MonoBehaviour
         moveSpeed = data.moveSpeed;
         formationPattern = data.formationPattern;
 
+        direction = 1; // <-- reset direction
+        isActive = false; // <-- reset activo hasta terminar enter animation
+
         CalculateBounds();
         GenerateEnemies(data);
         StartCoroutine(EnterAnimation());
@@ -57,25 +60,77 @@ public class FormationController : MonoBehaviour
 
         for (int i = 0; i < totalEnemies; i++)
         {
-            Vector3 localPos = CalculatePosition(i, totalEnemies, formationPattern);
+            Vector3 targetLocalPos = CalculatePosition(i, totalEnemies, formationPattern);
 
             GameObject prefab = enemyPrefabs[i];
             if (prefab == null) continue;
 
             GameObject enemyGO = Instantiate(prefab, transform);
-            enemyGO.transform.localPosition = localPos;
+
+            // Punto de entrada aleatorio: desde arriba, izquierda o derecha
+            Vector3 randomOffset = Vector3.zero;
+            int choice = Random.Range(0, 3);
+            switch (choice)
+            {
+                case 0: randomOffset = new Vector3(Random.Range(-3f, 3f), 5f, 0f); break; // desde arriba
+                case 1: randomOffset = new Vector3(-5f, Random.Range(-1f, 1f), 0f); break; // desde izquierda
+                case 2: randomOffset = new Vector3(5f, Random.Range(-1f, 1f), 0f); break; // desde derecha
+            }
+
+            enemyGO.transform.localPosition = targetLocalPos + randomOffset;
 
             Enemigo enemigo = enemyGO.GetComponent<Enemigo>();
             enemigo.SetFormation(this);
             enemigo.ApplyProceduralScaling(data.healthMultiplier, data.fireRateMultiplier);
 
-            // Aplicar tier al arma si tiene
             if (enemigo.GetWeaponController != null && enemigo.GetWeaponController.GetWeaponDefault() != null)
                 enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), data.cycle);
 
             enemiesAlive++;
+
+            // Animación de entrada hacia la posición final
+            float baseDuration = 2f; 
+            StartCoroutine(MoveToLocalPositionIrregular(enemyGO.transform, targetLocalPos, baseDuration + Random.Range(-0.5f, 0.5f)));
+
         }
     }
+
+    IEnumerator MoveToLocalPositionIrregular(Transform enemy, Vector3 targetLocalPos, float duration)
+    {
+        if (enemy == null) yield break; // evitamos iniciar si ya no existe
+
+        Vector3 startPos = enemy.localPosition;
+
+        // Punto de control aleatorio
+        Vector3 midPoint = startPos + (targetLocalPos - startPos) * 0.5f;
+        midPoint += new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(0f, 1.5f), 0f);
+
+        float t = 0f;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            if (enemy == null) yield break; // chequeo cada frame
+
+            float u = t / duration;
+            u = u * u * (3f - 2f * u); // smoothstep easing
+
+            enemy.localPosition =
+                (1 - u) * (1 - u) * startPos +
+                2 * (1 - u) * u * midPoint +
+                u * u * targetLocalPos;
+
+            yield return null;
+        }
+
+        if (enemy != null)
+            enemy.localPosition = targetLocalPos;
+    }
+
+
+
+
+
 
     Vector3 CalculatePosition(int index, int total, FormationPattern pattern)
     {
@@ -142,23 +197,18 @@ public class FormationController : MonoBehaviour
 
     void Move()
     {
+        if (!isActive || enemiesAlive <= 0) return; // <-- clave
+
         transform.position += Vector3.right * direction * moveSpeed * Time.deltaTime;
 
-        // Ajustamos bounds según tipo de patrón
-        float halfWidth = 0f;
+        Bounds bounds = GetComponentInChildren<Renderer>().bounds;
+        float leftEdge = bounds.min.x;
+        float rightEdge = bounds.max.x;
 
-        if (formationPattern == FormationPattern.Grid || formationPattern == FormationPattern.Line)
-            halfWidth = (enemyPrefabs.Count - 1) * spacingX * 0.5f;
-        else if (formationPattern == FormationPattern.Circle || formationPattern == FormationPattern.Star)
-            halfWidth = Mathf.Max(enemyPrefabs.Count * 0.1f, 1f); // radio estimado
-
-        float leftEdge = transform.position.x - halfWidth;
-        float rightEdge = transform.position.x + halfWidth;
-
-        if (rightEdge >= rightLimit && direction > 0)
-            StepDown();
-        else if (leftEdge <= leftLimit && direction < 0)
-            StepDown();
+        if ((rightEdge >= rightLimit && direction > 0) || (leftEdge <= leftLimit && direction < 0))
+        {
+             StepDown();
+        }
     }
 
     void StepDown()
@@ -170,7 +220,7 @@ public class FormationController : MonoBehaviour
     public void NotifyEnemyKilled()
     {
         enemiesAlive--;
-        Debug.Log("[FORMATION] Enemy killed. Remaining:" + enemiesAlive);
+        Debug.Log($"[FORMATION] Enemy killed. Remaining:{enemiesAlive} | Pos:{transform.position}");
 
         if (enemiesAlive <= 0)
         {

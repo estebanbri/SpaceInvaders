@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
     private FormationController activeFormation;
     private FormationPattern lastFormation;
     private bool hasLastFormation = false;
-
+    private bool miniBossDead = false;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -50,7 +50,16 @@ public class LevelManager : MonoBehaviour
     {
         UpdateWaveUI();
 
-        int tier = GetTier();
+        // Limpiar formación activa si existe
+        if (activeFormation != null)
+        {
+            Debug.Log("[LEVEL MANAGER] Destroying previous formation before starting wave.");
+            activeFormation.OnFormationCleared = null;
+            Destroy(activeFormation.gameObject);
+            activeFormation = null;
+        }
+
+        int tier = GetWave();
         Debug.Log($"[WAVE START] Wave: {currentWave} | Tier: {tier}");
 
         if (IsMiniBossWave())
@@ -64,12 +73,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+
     private bool IsMiniBossWave()
     {
         return currentWave % (wavesPerCycle + 1) == 0;
     }
 
-    private int GetTier()
+    private int GetWave()
     {
         return (currentWave - 1) % waveConfig.Count;
     }
@@ -90,8 +100,8 @@ public class LevelManager : MonoBehaviour
         Vector3 spawnPosition = new Vector3(0, 3.5f, 0); // spawn posicion de la wave
         activeFormation = Instantiate(formationPrefab, spawnPosition, Quaternion.identity);
 
-        int tier = GetTier();
-        ProceduralWaveData waveData = GenerateWaveData(tier);
+        int wave = GetWave();
+        ProceduralWaveData waveData = GenerateWaveData(wave);
 
         activeFormation.InitializeProcedural(waveData);
 
@@ -184,6 +194,8 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnMiniBoss()
     {
+        miniBossDead = false; // reset al spawn
+
         GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
         Enemigo boss = bossGO.GetComponent<Enemigo>();
         int cycle = GetCycle();
@@ -191,17 +203,36 @@ public class LevelManager : MonoBehaviour
         if (boss != null)
         {
             boss.ConfigureByCycle(cycle);
+
+            // Prevención de doble trigger
+            boss.OnEnemyDied -= OnMiniBossDied;
             boss.OnEnemyDied += OnMiniBossDied;
         }
 
         if (bossHealthBar != null)
             bossHealthBar.Bind(boss);
+
+        Debug.Log($"[MINIBOSS SPAWNED] Cycle: {cycle}");
     }
 
     private void OnMiniBossDied()
     {
-        if (bonusBoxSpawner != null)
-            bonusBoxSpawner.Spawn(new Vector3(0, 5f, 0));
+        if (miniBossDead) return;
+        miniBossDead = true;
+
+        Debug.Log("[MINIBOSS] Died. Cleaning up before next wave.");
+
+        // Limpieza formación activa si queda alguna (previene caída infinita)
+        if (activeFormation != null)
+        {
+            activeFormation.OnFormationCleared = null;
+            Destroy(activeFormation.gameObject);
+            activeFormation = null;
+        }
+
+        // Si tienes bonus, spawn pero comentado por debug
+        // if (bonusBoxSpawner != null)
+        //     bonusBoxSpawner.Spawn(new Vector3(0, 5f, 0));
 
         currentWave++;
         StartWave();

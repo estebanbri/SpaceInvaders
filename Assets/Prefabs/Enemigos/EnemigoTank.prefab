@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 8092928041683358142}
   - component: {fileID: 3646068992520237172}
   - component: {fileID: 4999347253907467278}
-  - component: {fileID: -6050730051347908219}
   m_Layer: 0
   m_Name: EnemigoTank
   m_TagString: Untagged
@@ -180,10 +179,10 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 5604128541931985237, guid: ddea3002692b3a54b936e348700069c2, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.036
-  maxHealth: 100
+  maxHealth: 10
   weaponController: {fileID: 8431879320778882986}
   isBoss: 0
-  bossWeaponsByTier: []
+  bossWeaponsByCycle: []
 --- !u!114 &5348782021209770510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,18 +281,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3129624, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-6050730051347908219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementController
 --- !u!1001 &3937831710878618605
 PrefabInstance:
   m_ObjectHideFlags: 0

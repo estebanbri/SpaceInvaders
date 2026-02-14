@@ -148,29 +148,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbf8512af1eb0a42a6adc4552317446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tiers:
-  - enemies:
-    - enemyPrefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-      baseCount: 2
-    - enemyPrefab: {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
-      baseCount: 2
-    formationPattern: 2
-  - enemies:
-    - enemyPrefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-      baseCount: 2
-    - enemyPrefab: {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
-      baseCount: 2
-    formationPattern: 1
+  waveConfig:
   - enemies:
     - enemyPrefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
       baseCount: 2
     - enemyPrefab: {fileID: 4768475860424822803, guid: 04dc759e8d666614c841852b57394e21, type: 3}
       baseCount: 2
-    formationPattern: 1
+  - enemies:
+    - enemyPrefab: {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
+      baseCount: 2
+    - enemyPrefab: {fileID: 4768475860424822803, guid: 7479cf373ffb13148ba53e019604e114, type: 3}
+      baseCount: 2
   formationPrefab: {fileID: 8634092266250004816, guid: 37a418f9bcf16e042a73d6b2e1ff3869, type: 3}
   miniBossPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}
   bossHealthBar: {fileID: 303073977}
-  wavesPerCycle: 1
+  wavesPerCycle: 5
   parallax: {fileID: 5162797298895222144}
   bonusBoxSpawner: {fileID: 1373309553}
   waveText: {fileID: 962583968}

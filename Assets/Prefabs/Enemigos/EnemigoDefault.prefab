@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5042651987578534612}
   - component: {fileID: -6700329375380736279}
   - component: {fileID: 5749324654099783232}
-  - component: {fileID: 2322887776771810910}
   m_Layer: 0
   m_Name: EnemigoDefault
   m_TagString: Untagged
@@ -126,12 +125,10 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 2451332990314844317, guid: 9d5643bb6403b02479fe48c69e7c4f00, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.2
-  maxHealth: 100
+  maxHealth: 10
   weaponController: {fileID: 0}
-  fireDelay: 1
   isBoss: 0
-  prefab: {fileID: 0}
-  movementPattern: {fileID: 0}
+  bossWeaponsByCycle: []
 --- !u!114 &-6700329375380736279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,18 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FactionComponent
   faction: 1
---- !u!114 &2322887776771810910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f529f5f353e8143978cdd5ede56db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementController
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0
