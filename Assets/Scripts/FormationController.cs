@@ -51,8 +51,20 @@ public class FormationController : MonoBehaviour
 
         // No esta funcionado.
         // Move();
+        ApplyOrganicMovement();
     }
-   
+    void ApplyOrganicMovement()
+    {
+        for (int i = 0; i < enemyTransforms.Count; i++) { 
+            if (enemyTransforms[i] == null) continue; 
+            EntryAnimation anim = enemyTransforms[i].GetComponent<EntryAnimation>(); 
+            if (anim != null && !anim.HasFinished) continue; 
+            float waveX = Mathf.Sin(Time.time * organicSpeed + i * 0.4f) * organicAmplitude; 
+            float waveY = Mathf.Cos(Time.time * organicSpeed * 0.8f + i * 0.3f) * (organicAmplitude * 0.5f); 
+            enemyTransforms[i].localPosition = baseLocalPositions[i] + new Vector3(waveX, waveY, 0); 
+        }
+    }
+
     public void InitializeProcedural(ProceduralWaveData data)
     {
         enemyPrefabs = data.enemyPrefabs;
@@ -162,6 +174,7 @@ public class FormationController : MonoBehaviour
 
         // 🔹 Todos los enemigos ya han sido generados
         allEnemiesSpawned = true;
+        isActive = true;
     }
 
 
