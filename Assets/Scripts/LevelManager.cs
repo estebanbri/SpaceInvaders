@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -6,8 +6,9 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [Header("Waves")]
-    [SerializeField] private List<WaveConfig> waveConfig;
+    [Header("Enemy Progression")]
+    [SerializeField] private GameObject baseEnemy;
+    [SerializeField] private List<GameObject> advancedEnemies;
 
     [Header("Formation")]
     [SerializeField] private FormationController formationPrefab;
@@ -26,11 +27,17 @@ public class LevelManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI waveText;
 
+    [Header("Grid Limits")]
+    [SerializeField] private float horizontalSpacing = 1.5f;
+    [SerializeField] private float verticalSpacing = 1.3f;
+
     private int currentWave = 1;
     private FormationController activeFormation;
-    private FormationPattern lastFormation;
-    private bool hasLastFormation = false;
-    private bool miniBossDead = false;
+
+    private float screenLimitMinX = -6f;
+    private float screenLimitMaxX = 6f;
+    private float spawnPositionY = 7f;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -50,68 +57,37 @@ public class LevelManager : MonoBehaviour
     {
         UpdateWaveUI();
 
-        // Limpiar formación activa si existe
         if (activeFormation != null)
         {
-            Debug.Log("[LEVEL MANAGER] Destroying previous formation before starting wave.");
             activeFormation.OnFormationCleared = null;
             Destroy(activeFormation.gameObject);
             activeFormation = null;
         }
 
-        int tier = GetWave();
-        Debug.Log($"[WAVE START] Wave: {currentWave} | Tier: {tier}");
-
         if (IsMiniBossWave())
-        {
-            Debug.Log($"[MINIBOSS SPAWN] Tier: {tier}");
             SpawnMiniBoss();
-        }
         else
-        {
             SpawnProceduralFormation();
-        }
     }
-
 
     private bool IsMiniBossWave()
     {
         return currentWave % (wavesPerCycle + 1) == 0;
     }
 
-    private int GetWave()
-    {
-        return (currentWave - 1) % waveConfig.Count;
-    }
-
-    private int GetCycle()
-    {
-        return (currentWave - 1) / (wavesPerCycle + 1);
-    }
-
     private void SpawnProceduralFormation()
     {
-        // Limpieza de la formación anterior
-        if (activeFormation != null)
-        {
-            activeFormation.OnFormationCleared = null;
-            Destroy(activeFormation.gameObject);
-        }
-        Vector3 spawnPosition = new Vector3(0, 3.5f, 0); // spawn posicion de la wave
+        Vector3 spawnPosition = new Vector3(0, 3.5f, 0);
         activeFormation = Instantiate(formationPrefab, spawnPosition, Quaternion.identity);
 
-        int wave = GetWave();
-        ProceduralWaveData waveData = GenerateWaveData(wave);
-
+        ProceduralWaveData waveData = GenerateWaveData();
         activeFormation.InitializeProcedural(waveData);
 
-        // Suscripción segura al evento
         activeFormation.OnFormationCleared += OnFormationCleared;
     }
 
     private void OnFormationCleared()
     {
-        // Limpieza del evento antes de avanzar
         if (activeFormation != null)
             activeFormation.OnFormationCleared -= OnFormationCleared;
 
@@ -119,120 +95,75 @@ public class LevelManager : MonoBehaviour
         StartWave();
     }
 
-    private ProceduralWaveData GenerateWaveData(int waveIndex)
+    private ProceduralWaveData GenerateWaveData()
     {
         ProceduralWaveData data = new ProceduralWaveData();
-        WaveConfig config = waveConfig[waveIndex];
-
         data.enemyPrefabs = new List<GameObject>();
-        int cycle = GetCycle();  //  obtenemos el ciclo actual
 
-        foreach (var enemyCount in config.enemies)
+        int rows = 4;
+        int columns = 7;
+        int totalSlots = rows * columns;
+
+        data.fixedRows = rows;
+        data.fixedColumns = columns;
+        data.spacingX = horizontalSpacing;
+        data.spacingY = verticalSpacing;
+        data.invertShape = currentWave % 2 == 0;
+
+        int unlockedTypes = Mathf.Clamp((currentWave - 2) / 3 + 1, 0, advancedEnemies.Count);
+        int specialCount = Mathf.Clamp(currentWave - 1, 0, totalSlots);
+
+        Vector2 center = new Vector2(columns / 2f, rows / 2f);
+        List<(int index, float distance)> positions = new List<(int, float)>();
+        for (int i = 0; i < totalSlots; i++)
         {
-            int count = enemyCount.baseCount + Mathf.FloorToInt(cycle * 1.5f);  //  escalado dinámico
+            int row = i / columns;
+            int col = i % columns;
+            float dist = Vector2.Distance(new Vector2(col, row), center);
+            positions.Add((i, dist));
+        }
+        positions.Sort((a, b) => a.distance.CompareTo(b.distance));
 
-            for (int i = 0; i < count; i++)
-            {
-                data.enemyPrefabs.Add(enemyCount.enemyPrefab);
-            }
+        GameObject[] finalArray = new GameObject[totalSlots];
+        for (int i = 0; i < totalSlots; i++)
+            finalArray[i] = baseEnemy;
+
+        for (int i = 0; i < specialCount && i < positions.Count; i++)
+        {
+            if (unlockedTypes <= 0) break;
+            int posIndex = positions[i].index;
+            int randomType = Random.Range(0, unlockedTypes);
+            finalArray[posIndex] = advancedEnemies[randomType];
         }
 
-        // Mezclar la lista
-        for (int i = 0; i < data.enemyPrefabs.Count; i++)
-        {
-            int swapIndex = Random.Range(i, data.enemyPrefabs.Count);
-            var temp = data.enemyPrefabs[i];
-            data.enemyPrefabs[i] = data.enemyPrefabs[swapIndex];
-            data.enemyPrefabs[swapIndex] = temp;
-        }
-
-        data.moveSpeed = 2f + cycle * 0.3f;
-        data.healthMultiplier = 1f + cycle * 0.5f;
-        data.fireRateMultiplier = 1f + cycle * 0.2f;
-        data.cycle = cycle;
-        data.formationPattern = GetRandomFormation();
-
-        Debug.Log(
-            $"[WAVE DATA] Wave: {waveIndex} | TotalEnemies: {data.enemyPrefabs.Count} | " +
-            $"MoveSpeed: {data.moveSpeed:F2} | HealthMult: {data.healthMultiplier:F2} | FireRateMultiplier: {data.fireRateMultiplier:F2} | Pattern: {data.formationPattern}"
-        );
+        data.enemyPrefabs.AddRange(finalArray);
+        data.moveSpeed = 2f + currentWave * 0.15f;
+        data.healthMultiplier = 1f + currentWave * 0.1f;
+        data.fireRateMultiplier = 1f + currentWave * 0.05f;
+        data.cycle = currentWave;
 
         return data;
     }
 
-    private FormationPattern GetRandomFormation()
-    {
-        FormationPattern[] allPatterns =
-            (FormationPattern[])System.Enum.GetValues(typeof(FormationPattern));
-
-        if (allPatterns.Length == 0)
-            return FormationPattern.Grid;
-
-        FormationPattern selected;
-
-        if (allPatterns.Length == 1)
-        {
-            selected = allPatterns[0];
-        }
-        else
-        {
-            do
-            {
-                int index = Random.Range(0, allPatterns.Length);
-                selected = allPatterns[index];
-            }
-            while (hasLastFormation && selected == lastFormation);
-        }
-
-        lastFormation = selected;
-        hasLastFormation = true;
-
-        return selected;
-    }
-
-
-
     private void SpawnMiniBoss()
     {
-        miniBossDead = false; // reset al spawn
-
         GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
         Enemigo boss = bossGO.GetComponent<Enemigo>();
-        int cycle = GetCycle();
 
         if (boss != null)
         {
-            boss.ConfigureByCycle(cycle);
-
-            // Prevención de doble trigger
-            boss.OnEnemyDied -= OnMiniBossDied;
+            boss.ConfigureByCycle(currentWave);
             boss.OnEnemyDied += OnMiniBossDied;
         }
 
         if (bossHealthBar != null)
             bossHealthBar.Bind(boss);
-
-        Debug.Log($"[MINIBOSS SPAWNED] Cycle: {cycle}");
     }
 
     private void OnMiniBossDied()
     {
-        if (miniBossDead) return;
-        miniBossDead = true;
-
-        Debug.Log("[MINIBOSS] Died. Cleaning up before next wave.");
-
-        // Limpieza formación activa si queda alguna (previene caída infinita)
-        if (activeFormation != null)
-        {
-            activeFormation.OnFormationCleared = null;
-            Destroy(activeFormation.gameObject);
-            activeFormation = null;
-        }
-
-        // Si tienes bonus, spawn pero comentado por debug
-        // if (bonusBoxSpawner != null)
-        //     bonusBoxSpawner.Spawn(new Vector3(0, 5f, 0));
+        if (bonusBoxSpawner != null)
+            bonusBoxSpawner.Spawn(GetBonusSpawnPosition());
 
         currentWave++;
         StartWave();
@@ -246,5 +177,11 @@ public class LevelManager : MonoBehaviour
     public int GetCurrentWave()
     {
         return currentWave;
+    }
+
+    private Vector3 GetBonusSpawnPosition()
+    {
+        float x = Random.value < 0.5f ? screenLimitMinX : screenLimitMaxX;
+        return new Vector3(x, spawnPositionY, 0f);
     }
 }

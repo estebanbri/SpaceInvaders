@@ -46,7 +46,7 @@ public class WeaponAmmo : MonoBehaviour
             collision.TryGetComponent(out FactionComponent factionComp) &&
             factionComp.Faction != ownerFaction)
         {
-            damageable.TakeDamage(damageAmount);
+            damageable.TakeDamage(damageAmount, transform.position);
             SetState(AmmoState.Impact);
         }
     }

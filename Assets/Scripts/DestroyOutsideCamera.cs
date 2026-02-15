@@ -38,6 +38,7 @@ public class DestroyOutsideCamera : MonoBehaviour
         //  Caso inferior (ya lo tenías)
         if (pos.y + halfHeight < min.y)
         {
+            OnEnemyKilled(gameObject);
             Destroy(gameObject);
             return;
         }
@@ -45,6 +46,7 @@ public class DestroyOutsideCamera : MonoBehaviour
         //  Caso izquierda (completamente fuera)
         if (pos.x + halfWidth < min.x)
         {
+            OnEnemyKilled(gameObject);
             Destroy(gameObject);
             return;
         }
@@ -52,8 +54,25 @@ public class DestroyOutsideCamera : MonoBehaviour
         //  Caso derecha (completamente fuera)
         if (pos.x - halfWidth > max.x)
         {
+            OnEnemyKilled(gameObject);
             Destroy(gameObject);
             return;
+        }
+    }
+
+    private void OnEnemyKilled(GameObject gameObject)
+    {
+        if (gameObject.TryGetComponent(out FactionComponent factionComponent))
+        {
+            if (factionComponent.Faction == FactionType.Enemy)
+            {
+                Debug.Log("Enemigo: " + gameObject.name + " escapo y sera destruido");
+                Enemigo enemy = GetComponent<Enemigo>();
+                if (enemy != null)
+                {
+                    enemy.Die();
+                }
+            }
         }
     }
 

@@ -118,7 +118,7 @@ public class Nave : MonoBehaviour, IDamageable
         return weaponController; 
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, Vector3? attackerPos)
     {
         if (isDead) return;
 

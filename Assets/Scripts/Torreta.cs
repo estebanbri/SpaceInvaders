@@ -54,7 +54,7 @@ public class Torreta : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, Vector3? attackerPos)
     {
         if (isDead) return;
 

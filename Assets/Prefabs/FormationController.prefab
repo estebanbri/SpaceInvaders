@@ -44,5 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8343dc9ff6fcc54bb75d5d0da0ee755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FormationController
-  stepDown: 0.5
-  borderPadding: 3
+  fixedRows: 4
+  fixedColumns: 7
+  spacingX: 1.5
+  spacingY: 1.3
+  moveSpeed: 2
+  enemiesPerSubgroup: 6
+  maxSubgroupDelay: 1.5
+  entryHeight: 6
+  totalEnemiesPerWave: 10
+  stepDown: 1
+  organicAmplitude: 0.15
+  organicSpeed: 2
+  maxOffsetX: 0.5
+  maxOffsetY: 0.3

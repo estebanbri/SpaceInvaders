@@ -9,19 +9,47 @@ public class EnemigoVisual : MonoBehaviour
 
     private Material material;
     private Coroutine hitCoroutine;
+    private float flashDuration = 0.03f;
+    private Vector3 knockbackOffset;
+
+    [Header("Knockback")]
+    [SerializeField] private float knockbackRecoverSpeed = 8f;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         enemigo = GetComponentInParent<Enemigo>();
-
-        // IMPORTANTE: instanciamos el material
         material = spriteRenderer.material;
+
     }
 
-    public void PlayHitEffect()
+    private void Update()
     {
+        // Recuperación suave hacia cero
+        knockbackOffset = Vector3.Lerp(knockbackOffset,Vector3.zero,Time.deltaTime * knockbackRecoverSpeed);
+        transform.localPosition = knockbackOffset;
+    }
+
+    public void AddKnockback(Vector3 direction, float force)
+    {
+        knockbackOffset += direction.normalized * force;
+        Debug.Log("knockbackOffset: " + knockbackOffset);
+    }
+
+    public Vector3 GetKnockbackOffset()
+    {
+        return knockbackOffset;
+    }
+
+
+    /// <summary>
+    /// Reproduce el efecto de recibir daño: flash y activación de trigger.
+    /// </summary>
+    public void PlayHitEffect(Vector3 hitDir)
+    {
+        AddKnockback(hitDir, 0.6f);
+
         if (hitCoroutine != null)
             StopCoroutine(hitCoroutine);
 
@@ -32,8 +60,7 @@ public class EnemigoVisual : MonoBehaviour
     {
         // Flash blanco
         material.SetFloat("_Flash", 1f);
-        yield return new WaitForSeconds(0.03f);
-
+        yield return new WaitForSeconds(flashDuration);
         // Vuelve a normal
         material.SetFloat("_Flash", 0f);
     }

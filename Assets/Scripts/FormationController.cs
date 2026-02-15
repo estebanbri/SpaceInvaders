@@ -1,241 +1,270 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FormationController : MonoBehaviour
 {
-    private List<GameObject> enemyPrefabs;
-    private float spacingX = 1f;
-    private float spacingY = 1f;
-    private float moveSpeed;
+    [Header("Formation Settings")]
+    [SerializeField] private int fixedRows = 4;
+    [SerializeField] private int fixedColumns = 7;
+    [SerializeField] private float spacingX = 1.5f;
+    [SerializeField] private float spacingY = 1.3f;
+    [SerializeField] private float moveSpeed = 2f;
 
-    private FormationPattern formationPattern;
+    [Header("Subgroup Settings")]
+    [SerializeField] private int enemiesPerSubgroup = 3;
+    [SerializeField] private float maxSubgroupDelay = 1.5f;
+    [SerializeField] private float entryHeight = 6f;
+    [SerializeField] private int totalEnemiesPerWave = 30;
 
-    [Header("Movement")]
+    [Header("Movement & Organic")]
     [SerializeField] private float stepDown = 0.5f;
-    [SerializeField] private float borderPadding = 0.5f;
+    [SerializeField] private float organicAmplitude = 0.15f;
+    [SerializeField] private float organicSpeed = 2f;
+
+    [Header("Random Offset")]
+    [SerializeField] private float maxOffsetX = 0.5f;
+    [SerializeField] private float maxOffsetY = 0.3f;
+
+    private List<GameObject> enemyPrefabs;
+    private List<SpriteRenderer> cachedRenderers = new List<SpriteRenderer>();
+    private List<Transform> enemyTransforms = new List<Transform>();
+    private List<Vector3> baseLocalPositions = new List<Vector3>();
 
     private int direction = 1;
     private float leftLimit;
     private float rightLimit;
     private bool isActive = false;
+    private int enemiesKilled;
     private int enemiesAlive;
+    private int totalEnemiesInWave;
+
+    private bool[,] occupiedPositions;
 
     public System.Action OnFormationCleared;
 
-    #region INITIALIZATION
+    private bool allEnemiesSpawned = false;
 
+    void Update()
+    {
+        if (!isActive || enemiesAlive <= 0) return;
+
+        // No esta funcionado.
+        // Move();
+    }
+   
     public void InitializeProcedural(ProceduralWaveData data)
     {
         enemyPrefabs = data.enemyPrefabs;
-        spacingX = data.spacingX;
-        spacingY = data.spacingY;
-        moveSpeed = data.moveSpeed;
-        formationPattern = data.formationPattern;
 
-        direction = 1; // <-- reset direction
-        isActive = false; // <-- reset activo hasta terminar enter animation
+        direction = 1;
+        isActive = false;
+
+        cachedRenderers.Clear();
+        enemyTransforms.Clear();
+        baseLocalPositions.Clear();
 
         CalculateBounds();
-        GenerateEnemies(data);
-        StartCoroutine(EnterAnimation());
-    }
 
-    #endregion
+        // Inicializamos la grilla de posiciones ocupadas
+        occupiedPositions = new bool[fixedRows, fixedColumns];
+        totalEnemiesInWave = totalEnemiesPerWave;
+
+        StartCoroutine(SpawnSubgroups());
+    }
 
     void CalculateBounds()
     {
         Camera cam = Camera.main;
-        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
-        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+        float screenHeight = 2f * cam.orthographicSize;
+        float screenWidth = screenHeight * cam.aspect;
 
-        leftLimit = min.x + borderPadding;
-        rightLimit = max.x - borderPadding;
+        leftLimit = -screenWidth / 2f + 0.5f;
+        rightLimit = screenWidth / 2f - 0.5f;
     }
 
-    void GenerateEnemies(ProceduralWaveData data)
+
+    IEnumerator SpawnSubgroups()
     {
-        enemiesAlive = 0;
-        int totalEnemies = enemyPrefabs.Count;
+        int index = 0;
 
-        for (int i = 0; i < totalEnemies; i++)
+        while (index < totalEnemiesPerWave)
         {
-            Vector3 targetLocalPos = CalculatePosition(i, totalEnemies, formationPattern);
+            int count = Mathf.Min(enemiesPerSubgroup, totalEnemiesPerWave - index);
+            List<Transform> currentSubgroup = new List<Transform>();
 
-            GameObject prefab = enemyPrefabs[i];
-            if (prefab == null) continue;
+            Vector2Int seedPos = GetRandomFreePosition();
+            occupiedPositions[seedPos.y, seedPos.x] = true;
 
-            GameObject enemyGO = Instantiate(prefab, transform);
+            List<Vector2Int> availablePositions = GetNeighborFreePositions(seedPos);
+            availablePositions.Insert(0, seedPos);
 
-            // Punto de entrada aleatorio: desde arriba, izquierda o derecha
-            Vector3 randomOffset = Vector3.zero;
-            int choice = Random.Range(0, 3);
-            switch (choice)
+            for (int i = 0; i < count; i++)
             {
-                case 0: randomOffset = new Vector3(Random.Range(-3f, 3f), 5f, 0f); break; // desde arriba
-                case 1: randomOffset = new Vector3(-5f, Random.Range(-1f, 1f), 0f); break; // desde izquierda
-                case 2: randomOffset = new Vector3(5f, Random.Range(-1f, 1f), 0f); break; // desde derecha
+                Vector2Int pos;
+                if (availablePositions.Count > 0)
+                {
+                    pos = availablePositions[0];
+                    availablePositions.RemoveAt(0);
+                }
+                else pos = GetRandomFreePosition();
+
+                occupiedPositions[pos.y, pos.x] = true;
+
+                Vector3 targetPos = new Vector3(
+                    -(fixedColumns - 1) * spacingX * 0.5f + pos.x * spacingX,
+                    -pos.y * spacingY,
+                    0
+                );
+
+                float offsetX = Random.Range(-maxOffsetX * 0.3f, maxOffsetX * 0.3f);
+                float offsetY = Random.Range(-maxOffsetY * 0.3f, maxOffsetY * 0.3f);
+                targetPos += new Vector3(offsetX, offsetY, 0);
+
+                GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+                GameObject enemyGO = Instantiate(prefab, transform);
+                enemyGO.transform.localPosition = targetPos + Vector3.up * entryHeight;
+
+                SpriteRenderer sr = enemyGO.GetComponentInChildren<SpriteRenderer>();
+                if (sr != null) cachedRenderers.Add(sr);
+
+                Enemigo enemigo = enemyGO.GetComponent<Enemigo>();
+                enemigo.SetFormation(this);
+
+                EntryAnimation anim = enemyGO.AddComponent<EntryAnimation>();
+                anim.Initialize(enemyGO.transform.position, transform.position + targetPos, 1.5f);
+
+                enemyTransforms.Add(enemyGO.transform);
+                baseLocalPositions.Add(targetPos);
+                currentSubgroup.Add(enemyGO.transform);
+
+                index++;
+                enemiesAlive++;
             }
 
-            enemyGO.transform.localPosition = targetLocalPos + randomOffset;
+            // Esperamos que el subgrupo llegue a su posiciÃ³n (solo animaciÃ³n visual)
+            bool subgroupDone = false;
+            while (!subgroupDone)
+            {
+                subgroupDone = true;
+                foreach (var t in currentSubgroup)
+                {
+                    if (t == null) continue;
+                    EntryAnimation e = t.GetComponent<EntryAnimation>();
+                    if (e != null && !e.HasFinished) subgroupDone = false;
+                }
+                yield return null;
+            }
 
-            Enemigo enemigo = enemyGO.GetComponent<Enemigo>();
-            enemigo.SetFormation(this);
-            enemigo.ApplyProceduralScaling(data.healthMultiplier, data.fireRateMultiplier);
-
-            if (enemigo.GetWeaponController != null && enemigo.GetWeaponController.GetWeaponDefault() != null)
-                enemigo.GetWeaponController.Equip(enemigo.GetWeaponController.GetWeaponDefault(), data.cycle);
-
-            enemiesAlive++;
-
-            // Animación de entrada hacia la posición final
-            float baseDuration = 2f; 
-            StartCoroutine(MoveToLocalPositionIrregular(enemyGO.transform, targetLocalPos, baseDuration + Random.Range(-0.5f, 0.5f)));
-
+            float randomDelay = Random.Range(0f, maxSubgroupDelay);
+            yield return new WaitForSeconds(randomDelay);
         }
+
+        // ðŸ”¹ Todos los enemigos ya han sido generados
+        allEnemiesSpawned = true;
     }
 
-    IEnumerator MoveToLocalPositionIrregular(Transform enemy, Vector3 targetLocalPos, float duration)
+
+    /// <summary>
+    /// Obtiene las posiciones vecinas libres de la semilla (arriba, abajo, izquierda, derecha)
+    /// </summary>
+    List<Vector2Int> GetNeighborFreePositions(Vector2Int seed)
     {
-        if (enemy == null) yield break; // evitamos iniciar si ya no existe
+        List<Vector2Int> neighbors = new List<Vector2Int>();
 
-        Vector3 startPos = enemy.localPosition;
+        int[] dx = { -1, 1, 0, 0 };
+        int[] dy = { 0, 0, -1, 1 };
 
-        // Punto de control aleatorio
-        Vector3 midPoint = startPos + (targetLocalPos - startPos) * 0.5f;
-        midPoint += new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(0f, 1.5f), 0f);
-
-        float t = 0f;
-
-        while (t < duration)
+        for (int i = 0; i < 4; i++)
         {
-            t += Time.deltaTime;
-            if (enemy == null) yield break; // chequeo cada frame
+            int nx = seed.x + dx[i];
+            int ny = seed.y + dy[i];
 
-            float u = t / duration;
-            u = u * u * (3f - 2f * u); // smoothstep easing
-
-            enemy.localPosition =
-                (1 - u) * (1 - u) * startPos +
-                2 * (1 - u) * u * midPoint +
-                u * u * targetLocalPos;
-
-            yield return null;
+            if (nx >= 0 && nx < fixedColumns && ny >= 0 && ny < fixedRows)
+            {
+                if (!occupiedPositions[ny, nx])
+                    neighbors.Add(new Vector2Int(nx, ny));
+            }
         }
 
-        if (enemy != null)
-            enemy.localPosition = targetLocalPos;
+        return neighbors;
     }
 
 
-
-
-
-
-    Vector3 CalculatePosition(int index, int total, FormationPattern pattern)
+    Vector2Int GetRandomFreePosition()
     {
-        switch (pattern)
+        List<Vector2Int> freePositions = new List<Vector2Int>();
+        for (int y = 0; y < fixedRows; y++)
         {
-            case FormationPattern.Grid:
-                int columns = Mathf.CeilToInt(Mathf.Sqrt(total));
-                int row = index / columns;
-                int col = index % columns;
-                float startX = -(columns - 1) * spacingX * 0.5f;
-                float startY = row * -spacingY;
-                return new Vector3(startX + col * spacingX, startY, 0);
-
-            case FormationPattern.Line:
-                float startLineX = -(total - 1) * spacingX * 0.5f;
-                return new Vector3(startLineX + index * spacingX, 0, 0);
-
-            case FormationPattern.Circle:
-                float radius = Mathf.Max(total * 0.2f, 1f);
-                float angleStep = 360f / total;
-                float angle = index * angleStep * Mathf.Deg2Rad;
-                return new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0);
-
-            case FormationPattern.Star:
-                // Patrón estrella simple: alterna entre radio corto y largo
-                float radiusOuter = Mathf.Max(total * 0.2f, 1f);
-                float radiusInner = radiusOuter * 0.5f;
-                float stepAngle = 360f / total;
-                float starAngle = index * stepAngle * Mathf.Deg2Rad;
-                float r = (index % 2 == 0) ? radiusOuter : radiusInner;
-                return new Vector3(Mathf.Cos(starAngle) * r, Mathf.Sin(starAngle) * r, 0);
-
-            default:
-                return Vector3.zero;
-        }
-    }
-
-    IEnumerator EnterAnimation()
-    {
-        Vector3 start = new Vector3(0, 8f, 0);
-        Vector3 target = transform.position;
-        transform.position = start;
-
-        float t = 0f;
-        float duration = 1.5f;
-
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            transform.position = Vector3.Lerp(start, target, t / duration);
-            yield return null;
+            for (int x = 0; x < fixedColumns; x++)
+            {
+                if (!occupiedPositions[y, x])
+                    freePositions.Add(new Vector2Int(x, y));
+            }
         }
 
-        transform.position = target;
-        isActive = true;
-        ActivateEnemies();
+        if (freePositions.Count == 0) return new Vector2Int(0, 0);
+        return freePositions[Random.Range(0, freePositions.Count)];
     }
-
-    void Update()
-    {
-        if (!isActive) return;
-        Move();
-    }
-
+    
     void Move()
     {
-        if (!isActive || enemiesAlive <= 0) return; // <-- clave
-
         transform.position += Vector3.right * direction * moveSpeed * Time.deltaTime;
 
-        Bounds bounds = GetComponentInChildren<Renderer>().bounds;
-        float leftEdge = bounds.min.x;
-        float rightEdge = bounds.max.x;
+        GetFormationHorizontalBounds(out float leftEdge, out float rightEdge);
 
-        if ((rightEdge >= rightLimit && direction > 0) || (leftEdge <= leftLimit && direction < 0))
+        if ((rightEdge >= rightLimit && direction > 0) ||
+            (leftEdge <= leftLimit && direction < 0))
         {
-             StepDown();
+            direction *= -1;
+            transform.position += Vector3.down * stepDown;
         }
     }
 
-    void StepDown()
+    private void GetFormationHorizontalBounds(out float leftEdge, out float rightEdge)
     {
-        direction *= -1;
-        transform.position += Vector3.down * stepDown;
+        float minX = float.MaxValue;
+        float maxX = float.MinValue;
+
+        for (int i = cachedRenderers.Count - 1; i >= 0; i--)
+        {
+            if (cachedRenderers[i] == null)
+            {
+                cachedRenderers.RemoveAt(i);
+                continue;
+            }
+
+            Bounds b = cachedRenderers[i].bounds;
+            if (b.min.x < minX) minX = b.min.x;
+            if (b.max.x > maxX) maxX = b.max.x;
+        }
+
+        leftEdge = minX;
+        rightEdge = maxX;
     }
+
 
     public void NotifyEnemyKilled()
     {
+        // Reducimos la cantidad de enemigos vivos en pantalla
         enemiesAlive--;
-        Debug.Log($"[FORMATION] Enemy killed. Remaining:{enemiesAlive} | Pos:{transform.position}");
 
-        if (enemiesAlive <= 0)
+        // Aumentamos el contador de enemigos muertos de la wave total
+        enemiesKilled++;
+
+        // Calculamos enemigos restantes de la wave
+        int remainingEnemies = totalEnemiesPerWave - enemiesKilled;
+
+        // Log para ver la wave completa
+        Debug.Log($"[FormationController] Enemigos restantes de la wave: {remainingEnemies} / {totalEnemiesPerWave}");
+
+        // Solo destruimos la wave cuando todos los enemigos fueron generados y no queda ninguno vivo
+        if (allEnemiesSpawned && enemiesAlive <= 0)
         {
-            Debug.Log("[FORMATION] All enemies cleared!");
+            Debug.Log("[FormationController] Â¡Wave completada!");
             OnFormationCleared?.Invoke();
             Destroy(gameObject);
         }
     }
 
-    void ActivateEnemies()
-    {
-        Enemigo[] enemies = GetComponentsInChildren<Enemigo>();
-        foreach (var enemy in enemies)
-            enemy.SetState(EnemyState.Attacking);
-
-        Debug.Log("[FORMATION] Enemies switched to ATTACKING state");
-    }
 }

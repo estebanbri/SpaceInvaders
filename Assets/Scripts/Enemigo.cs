@@ -52,27 +52,31 @@ public class Enemigo : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, Vector3? attackerPos)
     {
         if (isDead) return;
 
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
-        enemigoVisual?.PlayHitEffect();
+
+        Vector3 hitDir = attackerPos.HasValue
+            ? (transform.position - attackerPos.Value).normalized
+            : Vector3.up;
+
+        enemigoVisual?.PlayHitEffect(hitDir);
 
         if (currentHealth <= 0)
-        {
-             Die();
-        }
+            Die();
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+
     }
 
-    private void Die()
+    public void Die()
     {
         if (isDead) return;
         isDead = true;
 
-        Debug.Log("[ENEMY]  died.");
+        Debug.Log("[ENEMY] " + gameObject.name + " died.");
 
         col.enabled = false;
         OnEnemyDied?.Invoke();
