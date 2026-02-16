@@ -9,7 +9,7 @@ public class FormationController : MonoBehaviour
     [SerializeField] private int fixedColumns = 7;
     [SerializeField] private float spacingX = 1.5f;
     [SerializeField] private float spacingY = 1.3f;
-    [SerializeField] private float moveSpeed = 0.5f;
+    [SerializeField] private float moveSpeed = 1f;
 
     [Header("Subgroup Settings")]
     [SerializeField] private int enemiesPerSubgroup = 3;
