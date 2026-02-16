@@ -77,8 +77,8 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnProceduralFormation()
     {
-        Vector3 spawnPosition = new Vector3(0, 3.5f, 0);
-        activeFormation = Instantiate(formationPrefab, spawnPosition, Quaternion.identity);
+        Vector3 formationPos = new Vector3(0, 4f, 0);
+        activeFormation = Instantiate(formationPrefab, formationPos, Quaternion.identity);
 
         ProceduralWaveData waveData = GenerateWaveData();
         activeFormation.InitializeProcedural(waveData);
@@ -184,4 +184,6 @@ public class LevelManager : MonoBehaviour
         float x = Random.value < 0.5f ? screenLimitMinX : screenLimitMaxX;
         return new Vector3(x, spawnPositionY, 0f);
     }
+
+    
 }

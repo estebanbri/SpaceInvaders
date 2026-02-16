@@ -103,6 +103,9 @@ public class FormationController : MonoBehaviour
             int count = Mathf.Min(enemiesPerSubgroup, totalEnemiesPerWave - index);
             List<Transform> currentSubgroup = new List<Transform>();
 
+            // 🔹 Elegimos UN lado para todo el subgrupo
+            int spawnSide = Random.Range(0, 3); // 0 arriba, 1 izquierda, 2 derecha
+
             Vector2Int seedPos = GetRandomFreePosition();
             occupiedPositions[seedPos.y, seedPos.x] = true;
 
@@ -121,7 +124,7 @@ public class FormationController : MonoBehaviour
 
                 occupiedPositions[pos.y, pos.x] = true;
 
-                Vector3 targetPos = new Vector3(
+                Vector3 targetLocalPos = new Vector3(
                     -(fixedColumns - 1) * spacingX * 0.5f + pos.x * spacingX,
                     -pos.y * spacingY,
                     0
@@ -129,11 +132,18 @@ public class FormationController : MonoBehaviour
 
                 float offsetX = Random.Range(-maxOffsetX * 0.3f, maxOffsetX * 0.3f);
                 float offsetY = Random.Range(-maxOffsetY * 0.3f, maxOffsetY * 0.3f);
-                targetPos += new Vector3(offsetX, offsetY, 0);
+                targetLocalPos += new Vector3(offsetX, offsetY, 0);
 
                 GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
                 GameObject enemyGO = Instantiate(prefab, transform);
-                enemyGO.transform.localPosition = targetPos + Vector3.up * entryHeight;
+
+                // 🔹 Posición final en mundo
+                Vector3 worldTarget = transform.TransformPoint(targetLocalPos);
+
+                // 🔹 Spawn fuera de pantalla (mismo lado para todo el subgrupo)
+                Vector3 worldSpawn = GetSpawnFromSide(spawnSide);
+
+                enemyGO.transform.position = worldSpawn;
 
                 SpriteRenderer sr = enemyGO.GetComponentInChildren<SpriteRenderer>();
                 if (sr != null) cachedRenderers.Add(sr);
@@ -142,17 +152,17 @@ public class FormationController : MonoBehaviour
                 enemigo.SetFormation(this);
 
                 EntryAnimation anim = enemyGO.AddComponent<EntryAnimation>();
-                anim.Initialize(enemyGO.transform.position, transform.position + targetPos, 1.5f);
+                anim.Initialize(worldSpawn, worldTarget, 1.5f);
 
                 enemyTransforms.Add(enemyGO.transform);
-                baseLocalPositions.Add(targetPos);
+                baseLocalPositions.Add(targetLocalPos);
                 currentSubgroup.Add(enemyGO.transform);
 
                 index++;
                 enemiesAlive++;
             }
 
-            // Esperamos que el subgrupo llegue a su posición (solo animación visual)
+            // 🔹 Esperamos que termine el subgrupo
             bool subgroupDone = false;
             while (!subgroupDone)
             {
@@ -161,18 +171,61 @@ public class FormationController : MonoBehaviour
                 {
                     if (t == null) continue;
                     EntryAnimation e = t.GetComponent<EntryAnimation>();
-                    if (e != null && !e.HasFinished) subgroupDone = false;
+                    if (e != null && !e.HasFinished)
+                    {
+                        subgroupDone = false;
+                        break;
+                    }
                 }
                 yield return null;
             }
+
             isActive = true;
+
             float randomDelay = Random.Range(0f, maxSubgroupDelay);
             yield return new WaitForSeconds(randomDelay);
         }
 
-        // 🔹 Todos los enemigos ya han sido generados
         allEnemiesSpawned = true;
-        
+    }
+
+    Vector3 GetSpawnFromSide(int side)
+    {
+        Camera cam = Camera.main;
+
+        float verticalExtent = cam.orthographicSize;
+        float horizontalExtent = verticalExtent * cam.aspect;
+
+        float topY = cam.transform.position.y + verticalExtent;
+        float bottomY = cam.transform.position.y - verticalExtent;
+        float leftX = cam.transform.position.x - horizontalExtent;
+        float rightX = cam.transform.position.x + horizontalExtent;
+
+        float offset = 2f;
+
+        switch (side)
+        {
+            case 0: // Arriba
+                return new Vector3(
+                    Random.Range(leftX, rightX),
+                    topY + offset,
+                    0f
+                );
+
+            case 1: // Izquierda
+                return new Vector3(
+                    leftX - offset,
+                    Random.Range(bottomY, topY),
+                    0f
+                );
+
+            default: // Derecha
+                return new Vector3(
+                    rightX + offset,
+                    Random.Range(bottomY, topY),
+                    0f
+                );
+        }
     }
 
 
@@ -276,5 +329,7 @@ public class FormationController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+ 
 
 }

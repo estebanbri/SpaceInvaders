@@ -10,7 +10,7 @@ public class EntryAnimationTester : MonoBehaviour
     {
         if (entryAnimation != null && targetTransform != null)
         {
-            entryAnimation.Initialize(entryAnimation.transform.position, targetTransform.position, duration);
+            // entryAnimation.Initialize(entryAnimation.transform.position, targetTransform.position, duration);
         }
     }
 }

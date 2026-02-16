@@ -67,5 +67,6 @@ public class EntryAnimation : MonoBehaviour
         transform.localPosition = pos;
 
         if (t >= 1f) HasFinished = true;
+
     }
 }

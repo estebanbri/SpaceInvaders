@@ -43,6 +43,7 @@ public class DestroyOutsideCamera : MonoBehaviour
             return;
         }
 
+        /*
         //  Caso izquierda (completamente fuera)
         if (pos.x + halfWidth < min.x)
         {
@@ -57,7 +58,7 @@ public class DestroyOutsideCamera : MonoBehaviour
             OnEnemyKilled(gameObject);
             Destroy(gameObject);
             return;
-        }
+        }*/
     }
 
     private void OnEnemyKilled(GameObject gameObject)
