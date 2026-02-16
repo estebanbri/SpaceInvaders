@@ -2,7 +2,9 @@ public enum EnemyState
 {
     Entering,
     Moving,
-    Attacking,
+    Idle,
     Exiting,
-    Dead
+    Dead,
+    Kamikaze,
+    Returning
 }

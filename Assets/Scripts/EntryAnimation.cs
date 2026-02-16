@@ -66,7 +66,14 @@ public class EntryAnimation : MonoBehaviour
 
         transform.localPosition = pos;
 
-        if (t >= 1f) HasFinished = true;
+        if (t >= 1f)
+        {
+            HasFinished = true;
+
+            Enemigo e = GetComponent<Enemigo>();
+            if (e != null)
+                e.SetState(EnemyState.Idle);
+        }
 
     }
 }

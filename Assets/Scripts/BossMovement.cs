@@ -67,7 +67,7 @@ public class BossMovement : MonoBehaviour
         }
 
 
-        enemigo.SetState(EnemyState.Attacking);
+        enemigo.SetState(EnemyState.Idle);
         MoveHorizontal();
     }
 

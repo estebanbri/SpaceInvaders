@@ -25,6 +25,14 @@ public class FormationController : MonoBehaviour
     [SerializeField] private float maxOffsetX = 0.5f;
     [SerializeField] private float maxOffsetY = 0.3f;
 
+    [Header("Kamikaze System")]
+    [SerializeField] private int maxSimultaneousAttackers = 2;
+    [SerializeField] private float minAttackInterval = 3f;
+    [SerializeField] private float maxAttackInterval = 7f;
+
+    private float attackTimer;
+    private float nextAttackTime;
+
     private List<GameObject> enemyPrefabs;
     private List<SpriteRenderer> cachedRenderers = new List<SpriteRenderer>();
     private List<Transform> enemyTransforms = new List<Transform>();
@@ -49,19 +57,74 @@ public class FormationController : MonoBehaviour
         if (!isActive || enemiesAlive <= 0) return;
 
         HorizonalMove();
-        ApplyOrganicMovement();
+        // No me gusto como quedo el movimiento organico, lo saco por ahora para enfocarme en el sistema de kamikazes
+        // ApplyOrganicMovement();
+
+        UpdateKamikazeSystem();
     }
     void ApplyOrganicMovement()
     {
-        for (int i = 0; i < enemyTransforms.Count; i++) { 
-            if (enemyTransforms[i] == null) continue; 
-            EntryAnimation anim = enemyTransforms[i].GetComponent<EntryAnimation>(); 
-            if (anim != null && !anim.HasFinished) continue; 
-            float waveX = Mathf.Sin(Time.time * organicSpeed + i * 0.4f) * organicAmplitude; 
-            float waveY = Mathf.Cos(Time.time * organicSpeed * 0.8f + i * 0.3f) * (organicAmplitude * 0.5f); 
-            enemyTransforms[i].localPosition = baseLocalPositions[i] + new Vector3(waveX, waveY, 0); 
+        for (int i = 0; i < enemyTransforms.Count; i++)
+        {
+            if (enemyTransforms[i] == null)
+                continue;
+
+            // 1️⃣ No mover si todavía está en animación de entrada
+            EntryAnimation anim = enemyTransforms[i].GetComponent<EntryAnimation>();
+            if (anim != null && !anim.HasFinished)
+                continue;
+
+            // 2️⃣ No mover si no está en estado Idle
+            Enemigo enemigo = enemyTransforms[i].GetComponent<Enemigo>();
+            if (enemigo != null && enemigo.State != EnemyState.Idle)
+                continue;
+
+            // 3️⃣ Movimiento orgánico SOLO para los que están en grilla
+            float waveX = Mathf.Sin(Time.time * organicSpeed + i * 0.4f) * organicAmplitude;
+            float waveY = Mathf.Cos(Time.time * organicSpeed * 0.8f + i * 0.3f) * (organicAmplitude * 0.5f);
+
+            enemyTransforms[i].localPosition =
+                baseLocalPositions[i] + new Vector3(waveX, waveY, 0);
         }
     }
+
+
+    void UpdateKamikazeSystem()
+    {
+        attackTimer += Time.deltaTime;
+
+        if (attackTimer < nextAttackTime)
+            return;
+
+        TryStartRandomKamikaze();
+        SetNextAttackTime();
+    }
+
+    void TryStartRandomKamikaze()
+{
+    Enemigo[] enemies = FindObjectsOfType<Enemigo>();
+
+    List<Enemigo> idleEnemies = new List<Enemigo>();
+    int currentAttackers = 0;
+
+    foreach (var e in enemies)
+    {
+        if (e.State == EnemyState.Kamikaze)
+            currentAttackers++;
+
+        if (e.State == EnemyState.Idle)
+            idleEnemies.Add(e);
+    }
+
+    if (currentAttackers >= maxSimultaneousAttackers)
+        return;
+
+    if (idleEnemies.Count == 0)
+        return;
+
+    Enemigo chosen = idleEnemies[Random.Range(0, idleEnemies.Count)];
+    chosen.StartKamikaze();
+}
 
     public void InitializeProcedural(ProceduralWaveData data)
     {
@@ -81,6 +144,13 @@ public class FormationController : MonoBehaviour
         totalEnemiesInWave = totalEnemiesPerWave;
 
         StartCoroutine(SpawnSubgroups());
+        SetNextAttackTime();
+    }
+
+    void SetNextAttackTime()
+    {
+        nextAttackTime = Random.Range(minAttackInterval, maxAttackInterval);
+        attackTimer = 0f;
     }
 
     void CalculateBounds()
