@@ -9,7 +9,7 @@ public class FormationController : MonoBehaviour
     [SerializeField] private int fixedColumns = 7;
     [SerializeField] private float spacingX = 1.5f;
     [SerializeField] private float spacingY = 1.3f;
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float moveSpeed = 0.5f;
 
     [Header("Subgroup Settings")]
     [SerializeField] private int enemiesPerSubgroup = 3;
@@ -18,7 +18,6 @@ public class FormationController : MonoBehaviour
     [SerializeField] private int totalEnemiesPerWave = 30;
 
     [Header("Movement & Organic")]
-    [SerializeField] private float stepDown = 0.5f;
     [SerializeField] private float organicAmplitude = 0.15f;
     [SerializeField] private float organicSpeed = 2f;
 
@@ -49,7 +48,7 @@ public class FormationController : MonoBehaviour
     {
         if (!isActive || enemiesAlive <= 0) return;
 
-        // Move();
+        HorizonalMove();
         ApplyOrganicMovement();
     }
     void ApplyOrganicMovement()
@@ -219,7 +218,7 @@ public class FormationController : MonoBehaviour
         return freePositions[Random.Range(0, freePositions.Count)];
     }
     
-    void Move()
+    void HorizonalMove()
     {
         transform.position += Vector3.right * direction * moveSpeed * Time.deltaTime;
 
@@ -229,7 +228,6 @@ public class FormationController : MonoBehaviour
             (leftEdge <= leftLimit && direction < 0))
         {
             direction *= -1;
-            transform.position += Vector3.down * stepDown;
         }
     }
 
