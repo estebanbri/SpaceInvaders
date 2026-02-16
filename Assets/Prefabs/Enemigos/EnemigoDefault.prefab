@@ -280,4 +280,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202909db5d2fecc43a32adaf529f9975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  knockbackRecoverSpeed: 8
+  knockbackRecoverSpeed: 12
+  knockbackForce: 0.15

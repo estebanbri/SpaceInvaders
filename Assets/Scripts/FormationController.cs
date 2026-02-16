@@ -49,7 +49,6 @@ public class FormationController : MonoBehaviour
     {
         if (!isActive || enemiesAlive <= 0) return;
 
-        // No esta funcionado.
         // Move();
         ApplyOrganicMovement();
     }
@@ -167,14 +166,14 @@ public class FormationController : MonoBehaviour
                 }
                 yield return null;
             }
-
+            isActive = true;
             float randomDelay = Random.Range(0f, maxSubgroupDelay);
             yield return new WaitForSeconds(randomDelay);
         }
 
         // 🔹 Todos los enemigos ya han sido generados
         allEnemiesSpawned = true;
-        isActive = true;
+        
     }
 
 

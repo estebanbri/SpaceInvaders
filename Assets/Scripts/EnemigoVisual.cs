@@ -12,8 +12,10 @@ public class EnemigoVisual : MonoBehaviour
     private float flashDuration = 0.03f;
     private Vector3 knockbackOffset;
 
+    
     [Header("Knockback")]
     [SerializeField] private float knockbackRecoverSpeed = 8f;
+    [SerializeField] private float knockbackForce = 0.3f;
 
     void Awake()
     {
@@ -34,7 +36,6 @@ public class EnemigoVisual : MonoBehaviour
     public void AddKnockback(Vector3 direction, float force)
     {
         knockbackOffset += direction.normalized * force;
-        Debug.Log("knockbackOffset: " + knockbackOffset);
     }
 
     public Vector3 GetKnockbackOffset()
@@ -48,7 +49,7 @@ public class EnemigoVisual : MonoBehaviour
     /// </summary>
     public void PlayHitEffect(Vector3 hitDir)
     {
-        AddKnockback(hitDir, 0.6f);
+        AddKnockback(hitDir, knockbackForce);
 
         if (hitCoroutine != null)
             StopCoroutine(hitCoroutine);
