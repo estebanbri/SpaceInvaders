@@ -129,6 +129,7 @@ MonoBehaviour:
   weaponController: {fileID: 0}
   isBoss: 0
   bossWeaponsByCycle: []
+  damageTextPrefab: {fileID: 2508392111751814786, guid: 1cd112d231fe73f42b01f4bda17d62a2, type: 3}
   shotsPerBurst: 2
   burstInterval: 0.1
   minWaitTime: 0.5

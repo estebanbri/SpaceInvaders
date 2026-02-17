@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour
     [Header("Asteroid InterWave")]
     [SerializeField] private AsteroidSpawner asteroidSpawner;
     [SerializeField] private float asteroidDuration = 15f;
+    [SerializeField] private AsteroideTurbulence turbulence;
     [SerializeField] private float asteroidChance = 0.35f;
 
     private bool lastWasAsteroids = false;
@@ -54,6 +55,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Image darkOverlay;
 
     [SerializeField] float targetDarknessAsteroidBackground = 0.4f;
+
+   
 
     private void Awake()
     {
@@ -90,6 +93,18 @@ public class LevelManager : MonoBehaviour
     private bool IsMiniBossWave()
     {
         return currentWave % (wavesPerCycle + 1) == 0;
+    }
+
+    public void StartInterwave()
+    {
+        asteroidSpawner.StartSpawning();
+        turbulence.Activate();
+    }
+
+    public void EndInterwave()
+    {
+        asteroidSpawner.StopSpawning();
+        turbulence.Deactivate();
     }
 
     private void SpawnProceduralFormation()
@@ -160,11 +175,11 @@ public class LevelManager : MonoBehaviour
         // ⏳ 5️⃣ Pequeña pausa antes de empezar tormenta
         yield return new WaitForSeconds(0.3f);
 
-        asteroidSpawner.StartSpawning();
+        StartInterwave();
 
         yield return new WaitForSeconds(asteroidDuration);
 
-        asteroidSpawner.StopSpawning();
+        EndInterwave();
 
         // 🌑 6️⃣ Quitar oscuridad
         yield return StartCoroutine(FadeOverlay(0f, 0.6f));

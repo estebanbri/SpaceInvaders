@@ -18,6 +18,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private bool isBoss = false;
     [SerializeField] private List<BossWeaponCycle> bossWeaponsByCycle;
 
+    [SerializeField] private GameObject damageTextPrefab;
+
     private int currentHealth;
     private bool isDead;
     private EnemigoVisual enemigoVisual;
@@ -281,11 +283,18 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         enemigoVisual?.PlayHitEffect(hitDir);
 
+        // 🔹 Mostrar daño flotante
+        if (damageTextPrefab != null)
+        {
+            Vector3 offset = Vector3.up * 0.6f * transform.localScale.y; // ajusta factor según tamaño del enemigo
+            GameObject dmgText = Instantiate(damageTextPrefab, transform.position + offset, Quaternion.identity);
+            dmgText.GetComponent<FloatingDamageText>().SetDamage(damageAmount);
+        }
+
         if (currentHealth <= 0)
             Die();
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-
     }
 
     public void Die()
