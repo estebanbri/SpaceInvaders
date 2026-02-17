@@ -198,7 +198,7 @@ public class LevelManager : MonoBehaviour
         asteroidWarningText.color = baseColor;
 
         float fadeDuration = 0.5f;
-        float displayTime = 1.2f;
+        float displayTime = 1.5f;
 
         // 🔹 Fade In con leve escala
         float t = 0f;
@@ -212,7 +212,7 @@ public class LevelManager : MonoBehaviour
 
             // 🎛 Flicker sutil
             float flicker = Mathf.Sin(Time.time * 80f) * 0.8f;
-            float finalAlpha = Mathf.Clamp01(alpha * (1f + flicker));
+            float finalAlpha = Mathf.Clamp01(alpha + flicker);
 
             asteroidWarningText.color = new Color(baseColor.r, baseColor.g, baseColor.b, finalAlpha);
 
@@ -235,8 +235,7 @@ public class LevelManager : MonoBehaviour
 
             float alpha = Mathf.Lerp(1f, 0f, progress);
 
-            float flicker = Mathf.Sin(Time.time * 80f) * 0.8f;
-            float finalAlpha = Mathf.Clamp01(alpha * (1f + flicker));
+            float finalAlpha = Mathf.Clamp01(alpha);
 
             asteroidWarningText.color = new Color(baseColor.r, baseColor.g, baseColor.b, finalAlpha);
 
