@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -37,6 +38,8 @@ public class LevelManager : MonoBehaviour
     private float screenLimitMinX = -6f;
     private float screenLimitMaxX = 6f;
     private float spawnPositionY = 7f;
+
+
 
     private void Awake()
     {
@@ -147,19 +150,117 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnMiniBoss()
     {
-        GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 4f, 0), Quaternion.identity);
+        GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 7f, 0), Quaternion.identity); // fuera de pantalla
         Enemigo boss = bossGO.GetComponent<Enemigo>();
 
         if (boss != null)
         {
             boss.ConfigureByCycle(currentWave);
             boss.OnEnemyDied += OnMiniBossDied;
+            // Lanzamos la entrada épica
+            StartCoroutine(BossEntranceSequence(boss));
+        }
+    }
+
+    private ParticleSystem CreateBossAura(Transform parent)
+    {
+        GameObject psGO = new GameObject("BossAura");
+        psGO.transform.SetParent(parent);
+        psGO.transform.localPosition = Vector3.zero;
+        psGO.transform.localRotation = Quaternion.identity;
+
+        ParticleSystem ps = psGO.AddComponent<ParticleSystem>();
+        var main = ps.main;
+        main.startLifetime = 1.5f;
+        main.startSpeed = 0f;
+        main.startSize = 1f;
+        main.loop = true;
+        main.playOnAwake = false;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
+
+        var emission = ps.emission;
+        emission.rateOverTime = 20f;
+
+        var shape = ps.shape;
+        shape.shapeType = ParticleSystemShapeType.Sphere;
+        shape.radius = 1f;
+
+        var colorOverLifetime = ps.colorOverLifetime;
+        colorOverLifetime.enabled = true;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.red, 0f), new GradientColorKey(Color.yellow, 1f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(0.6f, 0f), new GradientAlphaKey(0f, 1f) }
+        );
+        colorOverLifetime.color = gradient;
+
+        var renderer = ps.GetComponent<ParticleSystemRenderer>();
+        renderer.material = new Material(Shader.Find("Particles/Standard Unlit"));
+
+        return ps;
+    }
+
+    private IEnumerator BossEntranceSequence(Enemigo boss)
+
+    {
+
+        // 1️⃣ Aviso al jugador
+        // UIManager.Instance.ShowBossWarning(2f); // muestra "BOSS INCOMING" + sonido
+        // yield return new WaitForSeconds(2f);
+
+        // 2️⃣ Animación de entrada dramática
+        Vector3 startPos = new Vector3(0, 7f, 0); // fuera de cámara
+        Vector3 targetPos = new Vector3(0, 4f, 0); // posición de combate
+        float enterDuration = 3f;
+        float timer = 0f;
+
+        // Opcional: partículas de aura dramática
+        ParticleSystem[] particles = boss.GetComponentsInChildren<ParticleSystem>();
+        foreach (var ps in particles)
+        {
+            ps.Play();
         }
 
+        // Opcional: shake de cámara
+        Camera mainCam = Camera.main;
+        Vector3 camStartPos = mainCam.transform.position;
+
+        while (timer < enterDuration)
+        {
+            timer += Time.deltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, timer / enterDuration);
+
+            // Movimiento vertical con oscilación leve
+            float oscillation = Mathf.Sin(timer * 3f) * 0.2f;
+            boss.transform.position = Vector3.Lerp(startPos, targetPos, t) + Vector3.up * oscillation;
+
+            // Shake de cámara suave
+            if (timer < enterDuration * 0.5f)
+            {
+                mainCam.transform.position = camStartPos + (Vector3)Random.insideUnitCircle * 0.05f;
+            }
+            else
+            {
+                mainCam.transform.position = camStartPos;
+            }
+
+            yield return null;
+        }
+
+        boss.transform.position = targetPos;
+        mainCam.transform.position = camStartPos; // reset cámara
+
+        // 3️⃣ Pausa dramática antes de disparar
+        yield return new WaitForSeconds(1f);
+
+        // 4️⃣ Activar ataques y barra de vida
+        boss.SetState(EnemyState.Idle);
         if (bossHealthBar != null)
             bossHealthBar.Bind(boss);
     }
 
+
+    
     private void OnMiniBossDied()
     {
         if (bonusBoxSpawner != null)

@@ -33,6 +33,20 @@ public class Enemigo : MonoBehaviour, IDamageable
     public System.Action<int, int> OnHealthChanged;
     public System.Action OnEnemyDied;
 
+    private enum BossAttackPhase { Waiting, Burst, Moving }
+    private BossAttackPhase bossAttackPhase = BossAttackPhase.Waiting;
+
+    private int burstShotsDone = 0;
+    private float burstTimer = 0f;
+    private float phaseTimer = 0f;
+
+    [SerializeField] private int shotsPerBurst = 2;
+    [SerializeField] private float burstInterval = 1f; // tiempo entre disparos de la ráfaga
+    [SerializeField] private float minWaitTime = 1f;   // espera aleatoria mínima antes de ráfaga
+    [SerializeField] private float maxWaitTime = 2f;   // espera aleatoria máxima
+    [SerializeField] private float moveDuration = 1f;    // cuánto se mueve entre ráfagas
+    private float targetX;                                // posición horizontal a moverse
+
 
     [Header("Kamikaze")]
     [SerializeField] private float kamikazeSpeed = 6f;
@@ -60,7 +74,10 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private float curveHeight = 2f;
     [SerializeField] private float moveSpeed = 5f;
 
+    private float nextFireTime = 0f; // tiempo en el que se disparará el próximo tiro
+
     private float curveDirection;
+    private int currentCycle = 0;
 
     void Awake()
     {
@@ -87,7 +104,11 @@ public class Enemigo : MonoBehaviour, IDamageable
             return;
         }
 
-        if (weaponController != null && State == EnemyState.Idle)
+        if (isBoss && weaponController != null && State == EnemyState.Idle)
+        {
+            HandleBossBurstShooting();
+        }
+        else if (weaponController != null && State == EnemyState.Idle)
         {
             weaponController.TryFire();
         }
@@ -345,7 +366,61 @@ public class Enemigo : MonoBehaviour, IDamageable
         float healthMultiplier = 1f + cycle * 0.5f;
         maxHealth = Mathf.RoundToInt(maxHealth * healthMultiplier);
         currentHealth = maxHealth;
+
         Debug.Log($"[Enemigo] {gameObject.name} | Cycle: {cycle} | MaxHealth: {maxHealth}");
+    }
+
+    private float nextWaitTime;
+
+    private void HandleBossBurstShooting()
+    {
+        if (!isBoss || weaponController == null || State != EnemyState.Idle)
+            return;
+
+        switch (bossAttackPhase)
+        {
+            case BossAttackPhase.Waiting:
+                phaseTimer += Time.deltaTime;
+                if (phaseTimer >= nextWaitTime)
+                {
+                    bossAttackPhase = BossAttackPhase.Burst;
+                    burstShotsDone = 0;
+                    burstTimer = 0f;
+                    phaseTimer = 0f;
+                }
+                break;
+
+            case BossAttackPhase.Burst:
+                burstTimer += Time.deltaTime;
+
+                if (burstShotsDone < shotsPerBurst && burstTimer >= burstInterval)
+                {
+                    burstTimer = 0f;
+                    FireBossShotImmediate();
+                    burstShotsDone++;
+                }
+
+                if (burstShotsDone >= shotsPerBurst)
+                {
+                    bossAttackPhase = BossAttackPhase.Waiting;
+                    phaseTimer = 0f;
+                    nextWaitTime = Random.Range(minWaitTime, maxWaitTime);
+                }
+                break;
+
+            case BossAttackPhase.Moving:
+                // opcional: agregar log si querés ver el movimiento entre ráfagas
+                break;
+        }
+    }
+
+
+    // 🔹 Disparo que ignora FireRate
+    private void FireBossShotImmediate()
+    {
+        if (weaponController == null) return;
+        weaponController.FireImmediate(); // dispara ignorando FireRate
+        Debug.Log($"[Boss] FireImmediate ejecutado en {Time.time:F2}s");
     }
 
 

@@ -10,6 +10,7 @@ public class EnemigoVisual : MonoBehaviour
     private Material material;
     private Coroutine hitCoroutine;
     private float flashDuration = 0.03f;
+    // Ojo con poner animacion via animator para idle porque no tte va a funcionar mas el knockback
     private Vector3 knockbackOffset;
 
     
@@ -28,9 +29,11 @@ public class EnemigoVisual : MonoBehaviour
 
     private void Update()
     {
-        // Recuperación suave hacia cero
-        knockbackOffset = Vector3.Lerp(knockbackOffset,Vector3.zero,Time.deltaTime * knockbackRecoverSpeed);
-        transform.localPosition = knockbackOffset;
+        if (!enemigo.IsBoss) {
+            // Recuperación suave hacia cero
+            knockbackOffset = Vector3.Lerp(knockbackOffset, Vector3.zero, Time.deltaTime * knockbackRecoverSpeed);
+            transform.localPosition = knockbackOffset;
+        }
     }
 
     public void AddKnockback(Vector3 direction, float force)

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
@@ -59,6 +59,13 @@ public class WeaponController : MonoBehaviour
     {
         Fire();
     }
+
+    public void FireImmediate()
+    {
+        if (currentWeapon == null) return;
+        currentWeapon.FireImmediate(transform);
+    }
+
 
     public WeaponDefinition GetWeaponDefault() => weaponDefault;
 }

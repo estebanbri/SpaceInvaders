@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponInstance
 {
@@ -12,6 +12,9 @@ public class WeaponInstance
 
     private float nextFireTime;
 
+    // Parámetro opcional: cuánto variar el FireRate en porcentaje (0.2 = ±20%)
+    private const float fireRateVariation = 0.2f;
+
     public WeaponInstance(WeaponDefinition def, int cycle, FactionType faction, bool applyTierScaling = true)
     {
         weaponDef = def;
@@ -20,7 +23,7 @@ public class WeaponInstance
 
         if (applyTierScaling && shotPattern != null)
         {
-            int baseBullets = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount)); // tier 0 como base
+            int baseBullets = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount));
             shotPattern.ApplyTierScaling(cycle, def.ammoSpeed, def.fireRate, baseBullets,
                 out float scaledAmmoSpeed, out float scaledFireRate, out int scaledBulletCount);
 
@@ -35,19 +38,34 @@ public class WeaponInstance
             FireRate = def.fireRate;
             BulletCount = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount));
         }
+
+        // Primer disparo aleatorio para que no todos disparen sincronizados
+        nextFireTime = Time.time + Random.Range(0f, FireRate);
     }
 
     public void Fire(Transform firePoint)
     {
         if (Time.time < nextFireTime) return;
-        nextFireTime = Time.time + FireRate;
+
+        // 🔹 Aplicar random al FireRate actual
+        float randomizedFireRate = FireRate * Random.Range(1f - fireRateVariation, 1f + fireRateVariation);
+
+        // 🔹 Log para depuración
+        Debug.Log($"[WeaponInstance] Disparo en {Time.time:F2}s | FireRate base: {FireRate:F2} | FireRate random: {randomizedFireRate:F2}");
+
+        nextFireTime = Time.time + randomizedFireRate;
+
         shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
     }
 
     public void Fire(Quaternion rotation, Vector3 position)
     {
         if (Time.time < nextFireTime) return;
-        nextFireTime = Time.time + FireRate;
+
+        float randomizedFireRate = FireRate * Random.Range(1f - fireRateVariation, 1f + fireRateVariation);
+        // 🔹 Log para depuración
+        Debug.Log($"[WeaponInstance] Disparo en {Time.time:F2}s | FireRate base: {FireRate:F2} | FireRate random: {randomizedFireRate:F2}");
+        nextFireTime = Time.time + randomizedFireRate;
 
         GameObject temp = new GameObject("TempFirePoint");
         temp.transform.position = position;
@@ -56,4 +74,21 @@ public class WeaponInstance
         shotPattern.Fire(weaponDef.ammoPrefab, temp.transform, AmmoSpeed, faction);
         GameObject.Destroy(temp);
     }
+
+    public void FireImmediate(Transform firePoint)
+    {
+        // 🔹 Ignora nextFireTime
+        shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
+    }
+    public void FireImmediate(Quaternion rotation, Vector3 position)
+    {
+        GameObject temp = new GameObject("TempFirePoint");
+        temp.transform.position = position;
+        temp.transform.rotation = rotation;
+
+        shotPattern.Fire(weaponDef.ammoPrefab, temp.transform, AmmoSpeed, faction);
+        GameObject.Destroy(temp);
+    }
+
+
 }
