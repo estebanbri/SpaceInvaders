@@ -348,29 +348,19 @@ public class LevelManager : MonoBehaviour
     }
 
     private IEnumerator BossEntranceSequence(Enemigo boss)
-
     {
+        Vector3 startPos = new Vector3(0, 7f, 0);
+        Vector3 targetPos = new Vector3(0, 4f, 0);
 
-        // 1️⃣ Aviso al jugador
-        // UIManager.Instance.ShowBossWarning(2f); // muestra "BOSS INCOMING" + sonido
-        // yield return new WaitForSeconds(2f);
-
-        // 2️⃣ Animación de entrada dramática
-        Vector3 startPos = new Vector3(0, 7f, 0); // fuera de cámara
-        Vector3 targetPos = new Vector3(0, 4f, 0); // posición de combate
         float enterDuration = 3f;
         float timer = 0f;
 
-        // Opcional: partículas de aura dramática
+        // Partículas opcionales
         ParticleSystem[] particles = boss.GetComponentsInChildren<ParticleSystem>();
         foreach (var ps in particles)
         {
             ps.Play();
         }
-
-        // Opcional: shake de cámara
-        Camera mainCam = Camera.main;
-        Vector3 camStartPos = mainCam.transform.position;
 
         while (timer < enterDuration)
         {
@@ -379,35 +369,26 @@ public class LevelManager : MonoBehaviour
 
             // Movimiento vertical con oscilación leve
             float oscillation = Mathf.Sin(timer * 3f) * 0.2f;
-            boss.transform.position = Vector3.Lerp(startPos, targetPos, t) + Vector3.up * oscillation;
-
-            // Shake de cámara suave
-            if (timer < enterDuration * 0.5f)
-            {
-                mainCam.transform.position = camStartPos + (Vector3)Random.insideUnitCircle * 0.05f;
-            }
-            else
-            {
-                mainCam.transform.position = camStartPos;
-            }
+            boss.transform.position =
+                Vector3.Lerp(startPos, targetPos, t) + Vector3.up * oscillation;
 
             yield return null;
         }
 
         boss.transform.position = targetPos;
-        mainCam.transform.position = camStartPos; // reset cámara
 
-        // 3️⃣ Pausa dramática antes de disparar
+        // Pausa dramática
         yield return new WaitForSeconds(1f);
 
-        // 4️⃣ Activar ataques y barra de vida
         boss.SetState(EnemyState.Idle);
+
         if (bossHealthBar != null)
             bossHealthBar.Bind(boss);
     }
 
 
-    
+
+
     private void OnMiniBossDied()
     {
         if (bonusBoxSpawner != null)
