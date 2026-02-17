@@ -2,26 +2,51 @@ using UnityEngine;
 
 public class Asteroide : MonoBehaviour, IDamageable
 {
-    [SerializeField] float lateralForce = 3f;
+    [Header("Movement")]
+    [SerializeField] private float minFallSpeed = 2f;
+    [SerializeField] private float maxFallSpeed = 5f;
+    [SerializeField] private float maxLateralDrift = 1.5f;
 
-    void Start()
+    [Header("Rotation")]
+    [SerializeField] private float minRotationSpeed = 50f;
+    [SerializeField] private float maxRotationSpeed = 200f;
+
+    [Header("Bounds")]
+    [SerializeField] private float destroyY = -7f;
+
+    private float fallSpeed;
+    private float lateralDrift;
+    private float rotationSpeed;
+
+    private void Start()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        // Velocidad vertical constante
+        fallSpeed = Random.Range(minFallSpeed, maxFallSpeed);
 
-        // fuerzas aleatorias hacia la derecha o izquierda
-        float dir = Random.Range(-1f, 1f);
+        // Pequeña deriva lateral
+        lateralDrift = Random.Range(-maxLateralDrift, maxLateralDrift);
 
-        rb.gravityScale = Random.Range(0.005f, 0.5f);
-        rb.AddForce(new Vector2(dir * lateralForce, 0), ForceMode2D.Impulse);
+        // Rotación continua
+        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
+        if (Random.value > 0.5f)
+            rotationSpeed *= -1f;
+    }
 
-        // rotación
-        rb.AddTorque(dir, ForceMode2D.Impulse);
+    private void Update()
+    {
+        // Movimiento descendente controlado
+        transform.position += new Vector3(
+            lateralDrift * Time.deltaTime,
+            -fallSpeed * Time.deltaTime,
+            0f
+        );
+
+        // Rotación constante
+        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+
     }
 
     public void TakeDamage(int damageAmount, Vector3? attackerPos)
     {
-        // sonido, animación, partículas, etc.
-        GameManager.Instance.AddScore(20);
-        Destroy(gameObject);
     }
 }

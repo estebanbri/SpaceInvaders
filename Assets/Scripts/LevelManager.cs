@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -39,7 +40,20 @@ public class LevelManager : MonoBehaviour
     private float screenLimitMaxX = 6f;
     private float spawnPositionY = 7f;
 
+    [Header("Asteroid InterWave")]
+    [SerializeField] private AsteroidSpawner asteroidSpawner;
+    [SerializeField] private float asteroidDuration = 15f;
+    [SerializeField] private float asteroidChance = 0.35f;
 
+    private bool lastWasAsteroids = false;
+    private int wavesSinceAsteroids = 0;
+
+    [Header("Asteroid Warning UI")]
+    [SerializeField] private TextMeshProUGUI asteroidWarningText;
+
+    [SerializeField] private Image darkOverlay;
+
+    [SerializeField] float targetDarknessAsteroidBackground = 0.4f;
 
     private void Awake()
     {
@@ -94,8 +108,142 @@ public class LevelManager : MonoBehaviour
         if (activeFormation != null)
             activeFormation.OnFormationCleared -= OnFormationCleared;
 
+        StartCoroutine(HandlePostWave());
+    }
+
+    private IEnumerator HandlePostWave()
+    {
+        yield return new WaitForSeconds(1f);
+
+        bool forceAsteroids = wavesSinceAsteroids >= 3;
+        bool spawnAsteroids = false;
+
+        if (!lastWasAsteroids)
+        {
+            if (forceAsteroids)
+                spawnAsteroids = true;
+            else
+                spawnAsteroids = Random.value < asteroidChance;
+        }
+
+        if (spawnAsteroids)
+        {
+            lastWasAsteroids = true;
+            wavesSinceAsteroids = 0;
+
+            yield return StartCoroutine(StartAsteroidInterWave());
+        }
+        else
+        {
+            lastWasAsteroids = false;
+            wavesSinceAsteroids++;
+        }
+
         currentWave++;
         StartWave();
+    }
+
+    private IEnumerator StartAsteroidInterWave()
+    {
+        // 🔥 1️⃣ Shake
+        yield return StartCoroutine(ScreenShake(0.8f, 0.15f));
+
+        // 🔇 2️⃣ Silencio dramático
+        yield return new WaitForSeconds(0.2f);
+
+        // 🌑 3️⃣ Oscurecer fondo
+        yield return StartCoroutine(FadeOverlay(targetDarknessAsteroidBackground, 0.4f));
+
+        // ⚠️ 4️⃣ Mostrar texto con flicker
+        yield return StartCoroutine(ShowAsteroidWarning());
+
+        // ⏳ 5️⃣ Pequeña pausa antes de empezar tormenta
+        yield return new WaitForSeconds(0.3f);
+
+        asteroidSpawner.StartSpawning();
+
+        yield return new WaitForSeconds(asteroidDuration);
+
+        asteroidSpawner.StopSpawning();
+
+        // 🌑 6️⃣ Quitar oscuridad
+        yield return StartCoroutine(FadeOverlay(0f, 0.6f));
+    }
+
+    private IEnumerator FadeOverlay(float to, float duration)
+    {
+        float timer = 0f;
+        float startAlpha = darkOverlay.color.a;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            float alpha = Mathf.Lerp(startAlpha, to, timer / duration);
+
+            Color c = darkOverlay.color;
+            darkOverlay.color = new Color(c.r, c.g, c.b, alpha);
+
+            yield return null;
+        }
+
+        Color final = darkOverlay.color;
+        darkOverlay.color = new Color(final.r, final.g, final.b, to);
+    }
+
+    private IEnumerator ShowAsteroidWarning()
+    {
+        asteroidWarningText.gameObject.SetActive(true);
+
+        Color baseColor = asteroidWarningText.color;
+        asteroidWarningText.color = baseColor;
+
+        float fadeDuration = 0.5f;
+        float displayTime = 1.2f;
+
+        // 🔹 Fade In con leve escala
+        float t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float progress = t / fadeDuration;
+
+            float alpha = Mathf.Lerp(0f, 1f, progress);
+
+
+            // 🎛 Flicker sutil
+            float flicker = Mathf.Sin(Time.time * 80f) * 0.8f;
+            float finalAlpha = Mathf.Clamp01(alpha * (1f + flicker));
+
+            asteroidWarningText.color = new Color(baseColor.r, baseColor.g, baseColor.b, finalAlpha);
+
+
+            // Escala leve
+            float scale = Mathf.Lerp(0.9f, 1f, progress);
+            asteroidWarningText.transform.localScale = Vector3.one * scale;
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(displayTime);
+
+        // 🔹 Fade Out
+        t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float progress = t / fadeDuration;
+
+            float alpha = Mathf.Lerp(1f, 0f, progress);
+
+            float flicker = Mathf.Sin(Time.time * 80f) * 0.8f;
+            float finalAlpha = Mathf.Clamp01(alpha * (1f + flicker));
+
+            asteroidWarningText.color = new Color(baseColor.r, baseColor.g, baseColor.b, finalAlpha);
+
+            yield return null;
+        }
+
+        asteroidWarningText.gameObject.SetActive(false);
     }
 
     private ProceduralWaveData GenerateWaveData()
@@ -286,5 +434,29 @@ public class LevelManager : MonoBehaviour
         return new Vector3(x, spawnPositionY, 0f);
     }
 
-    
+    private IEnumerator ScreenShake(float duration, float maxMagnitude)
+    {
+        Camera cam = Camera.main;
+        Vector3 originalPos = cam.transform.position;
+
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            float progress = timer / duration;
+            float currentMagnitude = Mathf.Lerp(0f, maxMagnitude, progress);
+
+            float offsetX = Random.Range(-1f, 1f) * currentMagnitude;
+            float offsetY = Random.Range(-1f, 1f) * currentMagnitude;
+
+            cam.transform.position = originalPos + new Vector3(offsetX, offsetY, 0f);
+
+            yield return null;
+        }
+
+        cam.transform.position = originalPos;
+    }
+
 }
