@@ -26,6 +26,7 @@ public class Enemigo : MonoBehaviour, IDamageable
     private Collider2D col;
     [SerializeField]  private MovementController movementController;
     private FormationController formation;
+    public bool IsVulnerable { get; private set; } = true;
 
     public EnemyState State { get; private set; }
     public bool IsBoss => isBoss;
@@ -286,7 +287,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damageAmount, Vector3? attackerPos, bool isCritical = false)
     {
-        if (isDead) return;
+        if (isDead || !IsVulnerable) return;
 
         // 🔹 Solo activamos el timer si estaba en cero
         if (damageTimer <= 0f)
@@ -463,4 +464,12 @@ public class Enemigo : MonoBehaviour, IDamageable
 
 
     public void OnDeathAnimationFinished() { Destroy(gameObject); }
+
+    public void SetVulnerable(bool value)
+    {
+        IsVulnerable = value;
+
+        // Opcional: cambiar color / animación para que el jugador vea que es vulnerable
+        // ejemplo: material.color = value ? Color.red : Color.white;
+    }
 }

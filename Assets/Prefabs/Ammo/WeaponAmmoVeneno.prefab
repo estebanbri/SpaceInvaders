@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
-  bottomMargin: 1
 --- !u!1 &6479153561357284600
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +177,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -1526651416567601604, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

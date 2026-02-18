@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: bec856b408d07a5478e66e493eb26c8f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6612611746933000199
+    second: "indicator-piso-da\xF1o-circular_0"
+  - first:
+      213: 6185473574610514019
+    second: "indicator-piso-da\xF1o-circular_1"
+  - first:
+      213: 3993008305328855145
+    second: "indicator-piso-da\xF1o-circular_2"
+  - first:
+      213: -3970492473847855902
+    second: "indicator-piso-da\xF1o-circular_3"
+  - first:
+      213: -1165494518372452150
+    second: "indicator-piso-da\xF1o-circular_4"
+  - first:
+      213: -620976077282319931
+    second: "indicator-piso-da\xF1o-circular_5"
+  - first:
+      213: 1192191621821552449
+    second: "indicator-piso-da\xF1o-circular_6"
+  - first:
+      213: 8627142761165025218
+    second: "indicator-piso-da\xF1o-circular_7"
+  - first:
+      213: -8228454182897496003
+    second: "indicator-piso-da\xF1o-circular_8"
+  - first:
+      213: 2290064125554791843
+    second: "indicator-piso-da\xF1o-circular_9"
+  - first:
+      213: -2217290062256006851
+    second: "indicator-piso-da\xF1o-circular_10"
+  - first:
+      213: 4540967425023631644
+    second: "indicator-piso-da\xF1o-circular_11"
+  - first:
+      213: -5881576452806583798
+    second: "indicator-piso-da\xF1o-circular_12"
+  - first:
+      213: 2296277254196276907
+    second: "indicator-piso-da\xF1o-circular_13"
+  - first:
+      213: 6900899993510890864
+    second: "indicator-piso-da\xF1o-circular_14"
+  - first:
+      213: -3624219510131012856
+    second: "indicator-piso-da\xF1o-circular_15"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 1024
+        height: 1480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70844854957b4cb50800000000000000
+      internalID: 6612611746933000199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_1"
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1202
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360b93ea17737d550800000000000000
+      internalID: 6185473574610514019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_2"
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1208
+        width: 37
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9689f48d5e30a6730800000000000000
+      internalID: 3993008305328855145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_3"
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 1202
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4cfe0b12af5e8c0800000000000000
+      internalID: -3970492473847855902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_4"
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1195
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8bebc19e453dfe0800000000000000
+      internalID: -1165494518372452150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_5"
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1189
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1629b3c89d167f0800000000000000
+      internalID: -620976077282319931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_6"
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 915
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 147dedaa6f38b8010800000000000000
+      internalID: 1192191621821552449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_7"
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 878
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cfe2d9f1a4c9b770800000000000000
+      internalID: 8627142761165025218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_8"
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 805
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3051d15488aecd80800000000000000
+      internalID: -8228454182897496003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_9"
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 776
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a51f8c5031f7cf10800000000000000
+      internalID: 2290064125554791843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_10"
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 755
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d391a33af6a9a31e0800000000000000
+      internalID: -2217290062256006851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_11"
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 679
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11672160d1c40f30800000000000000
+      internalID: 4540967425023631644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_12"
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 627
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a592bc061706ea0800000000000000
+      internalID: -5881576452806583798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_13"
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 385
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baead2a1ff30edf10800000000000000
+      internalID: 2296277254196276907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_14"
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 387
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d46b74bfbe4cf50800000000000000
+      internalID: 6900899993510890864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "indicator-piso-da\xF1o-circular_15"
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 376
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80bc996be8f24bdc0800000000000000
+      internalID: -3624219510131012856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "indicator-piso-da\xF1o-circular_0": 6612611746933000199
+      "indicator-piso-da\xF1o-circular_1": 6185473574610514019
+      "indicator-piso-da\xF1o-circular_10": -2217290062256006851
+      "indicator-piso-da\xF1o-circular_11": 4540967425023631644
+      "indicator-piso-da\xF1o-circular_12": -5881576452806583798
+      "indicator-piso-da\xF1o-circular_13": 2296277254196276907
+      "indicator-piso-da\xF1o-circular_14": 6900899993510890864
+      "indicator-piso-da\xF1o-circular_15": -3624219510131012856
+      "indicator-piso-da\xF1o-circular_2": 3993008305328855145
+      "indicator-piso-da\xF1o-circular_3": -3970492473847855902
+      "indicator-piso-da\xF1o-circular_4": -1165494518372452150
+      "indicator-piso-da\xF1o-circular_5": -620976077282319931
+      "indicator-piso-da\xF1o-circular_6": 1192191621821552449
+      "indicator-piso-da\xF1o-circular_7": 8627142761165025218
+      "indicator-piso-da\xF1o-circular_8": -8228454182897496003
+      "indicator-piso-da\xF1o-circular_9": 2290064125554791843
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1641,9 +1641,9 @@ GameObject:
   - component: {fileID: 1079727912}
   - component: {fileID: 1079727914}
   - component: {fileID: 1079727916}
-  - component: {fileID: 1079727915}
   - component: {fileID: 1079727917}
   - component: {fileID: 1079727918}
+  - component: {fileID: 1079727919}
   m_Layer: 0
   m_Name: BossFixed
   m_TagString: Untagged
@@ -1660,7 +1660,7 @@ Transform:
   m_GameObject: {fileID: 1079727909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.49, z: 0}
+  m_LocalPosition: {x: 0, y: 3.03, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1682,7 +1682,7 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 0}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0
-  maxHealth: 100
+  maxHealth: 2000
   weaponController: {fileID: 0}
   isBoss: 1
   bossWeaponsByCycle: []
@@ -1700,52 +1700,6 @@ MonoBehaviour:
   attackDuration: 1.5
   curveHeight: 2
   moveSpeed: 5
---- !u!61 &1079727915
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079727909}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.07058853, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 3.1882453, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &1079727916
 Rigidbody2D:
   serializedVersion: 5
@@ -1802,12 +1756,48 @@ MonoBehaviour:
   enemigoComponent: {fileID: 1079727914}
   enemigoVisualComponent: {fileID: 2004892665}
   indicatorPrefab: {fileID: 1503962617107530597, guid: 0613b029ee6102245a88a3103cb1b77f, type: 3}
-  indicatorPosY: -1
   warnTime: 0.7
   attackCooldown: 1.2
   maxCombo: 2
   damageAmountToPlayer: 1
+  fuegoPrefab: {fileID: 7118719639848352419, guid: dba99dd01a418ca4f8d60fa735fea24e, type: 3}
   attackSpeedMultiplier: 1
+--- !u!58 &1079727919
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079727909}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1134274842
 GameObject:
   m_ObjectHideFlags: 0

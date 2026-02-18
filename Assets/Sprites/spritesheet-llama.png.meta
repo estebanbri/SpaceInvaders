@@ -1,0 +1,698 @@
+fileFormatVersion: 2
+guid: 162524b24b62d464d82dac1cdc3c14ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4715913747448848269
+    second: spritesheet-llama_0
+  - first:
+      213: -1271277607347443658
+    second: spritesheet-llama_1
+  - first:
+      213: -4237039139114528346
+    second: spritesheet-llama_2
+  - first:
+      213: 2393049748900231495
+    second: spritesheet-llama_3
+  - first:
+      213: -8130179201576718284
+    second: spritesheet-llama_4
+  - first:
+      213: -511334968775274711
+    second: spritesheet-llama_5
+  - first:
+      213: -8482310760786876548
+    second: spritesheet-llama_6
+  - first:
+      213: 2225480709146079105
+    second: spritesheet-llama_7
+  - first:
+      213: -8065045337989350373
+    second: spritesheet-llama_8
+  - first:
+      213: -7219317346862082442
+    second: spritesheet-llama_9
+  - first:
+      213: -2668353135665003419
+    second: spritesheet-llama_10
+  - first:
+      213: -2159391158650544167
+    second: spritesheet-llama_11
+  - first:
+      213: 5582185817221900685
+    second: spritesheet-llama_12
+  - first:
+      213: 8576939245648588503
+    second: spritesheet-llama_13
+  - first:
+      213: -4060428941052913411
+    second: spritesheet-llama_14
+  - first:
+      213: 8646799437185280787
+    second: spritesheet-llama_15
+  - first:
+      213: 5438986426500961202
+    second: spritesheet-llama_16
+  - first:
+      213: -1851277491798181845
+    second: spritesheet-llama_17
+  - first:
+      213: -697675731331983904
+    second: spritesheet-llama_18
+  - first:
+      213: -7043738493269971836
+    second: spritesheet-llama_19
+  - first:
+      213: 3979521405059568382
+    second: spritesheet-llama_20
+  - first:
+      213: -8457629685995474339
+    second: spritesheet-llama_21
+  - first:
+      213: -4175312840851324402
+    second: spritesheet-llama_22
+  - first:
+      213: -3239202493084163535
+    second: spritesheet-llama_23
+  - first:
+      213: -1363714915437514228
+    second: spritesheet-llama_24
+  - first:
+      213: -1517766165912686163
+    second: spritesheet-llama_25
+  - first:
+      213: 7953815538745591643
+    second: spritesheet-llama_26
+  - first:
+      213: 439545441673654098
+    second: spritesheet-llama_27
+  - first:
+      213: 8261115480068098051
+    second: spritesheet-llama_28
+  - first:
+      213: 364161804832268993
+    second: spritesheet-llama_29
+  - first:
+      213: 2686815352695767670
+    second: spritesheet-llama_30
+  - first:
+      213: 1069692596249003002
+    second: spritesheet-llama_31
+  - first:
+      213: 3142801189497426094
+    second: spritesheet-llama_32
+  - first:
+      213: -230001791939878655
+    second: spritesheet-llama_33
+  - first:
+      213: -4210660419831538452
+    second: spritesheet-llama_34
+  - first:
+      213: -6474398851704664663
+    second: spritesheet-llama_35
+  - first:
+      213: -8166058522620916748
+    second: spritesheet-llama_36
+  - first:
+      213: -9073847013971937313
+    second: spritesheet-llama_37
+  - first:
+      213: 7925341352737304612
+    second: spritesheet-llama_38
+  - first:
+      213: 4083739699840841170
+    second: spritesheet-llama_39
+  - first:
+      213: -8308081327796244268
+    second: spritesheet-llama_40
+  - first:
+      213: -810186101444584669
+    second: spritesheet-llama_41
+  - first:
+      213: 6667231024916118955
+    second: spritesheet-llama_42
+  - first:
+      213: 5278558584741514614
+    second: spritesheet-llama_43
+  - first:
+      213: 3969378516638356856
+    second: spritesheet-llama_44
+  - first:
+      213: -1681900725582829567
+    second: spritesheet-llama_45
+  - first:
+      213: 3481834859457693834
+    second: spritesheet-llama_46
+  - first:
+      213: 8042181112230868144
+    second: spritesheet-llama_47
+  - first:
+      213: 8298981613353772786
+    second: spritesheet-llama_48
+  - first:
+      213: -1719817026887888646
+    second: spritesheet-llama_49
+  - first:
+      213: 139549397385188686
+    second: spritesheet-llama_50
+  - first:
+      213: 4816220639847872607
+    second: spritesheet-llama_51
+  - first:
+      213: -356474406927994915
+    second: spritesheet-llama_52
+  - first:
+      213: 1520160316157579577
+    second: spritesheet-llama_53
+  - first:
+      213: 1111057453654836374
+    second: spritesheet-llama_54
+  - first:
+      213: 398728449196200039
+    second: spritesheet-llama_55
+  - first:
+      213: -7340364188397867140
+    second: spritesheet-llama_56
+  - first:
+      213: -1695050574786857189
+    second: spritesheet-llama_57
+  - first:
+      213: 1206646173842077670
+    second: spritesheet-llama_58
+  - first:
+      213: -5907781206764825909
+    second: spritesheet-llama_59
+  - first:
+      213: -5876088280960675715
+    second: spritesheet-llama_60
+  - first:
+      213: -6590026868863880782
+    second: spritesheet-llama_61
+  - first:
+      213: -4192873393685231201
+    second: spritesheet-llama_62
+  - first:
+      213: 7901256280223937746
+    second: spritesheet-llama_63
+  - first:
+      213: 5401717578020956206
+    second: spritesheet-llama_64
+  - first:
+      213: 8582743442937070391
+    second: spritesheet-llama_65
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet-llama_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 559
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fd11c319a427140800000000000000
+      internalID: 4715913747448848269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 559
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638a52b60c38b5ee0800000000000000
+      internalID: -1271277607347443658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 559
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1d6ad0a530335c0800000000000000
+      internalID: -4237039139114528346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 559
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74939055112d53120800000000000000
+      internalID: 2393049748900231495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 373
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43030c9771dcb2f80800000000000000
+      internalID: -8130179201576718284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 373
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f0ae81e8f57e8f0800000000000000
+      internalID: -511334968775274711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 373
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7723d4ed47c84a80800000000000000
+      internalID: -8482310760786876548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_7
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 373
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fe223f9ee72ee10800000000000000
+      internalID: 2225480709146079105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c79bbdef3331090800000000000000
+      internalID: -8065045337989350373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_9
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 187
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67658736f15dfcb90800000000000000
+      internalID: -7219317346862082442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_10
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 187
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564436de5fa18fad0800000000000000
+      internalID: -2668353135665003419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_11
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 187
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dfd381ae2d4802e0800000000000000
+      internalID: -2159391158650544167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d892cb1dc68e77d40800000000000000
+      internalID: 5582185817221900685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_13
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7deadf42dc8670770800000000000000
+      internalID: 8576939245648588503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_14
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df853d4246576a7c0800000000000000
+      internalID: -4060428941052913411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-llama_15
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 1
+        width: 202
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31be971864a9ff770800000000000000
+      internalID: 8646799437185280787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4124c4a502662c941ada16e75b8bb1dd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":202.0,"y":186.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      spritesheet-llama_0: 4715913747448848269
+      spritesheet-llama_1: -1271277607347443658
+      spritesheet-llama_10: -2668353135665003419
+      spritesheet-llama_11: -2159391158650544167
+      spritesheet-llama_12: 5582185817221900685
+      spritesheet-llama_13: 8576939245648588503
+      spritesheet-llama_14: -4060428941052913411
+      spritesheet-llama_15: 8646799437185280787
+      spritesheet-llama_2: -4237039139114528346
+      spritesheet-llama_3: 2393049748900231495
+      spritesheet-llama_4: -8130179201576718284
+      spritesheet-llama_5: -511334968775274711
+      spritesheet-llama_6: -8482310760786876548
+      spritesheet-llama_7: 2225480709146079105
+      spritesheet-llama_8: -8065045337989350373
+      spritesheet-llama_9: -7219317346862082442
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
