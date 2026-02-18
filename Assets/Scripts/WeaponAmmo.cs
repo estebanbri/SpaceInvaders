@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class WeaponAmmo : MonoBehaviour
 {
-    [SerializeField] private int damageAmount;
+    [SerializeField] private int damageAmount = 1;
     [SerializeField] private float timeBeforeDestroy = 0.1f;
 
     private float ammoSpeed;
@@ -37,29 +38,45 @@ public class WeaponAmmo : MonoBehaviour
         transform.position += direction * ammoSpeed * Time.deltaTime;
     }
 
+    public FactionType GetFaction() => ownerFaction;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (ammoState != AmmoState.Flying)
             return;
 
-        if (collision.TryGetComponent(out IDamageable damageable) &&
-            collision.TryGetComponent(out FactionComponent factionComp) &&
-            factionComp.Faction != ownerFaction)
+        // Verificamos si colisiona con algo que implemente IDamageable
+        if (collision.TryGetComponent(out IDamageable damageable))
         {
-            damageable.TakeDamage(damageAmount, transform.position);
-            SetState(AmmoState.Impact);
+            // Verificamos facción si tiene
+            bool isEnemy = true;
+            if (collision.TryGetComponent(out FactionComponent factionComp))
+            {
+                isEnemy = factionComp.Faction != ownerFaction;
+            }
+
+            if (isEnemy)
+            {
+                // Aplicamos daño
+                damageable.TakeDamage(damageAmount, transform.position);
+
+                // Impacto
+                SetState(AmmoState.Impact);
+            }
         }
     }
+
+    public int GetDamageAmount() => damageAmount;
 
     private void SetState(AmmoState newState)
     {
         ammoState = newState;
-        visual.UpdateSpriteByState(newState);
+        visual?.UpdateSpriteByState(newState);
 
         switch (ammoState)
         {
             case AmmoState.Impact:
-                col.enabled = false;
+                if (col != null) col.enabled = false;
                 ammoSpeed = 0f;
                 StartCoroutine(DestroyRoutine());
                 break;
@@ -73,7 +90,8 @@ public class WeaponAmmo : MonoBehaviour
     }
 }
 
-public enum AmmoState {
+public enum AmmoState
+{
     Flying,
     Impact
 }

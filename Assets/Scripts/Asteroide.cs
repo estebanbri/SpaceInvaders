@@ -52,7 +52,7 @@ public class Asteroide : MonoBehaviour, IDamageable
             Destroy(gameObject);
     }
 
-    public void TakeDamage(int damageAmount, Vector3? attackerPos)
+    public void TakeDamage(int damageAmount, Vector3? attackerPos, bool isCritical = false)
     {
     }
 }

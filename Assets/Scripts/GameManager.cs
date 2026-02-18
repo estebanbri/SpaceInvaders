@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
         return livesCurrent == livesMax;
     }
 
-    public void DecreaseRetry()
+    public void DecreaseRetry(int cantidadDeVidasQuitadas)
     {
-        livesCurrent--;
+        livesCurrent -= cantidadDeVidasQuitadas;
         UIVidas.Instance.SetLives(livesCurrent);
         if (livesCurrent <= 0)
         {
@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour
         UIVidas.Instance.SetLives(livesCurrent);
     }
 
-    public bool OnPlayerDeath(Nave nave)
+    public bool OnPlayerDeath(Nave nave, int cantidadDeVidasQuitadas)
     {
-        DecreaseRetry();
+        DecreaseRetry(cantidadDeVidasQuitadas);
 
         if (HasPendingRetries()) {
             nave.Respawn();

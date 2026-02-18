@@ -1,0 +1,2626 @@
+fileFormatVersion: 2
+guid: f81d4fd26ded6e541b89333a7bcf7939
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6952848911490438765
+    second: piso-advertencia_0
+  - first:
+      213: -9101185899372913413
+    second: piso-advertencia_1
+  - first:
+      213: 3457442099540507841
+    second: piso-advertencia_2
+  - first:
+      213: -7619537330746940383
+    second: piso-advertencia_3
+  - first:
+      213: -3779536095836446591
+    second: piso-advertencia_4
+  - first:
+      213: 7600685576993038514
+    second: piso-advertencia_5
+  - first:
+      213: -6603746801091021357
+    second: piso-advertencia_6
+  - first:
+      213: 1712734960551253055
+    second: piso-advertencia_7
+  - first:
+      213: -1407716667046266371
+    second: piso-advertencia_8
+  - first:
+      213: -7340483327072536181
+    second: piso-advertencia_9
+  - first:
+      213: 654596549149672980
+    second: piso-advertencia_10
+  - first:
+      213: 7409876168359753106
+    second: piso-advertencia_11
+  - first:
+      213: 2631938245529722874
+    second: piso-advertencia_12
+  - first:
+      213: -1010151114004277998
+    second: piso-advertencia_13
+  - first:
+      213: 7834869509783438806
+    second: piso-advertencia_14
+  - first:
+      213: -7315420416400898895
+    second: piso-advertencia_15
+  - first:
+      213: 8231653178546992762
+    second: piso-advertencia_16
+  - first:
+      213: 2964883668538922199
+    second: piso-advertencia_17
+  - first:
+      213: -2831164965368781824
+    second: piso-advertencia_18
+  - first:
+      213: -2312198050587078875
+    second: piso-advertencia_19
+  - first:
+      213: -9161151174681567474
+    second: piso-advertencia_20
+  - first:
+      213: -910682287822971995
+    second: piso-advertencia_21
+  - first:
+      213: 6844200455333339059
+    second: piso-advertencia_22
+  - first:
+      213: 2069595005470838480
+    second: piso-advertencia_23
+  - first:
+      213: -830508020809493099
+    second: piso-advertencia_24
+  - first:
+      213: 3982793453658506923
+    second: piso-advertencia_25
+  - first:
+      213: -5338843286615327530
+    second: piso-advertencia_26
+  - first:
+      213: -6471697373488567468
+    second: piso-advertencia_27
+  - first:
+      213: -6386947250983803337
+    second: piso-advertencia_28
+  - first:
+      213: -3023428038111211694
+    second: piso-advertencia_29
+  - first:
+      213: -5461169160401388686
+    second: piso-advertencia_30
+  - first:
+      213: -2925031157940796942
+    second: piso-advertencia_31
+  - first:
+      213: 8183729965214801805
+    second: piso-advertencia_32
+  - first:
+      213: 2355004424318226865
+    second: piso-advertencia_33
+  - first:
+      213: 7394062317603536844
+    second: piso-advertencia_34
+  - first:
+      213: 8858045516197900039
+    second: piso-advertencia_35
+  - first:
+      213: 7628880824869825009
+    second: piso-advertencia_36
+  - first:
+      213: -5531175196143852675
+    second: piso-advertencia_37
+  - first:
+      213: 1825383968338359292
+    second: piso-advertencia_38
+  - first:
+      213: -5395878950954417827
+    second: piso-advertencia_39
+  - first:
+      213: -67393010492038293
+    second: piso-advertencia_40
+  - first:
+      213: 2422200358667069435
+    second: piso-advertencia_41
+  - first:
+      213: 7720109132732792167
+    second: piso-advertencia_42
+  - first:
+      213: -2137103374060988905
+    second: piso-advertencia_43
+  - first:
+      213: -6329507078148461163
+    second: piso-advertencia_44
+  - first:
+      213: -7561184676900970493
+    second: piso-advertencia_45
+  - first:
+      213: 6334951789319296227
+    second: piso-advertencia_46
+  - first:
+      213: 1798835378118812525
+    second: piso-advertencia_47
+  - first:
+      213: 5060561567045794034
+    second: piso-advertencia_48
+  - first:
+      213: 7266526432312453827
+    second: piso-advertencia_49
+  - first:
+      213: -4520606357723980621
+    second: piso-advertencia_50
+  - first:
+      213: 7811155082883270249
+    second: piso-advertencia_51
+  - first:
+      213: -4661122389030461511
+    second: piso-advertencia_52
+  - first:
+      213: 7984584222790725553
+    second: piso-advertencia_53
+  - first:
+      213: -2289249919782107727
+    second: piso-advertencia_54
+  - first:
+      213: 668996068366980326
+    second: piso-advertencia_55
+  - first:
+      213: 699045642728569928
+    second: piso-advertencia_56
+  - first:
+      213: -25239383067387757
+    second: piso-advertencia_57
+  - first:
+      213: -4098979446641477736
+    second: piso-advertencia_58
+  - first:
+      213: -3397669661297233517
+    second: piso-advertencia_59
+  - first:
+      213: 6082768511343644130
+    second: piso-advertencia_60
+  - first:
+      213: -7168404201260042127
+    second: piso-advertencia_61
+  - first:
+      213: 3093409320950575795
+    second: piso-advertencia_62
+  - first:
+      213: -1622067212597089775
+    second: piso-advertencia_63
+  - first:
+      213: -1566096857403696708
+    second: piso-advertencia_64
+  - first:
+      213: -5878405815185005775
+    second: piso-advertencia_65
+  - first:
+      213: 2952844452847246070
+    second: piso-advertencia_66
+  - first:
+      213: 4287800806827056469
+    second: piso-advertencia_67
+  - first:
+      213: -8202805966046761451
+    second: piso-advertencia_68
+  - first:
+      213: 4846044641167377796
+    second: piso-advertencia_69
+  - first:
+      213: 7279649602250439981
+    second: piso-advertencia_70
+  - first:
+      213: -679553507206413130
+    second: piso-advertencia_71
+  - first:
+      213: 1779850207420007399
+    second: piso-advertencia_72
+  - first:
+      213: -8858229856257187661
+    second: piso-advertencia_73
+  - first:
+      213: 2379549586315539447
+    second: piso-advertencia_74
+  - first:
+      213: 1773147738996002136
+    second: piso-advertencia_75
+  - first:
+      213: 7938243648664924308
+    second: piso-advertencia_76
+  - first:
+      213: 8103931610815767093
+    second: piso-advertencia_77
+  - first:
+      213: -6812624078226961456
+    second: piso-advertencia_78
+  - first:
+      213: 7668638325159258538
+    second: piso-advertencia_79
+  - first:
+      213: -2748416825058805680
+    second: piso-advertencia_80
+  - first:
+      213: -1345367996023967001
+    second: piso-advertencia_81
+  - first:
+      213: 3769975911533130315
+    second: piso-advertencia_82
+  - first:
+      213: -1975144973054783453
+    second: piso-advertencia_83
+  - first:
+      213: -2523758682724146633
+    second: piso-advertencia_84
+  - first:
+      213: 3919618077673930424
+    second: piso-advertencia_85
+  - first:
+      213: -3151277205778915650
+    second: piso-advertencia_86
+  - first:
+      213: 9175866790291892545
+    second: piso-advertencia_87
+  - first:
+      213: -8627489740228673543
+    second: piso-advertencia_88
+  - first:
+      213: -7041117321739872123
+    second: piso-advertencia_89
+  - first:
+      213: -4771083460953562632
+    second: piso-advertencia_90
+  - first:
+      213: -5493790858505487603
+    second: piso-advertencia_91
+  - first:
+      213: 4959374993861967685
+    second: piso-advertencia_92
+  - first:
+      213: 3809257324320265387
+    second: piso-advertencia_93
+  - first:
+      213: -8610718187292063470
+    second: piso-advertencia_94
+  - first:
+      213: 60122489692016443
+    second: piso-advertencia_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 170, y: 173, z: 173, w: 109}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: piso-advertencia_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 377
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66595a4f3b7d7060800000000000000
+      internalID: 6952848911490438765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_1
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1
+        width: 1175
+        height: 872
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfc551905a712b180800000000000000
+      internalID: -9101185899372913413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_2
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 867
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ccb79e654d4bff20800000000000000
+      internalID: 3457442099540507841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_3
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 888
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1242000fa27f14690800000000000000
+      internalID: -7619537330746940383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_4
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 873
+        width: 298
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180e6e712f36c8bc0800000000000000
+      internalID: -3779536095836446591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_5
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 873
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0ea1a134f0b7960800000000000000
+      internalID: 7600685576993038514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_6
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 878
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5f856c547ca54a0800000000000000
+      internalID: -6603746801091021357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_7
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 17
+        width: 778
+        height: 1007
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34dc064f5bd4c710800000000000000
+      internalID: 1712734960551253055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_8
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 882
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df97f445629c67ce0800000000000000
+      internalID: -1407716667046266371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_9
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 867
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89f92a3e4d512a90800000000000000
+      internalID: -7340483327072536181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_10
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 880
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 416434fd718951900800000000000000
+      internalID: 654596549149672980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_11
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 851
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29537bcad1b25d660800000000000000
+      internalID: 7409876168359753106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_12
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 856
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff5093c3e5868420800000000000000
+      internalID: 2631938245529722874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_13
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 863
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2155f40f9e83bf1f0800000000000000
+      internalID: -1010151114004277998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_14
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 857
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d54e28ee4c0bbc60800000000000000
+      internalID: 7834869509783438806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_15
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 856
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4c8c9d3e76a7a90800000000000000
+      internalID: -7315420416400898895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_16
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 858
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a763285e3f4bc3270800000000000000
+      internalID: 8231653178546992762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_17
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 858
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d49e97ecf1652920800000000000000
+      internalID: 2964883668538922199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_18
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 851
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004a9a2d67ea5b8d0800000000000000
+      internalID: -2831164965368781824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_19
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 847
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f0860af1c69efd0800000000000000
+      internalID: -2312198050587078875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_20
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 852
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0fd3736b8d0dd080800000000000000
+      internalID: -9161151174681567474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_21
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 847
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab5213c84b9c53f0800000000000000
+      internalID: -910682287822971995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_22
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 850
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfd5bf4d0c7bfe50800000000000000
+      internalID: 6844200455333339059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_23
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 851
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de030a31bda8bc10800000000000000
+      internalID: 2069595005470838480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_24
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 848
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5959984fa517974f0800000000000000
+      internalID: -830508020809493099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_25
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 842
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba6011b5b89b54730800000000000000
+      internalID: 3982793453658506923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_26
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 800
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc70d5315e98e5b0800000000000000
+      internalID: -5338843286615327530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_27
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 800
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ba26ff689ef26a0800000000000000
+      internalID: -6471697373488567468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_28
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 774
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736e3f190510d57a0800000000000000
+      internalID: -6386947250983803337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_29
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 760
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25fcc68d730aa06d0800000000000000
+      internalID: -3023428038111211694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_30
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 744
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27bf4f745970634b0800000000000000
+      internalID: -5461169160401388686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_31
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 753
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f14df9c8a33867d0800000000000000
+      internalID: -2925031157940796942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_32
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 741
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f195a4b03729170800000000000000
+      internalID: 8183729965214801805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_33
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 718
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b116fbeb08aea020800000000000000
+      internalID: 2355004424318226865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_34
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 702
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf3cdf908cfc9660800000000000000
+      internalID: 7394062317603536844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_35
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 692
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fa73d07791eea70800000000000000
+      internalID: 8858045516197900039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_36
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 678
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f9a720d0ba3fd960800000000000000
+      internalID: 7628880824869825009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_37
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 687
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d73e46be6715d33b0800000000000000
+      internalID: -5531175196143852675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_38
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 687
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf330834c01155910800000000000000
+      internalID: 1825383968338359292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_39
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 670
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51ca55ceacfd15b0800000000000000
+      internalID: -5395878950954417827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_40
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 663
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63274df962901ff0800000000000000
+      internalID: -67393010492038293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_41
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 654
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7ac2194626d9120800000000000000
+      internalID: 2422200358667069435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_42
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 651
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d79c37a56532b60800000000000000
+      internalID: 7720109132732792167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_43
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 640
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7165eccddcb7752e0800000000000000
+      internalID: -2137103374060988905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_44
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 637
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59de3abf8d21928a0800000000000000
+      internalID: -6329507078148461163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_45
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 634
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300e034e896411790800000000000000
+      internalID: -7561184676900970493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_46
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 621
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e41a9f96154ae750800000000000000
+      internalID: 6334951789319296227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_47
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 590
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d636d2aee3fb6f810800000000000000
+      internalID: 1798835378118812525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_48
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 600
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f832c7eee9ba3640800000000000000
+      internalID: 5060561567045794034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_49
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 569
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca68fc5a43e7d460800000000000000
+      internalID: 7266526432312453827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_50
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 568
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc5d7608749341c0800000000000000
+      internalID: -4520606357723980621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_51
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 542
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9668eb0a92cc66c60800000000000000
+      internalID: 7811155082883270249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_52
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 542
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf183302ed505fb0800000000000000
+      internalID: -4661122389030461511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_53
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 524
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf21a6eb01fece60800000000000000
+      internalID: 7984584222790725553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_54
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 490
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5cb41b353fa30e0800000000000000
+      internalID: -2289249919782107727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_55
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 481
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e495233160c84900800000000000000
+      internalID: 668996068366980326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_56
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 451
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84cfe90fe4283b900800000000000000
+      internalID: 699045642728569928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_57
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 439
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3981be13ae456aff0800000000000000
+      internalID: -25239383067387757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_58
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 421
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 897be4d19ef7d17c0800000000000000
+      internalID: -4098979446641477736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_59
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 406
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391b146d17d09d0d0800000000000000
+      internalID: -3397669661297233517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_60
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 396
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edc191bbb55a6450800000000000000
+      internalID: 6082768511343644130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_61
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 403
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1783a79db56b48c90800000000000000
+      internalID: -7168404201260042127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_62
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 375
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b23428436ffdea20800000000000000
+      internalID: 3093409320950575795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_63
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 389
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11aa757d6724d79e0800000000000000
+      internalID: -1622067212597089775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_64
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 360
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9d89aa43b144ae0800000000000000
+      internalID: -1566096857403696708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_65
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 353
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133ae446e05bb6ea0800000000000000
+      internalID: -5878405815185005775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_66
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 351
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa51f0926c9af820800000000000000
+      internalID: 2952844452847246070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_67
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 339
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d5f86bd14518b30800000000000000
+      internalID: 4287800806827056469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_68
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 341
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ee3582f67c92e80800000000000000
+      internalID: -8202805966046761451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_69
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 331
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485877afceb904340800000000000000
+      internalID: 4846044641167377796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_70
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 323
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d73777eb2860560800000000000000
+      internalID: 7279649602250439981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_71
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 325
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b447158fadb196f0800000000000000
+      internalID: -679553507206413130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_72
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 329
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3cca6655c43b810800000000000000
+      internalID: 1779850207420007399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_73
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 311
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b0e70fe0ee311580800000000000000
+      internalID: -8858229856257187661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_74
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 302
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3f3c9cdbbd50120800000000000000
+      internalID: 2379549586315539447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_75
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 285
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85dc42d597c7b9810800000000000000
+      internalID: 1773147738996002136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_76
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 261
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4907c233a8e4a2e60800000000000000
+      internalID: 7938243648664924308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_77
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 271
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532abb21dd2f67070800000000000000
+      internalID: 8103931610815767093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_78
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 258
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db4205ee72b471a0800000000000000
+      internalID: -6812624078226961456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_79
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 247
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa960123de97c6a60800000000000000
+      internalID: 7668638325159258538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_80
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 232
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058b9a79579abd9d0800000000000000
+      internalID: -2748416825058805680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_81
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 231
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2ffc88fea445de0800000000000000
+      internalID: -1345367996023967001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_82
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 183
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4236ba0e15a15430800000000000000
+      internalID: 3769975911533130315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_83
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 183
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320db2d9c10e694e0800000000000000
+      internalID: -1975144973054783453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_84
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 186
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7326b6979dec9fcd0800000000000000
+      internalID: -2523758682724146633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_85
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 185
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be34f6efd7456630800000000000000
+      internalID: 3919618077673930424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_86
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 180
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe13c8d31a6444d0800000000000000
+      internalID: -3151277205778915650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_87
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 171
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149e6adda3a375f70800000000000000
+      internalID: 9175866790291892545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_88
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 179
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ffb75aaacff44880800000000000000
+      internalID: -8627489740228673543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_89
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 170
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58858dfe91de84e90800000000000000
+      internalID: -7041117321739872123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_90
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f12f1cded4b9cdb0800000000000000
+      internalID: -4771083460953562632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_91
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 170
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0bfd70525222c3b0800000000000000
+      internalID: -5493790858505487603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_92
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 153
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54ff811f74d33d440800000000000000
+      internalID: 4959374993861967685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_93
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 147
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba41a2aaa533dd430800000000000000
+      internalID: 3809257324320265387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_94
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 98
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21906712e65908880800000000000000
+      internalID: -8610718187292063470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piso-advertencia_95
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 74
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3fca19f51995d000800000000000000
+      internalID: 60122489692016443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      piso-advertencia_0: 6952848911490438765
+      piso-advertencia_1: -9101185899372913413
+      piso-advertencia_10: 654596549149672980
+      piso-advertencia_11: 7409876168359753106
+      piso-advertencia_12: 2631938245529722874
+      piso-advertencia_13: -1010151114004277998
+      piso-advertencia_14: 7834869509783438806
+      piso-advertencia_15: -7315420416400898895
+      piso-advertencia_16: 8231653178546992762
+      piso-advertencia_17: 2964883668538922199
+      piso-advertencia_18: -2831164965368781824
+      piso-advertencia_19: -2312198050587078875
+      piso-advertencia_2: 3457442099540507841
+      piso-advertencia_20: -9161151174681567474
+      piso-advertencia_21: -910682287822971995
+      piso-advertencia_22: 6844200455333339059
+      piso-advertencia_23: 2069595005470838480
+      piso-advertencia_24: -830508020809493099
+      piso-advertencia_25: 3982793453658506923
+      piso-advertencia_26: -5338843286615327530
+      piso-advertencia_27: -6471697373488567468
+      piso-advertencia_28: -6386947250983803337
+      piso-advertencia_29: -3023428038111211694
+      piso-advertencia_3: -7619537330746940383
+      piso-advertencia_30: -5461169160401388686
+      piso-advertencia_31: -2925031157940796942
+      piso-advertencia_32: 8183729965214801805
+      piso-advertencia_33: 2355004424318226865
+      piso-advertencia_34: 7394062317603536844
+      piso-advertencia_35: 8858045516197900039
+      piso-advertencia_36: 7628880824869825009
+      piso-advertencia_37: -5531175196143852675
+      piso-advertencia_38: 1825383968338359292
+      piso-advertencia_39: -5395878950954417827
+      piso-advertencia_4: -3779536095836446591
+      piso-advertencia_40: -67393010492038293
+      piso-advertencia_41: 2422200358667069435
+      piso-advertencia_42: 7720109132732792167
+      piso-advertencia_43: -2137103374060988905
+      piso-advertencia_44: -6329507078148461163
+      piso-advertencia_45: -7561184676900970493
+      piso-advertencia_46: 6334951789319296227
+      piso-advertencia_47: 1798835378118812525
+      piso-advertencia_48: 5060561567045794034
+      piso-advertencia_49: 7266526432312453827
+      piso-advertencia_5: 7600685576993038514
+      piso-advertencia_50: -4520606357723980621
+      piso-advertencia_51: 7811155082883270249
+      piso-advertencia_52: -4661122389030461511
+      piso-advertencia_53: 7984584222790725553
+      piso-advertencia_54: -2289249919782107727
+      piso-advertencia_55: 668996068366980326
+      piso-advertencia_56: 699045642728569928
+      piso-advertencia_57: -25239383067387757
+      piso-advertencia_58: -4098979446641477736
+      piso-advertencia_59: -3397669661297233517
+      piso-advertencia_6: -6603746801091021357
+      piso-advertencia_60: 6082768511343644130
+      piso-advertencia_61: -7168404201260042127
+      piso-advertencia_62: 3093409320950575795
+      piso-advertencia_63: -1622067212597089775
+      piso-advertencia_64: -1566096857403696708
+      piso-advertencia_65: -5878405815185005775
+      piso-advertencia_66: 2952844452847246070
+      piso-advertencia_67: 4287800806827056469
+      piso-advertencia_68: -8202805966046761451
+      piso-advertencia_69: 4846044641167377796
+      piso-advertencia_7: 1712734960551253055
+      piso-advertencia_70: 7279649602250439981
+      piso-advertencia_71: -679553507206413130
+      piso-advertencia_72: 1779850207420007399
+      piso-advertencia_73: -8858229856257187661
+      piso-advertencia_74: 2379549586315539447
+      piso-advertencia_75: 1773147738996002136
+      piso-advertencia_76: 7938243648664924308
+      piso-advertencia_77: 8103931610815767093
+      piso-advertencia_78: -6812624078226961456
+      piso-advertencia_79: 7668638325159258538
+      piso-advertencia_8: -1407716667046266371
+      piso-advertencia_80: -2748416825058805680
+      piso-advertencia_81: -1345367996023967001
+      piso-advertencia_82: 3769975911533130315
+      piso-advertencia_83: -1975144973054783453
+      piso-advertencia_84: -2523758682724146633
+      piso-advertencia_85: 3919618077673930424
+      piso-advertencia_86: -3151277205778915650
+      piso-advertencia_87: 9175866790291892545
+      piso-advertencia_88: -8627489740228673543
+      piso-advertencia_89: -7041117321739872123
+      piso-advertencia_9: -7340483327072536181
+      piso-advertencia_90: -4771083460953562632
+      piso-advertencia_91: -5493790858505487603
+      piso-advertencia_92: 4959374993861967685
+      piso-advertencia_93: 3809257324320265387
+      piso-advertencia_94: -8610718187292063470
+      piso-advertencia_95: 60122489692016443
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

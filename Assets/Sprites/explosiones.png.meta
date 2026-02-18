@@ -1,0 +1,782 @@
+fileFormatVersion: 2
+guid: 6f75ebe242c836f4b854e0e5fc75dede
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 922188388807389401
+    second: Hoja de explosiones pixeladas_0
+  - first:
+      213: 481096952705993298
+    second: Hoja de explosiones pixeladas_1
+  - first:
+      213: 6590497061730211656
+    second: Hoja de explosiones pixeladas_2
+  - first:
+      213: 1080707375837104432
+    second: Hoja de explosiones pixeladas_3
+  - first:
+      213: -4488472265541535022
+    second: Hoja de explosiones pixeladas_4
+  - first:
+      213: 4715323454576124288
+    second: Hoja de explosiones pixeladas_5
+  - first:
+      213: -6128342088905156598
+    second: Hoja de explosiones pixeladas_6
+  - first:
+      213: 6420829035139813754
+    second: Hoja de explosiones pixeladas_7
+  - first:
+      213: 6841711470235234336
+    second: Hoja de explosiones pixeladas_8
+  - first:
+      213: -6609792584889564896
+    second: Hoja de explosiones pixeladas_9
+  - first:
+      213: -8978143051011096587
+    second: Hoja de explosiones pixeladas_10
+  - first:
+      213: -2184279435207609313
+    second: Hoja de explosiones pixeladas_11
+  - first:
+      213: -4625245354039025493
+    second: Hoja de explosiones pixeladas_12
+  - first:
+      213: 2177294264132308543
+    second: Hoja de explosiones pixeladas_13
+  - first:
+      213: 1608271138597632805
+    second: Hoja de explosiones pixeladas_14
+  - first:
+      213: -5352568140261763557
+    second: Hoja de explosiones pixeladas_15
+  - first:
+      213: -8673422850106143502
+    second: Hoja de explosiones pixeladas_16
+  - first:
+      213: -3254449499388673210
+    second: Hoja de explosiones pixeladas_17
+  - first:
+      213: 6214132036567363237
+    second: Hoja de explosiones pixeladas_18
+  - first:
+      213: 403058229041683939
+    second: Hoja de explosiones pixeladas_19
+  - first:
+      213: 3318100769541079657
+    second: Hoja de explosiones pixeladas_20
+  - first:
+      213: 5962827058433312142
+    second: Hoja de explosiones pixeladas_21
+  - first:
+      213: 3379018400582705460
+    second: Hoja de explosiones pixeladas_22
+  - first:
+      213: -8967121507473919231
+    second: Hoja de explosiones pixeladas_23
+  - first:
+      213: -3778914820388271416
+    second: Hoja de explosiones pixeladas_24
+  - first:
+      213: -4352061568890531601
+    second: Hoja de explosiones pixeladas_25
+  - first:
+      213: 8670790255163661879
+    second: Hoja de explosiones pixeladas_26
+  - first:
+      213: -3482933740418072584
+    second: Hoja de explosiones pixeladas_27
+  - first:
+      213: -8086095709846277874
+    second: Hoja de explosiones pixeladas_28
+  - first:
+      213: 5565904925757112514
+    second: Hoja de explosiones pixeladas_29
+  - first:
+      213: -3114251458859407864
+    second: Hoja de explosiones pixeladas_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 807
+        width: 93
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0bad224754ccc00800000000000000
+      internalID: 922188388807389401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_1
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 815
+        width: 115
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a409821233da600800000000000000
+      internalID: 481096952705993298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_3
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 816
+        width: 126
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0394aeae1a17ffe00800000000000000
+      internalID: 1080707375837104432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_4
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 805
+        width: 166
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da3434614eb5b1c0800000000000000
+      internalID: -4488472265541535022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_5
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 761
+        width: 171
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081e317f2b1307140800000000000000
+      internalID: 4715323454576124288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_6
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 780
+        width: 217
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a089bb8e651c3faa0800000000000000
+      internalID: -6128342088905156598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_7
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 797
+        width: 243
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a71d50b0dfd5b1950800000000000000
+      internalID: 6420829035139813754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 608
+        width: 217
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020361f4554a2fe50800000000000000
+      internalID: 6841711470235234336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_10
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 608
+        width: 203
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff77dd967a376380800000000000000
+      internalID: -8978143051011096587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_11
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 606
+        width: 208
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f14724e2d61efa1e0800000000000000
+      internalID: -2184279435207609313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_12
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 606
+        width: 214
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba06a792bd3dfcfb0800000000000000
+      internalID: -4625245354039025493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_13
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 405
+        width: 221
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e0a11f89d473e10800000000000000
+      internalID: 2177294264132308543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_14
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 601
+        width: 200
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52bff9e541ab15610800000000000000
+      internalID: 1608271138597632805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_15
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 599
+        width: 255
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16df93b2abd7b5b0800000000000000
+      internalID: -5352568140261763557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_16
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 398
+        width: 232
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fccaa02fdfc1a780800000000000000
+      internalID: -8673422850106143502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_17
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 416
+        width: 235
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6438d715c6fd5d2d0800000000000000
+      internalID: -3254449499388673210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_19
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 409
+        width: 212
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edd3d5e253f79500800000000000000
+      internalID: 403058229041683939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_20
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 409
+        width: 225
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9624271e1134c0e20800000000000000
+      internalID: 3318100769541079657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_21
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 422
+        width: 229
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8541030e9730c250800000000000000
+      internalID: 5962827058433312142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_24
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 194
+        width: 275
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca4c4e0ef89e8bc0800000000000000
+      internalID: -3778914820388271416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_26
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 196
+        width: 264
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ed2f81cc5d45870800000000000000
+      internalID: 8670790255163661879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_27
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 202
+        width: 249
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff782a67322aafc0800000000000000
+      internalID: -3482933740418072584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_28
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 205
+        width: 246
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e017dca3bca68cf80800000000000000
+      internalID: -8086095709846277874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hoja de explosiones pixeladas_29
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 205
+        width: 237
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c089516a011e3d40800000000000000
+      internalID: 5565904925757112514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c8c535f03b3318543a5ccfd2ccaa0ea3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hoja de explosiones pixeladas_0: 922188388807389401
+      Hoja de explosiones pixeladas_1: 481096952705993298
+      Hoja de explosiones pixeladas_10: -8978143051011096587
+      Hoja de explosiones pixeladas_11: -2184279435207609313
+      Hoja de explosiones pixeladas_12: -4625245354039025493
+      Hoja de explosiones pixeladas_13: 2177294264132308543
+      Hoja de explosiones pixeladas_14: 1608271138597632805
+      Hoja de explosiones pixeladas_15: -5352568140261763557
+      Hoja de explosiones pixeladas_16: -8673422850106143502
+      Hoja de explosiones pixeladas_17: -3254449499388673210
+      Hoja de explosiones pixeladas_18: 6214132036567363237
+      Hoja de explosiones pixeladas_19: 403058229041683939
+      Hoja de explosiones pixeladas_2: 6590497061730211656
+      Hoja de explosiones pixeladas_20: 3318100769541079657
+      Hoja de explosiones pixeladas_21: 5962827058433312142
+      Hoja de explosiones pixeladas_22: 3379018400582705460
+      Hoja de explosiones pixeladas_23: -8967121507473919231
+      Hoja de explosiones pixeladas_24: -3778914820388271416
+      Hoja de explosiones pixeladas_25: -4352061568890531601
+      Hoja de explosiones pixeladas_26: 8670790255163661879
+      Hoja de explosiones pixeladas_27: -3482933740418072584
+      Hoja de explosiones pixeladas_28: -8086095709846277874
+      Hoja de explosiones pixeladas_29: 5565904925757112514
+      Hoja de explosiones pixeladas_3: 1080707375837104432
+      Hoja de explosiones pixeladas_30: -3114251458859407864
+      Hoja de explosiones pixeladas_4: -4488472265541535022
+      Hoja de explosiones pixeladas_5: 4715323454576124288
+      Hoja de explosiones pixeladas_6: -6128342088905156598
+      Hoja de explosiones pixeladas_7: 6420829035139813754
+      Hoja de explosiones pixeladas_8: 6841711470235234336
+      Hoja de explosiones pixeladas_9: -6609792584889564896
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

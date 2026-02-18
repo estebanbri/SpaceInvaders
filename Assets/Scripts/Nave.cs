@@ -62,18 +62,18 @@ public class Nave : MonoBehaviour, IDamageable
         transform.position = new Vector3(transform.position.x, clampedY, 0);
     }
 
-    private void Morir()
+    private void Morir(int cantidadDeVidasQuitadas = 1)
     {
         if (isDead) return;
 
         isDead = true;
 
-        OnDeath();
+        OnDeath(cantidadDeVidasQuitadas);
     }
 
-    private void OnDeath()
+    private void OnDeath(int cantidadDeVidasQuitadas)
     {
-        bool isDead = GameManager.Instance.OnPlayerDeath(this);
+        bool isDead = GameManager.Instance.OnPlayerDeath(this, cantidadDeVidasQuitadas);
         if (isDead)
         {
             naveVisualComponent.playDeathEffect();
@@ -118,7 +118,7 @@ public class Nave : MonoBehaviour, IDamageable
         return weaponController; 
     }
 
-    public void TakeDamage(int damageAmount, Vector3? attackerPos)
+    public void TakeDamage(int cantidadDeVidasQuitadas, Vector3? attackerPos, bool isCritical = false)
     {
         if (isDead) return;
 
@@ -128,7 +128,7 @@ public class Nave : MonoBehaviour, IDamageable
             return;
         }
 
-        Morir();
+        Morir(cantidadDeVidasQuitadas);
     }
 
     public void OnEscudoAnimationDestroyedFinished()

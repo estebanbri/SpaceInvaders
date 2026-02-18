@@ -22,9 +22,9 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     private int currentHealth;
     private bool isDead;
-    private EnemigoVisual enemigoVisual;
+    [SerializeField] private EnemigoVisual enemigoVisual;
     private Collider2D col;
-    private MovementController movementController;
+    [SerializeField]  private MovementController movementController;
     private FormationController formation;
 
     public EnemyState State { get; private set; }
@@ -75,18 +75,20 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private float attackDuration = 1.5f;
     [SerializeField] private float curveHeight = 2f;
     [SerializeField] private float moveSpeed = 5f;
+    private int pendingDamage = 0;
+    private bool pendingCrit = false;
+    private float damageDisplayDelay = 0.05f; // tiempo para acumular impactos en el mismo frame
+    private float damageTimer = 0f;
 
     private float nextFireTime = 0f; // tiempo en el que se disparará el próximo tiro
 
     private float curveDirection;
     private int currentCycle = 0;
 
-    void Awake()
+    void Start()
     {
         currentHealth = maxHealth;
-        enemigoVisual = GetComponentInChildren<EnemigoVisual>();
         col = GetComponent<Collider2D>();
-        movementController = GetComponent<MovementController>();
         SetState(EnemyState.Entering);
         playerTransform = Nave.Instance.transform;
     }
@@ -113,6 +115,17 @@ public class Enemigo : MonoBehaviour, IDamageable
         else if (weaponController != null && State == EnemyState.Idle)
         {
             weaponController.TryFire();
+        }
+        // 🔹 Mostrar daño acumulado cuando el timer llega a cero
+        if (damageTimer > 0f)
+        {
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <= 0f && pendingDamage > 0)
+            {
+                ShowDamageText(pendingDamage, pendingCrit);
+                pendingDamage = 0;
+                pendingCrit = false;
+            }
         }
     }
 
@@ -271,10 +284,19 @@ public class Enemigo : MonoBehaviour, IDamageable
         transform.SetParent(null);
     }
 
-    public void TakeDamage(int damageAmount, Vector3? attackerPos)
+    public void TakeDamage(int damageAmount, Vector3? attackerPos, bool isCritical = false)
     {
         if (isDead) return;
 
+        // 🔹 Solo activamos el timer si estaba en cero
+        if (damageTimer <= 0f)
+            damageTimer = damageDisplayDelay;
+
+        // 🔹 Acumulamos daño y crit
+        pendingDamage += damageAmount;
+        pendingCrit |= isCritical;
+
+        // Aplicamos daño al health
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
 
         Vector3 hitDir = attackerPos.HasValue
@@ -282,14 +304,6 @@ public class Enemigo : MonoBehaviour, IDamageable
             : Vector3.up;
 
         enemigoVisual?.PlayHitEffect(hitDir);
-
-        // 🔹 Mostrar daño flotante
-        if (damageTextPrefab != null)
-        {
-            Vector3 offset = Vector3.up * 0.6f * transform.localScale.y; // ajusta factor según tamaño del enemigo
-            GameObject dmgText = Instantiate(damageTextPrefab, transform.position + offset, Quaternion.identity);
-            dmgText.GetComponent<FloatingDamageText>().SetDamage(damageAmount);
-        }
 
         if (currentHealth <= 0)
             Die();
@@ -430,6 +444,21 @@ public class Enemigo : MonoBehaviour, IDamageable
         if (weaponController == null) return;
         weaponController.FireImmediate(); // dispara ignorando FireRate
         Debug.Log($"[Boss] FireImmediate ejecutado en {Time.time:F2}s");
+    }
+
+    private void ShowDamageText(int totalDamage, bool isCritical)
+    {
+        if (damageTextPrefab == null) return;
+
+        Vector3 offset = Vector3.up * 0.6f * transform.localScale.y;
+        GameObject dmgText = Instantiate(damageTextPrefab, transform.position + offset, Quaternion.identity);
+
+        var floating = dmgText.GetComponent<FloatingDamageText>();
+        if (floating != null)
+            floating.SetDamage(totalDamage, isCritical);
+
+        // 🔹 Opcional: hacer que mire siempre a la cámara
+        dmgText.transform.forward = Camera.main.transform.forward;
     }
 
 

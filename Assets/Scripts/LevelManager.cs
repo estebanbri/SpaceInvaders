@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        StartWave();
+        // StartWave();
     }
 
     private void StartWave()

@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202909db5d2fecc43a32adaf529f9975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemigoVisual
+  enemigo: {fileID: 6674376224979997614}
+  knockbackRecoverSpeed: 8
+  knockbackForce: 0.3
 --- !u!1 &4768475860424822803
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,10 +182,24 @@ MonoBehaviour:
   bonusPickupPrefab: {fileID: 5604128541931985237, guid: ddea3002692b3a54b936e348700069c2, type: 3}
   scorePickupPrefab: {fileID: 2997580912159950836, guid: 406fc2406e6213a488f4685fdc53e91b, type: 3}
   dropProbability: 0.036
-  maxHealth: 10
+  maxHealth: 300
   weaponController: {fileID: 8431879320778882986}
   isBoss: 0
   bossWeaponsByCycle: []
+  damageTextPrefab: {fileID: 2508392111751814786, guid: 1cd112d231fe73f42b01f4bda17d62a2, type: 3}
+  enemigoVisual: {fileID: 5601840585075938565}
+  movementController: {fileID: 0}
+  shotsPerBurst: 2
+  burstInterval: 1
+  minWaitTime: 1
+  maxWaitTime: 2
+  moveDuration: 1
+  kamikazeSpeed: 6
+  returnSpeed: 4
+  returnDuration: 1.2
+  attackDuration: 1.5
+  curveHeight: 2
+  moveSpeed: 5
 --- !u!114 &5348782021209770510
 MonoBehaviour:
   m_ObjectHideFlags: 0

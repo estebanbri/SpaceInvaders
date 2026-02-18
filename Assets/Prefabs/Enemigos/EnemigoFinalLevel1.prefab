@@ -4988,6 +4988,9 @@ MonoBehaviour:
     weaponDefinition: {fileID: 11400000, guid: d8bdc9c6f066bf440a4f46898514c7aa, type: 2}
   - minCycle: 2
     weaponDefinition: {fileID: 11400000, guid: 2fa38125f27d82247ace47b0e6315fe2, type: 2}
+  damageTextPrefab: {fileID: 2508392111751814786, guid: 1cd112d231fe73f42b01f4bda17d62a2, type: 3}
+  enemigoVisual: {fileID: 5276031313835513368}
+  movementController: {fileID: 0}
   shotsPerBurst: 2
   burstInterval: 1
   minWaitTime: 4
@@ -5236,6 +5239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202909db5d2fecc43a32adaf529f9975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  enemigo: {fileID: 5042651987578534612}
   knockbackRecoverSpeed: 8
   knockbackForce: 0.3
 --- !u!95 &6772557345039842202

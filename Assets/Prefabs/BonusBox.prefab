@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3963569584820722372}
   - component: {fileID: 5009000568485020894}
   - component: {fileID: 5771013254320090886}
+  - component: {fileID: 599032632531990000}
   m_Layer: 0
   m_Name: BonusBox
   m_TagString: Untagged
@@ -120,6 +121,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3678882, y: 1.014427}
   m_EdgeRadius: 0
+--- !u!114 &599032632531990000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250863583283302075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
 --- !u!1 &5787263086832480957
 GameObject:
   m_ObjectHideFlags: 0
