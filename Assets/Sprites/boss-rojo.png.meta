@@ -1,70 +1,55 @@
 fileFormatVersion: 2
-guid: cdb839b42b7ff63489777f3b34fdaa68
+guid: b8fb2d0d8fb9eeb43be0a1710ab6897f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3669597235675296295
-    second: boss-fijo_0
+      213: 7377586339902573020
+    second: boss-rojo_0
   - first:
-      213: -9085429014786127589
-    second: boss-fijo_1
+      213: -4179457085892053242
+    second: boss-rojo_1
   - first:
-      213: -4371380748735269521
-    second: boss-fijo_2
+      213: 5024644311465787935
+    second: boss-rojo_2
   - first:
-      213: -3800873322057202840
-    second: boss-fijo_3
+      213: 7766800084202167946
+    second: boss-rojo_3
   - first:
-      213: 495225517326856865
-    second: boss-fijo_4
+      213: -4459628476757799711
+    second: boss-rojo_4
   - first:
-      213: -4050263522053029346
-    second: boss-fijo_5
+      213: 2476294731175438158
+    second: boss-rojo_5
   - first:
-      213: -4727726179313114702
-    second: boss-fijo_6
+      213: -5338776555145110181
+    second: boss-rojo_6
   - first:
-      213: -3105110033306066503
-    second: boss-fijo_7
+      213: 2097294306904626697
+    second: boss-rojo_7
   - first:
-      213: 6191667488810195523
-    second: boss-fijo_8
+      213: -1017571637288420846
+    second: boss-rojo_8
   - first:
-      213: 4916495592411816838
-    second: boss-fijo_9
+      213: 6005842337342095638
+    second: boss-rojo_9
   - first:
-      213: 4852293811955446953
-    second: boss-fijo_10
+      213: -8354684394095276276
+    second: boss-rojo_10
   - first:
-      213: 3712785412197082242
-    second: boss-fijo_11
+      213: -1464496564565453770
+    second: boss-rojo_11
   - first:
-      213: -7352976224182155089
-    second: boss-fijo_12
+      213: 5471844827366192285
+    second: boss-rojo_12
   - first:
-      213: 895511871894538705
-    second: boss-fijo_13
+      213: 8076255363809422787
+    second: boss-rojo_13
   - first:
-      213: 8834622462164121045
-    second: boss-fijo_14
+      213: -2568754523798294302
+    second: boss-rojo_14
   - first:
-      213: 3206780602654587820
-    second: boss-fijo_15
-  - first:
-      213: 5344153013573704517
-    second: boss-fijo_16
-  - first:
-      213: 3189443103584247731
-    second: boss-fijo_17
-  - first:
-      213: 7957825090951686758
-    second: boss-fijo_18
-  - first:
-      213: -7305139216048487210
-    second: boss-fijo_19
-  - first:
-      213: 5058666806565424725
-    second: boss-fijo_20
+      213: -3803155553087663060
+    second: boss-rojo_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -173,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss-fijo_0
+      name: boss-rojo_0
       rect:
         serializedVersion: 2
-        x: 167
-        y: 1280
-        width: 356
-        height: 196
+        x: 32
+        y: 994
+        width: 205
+        height: 177
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,41 +173,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9dd81daa1c8f21dc0800000000000000
-      internalID: -3669597235675296295
+      spriteID: cd9caa120b3726660800000000000000
+      internalID: 7377586339902573020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-fijo_1
+      name: boss-rojo_1
       rect:
         serializedVersion: 2
-        x: 166
-        y: 1071
-        width: 343
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1945ad92721ae180800000000000000
-      internalID: -9085429014786127589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_2
-      rect:
-        serializedVersion: 2
-        x: 514
-        y: 1070
-        width: 404
+        x: 26
+        y: 302
+        width: 214
         height: 187
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -232,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6537ad9e5cb553c0800000000000000
-      internalID: -4371380748735269521
+      spriteID: 6073a619ce59ff5c0800000000000000
+      internalID: -4179457085892053242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-fijo_3
+      name: boss-rojo_2
       rect:
         serializedVersion: 2
-        x: 519
-        y: 1273
-        width: 399
-        height: 207
+        x: 269
+        y: 995
+        width: 209
+        height: 179
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 863858af9d5904bc0800000000000000
-      internalID: -3800873322057202840
+      spriteID: f120b9b216f1bb540800000000000000
+      internalID: 5024644311465787935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-fijo_4
+      name: boss-rojo_3
       rect:
         serializedVersion: 2
-        x: 167
-        y: 919
-        width: 345
-        height: 122
+        x: 261
+        y: 719
+        width: 220
+        height: 189
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a2f9f3fbf46fd600800000000000000
-      internalID: 495225517326856865
+      spriteID: a8e185cb68739cb60800000000000000
+      internalID: 7766800084202167946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-fijo_5
+      name: boss-rojo_4
       rect:
         serializedVersion: 2
-        x: 515
-        y: 905
-        width: 398
-        height: 138
+        x: 503
+        y: 720
+        width: 233
+        height: 187
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,152 +261,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e128e4139c29ac7c0800000000000000
-      internalID: -4050263522053029346
+      spriteID: 1ec82ac47873c12c0800000000000000
+      internalID: -4459628476757799711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-fijo_7
+      name: boss-rojo_5
       rect:
         serializedVersion: 2
-        x: 138
-        y: 700
-        width: 167
-        height: 180
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b16a4450ee68e4d0800000000000000
-      internalID: -3105110033306066503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_8
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 735
-        width: 138
-        height: 131
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34addd5b6c83de550800000000000000
-      internalID: 6191667488810195523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_9
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 566
-        width: 170
-        height: 299
-      alignment: 9
-      pivot: {x: 0.6364556, y: 0.82141644}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 683ea7d41b6ea3440800000000000000
-      internalID: 4916495592411816838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_10
-      rect:
-        serializedVersion: 2
-        x: 742
-        y: 559
-        width: 267
-        height: 306
-      alignment: 9
-      pivot: {x: 0.14006151, y: 0.82489353}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a43e6f638fc65340800000000000000
-      internalID: 4852293811955446953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_17
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 393
-        width: 214
-        height: 272
-      alignment: 9
-      pivot: {x: 0.2832019, y: 0.85332173}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bf5574ba9d234c20800000000000000
-      internalID: 3189443103584247731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_18
-      rect:
-        serializedVersion: 2
-        x: 348
-        y: 397
+        x: 501
+        y: 1179
         width: 225
-        height: 268
-      alignment: 9
-      pivot: {x: 0.66201377, y: 0.83386457}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66aadd202cfdf6e60800000000000000
-      internalID: 7957825090951686758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-fijo_19
-      rect:
-        serializedVersion: 2
-        x: 617
-        y: 415
-        width: 285
-        height: 144
+        height: 1
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +283,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d487a8569eee9a90800000000000000
-      internalID: -7305139216048487210
+      spriteID: e4722e220f09d5220800000000000000
+      internalID: 2476294731175438158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-fijo_20
+      name: boss-rojo_6
       rect:
         serializedVersion: 2
-        x: 268
-        y: 213
-        width: 495
-        height: 156
+        x: 745
+        y: 297
+        width: 239
+        height: 205
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,8 +305,250 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55e446a98aef33640800000000000000
-      internalID: 5058666806565424725
+      spriteID: b5d5467520bd8e5b0800000000000000
+      internalID: -5338776555145110181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_7
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 993
+        width: 216
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 906df786f061b1d10800000000000000
+      internalID: 2097294306904626697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 719
+        width: 219
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a39e9bcfbd0e1f0800000000000000
+      internalID: -1017571637288420846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_9
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 295
+        width: 241
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611074619c9095350800000000000000
+      internalID: 6005842337342095638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_10
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 14
+        width: 226
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f837ffec23e0c80800000000000000
+      internalID: -8354684394095276276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_11
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 564
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634db4e32201dabe0800000000000000
+      internalID: -1464496564565453770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_12
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 16
+        width: 222
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94783121e5efeb40800000000000000
+      internalID: 5471844827366192285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 14
+        width: 221
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd243ba67f941070800000000000000
+      internalID: 8076255363809422787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_14
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 297
+        width: 228
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e033d5de53f95cd0800000000000000
+      internalID: -2568754523798294302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_15
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 13
+        width: 231
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c24d7a8ac2a783bc0800000000000000
+      internalID: -3803155553087663060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_16
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 716
+        width: 234
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063bbc61d73ee5245a2c1dee7336cc06
+      internalID: 54573339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-rojo_17
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 992
+        width: 211
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859cb35e1714d934380e74594a8df96c
+      internalID: -1918942374
       vertices: []
       indices: 
       edges: []
@@ -484,7 +557,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4e1eff3bb5f41e340ad510805240fbeb
+    spriteID: 50ef66c4f03783d49b8533bd17ec40b6
     internalID: 0
     vertices: []
     indices: 
@@ -492,33 +565,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      boss-fijo_0: -3669597235675296295
-      boss-fijo_1: -9085429014786127589
-      boss-fijo_10: 4852293811955446953
-      boss-fijo_11: 3712785412197082242
-      boss-fijo_12: -7352976224182155089
-      boss-fijo_13: 895511871894538705
-      boss-fijo_14: 8834622462164121045
-      boss-fijo_15: 3206780602654587820
-      boss-fijo_16: 5344153013573704517
-      boss-fijo_17: 3189443103584247731
-      boss-fijo_18: 7957825090951686758
-      boss-fijo_19: -7305139216048487210
-      boss-fijo_2: -4371380748735269521
-      boss-fijo_20: 5058666806565424725
-      boss-fijo_3: -3800873322057202840
-      boss-fijo_4: 495225517326856865
-      boss-fijo_5: -4050263522053029346
-      boss-fijo_6: -4727726179313114702
-      boss-fijo_7: -3105110033306066503
-      boss-fijo_8: 6191667488810195523
-      boss-fijo_9: 4916495592411816838
+      boss-rojo_0: 7377586339902573020
+      boss-rojo_1: -4179457085892053242
+      boss-rojo_10: -8354684394095276276
+      boss-rojo_11: -1464496564565453770
+      boss-rojo_12: 5471844827366192285
+      boss-rojo_13: 8076255363809422787
+      boss-rojo_14: -2568754523798294302
+      boss-rojo_15: -3803155553087663060
+      boss-rojo_16: 54573339
+      boss-rojo_17: -1918942374
+      boss-rojo_2: 5024644311465787935
+      boss-rojo_3: 7766800084202167946
+      boss-rojo_4: -4459628476757799711
+      boss-rojo_5: 2476294731175438158
+      boss-rojo_6: -5338776555145110181
+      boss-rojo_7: 2097294306904626697
+      boss-rojo_8: -1017571637288420846
+      boss-rojo_9: 6005842337342095638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

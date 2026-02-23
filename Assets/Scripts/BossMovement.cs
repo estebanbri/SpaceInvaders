@@ -23,10 +23,15 @@ public class BossMovement : MonoBehaviour
 
     private Vector3 targetPosition;
     private bool entering = true;
+
     private float halfWidth;
+    private float halfHeight;
 
     private float leftLimit;
     private float rightLimit;
+    private float topLimit;
+    private float bottomLimit;
+
     private int direction = 1;
 
     private Enemigo enemigo;
@@ -37,7 +42,7 @@ public class BossMovement : MonoBehaviour
     private float circleRadius;
     private float circleDuration;
     private float circleTimer;
-    private float circleDirection; // 1 = clockwise, -1 = counterclockwise
+    private float circleDirection;
     private float angle;
 
     private float timeUntilNextCircle;
@@ -47,21 +52,31 @@ public class BossMovement : MonoBehaviour
         enemigo = GetComponent<Enemigo>();
         Camera cam = Camera.main;
 
-        // Obtener borde superior de cámara
-        Vector3 top = cam.ViewportToWorldPoint(new Vector3(0.5f, 1f, cam.nearClipPlane));
+        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
+        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
 
-        // Calcular tamaño real del sprite
-        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-        float halfHeight = sr.bounds.extents.y;
-        halfWidth = sr.bounds.extents.x;
+        // 🔥 Calcular bounds combinados de TODOS los sprites hijos
+        SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>();
+        Bounds combinedBounds = renderers[0].bounds;
 
-        // Posición objetivo final (un poco debajo del borde superior)
-        targetPosition = new Vector3(0, top.y - enterOffset - halfHeight, 0);
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            combinedBounds.Encapsulate(renderers[i].bounds);
+        }
+
+        halfWidth = combinedBounds.extents.x;
+        halfHeight = combinedBounds.extents.y;
+
+        leftLimit = min.x + halfWidth;
+        rightLimit = max.x - halfWidth;
+        bottomLimit = min.y + halfHeight;
+        topLimit = max.y - halfHeight;
+
+        // Posición objetivo final
+        targetPosition = new Vector3(0, topLimit - enterOffset, 0);
 
         // Empieza fuera de pantalla
-        transform.position = new Vector3(0, top.y + halfHeight, 0);
-
-        CalculateHorizontalLimits();
+        transform.position = new Vector3(0, max.y + halfHeight, 0);
 
         timeUntilNextCircle = Random.Range(minTimeBetweenCircles, maxTimeBetweenCircles);
     }
@@ -99,22 +114,10 @@ public class BossMovement : MonoBehaviour
         }
     }
 
-    void CalculateHorizontalLimits()
-    {
-        Camera cam = Camera.main;
-        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
-        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
-
-        leftLimit = min.x + halfWidth;
-        rightLimit = max.x - halfWidth;
-    }
-
     void MoveHorizontal()
     {
-        // Movimiento horizontal
         float newX = transform.position.x + direction * moveSpeed * Time.deltaTime;
 
-        // Cambiar dirección si llega a los límites
         if (newX > rightLimit)
         {
             newX = rightLimit;
@@ -126,8 +129,10 @@ public class BossMovement : MonoBehaviour
             direction = 1;
         }
 
-        // Movimiento vertical oscilante suave
         float newY = targetPosition.y + Mathf.Sin(Time.time * verticalFrequency) * verticalAmplitude;
+
+        // 🔥 Clamp vertical
+        newY = Mathf.Clamp(newY, bottomLimit, topLimit);
 
         transform.position = new Vector3(newX, newY, transform.position.z);
     }
@@ -137,7 +142,6 @@ public class BossMovement : MonoBehaviour
         isInCircle = true;
         circleTimer = 0f;
 
-        // Centro del círculo alrededor de la posición actual con algo de variación
         circleCenter = new Vector2(
             transform.position.x + Random.Range(-1f, 1f),
             targetPosition.y + Random.Range(-0.5f, 0.5f)
@@ -147,21 +151,26 @@ public class BossMovement : MonoBehaviour
         circleDuration = Random.Range(minCircleDuration, maxCircleDuration);
         circleDirection = (Random.value < 0.5f) ? 1f : -1f;
         angle = 0f;
+
+        // 🔥 Asegurar que el círculo no nazca fuera
+        circleCenter.x = Mathf.Clamp(circleCenter.x, leftLimit + circleRadius, rightLimit - circleRadius);
+        circleCenter.y = Mathf.Clamp(circleCenter.y, bottomLimit + circleRadius, topLimit - circleRadius);
     }
 
     void UpdateCircleMovement()
     {
         circleTimer += Time.deltaTime;
-        float t = circleTimer / circleDuration;
 
-        // Incrementar ángulo según duración y dirección
         angle += (2 * Mathf.PI / circleDuration) * Time.deltaTime * circleDirection;
 
         float x = circleCenter.x + Mathf.Cos(angle) * circleRadius;
         float y = circleCenter.y + Mathf.Sin(angle) * circleRadius;
 
-        // Agregamos pequeño bob vertical
         y += Mathf.Sin(Time.time * bobFrequency) * bobAmplitude;
+
+        // 🔥 Clamp final de seguridad
+        x = Mathf.Clamp(x, leftLimit, rightLimit);
+        y = Mathf.Clamp(y, bottomLimit, topLimit);
 
         transform.position = new Vector3(x, y, transform.position.z);
 

@@ -21,7 +21,7 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private GameObject damageTextPrefab;
 
     private int currentHealth;
-    private bool isDead;
+    
     [SerializeField] private EnemigoVisual enemigoVisual;
     private Collider2D col;
     [SerializeField]  private MovementController movementController;
@@ -42,6 +42,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     private int burstShotsDone = 0;
     private float burstTimer = 0f;
     private float phaseTimer = 0f;
+    private bool isDead;
+    public bool IsDead => isDead;
 
     [SerializeField] private int shotsPerBurst = 2;
     [SerializeField] private float burstInterval = 1f; // tiempo entre disparos de la ráfaga
@@ -472,4 +474,5 @@ public class Enemigo : MonoBehaviour, IDamageable
         // Opcional: cambiar color / animación para que el jugador vea que es vulnerable
         // ejemplo: material.color = value ? Color.red : Color.white;
     }
+
 }

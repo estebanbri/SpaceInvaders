@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private FormationController formationPrefab;
 
     [Header("MiniBoss")]
-    [SerializeField] private GameObject miniBossPrefab;
+    [SerializeField] private List<GameObject> miniBossPrefabs;
     [SerializeField] private BossHealthBarUI bossHealthBar;
     [SerializeField] private int wavesPerCycle = 3;
 
@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // StartWave();
+        StartWave();
     }
 
     private void StartWave()
@@ -312,55 +312,35 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnMiniBoss()
     {
-        GameObject bossGO = Instantiate(miniBossPrefab, new Vector3(0, 7f, 0), Quaternion.identity); // fuera de pantalla
+        if (miniBossPrefabs == null || miniBossPrefabs.Count == 0)
+        {
+            Debug.LogWarning("No MiniBoss prefabs assigned!");
+            return;
+        }
+
+        // 🔥 Selección determinística basada en la wave
+        int bossCycleIndex = currentWave / (wavesPerCycle + 1);
+        int bossIndex = bossCycleIndex % miniBossPrefabs.Count;
+
+        GameObject selectedBoss = miniBossPrefabs[bossIndex];
+
+        GameObject bossGO = Instantiate(
+            selectedBoss,
+            new Vector3(0, 7f, 0),
+            Quaternion.identity
+        );
+
         Enemigo boss = bossGO.GetComponent<Enemigo>();
 
         if (boss != null)
         {
             boss.ConfigureByCycle(currentWave);
             boss.OnEnemyDied += OnMiniBossDied;
-            // Lanzamos la entrada épica
+
             StartCoroutine(BossEntranceSequence(boss));
         }
     }
 
-    private ParticleSystem CreateBossAura(Transform parent)
-    {
-        GameObject psGO = new GameObject("BossAura");
-        psGO.transform.SetParent(parent);
-        psGO.transform.localPosition = Vector3.zero;
-        psGO.transform.localRotation = Quaternion.identity;
-
-        ParticleSystem ps = psGO.AddComponent<ParticleSystem>();
-        var main = ps.main;
-        main.startLifetime = 1.5f;
-        main.startSpeed = 0f;
-        main.startSize = 1f;
-        main.loop = true;
-        main.playOnAwake = false;
-        main.simulationSpace = ParticleSystemSimulationSpace.World;
-
-        var emission = ps.emission;
-        emission.rateOverTime = 20f;
-
-        var shape = ps.shape;
-        shape.shapeType = ParticleSystemShapeType.Sphere;
-        shape.radius = 1f;
-
-        var colorOverLifetime = ps.colorOverLifetime;
-        colorOverLifetime.enabled = true;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.red, 0f), new GradientColorKey(Color.yellow, 1f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(0.6f, 0f), new GradientAlphaKey(0f, 1f) }
-        );
-        colorOverLifetime.color = gradient;
-
-        var renderer = ps.GetComponent<ParticleSystemRenderer>();
-        renderer.material = new Material(Shader.Find("Particles/Standard Unlit"));
-
-        return ps;
-    }
 
     private IEnumerator BossEntranceSequence(Enemigo boss)
     {

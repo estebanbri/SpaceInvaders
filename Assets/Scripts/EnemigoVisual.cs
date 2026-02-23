@@ -11,6 +11,14 @@ public class EnemigoVisual : MonoBehaviour
 
     public Action OnAttackFrame;
 
+    // 🔵 NUEVOS EVENTOS (NO QUITA NADA EXISTENTE)
+    public Action OnPreAttackFinished;
+    public Action OnAttackFinished;
+    public Action OnRecoverFinished;
+    public Action OnRecoverStarted;
+    public Action OnIdleFinished;
+    public Action OnPreAttackStarted;
+
     [Header("Knockback")]
     [SerializeField] private float knockbackRecoverSpeed = 8f;
     [SerializeField] private float knockbackForce = 0.3f;
@@ -89,43 +97,40 @@ public class EnemigoVisual : MonoBehaviour
         if (isDying) return;
 
         isDying = true;
-        StartCoroutine(BossDeathSequence());
+
+        if (enemigo.IsBoss)
+            StartCoroutine(BossDeathSequence());
+
+        animator.SetBool("IsDead", true);
     }
 
     private IEnumerator BossDeathSequence()
     {
-        // 1️⃣ Mini freeze dramático
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.08f);
         Time.timeScale = 1f;
 
-        // 2️⃣ Flash fuerte
         SetFlash(1f);
         yield return new WaitForSeconds(0.15f);
         SetFlash(0f);
 
-        // 3️⃣ Desactivar animator si existe
         if (animator != null)
             animator.enabled = false;
 
-        // 4️⃣ Explosiones pequeñas distribuidas
         for (int i = 0; i < smallExplosionCount; i++)
         {
             SpawnSmallExplosion();
             yield return new WaitForSeconds(0.15f);
         }
 
-        // 5️⃣ Apagar partes visuales
         foreach (var sr in spriteRenderers)
             sr.enabled = false;
 
-        // 6️⃣ Explosión grande final
         if (bigExplosionPrefab != null)
             Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(0.8f);
 
-        // 7️⃣ Destruir enemigo real
         if (enemigo != null)
             Destroy(enemigo.gameObject);
     }
@@ -145,5 +150,64 @@ public class EnemigoVisual : MonoBehaviour
     public void PerformAttack()
     {
         OnAttackFrame?.Invoke();
+    }
+
+    public void OnDeathAnimationFinished()
+    {
+        enemigo.OnDeathAnimationFinished();
+    }
+
+    public void OnRecoverAnimation()
+    {
+        enemigo.SetVulnerable(!enemigo.IsVulnerable);
+    }
+
+    // 🔵 NUEVOS MÉTODOS PARA SINCRONIZAR CON BOSS FIXED
+    // (SE USAN COMO ANIMATION EVENTS)
+
+    public void PreAttackFinished()
+    {
+        OnPreAttackFinished?.Invoke();
+    }
+
+    public void IdleFinished()
+    {
+        OnIdleFinished?.Invoke();
+    }
+
+    public void AttackFinished()
+    {
+        OnAttackFinished?.Invoke();
+    }
+
+    public void RecoverStarted()
+    {
+        OnRecoverStarted?.Invoke();
+    }
+
+    public void RecoverFinished()
+    {
+        Debug.Log("RECOVER FINISHED EVENT REAL");
+        OnRecoverFinished?.Invoke();
+    }
+
+    public void PreAttackStarted()
+    {
+        OnPreAttackStarted?.Invoke();
+    }
+
+    public void PlayPreAttack()
+    {
+        animator.SetTrigger("PreAttack");
+    }
+
+    public void PlayAttack()
+    {
+        animator.SetTrigger("Attack");
+    }
+
+    public void PlayRecover()
+    {
+        animator.SetTrigger("Recover");
     }
 }

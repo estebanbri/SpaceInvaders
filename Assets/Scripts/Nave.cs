@@ -118,7 +118,7 @@ public class Nave : MonoBehaviour, IDamageable
         return weaponController; 
     }
 
-    public void TakeDamage(int cantidadDeVidasQuitadas, Vector3? attackerPos, bool isCritical = false)
+    public void TakeDamage(int damageAmount, Vector3? attackerPos, bool isCritical = false)
     {
         if (isDead) return;
 
@@ -128,7 +128,7 @@ public class Nave : MonoBehaviour, IDamageable
             return;
         }
 
-        Morir(cantidadDeVidasQuitadas);
+        Morir();
     }
 
     public void OnEscudoAnimationDestroyedFinished()

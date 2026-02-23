@@ -5,29 +5,27 @@ using UnityEngine;
 public class BossFixed : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Animator animator;
     [SerializeField] private Enemigo enemigoComponent;
     [SerializeField] private EnemigoVisual enemigoVisualComponent;
     [SerializeField] private GameObject indicatorPrefab;
+    [SerializeField] private GameObject fuegoPrefab;
+    [SerializeField] private GameObject muzzleDer;
+    [SerializeField] private GameObject muzzleIzq;
 
     [Header("Attack Settings")]
-    [SerializeField] private float warnTime = 0.7f;
-    [SerializeField] private float attackCooldown = 1.2f;
     [SerializeField] private int maxCombo = 2;
     [SerializeField] private int damageAmountToPlayer = 1;
-    [SerializeField] private GameObject fuegoPrefab; // Prefab del Particle System
-
-    [Header("Difficulty Scaling")]
-    [SerializeField] private float attackSpeedMultiplier = 1.0f;
 
     private Transform player;
-    private Coroutine attackCoroutine;
     private GameObject currentIndicator;
+
+    private int comboRemaining;
 
     private void Awake()
     {
         if (enemigoComponent == null)
             enemigoComponent = GetComponent<Enemigo>();
+
         enemigoComponent.SetVulnerable(false);
     }
 
@@ -35,124 +33,161 @@ public class BossFixed : MonoBehaviour
     {
         player = Nave.Instance.transform;
 
-        enemigoVisualComponent.OnAttackFrame += PerformAttack;
         enemigoComponent.OnEnemyDied += OnBossDied;
 
-        attackCoroutine = StartCoroutine(AttackLoop());
+        enemigoVisualComponent.OnPreAttackStarted += HandlePreAttackStarted;
+        enemigoVisualComponent.OnPreAttackFinished += HandlePreAttackFinished;
+        enemigoVisualComponent.OnAttackFinished += HandleAttackFinished;
+        enemigoVisualComponent.OnRecoverStarted += HandleRecoverStarted;
+        enemigoVisualComponent.OnRecoverFinished += HandleRecoverFinished;
+        enemigoVisualComponent.OnIdleFinished += HandleIdleFinished;
+        enemigoVisualComponent.OnAttackFrame += PerformAttack;
     }
 
-    private void OnBossDied()
+    public void HandlePreAttackStarted()
+    {
+        SpawnIndicator();
+    }
+
+    public void HandleIdleFinished()
+    {
+
+        enemigoVisualComponent.PlayPreAttack();
+        StartNewCombo();
+    }
+
+    private void StartNewCombo()
+    {
+        comboRemaining = Random.Range(1, maxCombo + 1);
+        StartPreAttack();
+    }
+
+    private void StartPreAttack()
+    {
+        
+        SpawnIndicator();
+    }
+
+    private void HandlePreAttackFinished()
+    {
+        enemigoVisualComponent.PlayAttack();
+    }
+
+    private void HandleAttackFinished()
+    {
+        enemigoVisualComponent.PlayRecover();
+    }
+
+    private void HandleRecoverStarted()
+    {
+        enemigoComponent.SetVulnerable(true);
+    }
+
+    private void HandleRecoverFinished()
+    {
+        enemigoComponent.SetVulnerable(false);
+
+        comboRemaining--;
+
+
+        if (comboRemaining > 0)
+        {
+            StartPreAttack();
+        }
+    }
+    private void SpawnIndicator()
     {
         if (currentIndicator != null)
             Destroy(currentIndicator);
 
-        if (attackCoroutine != null)
-            StopCoroutine(attackCoroutine);
+        Vector3 spawnPos = player.position;
+        spawnPos.z = 0;
+
+        currentIndicator = Instantiate(indicatorPrefab, spawnPos, Quaternion.identity);
     }
 
-    private IEnumerator AttackLoop()
+    private void PerformAttack()
     {
-        while (enemigoComponent.CurrentHealth > 0)
+        FireFlash();
+
+        if (fuegoPrefab != null && currentIndicator != null)
         {
-            yield return new WaitForSeconds(attackCooldown / attackSpeedMultiplier);
-
-            int combo = Random.Range(1, maxCombo + 1);
-
-            for (int i = 0; i < combo; i++)
-            {
-                animator.SetTrigger("PreAttack");
-
-                // ---------- INDICADOR ----------
-                if (currentIndicator != null)
-                    Destroy(currentIndicator);
-
-                // Tomamos la posición actual del jugador para fijar el indicador en el piso
-                Vector3 spawnPos = player.position;
-                spawnPos.z = 0;
-
-                currentIndicator = Instantiate(
-                    indicatorPrefab,
-                    spawnPos,
-                    Quaternion.identity // círculo no necesita rotación
-                );
-
-                // Esperamos el warnTime sin mover el indicador
-                yield return new WaitForSeconds(warnTime / attackSpeedMultiplier);
-
-                // ---------- ATAQUE ----------
-                animator.SetTrigger(Random.value > 0.5f ? "AttackRight" : "AttackLeft");
-                yield return new WaitForSeconds(0.7f / attackSpeedMultiplier);
-
-                animator.SetTrigger("Recover");
-                Debug.Log("Boss es vulnerable!");
-                enemigoComponent.SetVulnerable(true);
-                yield return new WaitForSeconds(2f / attackSpeedMultiplier);
-                enemigoComponent.SetVulnerable(false);
-                Debug.Log("Boss no vulnerable!");
-
-            }
-        }
-    }
-
-
-    // ⚠ Se ejecuta por Animation Event
-    public void PerformAttack()
-    {
-        if (currentIndicator == null)
-            return;
-
-        // ---------- Instanciar fuego ----------
-        if (fuegoPrefab != null)
-        {
-            GameObject fuego = Instantiate(
+            GameObject fuegoInstance = Instantiate(
                 fuegoPrefab,
                 currentIndicator.transform.position,
                 Quaternion.identity
             );
 
-            ParticleSystem ps = fuego.GetComponent<ParticleSystem>();
+            ParticleSystem ps = fuegoInstance.GetComponent<ParticleSystem>();
+
             if (ps != null)
-                Destroy(fuego, ps.main.duration);
+                Destroy(fuegoInstance, ps.main.duration);
             else
-                Destroy(fuego, 1f);
+                Destroy(fuegoInstance, 1f);
         }
 
-        // ---------- Detectar jugador ----------
+        DetectPlayerHit();
+
+        if (currentIndicator != null)
+        {
+            Destroy(currentIndicator);
+            currentIndicator = null;
+        }
+    }
+
+    private void DetectPlayerHit()
+    {
+        if (currentIndicator == null) return;
+
         CircleCollider2D circle = currentIndicator.GetComponent<CircleCollider2D>();
-        if (circle == null)
-            return;
+        if (circle == null) return;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             circle.bounds.center,
             circle.radius
         );
 
-        bool playerHit = false;
         foreach (var hit in hits)
         {
             Nave nave = hit.GetComponent<Nave>();
             if (nave != null)
             {
                 nave.TakeDamage(damageAmountToPlayer, transform.position);
-                playerHit = true;
                 break;
             }
         }
-
-        // ---------- Logs ----------
-        if (playerHit)
-            Debug.Log("Jugador dentro del rango REAL del indicador!");
-        else
-            Debug.Log("Jugador esquivó!");
-
-        // ---------- Limpiar indicador ----------
-        Destroy(currentIndicator);
-        currentIndicator = null;
     }
 
-    public void SetAttackSpeedMultiplier(float multiplier)
+    public void OnIdleFinished()
     {
-        attackSpeedMultiplier = Mathf.Max(0.5f, multiplier);
+        if (!enemigoComponent.IsDead)
+            return;
+
+        StartNewCombo();
+    }
+
+    private void FireFlash()
+    {
+        StartCoroutine(MuzzleFlashRoutine());
+    }
+
+    private IEnumerator MuzzleFlashRoutine()
+    {
+        if (muzzleDer != null) muzzleDer.SetActive(true);
+        if (muzzleIzq != null) muzzleIzq.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (muzzleDer != null) muzzleDer.SetActive(false);
+        if (muzzleIzq != null) muzzleIzq.SetActive(false);
+    }
+
+    private void OnBossDied()
+    {
+        StopAllCoroutines();
+
+        if (currentIndicator != null)
+            Destroy(currentIndicator);
     }
 
     private void OnDestroy()
@@ -161,19 +196,12 @@ public class BossFixed : MonoBehaviour
             enemigoComponent.OnEnemyDied -= OnBossDied;
 
         if (enemigoVisualComponent != null)
-            enemigoVisualComponent.OnAttackFrame -= PerformAttack;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (currentIndicator != null)
         {
-            CircleCollider2D circle = currentIndicator.GetComponent<CircleCollider2D>();
-            if (circle != null)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(circle.bounds.center, circle.radius);
-            }
+            enemigoVisualComponent.OnPreAttackFinished -= HandlePreAttackFinished;
+            enemigoVisualComponent.OnAttackFinished -= HandleAttackFinished;
+            enemigoVisualComponent.OnRecoverStarted -= HandleRecoverStarted;
+            enemigoVisualComponent.OnRecoverFinished -= HandleRecoverFinished;
+            enemigoVisualComponent.OnAttackFrame -= PerformAttack;
         }
     }
 }
