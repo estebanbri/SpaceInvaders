@@ -28,6 +28,9 @@ public class LevelManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI waveAnnouncementText;
+    [SerializeField] private float announcementDuration = 1.5f;
+
 
     [Header("Grid Limits")]
     [SerializeField] private float horizontalSpacing = 1.5f;
@@ -70,29 +73,47 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // StartWave();
+        StartCoroutine(AnnounceWaveAndStart());
     }
-
-    private void StartWave()
+    private IEnumerator AnnounceWaveAndStart()
     {
-        UpdateWaveUI();
+        int cycleSize = wavesPerCycle + 1;
+        int waveInCycle = ((currentWave - 1) % cycleSize) + 1;
+        int cycleNumber = ((currentWave - 1) / cycleSize) + 1;
+        string message;
 
-        if (activeFormation != null)
+        if (waveInCycle == cycleSize)
+            message = "BOSS";
+        else
+            message = "CYCLE " + cycleNumber + "  -  WAVE " + waveInCycle + " / " + wavesPerCycle;
+
+        // Actualizar texto superior permanente
+        waveText.text = message;
+
+        // Mostrar texto grande central
+        waveAnnouncementText.text = message;
+        waveAnnouncementText.gameObject.SetActive(true);
+
+        // Animación simple: escala
+        waveAnnouncementText.transform.localScale = Vector3.zero;
+        float t = 0;
+
+        while (t < 0.3f)
         {
-            activeFormation.OnFormationCleared = null;
-            Destroy(activeFormation.gameObject);
-            activeFormation = null;
+            t += Time.deltaTime * 4f;
+            waveAnnouncementText.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+            yield return null;
         }
 
-        if (IsMiniBossWave())
+        yield return new WaitForSeconds(announcementDuration);
+
+        waveAnnouncementText.gameObject.SetActive(false);
+
+        // Ahora sí empieza la wave
+        if (waveInCycle == cycleSize)
             SpawnMiniBoss();
         else
             SpawnProceduralFormation();
-    }
-
-    private bool IsMiniBossWave()
-    {
-        return currentWave % (wavesPerCycle + 1) == 0;
     }
 
     public void StartInterwave()
@@ -155,7 +176,7 @@ public class LevelManager : MonoBehaviour
         }
 
         currentWave++;
-        StartWave();
+        StartCoroutine(AnnounceWaveAndStart());
     }
 
     private IEnumerator StartAsteroidInterWave()
@@ -390,12 +411,7 @@ public class LevelManager : MonoBehaviour
             bonusBoxSpawner.Spawn(GetBonusSpawnPosition());
 
         currentWave++;
-        StartWave();
-    }
-
-    private void UpdateWaveUI()
-    {
-        waveText.text = "WAVE " + currentWave;
+        StartCoroutine(AnnounceWaveAndStart());
     }
 
     public int GetCurrentWave()

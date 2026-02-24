@@ -4914,7 +4914,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 30
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 5411eb46a7a68fd40801ee353f7ff78b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10211,8 +10211,7 @@ MonoBehaviour:
   knockbackRecoverSpeed: 8
   knockbackForce: 0.3
   explosionPrefab: {fileID: 2625075329096207270, guid: 32336663353bc514ebc19a55eec8e636, type: 3}
-  explosionCount: 6
-  deathDuration: 2
+  explosionCount: 12
 --- !u!1001 &1289772128055009215
 PrefabInstance:
   m_ObjectHideFlags: 0
