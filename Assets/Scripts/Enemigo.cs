@@ -12,6 +12,7 @@ public class Enemigo : MonoBehaviour, IDamageable
     [Header("Combat")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private WeaponController weaponController;
+
     public WeaponController GetWeaponController => weaponController;
 
     [Header("Boss")]

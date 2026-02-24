@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14b8ecca6f993c4a8af334a89d70e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  weaponDefault: {fileID: 11400000, guid: 3d58e34fbe5d9f647aed4f92189bfcfb, type: 2}
-  muzzleFlash: {fileID: 0}
-  autoAimAtPlayer: 1
+  weaponDefault: {fileID: 11400000, guid: 50eac0fed7436f14bb0c19b5a365880d, type: 2}
+  autoAimAtPlayer: 0

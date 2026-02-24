@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1544614461114890403}
   - component: {fileID: 8661697483197339043}
-  - component: {fileID: 5497876417841603187}
   - component: {fileID: 4910451651317881512}
   m_Layer: 0
   m_Name: SmallExplosion
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 25
-  m_Sprite: {fileID: -1596682230, guid: 5913a36db27c77444ad879ca32101d45, type: 3}
+  m_Sprite: {fileID: -1021955446532554189, guid: 094ba2050e3b1204a81de87df7186974, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,28 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5497876417841603187
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2625075329096207270}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d2b0fce5584255d47b91749ff41db889, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4910451651317881512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +103,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa54854aab1578546aca10c71ff442f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  lifetime: 0.1

@@ -5,6 +5,7 @@ public class WeaponInstance
     private WeaponDefinition weaponDef;
     private ShotPatternBase shotPattern;
     private FactionType faction;
+    private WeaponMuzzleFlash muzzleFlash;
 
     public float AmmoSpeed { get; private set; }
     public float FireRate { get; private set; }
@@ -15,12 +16,12 @@ public class WeaponInstance
     // Parámetro opcional: cuánto variar el FireRate en porcentaje (0.2 = ±20%)
     private const float fireRateVariation = 0.2f;
 
-    public WeaponInstance(WeaponDefinition def, int cycle, FactionType faction, bool applyTierScaling = true)
+    public WeaponInstance(WeaponDefinition def, int cycle, FactionType faction, WeaponMuzzleFlash muzzleFlashPrefab, bool applyTierScaling = true) 
     {
         weaponDef = def;
         shotPattern = def.shotPattern;
         this.faction = faction;
-
+        muzzleFlash = muzzleFlashPrefab;
         if (applyTierScaling && shotPattern != null)
         {
             int baseBullets = Mathf.Max(1, Mathf.RoundToInt(def.bulletCount));
@@ -56,6 +57,9 @@ public class WeaponInstance
         nextFireTime = Time.time + randomizedFireRate;
 
         shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
+        // 🔥 Muzzle exacto en el momento real del disparo
+        muzzleFlash?.Play();
+
     }
 
     public void Fire(Quaternion rotation, Vector3 position)
@@ -72,6 +76,8 @@ public class WeaponInstance
         temp.transform.rotation = rotation;
 
         shotPattern.Fire(weaponDef.ammoPrefab, temp.transform, AmmoSpeed, faction);
+        // 🔥 Muzzle exacto en el momento real del disparo
+        muzzleFlash?.Play();
         GameObject.Destroy(temp);
     }
 
@@ -79,6 +85,8 @@ public class WeaponInstance
     {
         // 🔹 Ignora nextFireTime
         shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
+        // 🔥 Muzzle exacto en el momento real del disparo
+        muzzleFlash?.Play();
     }
     public void FireImmediate(Quaternion rotation, Vector3 position)
     {
@@ -87,6 +95,8 @@ public class WeaponInstance
         temp.transform.rotation = rotation;
 
         shotPattern.Fire(weaponDef.ammoPrefab, temp.transform, AmmoSpeed, faction);
+        // 🔥 Muzzle exacto en el momento real del disparo
+        muzzleFlash?.Play();
         GameObject.Destroy(temp);
     }
 

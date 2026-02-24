@@ -99,9 +99,22 @@ public class EnemigoVisual : MonoBehaviour
         isDying = true;
 
         if (enemigo.IsBoss)
+        {
             StartCoroutine(BossDeathSequence());
+        }
+        else
+        {
+            StartCoroutine(PlayDeathForNonBoss());
+        }
 
-        animator.SetBool("IsDead", true);
+        // animator.SetBool("IsDead", true);
+    }
+
+    private IEnumerator PlayDeathForNonBoss()
+    {
+        SpawnSmallExplosion();
+        Destroy(gameObject);
+        yield return null;
     }
 
     private IEnumerator BossDeathSequence()
@@ -135,14 +148,12 @@ public class EnemigoVisual : MonoBehaviour
             Destroy(enemigo.gameObject);
     }
 
-    private void SpawnSmallExplosion()
+    private GameObject SpawnSmallExplosion()
     {
-        if (smallExplosionPrefab == null) return;
+        if (smallExplosionPrefab == null) return null;
 
-        Vector3 randomOffset = UnityEngine.Random.insideUnitCircle * 2f;
-        Instantiate(smallExplosionPrefab,
-                    transform.position + randomOffset,
-                    Quaternion.identity);
+        GameObject explosion = Instantiate(smallExplosionPrefab, transform.position, Quaternion.identity);
+        return explosion;
     }
 
     #endregion
@@ -150,11 +161,6 @@ public class EnemigoVisual : MonoBehaviour
     public void PerformAttack()
     {
         OnAttackFrame?.Invoke();
-    }
-
-    public void OnDeathAnimationFinished()
-    {
-        enemigo.OnDeathAnimationFinished();
     }
 
     public void OnRecoverAnimation()
@@ -187,7 +193,6 @@ public class EnemigoVisual : MonoBehaviour
 
     public void RecoverFinished()
     {
-        Debug.Log("RECOVER FINISHED EVENT REAL");
         OnRecoverFinished?.Invoke();
     }
 

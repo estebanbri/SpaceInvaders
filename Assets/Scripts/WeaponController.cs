@@ -30,11 +30,11 @@ public class WeaponController : MonoBehaviour
         // Aplica wave scaling solo si hay ShotPattern
         if (temp.shotPattern != null)
         {
-            currentWeapon = new WeaponInstance(temp, cycle, factionComponent?.Faction ?? FactionType.Player);
+            currentWeapon = new WeaponInstance(temp, cycle, factionComponent?.Faction ?? FactionType.Player, muzzleFlash);
         }
         else
         {
-            currentWeapon = new WeaponInstance(temp, 0, factionComponent?.Faction ?? FactionType.Player, applyTierScaling: false);
+            currentWeapon = new WeaponInstance(temp, 0, factionComponent?.Faction ?? FactionType.Player, muzzleFlash, applyTierScaling: false);
         }
     }
 
