@@ -24,10 +24,8 @@ public class EnemigoVisual : MonoBehaviour
     [SerializeField] private float knockbackForce = 0.3f;
 
     [Header("Boss Death FX")]
-    [SerializeField] private GameObject smallExplosionPrefab;
-    [SerializeField] private GameObject bigExplosionPrefab;
-    [SerializeField] private int smallExplosionCount = 6;
-    [SerializeField] private float deathDuration = 2f;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private int explosionCount = 6;
 
     private Coroutine hitCoroutine;
     private float flashDuration = 0.03f;
@@ -106,54 +104,48 @@ public class EnemigoVisual : MonoBehaviour
         {
             StartCoroutine(PlayDeathForNonBoss());
         }
-
-        // animator.SetBool("IsDead", true);
     }
 
     private IEnumerator PlayDeathForNonBoss()
     {
-        SpawnSmallExplosion();
+        SpawnExplosion();
         Destroy(gameObject);
         yield return null;
     }
 
     private IEnumerator BossDeathSequence()
     {
-        Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(0.08f);
-        Time.timeScale = 1f;
 
-        SetFlash(1f);
-        yield return new WaitForSeconds(0.15f);
-        SetFlash(0f);
-
-        if (animator != null)
-            animator.enabled = false;
-
-        for (int i = 0; i < smallExplosionCount; i++)
+        for (int i = 0; i < explosionCount; i++)
         {
-            SpawnSmallExplosion();
+            SpawnExplosion(1.5f);
             yield return new WaitForSeconds(0.15f);
         }
 
         foreach (var sr in spriteRenderers)
+        {
+            sr.sortingOrder = -10; // o algo menor que la explosión
             sr.enabled = false;
-
-        if (bigExplosionPrefab != null)
-            Instantiate(bigExplosionPrefab, transform.position, Quaternion.identity);
-
-        yield return new WaitForSeconds(0.8f);
+        }
+            
 
         if (enemigo != null)
             Destroy(enemigo.gameObject);
     }
 
-    private GameObject SpawnSmallExplosion()
+    private GameObject SpawnExplosion(float radius = 0f)
     {
-        if (smallExplosionPrefab == null) return null;
+        if (explosionPrefab == null) return null;
 
-        GameObject explosion = Instantiate(smallExplosionPrefab, transform.position, Quaternion.identity);
-        return explosion;
+        Vector3 spawnPosition = transform.position;
+
+        if (radius > 0f)
+        {
+            Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * radius;
+            spawnPosition += (Vector3)randomOffset;
+        }
+
+        return Instantiate(explosionPrefab, spawnPosition, Quaternion.identity);
     }
 
     #endregion

@@ -331,9 +331,8 @@ MonoBehaviour:
   enemigo: {fileID: 5042651987578534612}
   knockbackRecoverSpeed: 12
   knockbackForce: 0.15
-  smallExplosionPrefab: {fileID: 2625075329096207270, guid: 32336663353bc514ebc19a55eec8e636, type: 3}
-  bigExplosionPrefab: {fileID: 0}
-  smallExplosionCount: 6
+  explosionPrefab: {fileID: 2625075329096207270, guid: 32336663353bc514ebc19a55eec8e636, type: 3}
+  explosionCount: 6
   deathDuration: 2
 --- !u!1 &7593987266153580037
 GameObject:

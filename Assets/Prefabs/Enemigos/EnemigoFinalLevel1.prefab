@@ -5242,6 +5242,9 @@ MonoBehaviour:
   enemigo: {fileID: 5042651987578534612}
   knockbackRecoverSpeed: 8
   knockbackForce: 0.3
+  explosionPrefab: {fileID: 2625075329096207270, guid: 32336663353bc514ebc19a55eec8e636, type: 3}
+  explosionCount: 6
+  deathDuration: 2
 --- !u!95 &6772557345039842202
 Animator:
   serializedVersion: 7
