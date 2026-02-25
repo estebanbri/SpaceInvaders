@@ -353,4 +353,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAmmoVisual
   flyingSprite: {fileID: 8033924499333487859, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
-  impactSprite: {fileID: -5606463968545584303, guid: 19a4368a46140274e889985a3beaf549, type: 3}
+  impactSprite: {fileID: -5751677616433721717, guid: 19a4368a46140274e889985a3beaf549, type: 3}

@@ -4939,8 +4939,8 @@ GameObject:
   - component: {fileID: 8414357587833712874}
   - component: {fileID: 409232825270252205}
   - component: {fileID: 5069923401530876921}
-  - component: {fileID: 3490253336614153872}
   - component: {fileID: 6755258114429043659}
+  - component: {fileID: 3506929122538628085}
   m_Layer: 0
   m_Name: BossFixedAlien
   m_TagString: Untagged
@@ -5058,8 +5058,33 @@ MonoBehaviour:
   muzzleIzq: {fileID: 5503433190250572242}
   maxCombo: 2
   damageAmountToPlayer: 1
---- !u!58 &3490253336614153872
-CircleCollider2D:
+--- !u!114 &6755258114429043659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720555399967058024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493b7dd1db4e01b4f9f0b7ad3eef2e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossMovement
+  enterOffset: 1
+  enterSpeed: 3
+  moveSpeed: 3
+  verticalAmplitude: 0.5
+  verticalFrequency: 1
+  minCircleRadius: 2.5
+  maxCircleRadius: 4.5
+  minCircleDuration: 2.5
+  maxCircleDuration: 4
+  minTimeBetweenCircles: 6
+  maxTimeBetweenCircles: 12
+  bobAmplitude: 0.3
+  bobFrequency: 3
+--- !u!61 &3506929122538628085
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5088,37 +5113,22 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.012813568, y: -0.012813628}
-  m_Radius: 0.6793905
---- !u!114 &6755258114429043659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720555399967058024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493b7dd1db4e01b4f9f0b7ad3eef2e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossMovement
-  enterOffset: 1
-  enterSpeed: 3
-  moveSpeed: 3
-  verticalAmplitude: 0.5
-  verticalFrequency: 1
-  minCircleRadius: 2.5
-  maxCircleRadius: 4.5
-  minCircleDuration: 2.5
-  maxCircleDuration: 4
-  minTimeBetweenCircles: 6
-  maxTimeBetweenCircles: 12
-  bobAmplitude: 0.3
-  bobFrequency: 3
+  m_Offset: {x: -0.013908029, y: 0.12517095}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.773278, y: 1.0945737}
+  m_EdgeRadius: 0
 --- !u!1 &5503433190250572242
 GameObject:
   m_ObjectHideFlags: 0
