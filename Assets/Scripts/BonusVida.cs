@@ -5,7 +5,7 @@ public class BonusVida : BonusDefinition
 {
     public override void Apply()
     {
-        GameManager.Instance.AddVida();
+        // GameManager.Instance.AddVida();
     }
 
     public override void Remove()

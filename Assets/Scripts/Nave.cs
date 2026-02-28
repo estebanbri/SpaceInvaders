@@ -73,11 +73,8 @@ public class Nave : MonoBehaviour, IDamageable
 
     private void OnDeath(int cantidadDeVidasQuitadas)
     {
-        bool isDead = GameManager.Instance.OnPlayerDeath(this, cantidadDeVidasQuitadas);
-        if (isDead)
-        {
-            naveVisualComponent.playDeathEffect();
-        }
+        // bool isDead = GameManager.Instance.OnPlayerDeath(this, cantidadDeVidasQuitadas);
+        naveVisualComponent.playDeathEffect();
     }
 
     public void Respawn() {

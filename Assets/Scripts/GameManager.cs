@@ -1,88 +1,75 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private int livesInitial = 4;
-    [SerializeField] private int livesMax = 4;
-    [SerializeField] private RunTimer runTimer;
+    public GameState CurrentState { get; private set; }
+
     private int score;
-    private int livesCurrent;
+
+    [SerializeField] private LevelController levelController;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
-        livesCurrent = livesInitial;
-        UIVidas.Instance.Initialize(livesMax);
-        UIVidas.Instance.SetLives(livesCurrent);
     }
 
     private void Start()
     {
-        runTimer.StartTimer();
+        StartLevel();
     }
 
-    public void AddScore(int points)
+    // -------------------------
+    // LEVEL FLOW
+    // -------------------------
+
+    public void StartLevel()
     {
-        score += points;
+        score = 0;
+        CurrentState = GameState.Playing;
+
+        levelController.StartLevel(OnLevelCompleted);
+    }
+
+    public void OnPlayerDeath()
+    {
+        if (CurrentState != GameState.Playing)
+            return;
+
+        CurrentState = GameState.GameOver;
+
+        levelController.StopLevel();
+    }
+
+    private void OnLevelCompleted()
+    {
+        if (CurrentState != GameState.Playing)
+            return;
+
+        CurrentState = GameState.LevelCompleted;
+
+        levelController.StopLevel();
+    }
+
+    // -------------------------
+    // SCORE SYSTEM
+    // -------------------------
+
+    public void AddScore(int amount)
+    {
+        score += amount;
     }
 
     public int GetScore()
     {
         return score;
-    }
-
-    public bool HasPendingRetries()
-    {
-        return livesCurrent > 0;
-    }
-
-    public int GetRetryCount()
-    {
-        return livesCurrent;
-    }
-
-    public bool IsFullVidas() {
-        return livesCurrent == livesMax;
-    }
-
-    public void DecreaseRetry(int cantidadDeVidasQuitadas)
-    {
-        livesCurrent -= cantidadDeVidasQuitadas;
-        UIVidas.Instance.SetLives(livesCurrent);
-        if (livesCurrent <= 0)
-        {
-            Debug.Log("Game Over!");
-            // Aquí podrías agregar lógica para reiniciar el juego o mostrar una pantalla de Game Over
-        }
-    }
-
-    public void GameOver()
-    {
-        Debug.Log("GAMEOVER!");
-        runTimer.StopTimer();
-    }
-
-    public void AddVida()
-    {
-        if (livesCurrent >= livesMax) return;
-        livesCurrent++;
-        UIVidas.Instance.SetLives(livesCurrent);
-    }
-
-    public bool OnPlayerDeath(Nave nave, int cantidadDeVidasQuitadas)
-    {
-        DecreaseRetry(cantidadDeVidasQuitadas);
-
-        if (HasPendingRetries()) {
-            nave.Respawn();
-        } else {
-            GameOver();
-            return true;
-        }
-        return false;
     }
 
     public bool CanAfford(int cost)
@@ -97,5 +84,14 @@ public class GameManager : MonoBehaviour
 
         score -= cost;
         return true;
+    }
+
+    // -------------------------
+    // UTILITIES
+    // -------------------------
+
+    public bool IsPlaying()
+    {
+        return CurrentState == GameState.Playing;
     }
 }

@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 8092928041683358142}
   - component: {fileID: 3646068992520237172}
   - component: {fileID: 4999347253907467278}
+  - component: {fileID: 7638810859685239795}
   m_Layer: 0
   m_Name: EnemigoShooter
   m_TagString: Untagged
@@ -320,13 +321,6 @@ MonoBehaviour:
   burstInterval: 1
   minWaitTime: 1
   maxWaitTime: 2
-  moveDuration: 1
-  kamikazeSpeed: 6
-  returnSpeed: 4
-  returnDuration: 1.2
-  attackDuration: 1.5
-  curveHeight: 2
-  moveSpeed: 5
 --- !u!114 &5348782021209770510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +419,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.4002595, y: 2.0951238}
   m_EdgeRadius: 0
+--- !u!114 &7638810859685239795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21bebef65d8c404eb69fa652d7bb512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemigoPathFollower
 --- !u!1 &7848449352323896957
 GameObject:
   m_ObjectHideFlags: 0
