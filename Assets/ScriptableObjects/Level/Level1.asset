@@ -15,16 +15,14 @@ MonoBehaviour:
   spawnEvents:
   - startTime: 0
     enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
-    path: {fileID: 11400000, guid: 03acd92a7ceff834893dade770251c4e, type: 2}
+    path: {fileID: 5491504176747997155, guid: 5ab8e52480643eb43bb652f54c5a9b84, type: 3}
     quantity: 10
     spawnInterval: 0.5
-    horizontalSpacing: 1.5
     hasStarted: 1
   - startTime: 6
     enemyPrefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
-    path: {fileID: 11400000, guid: 03acd92a7ceff834893dade770251c4e, type: 2}
+    path: {fileID: 5491504176747997155, guid: 5ab8e52480643eb43bb652f54c5a9b84, type: 3}
     quantity: 3
-    spawnInterval: 0
-    horizontalSpacing: 1.5
-    hasStarted: 0
+    spawnInterval: 1
+    hasStarted: 1
   bossPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}

@@ -7,7 +7,7 @@ public class SpawnEvent
 
     public GameObject enemyPrefab;
 
-    public PathData path;
+    public PathComponent path;
 
     public int quantity = 5;
     public float spawnInterval = 0.2f;
