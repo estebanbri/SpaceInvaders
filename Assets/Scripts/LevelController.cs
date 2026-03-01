@@ -97,21 +97,29 @@ public class LevelController : MonoBehaviour
 
         float margin = 0.5f;
 
+        Bounds pathBounds = path.GetBounds();
+
         Vector2 offset = Vector2.zero;
 
         if (path.orientation == PathOrientation.Horizontal)
         {
-            offset.y = UnityEngine.Random.Range(
-                -halfHeight + margin,
-                 halfHeight - margin
-            );
+            float pathTop = pathBounds.max.y;
+            float pathBottom = pathBounds.min.y;
+
+            float minOffset = -halfHeight - pathBottom + margin;
+            float maxOffset = halfHeight - pathTop - margin;
+
+            offset.y = UnityEngine.Random.Range(minOffset, maxOffset);
         }
         else if (path.orientation == PathOrientation.Vertical)
         {
-            offset.x = UnityEngine.Random.Range(
-                -halfWidth + margin,
-                 halfWidth - margin
-            );
+            float pathRight = pathBounds.max.x;
+            float pathLeft = pathBounds.min.x;
+
+            float minOffset = -halfWidth - pathLeft + margin;
+            float maxOffset = halfWidth - pathRight - margin;
+
+            offset.x = UnityEngine.Random.Range(minOffset, maxOffset);
         }
 
         return offset;

@@ -18,6 +18,28 @@ public class PathComponent : MonoBehaviour
         return points;
     }
 
+    public Bounds GetBounds()
+    {
+        Vector2[] points = GetWaypoints();
+
+        if (points == null || points.Length == 0)
+            return new Bounds(Vector3.zero, Vector3.zero);
+
+        Vector2 min = points[0];
+        Vector2 max = points[0];
+
+        foreach (var p in points)
+        {
+            min = Vector2.Min(min, p);
+            max = Vector2.Max(max, p);
+        }
+
+        Vector2 center = (min + max) / 2f;
+        Vector2 size = max - min;
+
+        return new Bounds(center, size);
+    }
+
     private void OnDrawGizmos()
     {
         if (transform.childCount < 2)

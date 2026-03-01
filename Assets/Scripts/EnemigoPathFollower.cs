@@ -6,6 +6,9 @@ public class EnemigoPathFollower : MonoBehaviour
     private Vector2[] waypoints;
     private float timer;
     private Vector2 pathOffset;
+    private Vector2 previousPosition;
+    public bool rotateToMovement = true;
+    public float rotationOffset = -90f;
 
     public void Initialize(PathComponent path, Vector2 offset)
     {
@@ -16,8 +19,12 @@ public class EnemigoPathFollower : MonoBehaviour
         timer = 0f;
 
         if (waypoints.Length > 0)
+        {
             transform.position = waypoints[0] + pathOffset;
+            previousPosition = transform.position;
+        }
     }
+
 
     private void Update()
     {
@@ -29,8 +36,24 @@ public class EnemigoPathFollower : MonoBehaviour
         float t = timer / pathComponent.duration;
         t = Mathf.Clamp01(t);
 
-        transform.position = EvaluatePath(t);
+        Vector2 newPosition = EvaluatePath(t);
+        transform.position = newPosition;
+
+        if (rotateToMovement)
+        {
+            Vector2 direction = newPosition - previousPosition;
+
+            if (direction.sqrMagnitude > 0.0001f)
+            {
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+            }
+        }
+
+        previousPosition = newPosition;
     }
+
 
     private Vector2 EvaluatePath(float t)
     {
