@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemigoSpawner : MonoBehaviour
 {
@@ -14,12 +14,13 @@ public class EnemigoSpawner : MonoBehaviour
 
     public void SpawnEnemy(
     GameObject prefab,
-    PathComponent path)
+    PathComponent originalPath,
+    Vector2 formationOffset)
     {
         GameObject enemy = Instantiate(prefab);
 
         var follower = enemy.GetComponent<EnemigoPathFollower>();
-        follower.Initialize(path);
+        follower.Initialize(originalPath, formationOffset);
 
         EnemigoManager.Instance.RegisterEnemy();
     }

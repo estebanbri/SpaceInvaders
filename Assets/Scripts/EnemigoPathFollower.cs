@@ -5,15 +5,18 @@ public class EnemigoPathFollower : MonoBehaviour
     private PathComponent pathComponent;
     private Vector2[] waypoints;
     private float timer;
+    private Vector2 pathOffset;
 
-    public void Initialize(PathComponent path)
+    public void Initialize(PathComponent path, Vector2 offset)
     {
         pathComponent = path;
         waypoints = path.GetWaypoints();
+        pathOffset = offset;
+
         timer = 0f;
 
         if (waypoints.Length > 0)
-            transform.position = waypoints[0];
+            transform.position = waypoints[0] + pathOffset;
     }
 
     private void Update()
@@ -42,9 +45,9 @@ public class EnemigoPathFollower : MonoBehaviour
         float localT = scaledT - index;
 
         return Vector2.Lerp(
-            waypoints[index],
-            waypoints[index + 1],
-            localT
-        );
+        waypoints[index],
+        waypoints[index + 1],
+        localT
+        ) + pathOffset;
     }
 }

@@ -72,17 +72,49 @@ public class LevelController : MonoBehaviour
     {
         activeSpawnEvents++;
 
+        Vector2 formationOffset = CalculateFormationOffset(spawnEvent.path);
+
         for (int i = 0; i < spawnEvent.quantity; i++)
         {
             EnemigoSpawner.Instance.SpawnEnemy(
                 spawnEvent.enemyPrefab,
-                spawnEvent.path
+                spawnEvent.path,
+                formationOffset
             );
 
             yield return new WaitForSeconds(spawnEvent.spawnInterval);
         }
 
         activeSpawnEvents--;
+    }
+
+    private Vector2 CalculateFormationOffset(PathComponent path)
+    {
+        Camera cam = Camera.main;
+
+        float halfHeight = cam.orthographicSize;
+        float halfWidth = halfHeight * cam.aspect;
+
+        float margin = 0.5f;
+
+        Vector2 offset = Vector2.zero;
+
+        if (path.orientation == PathOrientation.Horizontal)
+        {
+            offset.y = UnityEngine.Random.Range(
+                -halfHeight + margin,
+                 halfHeight - margin
+            );
+        }
+        else if (path.orientation == PathOrientation.Vertical)
+        {
+            offset.x = UnityEngine.Random.Range(
+                -halfWidth + margin,
+                 halfWidth - margin
+            );
+        }
+
+        return offset;
     }
 
     // =====================================

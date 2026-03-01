@@ -4,6 +4,7 @@ public class PathComponent : MonoBehaviour
 {
     public float duration = 4f;
 
+    public PathOrientation orientation;
     public Vector2[] GetWaypoints()
     {
         int count = transform.childCount;

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathComponent
   duration: 4
+  orientation: 0
 --- !u!1 &6176037213039587375
 GameObject:
   m_ObjectHideFlags: 0
