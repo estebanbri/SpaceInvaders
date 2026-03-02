@@ -29,6 +29,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     private Collider2D col;
     [SerializeField] private MovementController movementController;
 
+    [SerializeField] private float rotationSpeed = 5f;
+
     public bool IsVulnerable { get; private set; } = true;
 
     public EnemyState State { get; private set; }
@@ -66,6 +68,11 @@ public class Enemigo : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
+        if (State == EnemyState.Hovering)
+        {
+            RotateTowardsPlayer();
+        }
+
         if (isBoss && weaponController != null && State == EnemyState.Hovering)
         {
             HandleBossBurstShooting();
@@ -74,6 +81,23 @@ public class Enemigo : MonoBehaviour, IDamageable
         {
             weaponController.TryFire();
         }
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        if (Nave.Instance == null) return;
+
+        Vector2 direction = (Nave.Instance.transform.position - transform.position).normalized;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle + 90f);
+
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
     }
 
     public void TakeDamage(int damageAmount, Vector3? attackerPos, bool isCritical = false)
