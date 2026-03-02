@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class WeaponController : MonoBehaviour
     private FactionComponent factionComponent;
     private WeaponInstance currentWeapon;
     private Nave playerNave;
+    
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    // Nuevo: llamado desde Enemigo para respetar FireRate
     public void Fire()
     {
         if (currentWeapon == null) return;
@@ -54,17 +57,13 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    // Nuevo: llamado desde Enemigo para respetar FireRate
-    public void TryFire()
-    {
-        Fire();
-    }
-
     public void FireImmediate()
     {
         if (currentWeapon == null) return;
         currentWeapon.FireImmediate(transform);
     }
+
+    public WeaponInstance GetCurrentWeapon() => currentWeapon;
 
 
     public WeaponDefinition GetWeaponDefault() => weaponDefault;

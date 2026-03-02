@@ -32,10 +32,16 @@ public class EnemigoVisual : MonoBehaviour
     private Vector3 knockbackOffset;
     private bool isDying = false;
 
-    void Awake()
+    private Vector3 recoilOffset;
+
+    private WeaponController weaponController;
+
+    void Start()
     {
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
         animator = GetComponent<Animator>();
+        weaponController = GetComponentInParent<Enemigo>().GetWeaponController;
+        if (weaponController != null) weaponController.GetCurrentWeapon().OnWeaponFired += HandleWeaponFired;
     }
 
     void Update()
@@ -47,8 +53,23 @@ public class EnemigoVisual : MonoBehaviour
                 Vector3.zero,
                 Time.deltaTime * knockbackRecoverSpeed);
 
-            transform.localPosition = knockbackOffset;
+            recoilOffset = Vector3.Lerp(
+                recoilOffset,
+                Vector3.zero,
+                Time.deltaTime * 15f);
+
+            transform.localPosition = knockbackOffset + recoilOffset;
         }
+    }
+
+    private void HandleWeaponFired()
+    {
+        PlayRecoil();
+    }
+
+    private void PlayRecoil()
+    {
+        recoilOffset += Vector3.up * 0.25f;
     }
 
     #region HIT EFFECT

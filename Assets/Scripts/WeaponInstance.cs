@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WeaponInstance
 {
@@ -6,6 +7,8 @@ public class WeaponInstance
     private ShotPatternBase shotPattern;
     private FactionType faction;
     private WeaponMuzzleFlash muzzleFlash;
+
+    public event Action OnWeaponFired;
 
     public float AmmoSpeed { get; private set; }
     public float FireRate { get; private set; }
@@ -41,7 +44,7 @@ public class WeaponInstance
         }
 
         // Primer disparo aleatorio para que no todos disparen sincronizados
-        nextFireTime = Time.time + Random.Range(0f, FireRate);
+        nextFireTime = Time.time + UnityEngine.Random.Range(0f, FireRate);
     }
 
     public void Fire(Transform firePoint)
@@ -49,7 +52,7 @@ public class WeaponInstance
         if (Time.time < nextFireTime) return;
 
         // 🔹 Aplicar random al FireRate actual
-        float randomizedFireRate = FireRate * Random.Range(1f - fireRateVariation, 1f + fireRateVariation);
+        float randomizedFireRate = FireRate * UnityEngine.Random.Range(1f - fireRateVariation, 1f + fireRateVariation);
 
         // 🔹 Log para depuración
         Debug.Log($"[WeaponInstance] Disparo en {Time.time:F2}s | FireRate base: {FireRate:F2} | FireRate random: {randomizedFireRate:F2}");
@@ -59,14 +62,14 @@ public class WeaponInstance
         shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
         // 🔥 Muzzle exacto en el momento real del disparo
         muzzleFlash?.Play();
-
+        OnWeaponFired?.Invoke();
     }
 
     public void Fire(Quaternion rotation, Vector3 position)
     {
         if (Time.time < nextFireTime) return;
 
-        float randomizedFireRate = FireRate * Random.Range(1f - fireRateVariation, 1f + fireRateVariation);
+        float randomizedFireRate = FireRate * UnityEngine.Random.Range(1f - fireRateVariation, 1f + fireRateVariation);
         // 🔹 Log para depuración
         Debug.Log($"[WeaponInstance] Disparo en {Time.time:F2}s | FireRate base: {FireRate:F2} | FireRate random: {randomizedFireRate:F2}");
         nextFireTime = Time.time + randomizedFireRate;
@@ -79,6 +82,7 @@ public class WeaponInstance
         // 🔥 Muzzle exacto en el momento real del disparo
         muzzleFlash?.Play();
         GameObject.Destroy(temp);
+        OnWeaponFired?.Invoke();
     }
 
     public void FireImmediate(Transform firePoint)
@@ -87,6 +91,7 @@ public class WeaponInstance
         shotPattern.Fire(weaponDef.ammoPrefab, firePoint, AmmoSpeed, faction);
         // 🔥 Muzzle exacto en el momento real del disparo
         muzzleFlash?.Play();
+        OnWeaponFired?.Invoke();
     }
     public void FireImmediate(Quaternion rotation, Vector3 position)
     {
@@ -97,6 +102,7 @@ public class WeaponInstance
         shotPattern.Fire(weaponDef.ammoPrefab, temp.transform, AmmoSpeed, faction);
         // 🔥 Muzzle exacto en el momento real del disparo
         muzzleFlash?.Play();
+        OnWeaponFired?.Invoke();
         GameObject.Destroy(temp);
     }
 

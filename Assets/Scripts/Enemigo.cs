@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
@@ -27,9 +28,16 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     [SerializeField] private EnemigoVisual enemigoVisual;
     private Collider2D col;
-    [SerializeField] private MovementController movementController;
 
-    [SerializeField] private float rotationSpeed = 5f;
+    [Header("Hover Movement")]
+    private Vector2 hoverCenter;
+    [SerializeField] float driftAmplitude = 0.5f;
+    [SerializeField] float driftSpeed = 1.5f;
+
+
+    [Header("Tilt")]
+    [SerializeField] private float tiltAmount = 20f;
+    [SerializeField] private float tiltSpeed = 5f;
 
     public bool IsVulnerable { get; private set; } = true;
 
@@ -57,7 +65,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     private float nextWaitTime;
 
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
         col = GetComponent<Collider2D>();
@@ -70,7 +78,8 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         if (State == EnemyState.Hovering)
         {
-            RotateTowardsPlayer();
+            HoverMovement();
+            TiltTowardsPlayer();
         }
 
         if (isBoss && weaponController != null && State == EnemyState.Hovering)
@@ -79,24 +88,35 @@ public class Enemigo : MonoBehaviour, IDamageable
         }
         else if (weaponController != null && State == EnemyState.Hovering)
         {
-            weaponController.TryFire();
+            weaponController.Fire();
         }
     }
 
-    private void RotateTowardsPlayer()
+    void StartHover()
+    {
+        hoverCenter = transform.position;
+    }
+
+    void HoverMovement() 
+    {
+        float xOffset = Mathf.Sin(Time.time * driftSpeed) * driftAmplitude;
+        transform.position = hoverCenter + new Vector2(xOffset, 0);
+    }
+
+    private void TiltTowardsPlayer()
     {
         if (Nave.Instance == null) return;
 
-        Vector2 direction = (Nave.Instance.transform.position - transform.position).normalized;
+        float deltaX = Nave.Instance.transform.position.x - transform.position.x;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float targetTilt = Mathf.Clamp(deltaX * 5f, -tiltAmount, tiltAmount);
 
-        Quaternion targetRotation = Quaternion.Euler(0, 0, angle + 90f);
+        Quaternion targetRot = Quaternion.Euler(0, 0, targetTilt);
 
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            targetRotation,
-            rotationSpeed * Time.deltaTime
+        enemigoVisual.transform.localRotation = Quaternion.Slerp(
+            enemigoVisual.transform.localRotation,
+            targetRot,
+            tiltSpeed * Time.deltaTime
         );
     }
 
@@ -162,7 +182,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     private void TryCreatePickups()
     {
-        int scoreCount = Random.Range(1, 4);
+        int scoreCount = UnityEngine.Random.Range(1, 4);
         for (int i = 0; i < scoreCount; i++)
         {
             Vector3 offset = new Vector3(i + 1, -i, 0);
@@ -170,7 +190,7 @@ public class Enemigo : MonoBehaviour, IDamageable
         }
 
         if (bonusPickupPrefab == null) return;
-        if (Random.value > dropProbability) return;
+        if (UnityEngine.Random.value > dropProbability) return;
         if (BonusManager.Instance.IsBonusActive(bonusPickupPrefab.GetBonusDefinition())) return;
 
         Instantiate(bonusPickupPrefab, transform.position, Quaternion.identity);
@@ -179,6 +199,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     public void SetState(EnemyState newState)
     {
         State = newState;
+        if (State == EnemyState.Hovering)
+            StartHover();
     }
 
     public void ConfigureByCycle(int cycle)
@@ -237,7 +259,7 @@ public class Enemigo : MonoBehaviour, IDamageable
                 {
                     bossAttackPhase = BossAttackPhase.Waiting;
                     phaseTimer = 0f;
-                    nextWaitTime = Random.Range(minWaitTime, maxWaitTime);
+                    nextWaitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
                 }
                 break;
         }
