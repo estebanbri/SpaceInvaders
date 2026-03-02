@@ -18,8 +18,7 @@ public class EnemigoSpawner : MonoBehaviour
     Vector2 formationOffset,
     bool reverse)
     {
-        GameObject enemy = Instantiate(prefab);
-
+        GameObject enemy = Instantiate(prefab, Vector3.zero, Quaternion.identity); ;
         var follower = enemy.GetComponent<EnemigoPathFollower>();
         follower.Initialize(originalPath, formationOffset, reverse);
 

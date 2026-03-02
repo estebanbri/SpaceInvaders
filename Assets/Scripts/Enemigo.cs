@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour, IDamageable
 {
+    [SerializeField] private EnemyBehaviourType behaviourType;
+
     [Header("Drops")]
     [SerializeField] private PickupBonus bonusPickupPrefab;
     [SerializeField] private GameObject scorePickupPrefab;
@@ -64,11 +66,11 @@ public class Enemigo : MonoBehaviour, IDamageable
     {
         if (isDead) return;
 
-        if (isBoss && weaponController != null && State == EnemyState.Idle)
+        if (isBoss && weaponController != null && State == EnemyState.Hovering)
         {
             HandleBossBurstShooting();
         }
-        else if (weaponController != null && State == EnemyState.Idle)
+        else if (weaponController != null && State == EnemyState.Hovering)
         {
             weaponController.TryFire();
         }
@@ -110,7 +112,18 @@ public class Enemigo : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    public void Despawn()
+    public void OnPathFinished()
+    {
+        if (behaviourType == EnemyBehaviourType.PassThrough)
+        {
+            Despawn();
+            return;
+        }
+
+        SetState(EnemyState.Hovering);
+    }
+
+    private void Despawn()
     {
         if (isDead) return;
 

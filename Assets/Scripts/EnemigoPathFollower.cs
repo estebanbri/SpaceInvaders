@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class EnemigoPathFollower : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class EnemigoPathFollower : MonoBehaviour
 
     private void Update()
     {
-        if (waypoints == null || waypoints.Length < 2)
+        if (waypoints == null || waypoints.Length < 2 || !enabled)
             return;
 
         timer += Time.deltaTime;
@@ -58,9 +59,15 @@ public class EnemigoPathFollower : MonoBehaviour
 
     private void OnPathFinished()
     {
+        // Forzar posición final exacta
+        transform.position = waypoints[waypoints.Length - 1] + pathOffset;
+
+        // Desactivar este componente para que deje de actualizar
+        enabled = false;
+
         if (TryGetComponent(out Enemigo enemigo))
         {
-            enemigo.Despawn();
+            enemigo.OnPathFinished();
         }
     }
 

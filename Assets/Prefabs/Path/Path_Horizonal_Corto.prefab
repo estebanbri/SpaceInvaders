@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7882486578222256230}
   - component: {fileID: 5491504176747997155}
   m_Layer: 0
-  m_Name: Path_Vertical
+  m_Name: Path_Horizonal_Corto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathComponent
   duration: 4
-  orientation: 1
+  orientation: 0
 --- !u!1 &6176037213039587375
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ Transform:
   m_GameObject: {fileID: 6176037213039587375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.06, y: 6.05, z: 0}
+  m_LocalPosition: {x: -10.65, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 9033622084377813896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: -6.41, z: 0}
+  m_LocalPosition: {x: -5.78, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
