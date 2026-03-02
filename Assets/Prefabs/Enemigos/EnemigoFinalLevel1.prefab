@@ -4906,7 +4906,6 @@ GameObject:
   - component: {fileID: 6210264585460947222}
   - component: {fileID: 5042651987578534612}
   - component: {fileID: 1879159735146175466}
-  - component: {fileID: -4167900239025423422}
   - component: {fileID: 7146610694354115643}
   - component: {fileID: 6633204566944944398}
   m_Layer: 0
@@ -4995,13 +4994,6 @@ MonoBehaviour:
   burstInterval: 1
   minWaitTime: 4
   maxWaitTime: 8
-  moveDuration: 1
-  kamikazeSpeed: 6
-  returnSpeed: 4
-  returnDuration: 1.2
-  attackDuration: 1.5
-  curveHeight: 2
-  moveSpeed: 5
 --- !u!58 &1879159735146175466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5038,18 +5030,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.011280537, y: 0.20803547}
   m_Radius: 1.3181412
---- !u!114 &-4167900239025423422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4768475860424822803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9bf20e95f1a6249b7ff47840b8ced8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutsideCamera
 --- !u!114 &7146610694354115643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5244,7 +5224,6 @@ MonoBehaviour:
   knockbackForce: 0.3
   explosionPrefab: {fileID: 2625075329096207270, guid: 32336663353bc514ebc19a55eec8e636, type: 3}
   explosionCount: 6
-  deathDuration: 2
 --- !u!95 &6772557345039842202
 Animator:
   serializedVersion: 7

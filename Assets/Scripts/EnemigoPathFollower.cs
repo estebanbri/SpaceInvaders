@@ -39,22 +39,41 @@ public class EnemigoPathFollower : MonoBehaviour
         float t = timer / pathComponent.duration;
         t = Mathf.Clamp01(t);
 
+        if (t >= 1f)
+        {
+            OnPathFinished();
+            return;
+        }
+
         Vector2 newPosition = EvaluatePath(t);
         transform.position = newPosition;
 
         if (rotateToMovement)
         {
-            Vector2 direction = newPosition - previousPosition;
-
-            if (direction.sqrMagnitude > 0.0001f)
-            {
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
-            }
+            RotateEnemyTowardDirection(newPosition);
         }
 
         previousPosition = newPosition;
+    }
+
+    private void OnPathFinished()
+    {
+        if (TryGetComponent(out Enemigo enemigo))
+        {
+            enemigo.Despawn();
+        }
+    }
+
+    private void RotateEnemyTowardDirection(Vector2 newPosition)
+    {
+        Vector2 direction = newPosition - previousPosition;
+
+        if (direction.sqrMagnitude > 0.0001f)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+        }
     }
 
 

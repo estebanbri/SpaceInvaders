@@ -109,7 +109,6 @@ public class EnemigoVisual : MonoBehaviour
     private IEnumerator PlayDeathForNonBoss()
     {
         SpawnExplosion();
-        Destroy(gameObject);
         yield return null;
     }
 
@@ -127,10 +126,6 @@ public class EnemigoVisual : MonoBehaviour
             sr.sortingOrder = -10; // o algo menor que la explosión
             sr.enabled = false;
         }
-            
-
-        if (enemigo != null)
-            Destroy(enemigo.gameObject);
     }
 
     private GameObject SpawnExplosion(float radius = 0f)

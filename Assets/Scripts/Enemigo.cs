@@ -106,6 +106,21 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         enemigoVisual?.PlayDeath();
         TryCreatePickups();
+        EnemigoManager.Instance.UnregisterEnemy();
+        Destroy(gameObject);
+    }
+
+    public void Despawn()
+    {
+        if (isDead) return;
+
+        Debug.Log("[ENEMY] " + gameObject.name + " despawn.");
+
+        col.enabled = false;
+
+        EnemigoManager.Instance.UnregisterEnemy();
+
+        Destroy(gameObject);
     }
 
     private void TryCreatePickups()
@@ -189,12 +204,6 @@ public class Enemigo : MonoBehaviour, IDamageable
                 }
                 break;
         }
-    }
-
-    public void OnDeathAnimationFinished()
-    {
-        EnemigoManager.Instance.UnregisterEnemy();
-        Destroy(gameObject);
     }
 
     public void SetVulnerable(bool value)
