@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21bebef65d8c404eb69fa652d7bb512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemigoPathFollower
-  rotateToMovement: 0
+  rotateToMovement: 1
   rotationOffset: 90
 --- !u!1001 &3937831710878618605
 PrefabInstance:
@@ -392,11 +392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.771
+      value: -0.869
       objectReference: {fileID: 0}
     - target: {fileID: 8754528183536950558, guid: 5416dca964bd20f4bbdcee0bf6aea689, type: 3}
       propertyPath: m_LocalPosition.z

@@ -21,7 +21,7 @@ public class EnemigoVisual : MonoBehaviour
 
     [Header("Knockback")]
     [SerializeField] private float knockbackRecoverSpeed = 8f;
-    [SerializeField] private float knockbackForce = 0.3f;
+    [SerializeField] private float knockbackForce = 0.12f;
 
     [Header("Boss Death FX")]
     [SerializeField] private GameObject explosionPrefab;
@@ -56,7 +56,7 @@ public class EnemigoVisual : MonoBehaviour
             recoilOffset = Vector3.Lerp(
                 recoilOffset,
                 Vector3.zero,
-                Time.deltaTime * 15f);
+                Time.deltaTime * 12f);
 
             transform.localPosition = knockbackOffset + recoilOffset;
         }
@@ -69,7 +69,7 @@ public class EnemigoVisual : MonoBehaviour
 
     private void PlayRecoil()
     {
-        recoilOffset += Vector3.up * 0.25f;
+        recoilOffset += Vector3.up * 0.1f;
     }
 
     #region HIT EFFECT
