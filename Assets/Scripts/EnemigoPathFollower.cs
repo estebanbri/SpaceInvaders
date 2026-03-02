@@ -10,12 +10,15 @@ public class EnemigoPathFollower : MonoBehaviour
     public bool rotateToMovement = true;
     public float rotationOffset = -90f;
 
-    public void Initialize(PathComponent path, Vector2 offset)
+    public void Initialize(PathComponent path, Vector2 offset, bool reverse)
     {
         pathComponent = path;
         waypoints = path.GetWaypoints();
-        pathOffset = offset;
 
+        if (reverse)
+            System.Array.Reverse(waypoints);
+
+        pathOffset = offset;
         timer = 0f;
 
         if (waypoints.Length > 0)

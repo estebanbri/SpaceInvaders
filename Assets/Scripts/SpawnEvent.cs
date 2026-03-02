@@ -13,4 +13,6 @@ public class SpawnEvent
     public float spawnInterval = 0.2f;
 
     [HideInInspector] public bool hasStarted;
+
+    public PathDirection pathDirection;
 }

@@ -74,18 +74,34 @@ public class LevelController : MonoBehaviour
 
         Vector2 formationOffset = CalculateFormationOffset(spawnEvent.path);
 
+        bool reverse = IsReversePathDirection(spawnEvent.pathDirection);
+
         for (int i = 0; i < spawnEvent.quantity; i++)
         {
             EnemigoSpawner.Instance.SpawnEnemy(
                 spawnEvent.enemyPrefab,
                 spawnEvent.path,
-                formationOffset
+                formationOffset,
+                reverse
             );
 
             yield return new WaitForSeconds(spawnEvent.spawnInterval);
         }
 
         activeSpawnEvents--;
+    }
+
+    private bool IsReversePathDirection(PathDirection direction)
+    {
+        bool reverse = false;
+
+        if (direction == PathDirection.Reverse)
+            reverse = true;
+
+        else if (direction == PathDirection.Random)
+            reverse = UnityEngine.Random.value > 0.5f;
+
+        return reverse;
     }
 
     private Vector2 CalculateFormationOffset(PathComponent path)
