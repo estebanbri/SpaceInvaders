@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +8,7 @@ public class SpawnEvent
 
     public GameObject enemyPrefab;
 
-    public PathComponent path;
+    public List<PathComponent> possiblePaths;
 
     public int quantity = 5;
     public float spawnInterval = 0.2f;

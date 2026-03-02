@@ -15,14 +15,30 @@ MonoBehaviour:
   spawnEvents:
   - startTime: 0
     enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
-    path: {fileID: 5491504176747997155, guid: 5ab8e52480643eb43bb652f54c5a9b84, type: 3}
-    quantity: 10
-    spawnInterval: 0.5
+    path: {fileID: 5491504176747997155, guid: e50911ac31977b74c8c5e71f9ad79268, type: 3}
+    quantity: 5
+    spawnInterval: 0.8
     hasStarted: 1
+    pathDirection: 0
   - startTime: 6
-    enemyPrefab: {fileID: 4768475860424822803, guid: 5ae1ec53fb86ed440aa6014f9c5e5c04, type: 3}
+    enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
     path: {fileID: 5491504176747997155, guid: 5ab8e52480643eb43bb652f54c5a9b84, type: 3}
-    quantity: 3
-    spawnInterval: 1
+    quantity: 8
+    spawnInterval: 0.5
     hasStarted: 0
+    pathDirection: 0
+  - startTime: 15
+    enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
+    path: {fileID: 5491504176747997155, guid: 5ab8e52480643eb43bb652f54c5a9b84, type: 3}
+    quantity: 6
+    spawnInterval: 0.4
+    hasStarted: 0
+    pathDirection: 0
+  - startTime: 25
+    enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
+    path: {fileID: 5491504176747997155, guid: 4c9a6300434b8e349af7751b24b252e1, type: 3}
+    quantity: 4
+    spawnInterval: 0.3
+    hasStarted: 0
+    pathDirection: 0
   bossPrefab: {fileID: 4768475860424822803, guid: 9bd8eea1daaae1c469f4aea235708346, type: 3}

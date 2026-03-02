@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7882486578222256230}
   - component: {fileID: 5491504176747997155}
   m_Layer: 0
-  m_Name: Path_Triangulo
+  m_Name: Path_En_V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

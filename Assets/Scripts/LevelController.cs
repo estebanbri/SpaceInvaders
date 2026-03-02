@@ -72,15 +72,15 @@ public class LevelController : MonoBehaviour
     {
         activeSpawnEvents++;
 
-        Vector2 formationOffset = CalculateFormationOffset(spawnEvent.path);
-
+        PathComponent selectedPath = GetRandomPath(spawnEvent);
+        Vector2 formationOffset = CalculateFormationOffset(selectedPath);
         bool reverse = IsReversePathDirection(spawnEvent.pathDirection);
 
         for (int i = 0; i < spawnEvent.quantity; i++)
         {
             EnemigoSpawner.Instance.SpawnEnemy(
                 spawnEvent.enemyPrefab,
-                spawnEvent.path,
+                selectedPath,
                 formationOffset,
                 reverse
             );
@@ -89,6 +89,18 @@ public class LevelController : MonoBehaviour
         }
 
         activeSpawnEvents--;
+    }
+
+    private PathComponent GetRandomPath(SpawnEvent spawnEvent)
+    {
+        if (spawnEvent.possiblePaths == null || spawnEvent.possiblePaths.Count == 0)
+        {
+            Debug.LogError("No paths assigned in SpawnEvent!");
+            return null;
+        }
+
+        int index = UnityEngine.Random.Range(0, spawnEvent.possiblePaths.Count);
+        return spawnEvent.possiblePaths[index];
     }
 
     private bool IsReversePathDirection(PathDirection direction)
