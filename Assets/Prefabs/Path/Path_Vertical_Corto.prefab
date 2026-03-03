@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e3e55a2ac271b44beec60ac646e99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathComponent
-  duration: 4
+  duration: 1
   orientation: 1
 --- !u!1 &6176037213039587375
 GameObject:

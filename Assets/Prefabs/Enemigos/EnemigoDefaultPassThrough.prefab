@@ -130,9 +130,10 @@ MonoBehaviour:
   weaponController: {fileID: 0}
   isBoss: 0
   bossWeaponsByCycle: []
+  rotationSpeed: 10
+  rotationOffset: -90
   damageTextPrefab: {fileID: 2508392111751814786, guid: 1cd112d231fe73f42b01f4bda17d62a2, type: 3}
   enemigoVisual: {fileID: 5276031313835513368}
-  movementController: {fileID: 0}
   shotsPerBurst: 2
   burstInterval: 0.1
   minWaitTime: 0.5
@@ -162,8 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21bebef65d8c404eb69fa652d7bb512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemigoPathFollower
+  rotationSpeed: 10
+  rotationOffset: 90
   rotateToMovement: 1
-  rotationOffset: -90
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +242,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 851f0a6dcab46724081266d3530dfd53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

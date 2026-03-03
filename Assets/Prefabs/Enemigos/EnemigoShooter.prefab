@@ -76,7 +76,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 851f0a6dcab46724081266d3530dfd53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 8092928041683358142}
   - component: {fileID: 4999347253907467278}
   - component: {fileID: 7638810859685239795}
+  - component: {fileID: 4234220955440698560}
   m_Layer: 0
   m_Name: EnemigoShooter
   m_TagString: Untagged
@@ -167,12 +168,10 @@ MonoBehaviour:
   weaponController: {fileID: 8431879320778882986}
   isBoss: 0
   bossWeaponsByCycle: []
+  rotationSpeed: 10
+  rotationOffset: 90
   damageTextPrefab: {fileID: 2508392111751814786, guid: 1cd112d231fe73f42b01f4bda17d62a2, type: 3}
   enemigoVisual: {fileID: 5601840585075938565}
-  driftAmplitude: 0.5
-  driftSpeed: 1.5
-  tiltAmount: 20
-  tiltSpeed: 5
   shotsPerBurst: 2
   burstInterval: 1
   minWaitTime: 1
@@ -275,8 +274,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21bebef65d8c404eb69fa652d7bb512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemigoPathFollower
-  rotateToMovement: 1
+  rotationSpeed: 10
   rotationOffset: 90
+  rotateToMovement: 1
+--- !u!114 &4234220955440698560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768475860424822803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1c805718270ea42a6ad92174c75107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  moveSpeed: 2
+  hoverDuration: 5
+  moveDuration: 1.5
+  driftAmplitude: 0.3
+  driftSpeed: 3
+  movementAxis: 0
 --- !u!1001 &3937831710878618605
 PrefabInstance:
   m_ObjectHideFlags: 0

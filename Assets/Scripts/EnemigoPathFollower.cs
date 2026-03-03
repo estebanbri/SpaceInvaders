@@ -3,13 +3,15 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class EnemigoPathFollower : MonoBehaviour
 {
+    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float rotationOffset = -90f; // depende de tu sprite
+
     private PathComponent pathComponent;
     private Vector2[] waypoints;
     private float timer;
     private Vector2 pathOffset;
     private Vector2 previousPosition;
     public bool rotateToMovement = true;
-    public float rotationOffset = -90f;
 
     public void Initialize(PathComponent path, Vector2 offset, bool reverse)
     {
@@ -51,7 +53,7 @@ public class EnemigoPathFollower : MonoBehaviour
 
         if (rotateToMovement)
         {
-            RotateEnemyTowardDirection(newPosition);
+            RotateToMovement(newPosition);
         }
 
         previousPosition = newPosition;
@@ -71,16 +73,21 @@ public class EnemigoPathFollower : MonoBehaviour
         }
     }
 
-    private void RotateEnemyTowardDirection(Vector2 newPosition)
+    private void RotateToMovement(Vector2 currentPosition)
     {
-        Vector2 direction = newPosition - previousPosition;
+        Vector2 direction = currentPosition - previousPosition;
 
-        if (direction.sqrMagnitude > 0.0001f)
-        {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
-        }
+        if (direction.sqrMagnitude < 0.0001f)
+            return; // evitar rotaciones cuando casi no se mueve
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
+
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
     }
 
 

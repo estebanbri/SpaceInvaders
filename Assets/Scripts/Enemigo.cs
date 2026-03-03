@@ -21,6 +21,9 @@ public class Enemigo : MonoBehaviour, IDamageable
     [Header("Boss")]
     [SerializeField] private bool isBoss = false;
     [SerializeField] private List<BossWeaponCycle> bossWeaponsByCycle;
+    [Header("Rotation")]
+    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float rotationOffset = -90f; // depende de tu sprite
 
     [SerializeField] private GameObject damageTextPrefab;
 
@@ -28,16 +31,6 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     [SerializeField] private EnemigoVisual enemigoVisual;
     private Collider2D col;
-
-    [Header("Hover Movement")]
-    private Vector2 hoverCenter;
-    [SerializeField] float driftAmplitude = 0.5f;
-    [SerializeField] float driftSpeed = 1.5f;
-
-
-    [Header("Tilt")]
-    [SerializeField] private float tiltAmount = 20f;
-    [SerializeField] private float tiltSpeed = 5f;
 
     public bool IsVulnerable { get; private set; } = true;
 
@@ -63,6 +56,8 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private float minWaitTime = 1f;
     [SerializeField] private float maxWaitTime = 2f;
 
+
+
     private float nextWaitTime;
 
     void Awake()
@@ -78,8 +73,7 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         if (State == EnemyState.Hovering)
         {
-            HoverMovement();
-            TiltTowardsPlayer();
+            RotateTowardPlayer();
         }
 
         if (isBoss && weaponController != null && State == EnemyState.Hovering)
@@ -92,31 +86,18 @@ public class Enemigo : MonoBehaviour, IDamageable
         }
     }
 
-    void StartHover()
-    {
-        hoverCenter = transform.position;
-    }
-
-    void HoverMovement() 
-    {
-        float xOffset = Mathf.Sin(Time.time * driftSpeed) * driftAmplitude;
-        transform.position = hoverCenter + new Vector2(xOffset, 0);
-    }
-
-    private void TiltTowardsPlayer()
+    private void RotateTowardPlayer()
     {
         if (Nave.Instance == null) return;
+        Vector2 direction = Nave.Instance.transform.position - transform.position;
 
-        float deltaX = Nave.Instance.transform.position.x - transform.position.x;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
-        float targetTilt = Mathf.Clamp(deltaX * 5f, -tiltAmount, tiltAmount);
-
-        Quaternion targetRot = Quaternion.Euler(0, 0, targetTilt);
-
-        enemigoVisual.transform.localRotation = Quaternion.Slerp(
-            enemigoVisual.transform.localRotation,
-            targetRot,
-            tiltSpeed * Time.deltaTime
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
         );
     }
 
@@ -199,8 +180,6 @@ public class Enemigo : MonoBehaviour, IDamageable
     public void SetState(EnemyState newState)
     {
         State = newState;
-        if (State == EnemyState.Hovering)
-            StartHover();
     }
 
     public void ConfigureByCycle(int cycle)
