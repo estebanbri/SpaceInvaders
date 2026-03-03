@@ -166,6 +166,11 @@ MonoBehaviour:
   rotationSpeed: 10
   rotationOffset: 90
   rotateToMovement: 1
+  modifierAmplitude: 1
+  modifierFrequency: 1
+  randomizeModifierValues: 1
+  amplitudeRange: {x: 0.3, y: 1.2}
+  frequencyRange: {x: 1, y: 3}
 --- !u!1 &5469988801222514171
 GameObject:
   m_ObjectHideFlags: 0

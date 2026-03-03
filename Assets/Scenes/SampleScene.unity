@@ -1973,6 +1973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelController
   levelData: {fileID: 11400000, guid: 4a39cecb0eefa21408b5e47348eb8b2b, type: 2}
+  horizontalSafePercent: 0.184
+  verticalSafePercent: 0.15
 --- !u!4 &1388852137
 Transform:
   m_ObjectHideFlags: 0

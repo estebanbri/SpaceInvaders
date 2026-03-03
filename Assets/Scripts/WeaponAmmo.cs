@@ -57,8 +57,21 @@ public class WeaponAmmo : MonoBehaviour
 
             if (isEnemy)
             {
-                // Aplicamos daño
-                damageable.TakeDamage(damageAmount, transform.position);
+                PlayerCombatStats stats = Nave.Instance.GetComponent<PlayerCombatStats>();
+
+                float finalCritChance = stats != null ? stats.CritChance : 0f;
+
+                bool isCritical = Random.value <= finalCritChance;
+
+                int finalDamage = damageAmount;
+
+                if (isCritical && stats != null)
+                {
+                    float randomMultiplier = Random.Range(stats.CritMinMultiplier, stats.CritMaxMultiplier);
+                    finalDamage = Mathf.RoundToInt(damageAmount * randomMultiplier);
+                }
+
+                damageable.TakeDamage(finalDamage, transform.position, isCritical);
 
                 // Impacto
                 SetState(AmmoState.Impact);

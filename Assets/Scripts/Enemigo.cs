@@ -107,6 +107,8 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
 
+        SpawnFloatingDamage(damageAmount, isCritical);
+
         Vector3 hitDir = attackerPos.HasValue
             ? (transform.position - attackerPos.Value).normalized
             : Vector3.up;
@@ -117,6 +119,32 @@ public class Enemigo : MonoBehaviour, IDamageable
             Die();
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
+    private void SpawnFloatingDamage(int damage, bool isCritical)
+    {
+        if (!isCritical) return;
+
+        if (damageTextPrefab == null) return;
+
+        Vector3 randomOffset = new Vector3(
+            UnityEngine.Random.Range(-0.3f, 0.3f),
+            UnityEngine.Random.Range(0f, 0.5f),
+            0f
+        );
+
+        Vector3 spawnPos = transform.position + randomOffset;
+
+        GameObject dmgObj = Instantiate(damageTextPrefab, spawnPos, Quaternion.identity);
+
+        // Evitar que herede rotación del enemigo
+        dmgObj.transform.rotation = Quaternion.identity;
+
+        FloatingDamageText floating = dmgObj.GetComponent<FloatingDamageText>();
+        if (floating != null)
+        {
+            floating.SetDamage(damage, true); // siempre true porque ya validamos
+        }
     }
 
     public void Die()

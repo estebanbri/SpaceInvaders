@@ -2,6 +2,10 @@
 
 public class HoverMovementController : MonoBehaviour
 {
+    [Header("Safe Area")]
+    [SerializeField, Range(0f, 0.4f)] private float horizontalSafePercent = 0.2f;
+    [SerializeField, Range(0f, 0.4f)] private float verticalSafePercent = 0.1f;
+
     public float moveSpeed = 2f;
 
     public float hoverDuration = 2f;
@@ -62,6 +66,8 @@ public class HoverMovementController : MonoBehaviour
             if (stateTimer <= 0f)
                 EnterHover();
         }
+
+        ClampToSafeArea();
     }
 
     void EnterMove()
@@ -117,7 +123,32 @@ public class HoverMovementController : MonoBehaviour
             moveDirection = new Vector2(0f, y).normalized;
         }
     }
+    void ClampToSafeArea()
+    {
+        Camera cam = Camera.main;
+
+        float halfHeight = cam.orthographicSize;
+        float halfWidth = halfHeight * cam.aspect;
+
+        float safeX = halfWidth * horizontalSafePercent;
+        float safeY = halfHeight * verticalSafePercent;
+
+        float minX = -halfWidth + safeX;
+        float maxX = halfWidth - safeX;
+
+        float minY = -halfHeight + safeY;
+        float maxY = halfHeight - safeY;
+
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+        transform.position = pos;
+    }
 }
+
+
 
 public enum MovementAxis
 {

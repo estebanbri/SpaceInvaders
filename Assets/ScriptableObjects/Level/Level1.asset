@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   spawnEvents:
   - startTime: 0
+    enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
+    possiblePaths:
+    - {fileID: 5491504176747997155, guid: 4c9a6300434b8e349af7751b24b252e1, type: 3}
+    quantity: 4
+    spawnInterval: 0.3
+    hasStarted: 1
+    pathDirection: 0
+  - startTime: 2
     enemyPrefab: {fileID: 4768475860424822803, guid: 3edcf48ae88230f49a3a5600498d1380, type: 3}
     possiblePaths:
-    - {fileID: 5491504176747997155, guid: 7ca451662506f7446b48f3c003349a96, type: 3}
     - {fileID: 5491504176747997155, guid: ee589f060da18f6459565956a469053e, type: 3}
-    quantity: 2
-    spawnInterval: 3
+    quantity: 1
+    spawnInterval: 2
     hasStarted: 1
     pathDirection: 1
   - startTime: 6

@@ -16,11 +16,13 @@ public class EnemigoSpawner : MonoBehaviour
     GameObject prefab,
     PathComponent originalPath,
     Vector2 formationOffset,
-    bool reverse)
+    bool reverse,
+    MovementModifier modifier)
     {
-        GameObject enemy = Instantiate(prefab, Vector3.zero, Quaternion.identity); ;
+        GameObject enemy = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+
         var follower = enemy.GetComponent<EnemigoPathFollower>();
-        follower.Initialize(originalPath, formationOffset, reverse);
+        follower.Initialize(originalPath, formationOffset, reverse, modifier);
 
         EnemigoManager.Instance.RegisterEnemy();
     }
