@@ -234,7 +234,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0016856045, y: 0.002197504}
+  m_Offset: {x: 0.0016856045, y: -0.014042914}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -244,7 +244,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21451208, y: 0.3166716}
+  m_Size: {x: 0.21451208, y: 0.12178624}
   m_EdgeRadius: 0
 --- !u!114 &-2126383702353416841
 MonoBehaviour:
@@ -339,7 +339,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -8284894485760392845, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b58b2baaaa7fbe498bbb5c4cb11fdf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -362,5 +362,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0b1096d9e6f3e49a4e09b41cbbb3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAmmoVisual
-  flyingSprite: {fileID: -8284894485760392845, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
+  flyingSprite: {fileID: 21300000, guid: 7b58b2baaaa7fbe498bbb5c4cb11fdf6, type: 3}
   impactSprite: {fileID: -7912124021045096971, guid: 19a4368a46140274e889985a3beaf549, type: 3}

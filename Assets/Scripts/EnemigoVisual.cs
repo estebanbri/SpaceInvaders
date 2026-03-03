@@ -125,12 +125,18 @@ public class EnemigoVisual : MonoBehaviour
         {
             StartCoroutine(PlayDeathForNonBoss());
         }
+        Destroy(transform.root.gameObject);
     }
 
     private IEnumerator PlayDeathForNonBoss()
     {
+        // Desactivar sprite inmediatamente
+        foreach (var sr in spriteRenderers)
+            sr.enabled = false;
+
         SpawnExplosion();
-        yield return null;
+
+        yield return new WaitForSeconds(0.3f);
     }
 
     private IEnumerator BossDeathSequence()

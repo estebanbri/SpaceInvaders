@@ -36,8 +36,8 @@ MonoBehaviour:
     quantity: 8
     spawnInterval: 0.5
     hasStarted: 1
-    pathDirection: 0
-  - startTime: 15
+    pathDirection: 1
+  - startTime: 10
     enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
     possiblePaths:
     - {fileID: 5491504176747997155, guid: 4c9a6300434b8e349af7751b24b252e1, type: 3}
@@ -46,8 +46,8 @@ MonoBehaviour:
     quantity: 6
     spawnInterval: 0.4
     hasStarted: 0
-    pathDirection: 0
-  - startTime: 25
+    pathDirection: 1
+  - startTime: 13
     enemyPrefab: {fileID: 4768475860424822803, guid: 36090d5b4b1b81541baed8f4cf423ede, type: 3}
     possiblePaths:
     - {fileID: 5491504176747997155, guid: 4c9a6300434b8e349af7751b24b252e1, type: 3}

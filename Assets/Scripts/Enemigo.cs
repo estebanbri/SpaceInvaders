@@ -158,11 +158,10 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         // 🔥 Notifica al Spawner (caos controlado)
         OnEnemyDied?.Invoke();
-
-        enemigoVisual?.PlayDeath();
+        
         TryCreatePickups();
         EnemigoManager.Instance.UnregisterEnemy();
-        Destroy(gameObject);
+        enemigoVisual?.PlayDeath();
     }
 
     public void OnPathFinished()

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -26,7 +26,7 @@ public class WeaponAmmo : MonoBehaviour
         this.direction = direction.normalized;
         this.ownerFaction = factionType;
         this.ammoSpeed = ammoSpeed;
-
+        RotateToDirection();
         SetState(AmmoState.Flying);
     }
 
@@ -36,6 +36,17 @@ public class WeaponAmmo : MonoBehaviour
             return;
 
         transform.position += direction * ammoSpeed * Time.deltaTime;
+    }
+
+    private void RotateToDirection()
+    {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // 🔹 Si tu sprite apunta hacia ARRIBA
+        // transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+
+        // 🔹 Si tu sprite apunta hacia la DERECHA
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public FactionType GetFaction() => ownerFaction;
@@ -48,7 +59,7 @@ public class WeaponAmmo : MonoBehaviour
         // Verificamos si colisiona con algo que implemente IDamageable
         if (collision.TryGetComponent(out IDamageable damageable))
         {
-            // Verificamos facci�n si tiene
+            // Verificamos facción si tiene
             bool isEnemy = true;
             if (collision.TryGetComponent(out FactionComponent factionComp))
             {

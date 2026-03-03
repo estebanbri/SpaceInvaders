@@ -83,8 +83,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0022820756, y: 0.0006892681}
-  m_Size: {x: 0.11674778, y: 0.2783544}
+  m_Offset: {x: 0.055535063, y: 0.00044059753}
+  m_Size: {x: 0.14160374, y: 0.14160374}
   m_Direction: 0
 --- !u!114 &-6485027851299653246
 MonoBehaviour:
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -1526651416567601604, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84dbaedab9052c04b939fbe1c1620c6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0b1096d9e6f3e49a4e09b41cbbb3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAmmoVisual
-  flyingSprite: {fileID: -1526651416567601604, guid: 32f70519907d95e428d46d8858e0a438, type: 3}
+  flyingSprite: {fileID: 21300000, guid: 84dbaedab9052c04b939fbe1c1620c6a, type: 3}
   impactSprite: {fileID: -3671423195015892565, guid: 19a4368a46140274e889985a3beaf549, type: 3}
 --- !u!1 &7672011543597092697
 GameObject:
