@@ -68,6 +68,8 @@ public class WeaponAmmo : MonoBehaviour
 
             if (isEnemy)
             {
+                if (Nave.Instance == null) return;
+
                 PlayerCombatStats stats = Nave.Instance.GetComponent<PlayerCombatStats>();
 
                 float finalCritChance = stats != null ? stats.CritChance : 0f;

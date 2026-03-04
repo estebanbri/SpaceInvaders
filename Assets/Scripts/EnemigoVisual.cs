@@ -20,6 +20,7 @@ public class EnemigoVisual : MonoBehaviour
     public Action OnPreAttackStarted;
 
     [Header("Knockback")]
+    [SerializeField] private bool applyKnockback = false;
     [SerializeField] private float knockbackRecoverSpeed = 8f;
     [SerializeField] private float knockbackForce = 0.12f;
 
@@ -49,9 +50,9 @@ public class EnemigoVisual : MonoBehaviour
         if (enemigo != null && !enemigo.IsBoss && !isDying)
         {
             knockbackOffset = Vector3.Lerp(
-                knockbackOffset,
-                Vector3.zero,
-                Time.deltaTime * knockbackRecoverSpeed);
+                                knockbackOffset,
+                                Vector3.zero,
+                                Time.deltaTime * knockbackRecoverSpeed);
 
             recoilOffset = Vector3.Lerp(
                 recoilOffset,
@@ -104,6 +105,7 @@ public class EnemigoVisual : MonoBehaviour
 
     public void AddKnockback(Vector3 direction, float force)
     {
+        if (!applyKnockback) return; // 🔥 BLOQUEO REAL
         knockbackOffset += direction.normalized * force;
     }
 

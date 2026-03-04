@@ -5,27 +5,23 @@ using UnityEngine;
 public class NaveVisual : MonoBehaviour
 {
     [SerializeField] private float invulnerableTime = 2f;
-    
-    [SerializeField] private ParticleSystem leftPropulsorParticleSystem;
-    [SerializeField] private ParticleSystem middlePropulsorParticleSystem;
-    [SerializeField] private ParticleSystem rightPropulsorParticleSystem;
 
     [SerializeField] private Sprite idleSprite;
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite rightSprite;
-
+    [SerializeField] private GameObject explosionPrefab;
     private SpriteRenderer spriteRendererComponent;
-
+    private SpriteRenderer[] spriteRenderers;
     private Animator animator;
 
     private Nave nave;
 
     void Awake()
     {
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
         animator = GetComponent<Animator>();
         spriteRendererComponent = GetComponent<SpriteRenderer>();
         nave = GetComponentInParent<Nave>();
-        HidePropulsoresParticles();
     }
 
     public IEnumerator BlinkSpriteDuringInvulnerabilityCoroutine()
@@ -50,52 +46,6 @@ public class NaveVisual : MonoBehaviour
     public void AddHorizontalMoveVisual(float moveX)
     {
         UpdateNaveSprite(moveX);
-        UpdateHorizontalThrusters(moveX);
-    }
-
-    public void AddVerticallMoveVisual(float moveY)
-    {
-        UpdateVerticalThrusters(moveY);
-    }
-
-    public void HidePropulsoresParticles()
-    {
-        SetEnabledParticleSystem(leftPropulsorParticleSystem, false);
-        SetEnabledParticleSystem(middlePropulsorParticleSystem, false);
-        SetEnabledParticleSystem(rightPropulsorParticleSystem, false);
-    }
-
-    private void UpdateHorizontalThrusters(float moveX)
-    {
-        if (moveX < 0)
-        {
-            ShowLeftPropulsorParticles();
-        }
-        else if (moveX > 0)
-        {
-            ShowRightPropulsorParticles();
-        }
-    }
-
-
-    private void UpdateVerticalThrusters(float moveY)
-    {
-        ShowMiddlePropulsorParticles();
-    }
-
-    private void ShowLeftPropulsorParticles()
-    {
-        SetEnabledParticleSystem(leftPropulsorParticleSystem, true);
-    }
-
-    private void ShowRightPropulsorParticles()
-    {
-        SetEnabledParticleSystem(rightPropulsorParticleSystem, true);
-    }
-
-    private void ShowMiddlePropulsorParticles()
-    {
-        SetEnabledParticleSystem(middlePropulsorParticleSystem, true);
     }
 
     private void UpdateNaveSprite(float moveX)
@@ -114,18 +64,35 @@ public class NaveVisual : MonoBehaviour
         }
     }
 
-    private void SetEnabledParticleSystem(ParticleSystem particleSystem, bool enabled) { 
-        ParticleSystem.EmissionModule emissionModule = particleSystem.emission; 
-        emissionModule.enabled = enabled; 
-    }
-    
     public void playDeathEffect()
     {
-        animator.SetBool("IsDead", true);
+       StartCoroutine(SpawnExplosionCorutine());
+       Destroy(transform.root.gameObject);
     }
 
-    public void OnDeathAnimationFinished()
+    private IEnumerator SpawnExplosionCorutine()
     {
-        nave.OnDeathAnimationFinished();
+        // Desactivar sprite inmediatamente
+        foreach (var sr in spriteRenderers)
+            sr.enabled = false;
+
+        SpawnExplosion();
+
+        yield return new WaitForSeconds(0.3f);
+    }
+
+    private GameObject SpawnExplosion(float radius = 0f)
+    {
+        if (explosionPrefab == null) return null;
+
+        Vector3 spawnPosition = transform.position;
+
+        if (radius > 0f)
+        {
+            Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * radius;
+            spawnPosition += (Vector3)randomOffset;
+        }
+
+        return Instantiate(explosionPrefab, spawnPosition, Quaternion.identity);
     }
 }

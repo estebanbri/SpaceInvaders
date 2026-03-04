@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,7 +17,29 @@ public class Nave : MonoBehaviour, IDamageable
     [SerializeField] private WeaponController weaponController;
     [SerializeField] private Escudo escudo;
     [SerializeField] private BonusDefinition escudobonusDefinition;
+    [SerializeField] private float introHeightOffset = 3f;
+    [SerializeField] private float introDuration = 2f;
+    [SerializeField] private AnimationCurve introCurve;
+    private bool canControl = false;
 
+    public void EnableControl()
+    {
+        canControl = true;
+    }
+
+    private Vector3 introStartPos;
+    private Vector3 introTargetPos;
+    private float introTimer = 0f;
+    private bool playingIntro = true;
+
+    private void Start()
+    {
+        introTargetPos = transform.position;
+        introStartPos = introTargetPos + Vector3.up * introHeightOffset;
+
+        transform.position = introStartPos;
+        transform.localScale = Vector3.one * 1.4f;
+    }
 
     private void Awake()
     {
@@ -29,7 +51,15 @@ public class Nave : MonoBehaviour, IDamageable
     private void Update()
     {
         if (isDead) return;
-        naveVisualComponent.HidePropulsoresParticles();
+
+        if (playingIntro)
+        {
+            PlayIntro();
+            return;
+        }
+
+        if (!canControl) return;
+
         HandleInput();
         HandleMovimientoHorizontal();
         HandleMovimientoVertical();
@@ -38,7 +68,25 @@ public class Nave : MonoBehaviour, IDamageable
     private void HandleInput() {
         if (Input.GetKey(KeyCode.Space))
         {
-            this.weaponController.Fire();
+            weaponController.Fire();
+        }
+    }
+
+    private void PlayIntro()
+    {
+        introTimer += Time.deltaTime;
+        float t = introTimer / introDuration;
+
+        float curveValue = introCurve.Evaluate(t);
+
+        transform.position = Vector3.Lerp(introStartPos, introTargetPos, curveValue);
+        transform.localScale = Vector3.Lerp(Vector3.one * 4f, Vector3.one, curveValue);
+
+        if (t >= 1f)
+        {
+            playingIntro = false;
+            EnableControl();
+            GameManager.Instance.StartLevel();
         }
     }
 
@@ -55,7 +103,6 @@ public class Nave : MonoBehaviour, IDamageable
     private void HandleMovimientoVertical()
     {
         float moveY = Input.GetAxis("Vertical");
-        naveVisualComponent.AddVerticallMoveVisual(moveY);
         transform.Translate(0, moveY * speed * Time.deltaTime, 0);
         // Limitar el movimiento dentro de los bordes de la pantalla en Y
         float clampedY = Mathf.Clamp(transform.position.y, screenMinY, screenMaxY);

@@ -56,8 +56,6 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] private float minWaitTime = 1f;
     [SerializeField] private float maxWaitTime = 2f;
 
-
-
     private float nextWaitTime;
 
     void Awake()
@@ -76,7 +74,7 @@ public class Enemigo : MonoBehaviour, IDamageable
             RotateTowardPlayer();
         }
 
-        if (isBoss && weaponController != null && State == EnemyState.Hovering)
+        if (isBoss && weaponController != null)
         {
             HandleBossBurstShooting();
         }
